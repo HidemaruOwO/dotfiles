@@ -15,6 +15,7 @@ set laststatus=2
 set wildmode=list:longest
 " vim-plug
 call plug#begin()
+  Plug 'baabelfish/nvim-nim',
   Plug 'rust-lang/rust.vim',
   Plug 'nathanaelkane/vim-indent-guides'
   Plug 'vimsence/vimsence'

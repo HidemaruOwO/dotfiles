@@ -1,7 +1,10 @@
 {
   "dependencies": {
     "coc-eslint": ">=1.5.8",
+    "coc-git": ">=2.4.10",
+    "coc-json": ">=1.4.2",
     "coc-prettier": ">=9.2.3",
-    "coc-rls": ">=1.1.6"
+    "coc-rls": ">=1.1.6",
+    "coc-yaml": ">=1.7.5"
   }
 }

@@ -1,4 +1,4 @@
-export ZSH="/Users/hidemal/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
@@ -22,9 +22,9 @@ alias snvim="nvim -c NERDTreeToggle"
 alias reboot="sudo reboot"
 alias ...="cd ../.."
 alias root="sudo su -"
-alias zsh="nvim ~/.zshrc"
-alias szsh="source ~/.zshrc"
-alias envim="nvim ~/.config/nvim/init.vim"
+alias zsh="nvim ~/dotfiles/.zshrc"
+alias szsh="source ~/dotfiles/.zshrc"
+alias envim="nvim ~/dotfiles/.config/nvim/init.vim"
 alias peco="echo ぺこ？🐰"
 alias free="top -l 1 | grep Mem"
 #alias
