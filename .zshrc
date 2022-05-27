@@ -13,10 +13,9 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 neofetch
 # auto commit .zshrc
 
-export PATH="/usr/local/opt/python@3.7/libexec/bin:$PATH"
-export PATH="/usr/local/opt/python@3.8/libexec/bin:$PATH"
-export PATH="/usr/local/opt/python3/libexec/bin:$PATH"
-#path
+# auto load dotfiles
+sh $HOME/dotfiles/dotfilesLink.sh
+# path
 alias emacs="nvim"
 alias gpp="g++"
 alias snvim="nvim -c NERDTreeToggle"
