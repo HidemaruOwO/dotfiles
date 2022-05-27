@@ -9,3 +9,4 @@ ln -sf ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
 # UNIXではlnコマンドに-Tオプションが存在しない
 rm -rf ~/dotfiles/.config/nvim/nvim
 rm -rf ~/dotfiles/.config/coc/coc
+rm -rf ~/dotfiles/.oh-my-zsh/.oh-my-zsh
