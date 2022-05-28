@@ -6,6 +6,7 @@
     "coc-json": ">=1.4.2",
     "coc-prettier": ">=9.2.3",
     "coc-rls": ">=1.1.6",
+    "coc-tsserver": ">=1.10.4",
     "coc-yaml": ">=1.7.5"
   }
 }
