@@ -16,6 +16,7 @@ neofetch
 # auto load dotfiles
 sh $HOME/dotfiles/dotfilesLink.sh
 # path
+alias relogin="exec $SHELL -l"
 alias emacs="nvim"
 alias gpp="g++"
 alias snvim="nvim -c NERDTreeToggle"
