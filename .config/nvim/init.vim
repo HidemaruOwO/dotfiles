@@ -13,6 +13,8 @@ set smartindent
 set showmatch
 set laststatus=2
 set wildmode=list:longest
+syntax enable
+filetype plugin indent on
 " vim-plug
 call plug#begin()
   Plug 'baabelfish/nvim-nim',
