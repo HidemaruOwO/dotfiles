@@ -1,3 +1,8 @@
+hili|highlighting|around
+synta|syntax|around
+H|HOME|around
+powerl|powerlevel9k|around
+Hidema|HidemaruOwO|around
 dot|dotfiles|file
 do|dotfiles|file
 dot|dotfiles|around

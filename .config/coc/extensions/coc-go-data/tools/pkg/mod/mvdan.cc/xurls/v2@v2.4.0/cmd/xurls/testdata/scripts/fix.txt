@@ -1,0 +1,80 @@
+expand nothing
+cp nothing nothing.orig
+
+expand redirects
+expand redirects.golden
+cp redirects redirects.orig
+
+expand broken
+expand broken.golden
+cp broken broken.orig
+
+xurls -fix nothing
+! stdout .
+! stderr .
+cmp nothing nothing.orig
+
+stdin redirects
+xurls -fix
+cmp stdout redirects.golden
+cmp redirects redirects.orig
+! stderr .
+
+xurls -fix redirects
+stdout '^redirects$'
+! stderr .
+cmp redirects redirects.golden
+
+! xurls -fix broken
+stdout -count=1 '^broken$'
+stderr -count=1 '4 broken urls'
+stderr -count=2 '/404'
+stderr -count=2 '/500'
+cmp broken broken.golden
+
+-- nothing --
+No redirect: ${SERVER}/plain
+-- redirects --
+No redirect: ${SERVER}/plain
+One redirect: ${SERVER}/redir-1
+Two redirects: ${SERVER}/redir-2
+Redirect inherits fragment: ${SERVER}/redir-1#foo
+Redirect replaces fragment: ${SERVER}/redir-fragment#foo
+
+Three links in one line: ${SERVER}/redir-1 + ${SERVER}//redir-1 + ${SERVER}///redir-1
+
+Redirect to a longer path ${SERVER}/redir-longer with trailing text
+
+Permanent redirect codes:
+* ${SERVER}/redir-301
+* ${SERVER}/redir-308
+
+Temporary redirect codes:
+* ${SERVER}/redir-302
+* ${SERVER}/redir-307
+-- redirects.golden --
+No redirect: ${SERVER}/plain
+One redirect: ${SERVER}/plain
+Two redirects: ${SERVER}/plain
+Redirect inherits fragment: ${SERVER}/plain#foo
+Redirect replaces fragment: ${SERVER}/plain#bar
+
+Three links in one line: ${SERVER}/plain + ${SERVER}/plain + ${SERVER}/plain
+
+Redirect to a longer path ${SERVER}/redir-longtarget with trailing text
+
+Permanent redirect codes:
+* ${SERVER}/plain
+* ${SERVER}/plain
+
+Temporary redirect codes:
+* ${SERVER}/redir-302
+* ${SERVER}/redir-307
+-- broken --
+One redirect: ${SERVER}/redir-1
+404 errors: ${SERVER}/404 ${SERVER}/404
+500 errors: ${SERVER}/500 ${SERVER}/500
+-- broken.golden --
+One redirect: ${SERVER}/plain
+404 errors: ${SERVER}/404 ${SERVER}/404
+500 errors: ${SERVER}/500 ${SERVER}/500

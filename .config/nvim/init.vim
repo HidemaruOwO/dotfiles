@@ -1,57 +1,93 @@
 inoremap /* /*  */<LEFT><LEFT><LEFT>
+nnoremap <Space>v :call sml#mode_on()<CR>
 
-set number             
-set autoindent         
-set tabstop=2          
-set shiftwidth=2       
-set expandtab          
-set splitright         
-set clipboard=unnamed  
-set hls                
+set number
+set autoindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set splitright
+set clipboard+=unnamed
+set hls
 set virtualedit=onemore
 set smartindent
 set showmatch
 set laststatus=2
 set wildmode=list:longest
+set helplang=ja
 syntax enable
 filetype plugin indent on
-" vim-plug
-call plug#begin()
-  Plug 'baabelfish/nvim-nim',
-  Plug 'rust-lang/rust.vim',
-  Plug 'nathanaelkane/vim-indent-guides'
-  Plug 'vimsence/vimsence'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'preservim/nerdtree'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  " ddc.vim本体
-  Plug 'Shougo/ddc.vim'
-  " DenoでVimプラグインを開発するためのプラグイン
-  Plug 'vim-denops/denops.vim'
-  " ポップアップウィンドウを表示するプラグイン
-  Plug 'Shougo/pum.vim'
-  " カーソル周辺の既出単語を補完するsource
-  Plug 'Shougo/ddc-around'
-  " ファイル名を補完するsource
-  Plug 'LumaKernel/ddc-file'
-  " 入力中の単語を補完の対象にするfilter
-  Plug 'Shougo/ddc-matcher_head'
-  " 補完候補を適切にソートするfilter
-  Plug 'Shougo/ddc-sorter_rank'
-  " 補完候補の重複を防ぐためのfilter
-  Plug 'Shougo/ddc-converter_remove_overlap'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  Plug 'cohama/lexima.vim'
-  Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-  Plug 'mattn/emmet-vim'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'zchee/deoplete-clang'
-  Plug 'rhysd/vim-clang-format'
-call plug#end()
+
+" plugin
+call jetpack#begin()
+" =========== ddu Plugins =========== 
+  Jetpack  'Shougo/ddu.vim'
+  Jetpack  'Shougo/ddu-ui-ff'
+  Jetpack  'Shougo/ddu-commands.vim'
+  Jetpack  'Shougo/ddu-source-file_rec'
+  Jetpack  'Shougo/ddu-kind-file'
+  Jetpack  'Shougo/ddu-source-file'
+  Jetpack  'shun/ddu-source-rg'
+  Jetpack  'yuki-yano/ddu-filter-fzf'
+  Jetpack  'liquidz/ddu-source-custom-list'
+  Jetpack  'shun/ddu-source-buffer'
+  Jetpack 'Shougo/pum.vim'
+
+" =========== Language Plugins ===========
+  " Nim
+  Jetpack 'baabelfish/nvim-nim'
+  " Rust
+  Jetpack 'rust-lang/rust.vim'
+  " JavaScript
+  Jetpack 'othree/yajs.vim'
+  Jetpack 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+  " C
+  Jetpack 'zchee/deoplete-clang'
+  Jetpack 'rhysd/vim-clang-format'
+  " Dotnet
+  Jetpack 'OmniSharp/omnisharp-vim'
+  Jetpack 'neovim/nvim.net'
+  Jetpack 'github/copilot.vim'
+  " MarkDown
+  Jetpack 'previm/previm'
+  Jetpack 'mattn/vim-maketable'
+  " VimL
+  Jetpack 'mattn/vim-lsp-settings' 
+  Jetpack 'prabirshrestha/vim-lsp'
+  " Go
+  Jetpack 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  " Fish
+  Jetpack 'dag/vim-fish'
+
+  " =========== Exterior ===========
+  Jetpack 'vim-jp/vimdoc-ja'
+  " 置き換えのプレビュー
+  Jetpack 'markonm/traces.vim'
+  Jetpack 'preservim/nerdtree'
+  Jetpack 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Jetpack 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Jetpack 'ryanoasis/vim-devicons'
+  Jetpack 'nathanaelkane/vim-indent-guides'
+  Jetpack 'vim-airline/vim-airline'
+  Jetpack 'vim-airline/vim-airline-themes'
+  
+" =========== Tools ===========
+  Jetpack 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Jetpack 'mattn/emmet-vim'
+  " 入力補完
+  Jetpack 'cohama/lexima.vim'
+  " Discordにアクティビティを表示
+  Jetpack 'vimsence/vimsence'
+  " IDE化
+  Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
+  " 曖昧検索
+  Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  " Denoを使えるようにする
+  Jetpack 'vim-denops/denops.vim'
+  " 一部の行をコピー
+  Jetpack 'Rasukarusan/nvim-select-multi-line'
+call jetpack#end()
+
 " coc-pretteir format
 command! -nargs=0 Format :call CocAction('format')
 " vim-indent-guidesの起動
@@ -101,3 +137,40 @@ let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 " rust format
 let g:rustfmt_autosave = 1
+" Jetpackの起動の高速化
+let g:jetpack#opimization = 1
+
+let g:sml#echo_yank_str = 0
+
+" Previmの起動ブラウザ
+if (has("linux"))
+  let g:previm_open_cmd = 'xdg-open'
+elseif (has("mac"))
+  let g:previm_open_cmd = 'open -a Opera'
+endif
+" Vim Go setting
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_arguments = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_variable_declarations = 1
+" Vim sence setting
+let g:vimsence_client_id = '439476230543245312'
+let g:vimsence_small_text = 'NeoVim'
+let g:vimsence_small_image = 'neovim'
+let g:vimsence_editing_details = 'Editing: {}'
+let g:vimsence_editing_state = 'Working on: {}'
+let g:vimsence_file_explorer_text = 'In NERDTree'
+let g:vimsence_file_explorer_details = 'Looking for files'
+let g:vimsence_custom_icons = {'filetype': 'iconname'}
+let g:vimsence_discord_flatpak=1

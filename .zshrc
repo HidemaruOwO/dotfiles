@@ -1,9 +1,14 @@
-export SCREENDIR="$HOME/.screen"
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export SCREENDIR="$HOME/.screen2"
+export TERM="xterm-256color"
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_MODE="nerdfont-complete"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status time)
+ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git zsh-syntax-highlighting)
 #plugin
 
@@ -12,11 +17,12 @@ source $ZSH/oh-my-zsh.sh
 POWERLEVEL9K_MODE="nerdfont-complete"
 # oh my zsh
 neofetch
-# auto commit .zshrc
-
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # auto load dotfiles
 sh $HOME/dotfiles/dotfilesLink.sh
 # path
+alias wezterm="nvim ~/dotfiles/.config/wezterm/wezterm.lua"
+alias dfl="sh $HOME/dotfiles/dotfilesLink.sh"
 alias relogin="exec $SHELL -l"
 alias emacs="nvim"
 alias gpp="g++"
@@ -27,8 +33,11 @@ alias root="sudo su -"
 alias zsh="nvim ~/dotfiles/.zshrc"
 alias szsh="source ~/dotfiles/.zshrc"
 alias envim="nvim ~/dotfiles/.config/nvim/init.vim"
-alias peco="echo ぺこ？🐰"
+alias ping="pingu"
 alias free="top -l 1 | grep Mem"
+alias gitlog="git log --oneline --graph --decorate"
+alias crlf2lf="grep -Ilrs `printf "\r\n"` . | xargs nkf -Lu --overwrite"
+alias lf2crlf="grep -Ilrs `printf "\n"` . | xargs nkf -Lw --overwrite"
 #alias
 
 chpwd() {
@@ -64,23 +73,11 @@ ddg() {
 #search command
 http() {
   local str
+  str="$str${str:++}$i"
   open -a Brave\ Browser http://$str
   echo "opened '$str' for Brave"
 }
 # web
-cvimrc() {
-  cd ~/.config/nvim
-  git add .
-  git commit -m "update init.vim"
-  git push --force origin msater
-  cd
-}
-command_not_found_handler(){
-    echo -e     "\e[31m                        __            __ \n" \
-                ".--.--.--.---.-.-----.|  |_.-----.--|  |\n" \
-                "|  |  |  |  _  |__ --||   _|  -__|  _  |\n" \
-                "|________|___._|_____||____|_____|_____|\n"
-}
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[alias]='fg=magenta,bold'
 ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
@@ -96,3 +93,6 @@ ZSH_HIGHLIGHT_STYLES[bracket-level-5]='fg=cyan,bold'
 # カーソルがある場所の括弧にマッチする括弧
 ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='standout'
 #highlight
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

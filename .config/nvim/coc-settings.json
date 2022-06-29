@@ -1,6 +1,38 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
-    "rust"
+    "rust",
+    "rs",
+    "toml",
+    "json",
+    "yaml",
+    "yml",
+    "xml",
+    "html",
+    "css",
+    "scss",
+    "less",
+    "js",
+    "ts",
+    "tsx",
+    "jsx",
+    "java",
+    "c",
+    "cpp",
+    "h",
+    "hpp",
+    "cs",
+    "go",
+    "php",
+    "py",
+    "pyw",
+    "pl",
+    "rb",
+    "md",
+    "rst",
+    "txt",
+    "sh"
   ],
-  "eslint.filetypes": ["javascript", "vue"]
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "eslint.autoFixOnSave": true
 }
