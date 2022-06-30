@@ -5,7 +5,7 @@ local os_name, arch_name = gon.get_os_name()
 local will_font_size
 
 if os_name == "Mac" then
-	will_font_size = 11.5
+	will_font_size = 12
   elseif os_name == "Linux" then
   will_font_size = 10
 end
