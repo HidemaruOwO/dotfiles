@@ -1,18 +1,32 @@
 local wezterm = require 'wezterm';
 local gon = require("getOsName")
-
 local os_name, arch_name = gon.get_os_name()
 local will_font_size
+local mux = wezterm.mux
+
+wezterm.on("gui-startup",function ()
+  local tab, pane, window = mux.spawn_window{}
+  pane:send_text("zenith\n")
+  window:spawn_tab{}
+end)
 
 if os_name == "Mac" then
-	will_font_size = 12
+	will_font_size = 13
   elseif os_name == "Linux" then
   will_font_size = 10
 end
 
+  -- wezterm cli spawn -- zenith
+  -- wezterm cli move-pane-to-new-tab
 
 return {
-	--background setting
+	launch_menu = {
+    {
+      label="Zsh",
+      args = {"zsh","-l"},
+    },
+  },
+  --background setting
   window_background_opacity = 0.75,
 	window_background_image_hsb = {
 		brightness = 0.15,
@@ -33,13 +47,8 @@ return {
 
 	
   adjust_window_size_when_changing_font_size = false,
-
 	-- disable_default_key_bindings = true,
 
-	-- keys = {
-	-- Turn off the default CMD-m Hide action, allowing CMD-m to
-	-- be potentially recognized and handled by the tab
-	-- }
 	keys = {
 		{key="C", mods="SHIFT|CTRL", action="Copy"},
 		{key="V", mods="SHIFT|CTRL", action="Paste"},
@@ -94,5 +103,4 @@ return {
       mods="NONE",
       action="Paste",
     }
-  },
-}
+  }, }

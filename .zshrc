@@ -21,7 +21,7 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 # auto load dotfiles
 sh $HOME/dotfiles/dotfilesLink.sh
 # path
-alias wezterm="nvim ~/dotfiles/.config/wezterm/wezterm.lua"
+alias ewezterm="nvim ~/dotfiles/.config/wezterm/wezterm.lua"
 alias dfl="sh $HOME/dotfiles/dotfilesLink.sh"
 alias relogin="exec $SHELL -l"
 alias emacs="nvim"
@@ -38,6 +38,7 @@ alias free="top -l 1 | grep Mem"
 alias gitlog="git log --oneline --graph --decorate"
 alias crlf2lf="grep -Ilrs `printf "\r\n"` . | xargs nkf -Lu --overwrite"
 alias lf2crlf="grep -Ilrs `printf "\n"` . | xargs nkf -Lw --overwrite"
+alias monitor="wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
 #alias
 
 chpwd() {
@@ -96,3 +97,6 @@ ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='standout'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Created by `pipx` on 2022-06-30 01:12:22
+export PATH="$PATH:/Users/hidemal/.local/bin"
