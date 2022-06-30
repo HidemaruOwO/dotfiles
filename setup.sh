@@ -55,7 +55,8 @@ echo "🤘 \[\e[1m\]OhMyZshテーマ、powerlevel10kをインストール中...\
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 echo "🤘 \[\e[1m\]git configにuser.nameを登録中...\[\e[0m\]"
 git config --global user.name HidemaruOwO
-
+echo "🤘 \[\e[1m\]git configにcore.editorにNeovimを登録中...\[\e[0m\]"
+git config --global core.editor nvim
 # 残っているタスクの表示
 if ["$OsName" == "arch"]; then
   echo "\[\e[36mタスクリスト\e[0m\]"
