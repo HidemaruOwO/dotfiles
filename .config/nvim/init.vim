@@ -77,7 +77,7 @@ call jetpack#begin()
   " 入力補完
   Jetpack 'cohama/lexima.vim'
   " Discordにアクティビティを表示
-  Jetpack 'vimsence/vimsence'
+  Jetpack 'Stoozy/vimcord'
   " IDE化
   Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
   " 曖昧検索
