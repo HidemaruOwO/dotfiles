@@ -17,7 +17,6 @@ source $ZSH/oh-my-zsh.sh
 POWERLEVEL9K_MODE="nerdfont-complete"
 # oh my zsh
 neofetch
-typeset -g POWERLEVEL9K_INSTANT_PROMPT = quiet
 # auto load dotfiles
 sh $HOME/dotfiles/dotfilesLink.sh
 # path
