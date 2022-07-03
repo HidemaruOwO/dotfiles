@@ -27,7 +27,7 @@ return {
     },
   },
   --background setting
-  window_background_opacity = 0.75,
+  window_background_opacity = 0.65,
 	window_background_image_hsb = {
 		brightness = 0.15,
 		saturation = 1.0,
