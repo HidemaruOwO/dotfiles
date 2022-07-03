@@ -81,8 +81,8 @@ return {
 
 		{ key = "[", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Left" }) },
 		{ key = "]", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Right" }) },
-		{ key = "k", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
-		{ key = "j", mods = "ALT", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
+		{ key = "{", mods = "ALT|SHIFT", action = wezterm.action({ ActivatePaneDirection = "Up" }) },
+		{ key = "}", mods = "ALT|SHIFT", action = wezterm.action({ ActivatePaneDirection = "Down" }) },
 
 		{ key = "h", mods = "ALT|SHIFT|CTRL", action = wezterm.action({ AdjustPaneSize = { "Left", 1 } }) },
 		{ key = "l", mods = "ALT|SHIFT|CTRL", action = wezterm.action({ AdjustPaneSize = { "Right", 1 } }) },
