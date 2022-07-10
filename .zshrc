@@ -99,3 +99,10 @@ ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='standout'
 
 # Created by `pipx` on 2022-06-30 01:12:22
 export PATH="$PATH:/Users/hidemal/.local/bin"
+
+# bun completions
+[ -s "/Users/hidemal/.bun/_bun" ] && source "/Users/hidemal/.bun/_bun"
+
+# Bun
+export BUN_INSTALL="/Users/hidemal/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
