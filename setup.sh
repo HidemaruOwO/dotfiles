@@ -51,7 +51,7 @@ echo -e "🤘 \e[1mDotfilesとローカルをリンク中...\e[0m"
 bash $HOME/dotfiles/dotfilesLink.sh
 echo -e "🤘 \e[1mOhMyZshプラグイン、zsh-syntax-highlightingをインストール中...\e[0m"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.oh-my-zsh/plugins/zsh-syntax-highlighting
-echo -e "🤘 "\e[1mOhMyZshテーマ、powerlevel10kをインストール中...\e[0m"
+echo -e "🤘 \e[1mOhMyZshテーマ、powerlevel10kをインストール中...\e[0m"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 echo -e "🤘 \e[1m\]git configにuser.nameを登録中...\e[0m"
 git config --global user.name HidemaruOwO
