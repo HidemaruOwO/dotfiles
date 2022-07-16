@@ -42,6 +42,8 @@ call jetpack#begin()
   " JavaScript
   Jetpack 'othree/yajs.vim'
   Jetpack 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+  " TypeScript
+  Jetpack 'leafgarland/typescript-vim'
   " C
   Jetpack 'zchee/deoplete-clang'
   Jetpack 'rhysd/vim-clang-format'
@@ -55,7 +57,7 @@ call jetpack#begin()
   " VimL
   Jetpack 'prabirshrestha/vim-lsp'
   " Go
-  Jetpack 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Jetpack 'fatih/vim-go'
   " Fish
   Jetpack 'dag/vim-fish'
 " =========== Any Language Color Scheme ===========
@@ -156,11 +158,13 @@ let g:jetpack#opimization = 1
 
 let g:sml#echo_yank_str = 0
 
-" Previmの起動ブラウザ
+" LinuxとMacでの条件分岐
 if (has("linux"))
   let g:previm_open_cmd = 'xdg-open'
 elseif (has("mac"))
   let g:previm_open_cmd = 'open -a Opera'
+  let g:python3_host_prog='/opt/homebrew/bin/python3'
+  let g:python_host_prog='/Users/hidemal/.pyenv/shims/python'
 endif
 " Vim Go setting
 let g:go_highlight_array_whitespace_error = 1
