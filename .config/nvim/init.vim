@@ -1,5 +1,6 @@
 inoremap /* /*  */<LEFT><LEFT><LEFT>
 nnoremap <Space>v :call sml#mode_on()<CR>
+vnoremap <C-m> :'<,'>MakeTable
 
 set number
 set autoindent
@@ -37,6 +38,7 @@ call jetpack#begin()
   Jetpack 'baabelfish/nvim-nim'
   " Rust
   Jetpack 'rust-lang/rust.vim'
+  Jetpack 'jonathanfilip/vim-lucius'
   " JavaScript
   Jetpack 'othree/yajs.vim'
   Jetpack 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
@@ -51,19 +53,19 @@ call jetpack#begin()
   Jetpack 'previm/previm'
   Jetpack 'mattn/vim-maketable'
   " VimL
-  Jetpack 'mattn/vim-lsp-settings' 
   Jetpack 'prabirshrestha/vim-lsp'
   " Go
   Jetpack 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   " Fish
   Jetpack 'dag/vim-fish'
-
-  " =========== Exterior ===========
+" =========== Any Language Color Scheme ===========
+  Jetpack 'Rigellute/rigel'
+" =========== Exterior ===========
   Jetpack 'vim-jp/vimdoc-ja'
   " 置き換えのプレビュー
   Jetpack 'markonm/traces.vim'
   Jetpack 'preservim/nerdtree'
-  Jetpack 'tiagofumo/vim-nerdtree-syntax-highlight'
+  Jetpack 'joshdick/onedark.vim'
   Jetpack 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Jetpack 'ryanoasis/vim-devicons'
   Jetpack 'nathanaelkane/vim-indent-guides'
@@ -104,6 +106,19 @@ let g:airline_theme = 'violet'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+
+" Auto format MarkDown
+" [markdown] configure formatprg
+autocmd FileType markdown set formatprg=prettier\ --parser\ markdown
+
+" [markdown] format on save
+autocmd! BufWritePre *.md call s:mdfmt()
+function s:mdfmt()
+    let l:curw = winsaveview()
+    silent! exe "normal! a \<bs>\<esc>" | undojoin |
+        \ exe "normal gggqG"
+    call winrestview(l:curw)
+endfunction
 
 " unicode symbols
 let g:airline_left_sep = '»'

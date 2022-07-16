@@ -101,8 +101,8 @@ ZSH_HIGHLIGHT_STYLES[cursor-matchingbracket]='standout'
 export PATH="$PATH:/Users/hidemal/.local/bin"
 
 # bun completions
-[ -s "/Users/hidemal/.bun/_bun" ] && source "/Users/hidemal/.bun/_bun"
+[ -s "/home/hidemaru/.bun/_bun" ] && source "/home/hidemaru/.bun/_bun"
 
-# Bun
-export BUN_INSTALL="/Users/hidemal/.bun"
+# bun
+export BUN_INSTALL="/home/hidemaru/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
