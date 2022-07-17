@@ -40,6 +40,8 @@ call jetpack#begin()
   Jetpack 'Shougo/pum.vim'
 
 " =========== Language Plugins ===========
+  " Zig
+  Jetpack 'ziglang/zig.vim'
   " Nim
   Jetpack 'baabelfish/nvim-nim'
   " Rust

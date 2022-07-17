@@ -4,11 +4,6 @@ local os_name, arch_name = gon.get_os_name()
 local will_font_size
 local mux = wezterm.mux
 
-wezterm.on("gui-startup",function ()
-  local tab, pane, window = mux.spawn_window{}
-  pane:send_text("zenith\n")
-  window:spawn_tab{}
-end)
 
 if os_name == "Mac" then
 	will_font_size = 13
@@ -103,4 +98,66 @@ return {
       mods="NONE",
       action="Paste",
     }
-  }, }
+  }, 
+  -- tab bar
+  use_fancy_tab_bar = false,
+  colors = {
+    tab_bar = {
+      background = "#1b1f2f",
+
+      active_tab = {
+        bg_color = "#444b71",
+        fg_color = "#c6c8d1",
+        intensity = "Normal",
+        underline = "None",
+        italic = false,
+        strikethrough = false,
+      },
+
+      inactive_tab = {
+        bg_color = "#282d3e",
+        fg_color = "#c6c8d1",
+        intensity = "Normal",
+        underline = "None",
+        italic = false,
+        strikethrough = false,
+      },
+
+      inactive_tab_hover = {
+        bg_color = "#1b1f2f",
+        fg_color = "#c6c8d1",
+        intensity = "Normal",
+        underline = "None",
+        italic = true,
+        strikethrough = false,
+      },
+
+      new_tab = {
+        bg_color = "#1b1f2f",
+        fg_color = "#c6c8d1",
+        italic = false
+      },
+
+      new_tab_hover = {
+        bg_color = "#444b71",
+        fg_color = "#c6c8d1",
+        italic = false
+      },
+    },
+  },
+  --title
+  wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+    return {
+      {Text=" " .. tab.active_pane.title .. " "},
+    }
+  end),
+
+  wezterm.on("gui-startup",function ()
+    local tab, pane, window = mux.spawn_window{}
+    pane:send_text("zenith\n")
+    window:spawn_tab{}
+  end),
+  
+  -- shell
+  default_prog = {"zsh", "--login"},
+}
