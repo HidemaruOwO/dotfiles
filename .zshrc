@@ -37,6 +37,7 @@ alias free="top -l 1 | grep Mem"
 alias gitlog="git log --oneline --graph --decorate"
 alias crlf2lf="grep -Ilrs `printf "\r\n"` . | xargs nkf -Lu --overwrite"
 alias lf2crlf="grep -Ilrs `printf "\n"` . | xargs nkf -Lw --overwrite"
+alias gitpullforce="git fetch origin HEAD && git reset --hard origin/HEAD"
 alias monitor="wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
 #alias
 

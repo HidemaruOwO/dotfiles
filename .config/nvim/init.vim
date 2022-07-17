@@ -17,6 +17,12 @@ set wildmode=list:longest
 set helplang=ja
 syntax enable
 filetype plugin indent on
+"""" enable 24bit true color
+set termguicolors
+
+"""" enable the theme
+syntax enable
+colorscheme rigel
 
 " plugin
 call jetpack#begin()
@@ -41,7 +47,8 @@ call jetpack#begin()
   Jetpack 'jonathanfilip/vim-lucius'
   " JavaScript
   Jetpack 'othree/yajs.vim'
-  Jetpack 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+  Jetpack 'pangloss/vim-javascript', { 'for': ['javascript'] }
+  Jetpack 'mxw/vim-jsx'
   " TypeScript
   Jetpack 'leafgarland/typescript-vim'
   " C
@@ -80,11 +87,11 @@ call jetpack#begin()
   " 入力補完
   Jetpack 'cohama/lexima.vim'
   " Discordにアクティビティを表示
-  Jetpack 'Stoozy/vimcord'
+  Jetpack 'HidemaruOwO/vimcord'
   " IDE化
   Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
   " 曖昧検索
-  Jetpack 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Jetpack 'junegunn/fzf'
   " Denoを使えるようにする
   Jetpack 'vim-denops/denops.vim'
   " 一部の行をコピー
@@ -164,7 +171,6 @@ if (has("linux"))
 elseif (has("mac"))
   let g:previm_open_cmd = 'open -a Opera'
   let g:python3_host_prog='/opt/homebrew/bin/python3'
-  let g:python_host_prog='/Users/hidemal/.pyenv/shims/python'
 endif
 " Vim Go setting
 let g:go_highlight_array_whitespace_error = 1
@@ -182,13 +188,5 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_highlight_variable_assignments = 1
 let g:go_highlight_variable_declarations = 1
-" Vim sence setting
-let g:vimsence_client_id = '439476230543245312'
-let g:vimsence_small_text = 'NeoVim'
-let g:vimsence_small_image = 'neovim'
-let g:vimsence_editing_details = 'Editing: {}'
-let g:vimsence_editing_state = 'Working on: {}'
-let g:vimsence_file_explorer_text = 'In NERDTree'
-let g:vimsence_file_explorer_details = 'Looking for files'
-let g:vimsence_custom_icons = {'filetype': 'iconname'}
-let g:vimsence_discord_flatpak=1
+" Vim cord setting
+let g:vimcord_nvim=1

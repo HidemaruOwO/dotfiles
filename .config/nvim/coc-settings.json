@@ -30,9 +30,14 @@
     "md",
     "rst",
     "txt",
-    "sh"
+    "sh",
+    "py"
   ],
   "eslint.enable": true,
   "eslint.format.enable": true,
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "zig.enabled": true,
+  "zig.startUpMessage": true,
+  "zig.path": "zls",
+  "zig.debugLog": false
 }
