@@ -31,7 +31,8 @@
     "rst",
     "txt",
     "sh",
-    "py"
+    "py",
+    "zig"
   ],
   "eslint.enable": true,
   "eslint.format.enable": true,
