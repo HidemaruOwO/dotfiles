@@ -39,6 +39,7 @@ alias crlf2lf="grep -Ilrs `printf "\r\n"` . | xargs nkf -Lu --overwrite"
 alias lf2crlf="grep -Ilrs `printf "\n"` . | xargs nkf -Lw --overwrite"
 alias gitpullforce="git fetch origin HEAD && git reset --hard origin/HEAD"
 alias monitor="wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
+alias quickpush='git add . && git commit -m ":sparkles: update dotfiles" && git push origin HEAD'
 #alias
 
 chpwd() {
