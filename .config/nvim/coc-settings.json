@@ -40,5 +40,15 @@
   "zig.enabled": true,
   "zig.startUpMessage": true,
   "zig.path": "zls",
-  "zig.debugLog": false
+  "zig.debugLog": false,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.work", "go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    }
+  }
 }

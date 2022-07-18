@@ -40,6 +40,8 @@ call jetpack#begin()
   Jetpack 'Shougo/pum.vim'
 
 " =========== Language Plugins ===========
+  " Go
+  Jetpack  'fatih/vim-go'
   " Zig
   Jetpack 'ziglang/zig.vim'
   " Nim
@@ -48,6 +50,7 @@ call jetpack#begin()
   Jetpack 'rust-lang/rust.vim'
   Jetpack 'jonathanfilip/vim-lucius'
   " JavaScript
+  Jetpack 'p00f/nvim-ts-rainbow'
   Jetpack 'othree/yajs.vim'
   Jetpack 'pangloss/vim-javascript', { 'for': ['javascript'] }
   Jetpack 'mxw/vim-jsx'
@@ -65,8 +68,6 @@ call jetpack#begin()
   Jetpack 'mattn/vim-maketable'
   " VimL
   Jetpack 'prabirshrestha/vim-lsp'
-  " Go
-  Jetpack 'fatih/vim-go'
   " Fish
   Jetpack 'dag/vim-fish'
 " =========== Any Language Color Scheme ===========
