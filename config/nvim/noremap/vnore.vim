@@ -1,0 +1,2 @@
+vnoremap <C-m> :'<,'>MakeTable
+
