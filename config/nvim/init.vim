@@ -1,10 +1,10 @@
 " plugin
-runtime init/plugin/install.vim
-runtime init/plugin/setting.vim
+runtime ./plugin/install.vim
+runtime ./plugin/setting.vim
 " vim-setting
-runtime init/vim-setting/main.vim
-runtime init/vim-setting/color.vim
+runtime ./vim-setting/main.vim
+runtime ./vim-setting/color.vim
 " aliasmap
-runtime init/noremap/inore.vim
-runtime init/noremap/nnore.vim
-runtime init/noremap/vnore.vim
+runtime ./noremap/inore.vim
+runtime ./noremap/nnore.vim
+runtime ./noremap/vnore.vim

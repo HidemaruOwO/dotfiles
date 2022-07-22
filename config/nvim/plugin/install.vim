@@ -1,6 +1,6 @@
 " plugin
 call jetpack#begin()
-" =========== ddu Plugins =========== 
+" =========== ddu Plugins ===========
   Jetpack  'Shougo/ddu.vim'
   Jetpack  'Shougo/ddu-ui-ff'
   Jetpack  'Shougo/ddu-commands.vim'
@@ -42,6 +42,7 @@ call jetpack#begin()
   " MarkDown
   Jetpack 'previm/previm'
   Jetpack 'mattn/vim-maketable'
+  Jetpack 'HidemaruOwO/vim-prettier-markdown'
   " VimL
   Jetpack 'prabirshrestha/vim-lsp'
   " Fish
@@ -59,7 +60,7 @@ call jetpack#begin()
   Jetpack 'nathanaelkane/vim-indent-guides'
   Jetpack 'vim-airline/vim-airline'
   Jetpack 'vim-airline/vim-airline-themes'
-  
+
 " =========== Tools ===========
   " Bracketを虹色でみやすくする
   Jetpack 'frazrepo/vim-rainbow'
