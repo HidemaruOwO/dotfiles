@@ -52,13 +52,6 @@ let g:jetpack#opimization = 1
 
 let g:sml#echo_yank_str = 0
 
-" LinuxとMacでの条件分岐
-if (has("linux"))
-  let g:previm_open_cmd = 'xdg-open'
-elseif (has("mac"))
-  let g:previm_open_cmd = 'open -a Opera'
-  let g:python3_host_prog='/opt/homebrew/bin/python3'
-endif
 " Vim Go setting
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_chan_whitespace_error = 1

@@ -20,7 +20,7 @@ neofetch
 # auto load dotfiles
 sh $HOME/dotfiles/dotfilesLink.sh
 # path
-alias ewezterm="nvim ~/dotfiles/.config/wezterm/wezterm.lua"
+alias ewezterm="nvim ~/dotfiles/config/wezterm/wezterm.lua"
 alias dfl="sh $HOME/dotfiles/dotfilesLink.sh"
 alias relogin="exec $SHELL -l"
 alias emacs="nvim"
@@ -31,7 +31,7 @@ alias ...="cd ../.."
 alias root="sudo su -"
 alias zsh="nvim ~/dotfiles/.zshrc"
 alias szsh="source ~/dotfiles/.zshrc"
-alias envim="nvim ~/dotfiles/.config/nvim/init.vim"
+alias envim="cd ~/dotfiles/config/nvim/ && snvim"
 alias ping="pingu"
 alias free="top -l 1 | grep Mem"
 alias gitlog="git log --oneline --graph --decorate"
