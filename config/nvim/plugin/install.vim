@@ -16,7 +16,8 @@ call jetpack#begin()
 " =========== Language Plugins ===========
   " Any
   Jetpack 'prettier/vim-prettier'
-  
+  " Go
+  Jetpack 'fatih/vim-go'
   " Python 
   Jetpack 'python/mypy'
   " Zig
