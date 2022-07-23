@@ -42,7 +42,7 @@ call jetpack#begin()
   " MarkDown
   Jetpack 'previm/previm'
   Jetpack 'mattn/vim-maketable'
-  Jetpack 'HidemaruOwO/vim-prettier-markdown'
+  Jetpack 'prettier/vim-prettier'
   " VimL
   Jetpack 'prabirshrestha/vim-lsp'
   " Fish
