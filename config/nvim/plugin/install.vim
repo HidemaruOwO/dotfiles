@@ -14,6 +14,9 @@ call jetpack#begin()
   Jetpack 'Shougo/pum.vim'
 
 " =========== Language Plugins ===========
+  " Any
+  Jetpack 'prettier/vim-prettier'
+  
   " Python 
   Jetpack 'python/mypy'
   " Zig
@@ -40,12 +43,11 @@ call jetpack#begin()
   " MarkDown
   Jetpack 'previm/previm'
   Jetpack 'mattn/vim-maketable'
-  Jetpack 'prettier/vim-prettier'
   " VimL
   Jetpack 'prabirshrestha/vim-lsp'
   " Fish
   Jetpack 'dag/vim-fish'
-" =========== Any Language Color Scheme ===========
+" =========== Color Scheme ===========
   Jetpack 'Rigellute/rigel'
 " =========== Exterior ===========
   Jetpack 'vim-jp/vimdoc-ja'
