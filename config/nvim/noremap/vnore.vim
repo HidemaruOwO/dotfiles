@@ -1,2 +1,1 @@
 vnoremap <C-m> :'<,'>MakeTable
-
