@@ -14,11 +14,8 @@ call jetpack#begin()
   Jetpack 'Shougo/pum.vim'
 
 " =========== Language Plugins ===========
-  " Python
-  
+  " Python 
   Jetpack 'python/mypy'
-  " Go
-  Jetpack  'fatih/vim-go'
   " Zig
   Jetpack 'ziglang/zig.vim'
   " Nim
