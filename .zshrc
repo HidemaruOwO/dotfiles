@@ -20,6 +20,7 @@ neofetch
 # auto load dotfiles
 sh $HOME/dotfiles/dotfilesLink.sh
 # path
+alias sudo="sudo "
 alias ewezterm="nvim ~/dotfiles/config/wezterm/wezterm.lua"
 alias dfl="sh $HOME/dotfiles/dotfilesLink.sh"
 alias relogin="exec $SHELL -l"
