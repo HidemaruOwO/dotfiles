@@ -14,6 +14,8 @@ call jetpack#begin()
   Jetpack 'Shougo/pum.vim'
 
 " =========== Language Plugins ===========
+  " JavaScript
+  Jetpack 'p00f/nvim-ts-rainbow'
   " Any
   Jetpack 'prettier/vim-prettier'
   " Go
