@@ -25,7 +25,7 @@
         "sysPrefix": "/opt/homebrew/opt/python@3.9/Frameworks/Python.framework/Versions/3.9",
         "fileHash": "5b8d9cce6552166bd012401a76dce9d78fda694d9ed647df805af9f8b93a7e01e05faf0bb97e2e35e428ef403c0558062de309015db473ede4c41c8167e1c928"
       },
-      "expiry": 1658572863492
+      "expiry": 1659319638017
     },
     "/opt/homebrew/bin/python3.v3": {
       "data": {
@@ -50,7 +50,7 @@
         "sysPrefix": "/opt/homebrew/opt/python@3.9/Frameworks/Python.framework/Versions/3.9",
         "fileHash": "9c51119eaabf6601db40d51d4b20ee9c0905253f25b80a68c16197f1abfa5f19621068ebe9939e4d17ae8862d9732409555ff070a603aeb5f3bf3b85575a5b63"
       },
-      "expiry": 1658572863487
+      "expiry": 1659319638019
     },
     "/Users/hidemal/.pyenv/versions/2.7.18/bin/python.v3": {
       "data": {
@@ -75,7 +75,7 @@
         "sysPrefix": "/Users/hidemal/.pyenv/versions/2.7.18",
         "fileHash": "d596cfec49a22bf0cfee9003c788713de3cb07d1390882782776c12195a80ba752938d6a09cbcd27f4ca77bd10ec09ac84845bed72014fbfbaca53e5f545e468"
       },
-      "expiry": 1658572863555
+      "expiry": 1659319638100
     },
     "/Users/hidemal/.pyenv/versions/2.7.18/bin/python2.7.v3": {
       "data": {
@@ -100,7 +100,7 @@
         "sysPrefix": "/Users/hidemal/.pyenv/versions/2.7.18",
         "fileHash": "9ca97f7d77d8c83791858b26e31be9d160dab26ec3c892c6fe5afa543576bb8c8ecba8a4b09ab3d39673ee7e34d8394d6e0192f266a4ecc4133e7e3433745c2c"
       },
-      "expiry": 1658572863556
+      "expiry": 1659319638098
     },
     "/Users/hidemal/.pyenv/versions/2.7.18/bin/python2.v3": {
       "data": {
@@ -125,7 +125,7 @@
         "sysPrefix": "/Users/hidemal/.pyenv/versions/2.7.18",
         "fileHash": "bf457f44093fc5e0a5f7d6c2488faa0b5233ff51f94dcdecdfafd2d4961825722b6c1ce01058893d1d10213c514935423dcca6e7fd7a6144a2940d8bedbecfc7"
       },
-      "expiry": 1658572863555
+      "expiry": 1659319638101
     },
     "INTERPRETERS_CACHE_v3_VirtualEnvService": [
       {
@@ -224,7 +224,7 @@
         "sysPrefix": "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.8",
         "fileHash": "9bcfd3f6f3eb945861ce4e5c89cef4427629798e1c7604d3c70535ebb3b21004eaab54521bbe020b66134bf7d4489574efc6ccf5438663336997cde881bbe376"
       },
-      "expiry": 1658572863491
+      "expiry": 1659319638102
     },
     "/usr/bin/python.v3": {
       "data": {
@@ -249,7 +249,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "9bcfd3f6f3eb945861ce4e5c89cef4427629798e1c7604d3c70535ebb3b21004eaab54521bbe020b66134bf7d4489574efc6ccf5438663336997cde881bbe376"
       },
-      "expiry": 1658572863559
+      "expiry": 1659319638104
     },
     "/usr/bin/python2.7.v3": {
       "data": {
@@ -274,7 +274,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "9bcfd3f6f3eb945861ce4e5c89cef4427629798e1c7604d3c70535ebb3b21004eaab54521bbe020b66134bf7d4489574efc6ccf5438663336997cde881bbe376"
       },
-      "expiry": 1658572863560
+      "expiry": 1659319638103
     },
     "/usr/bin/python2.v3": {
       "data": {
@@ -299,7 +299,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "9bcfd3f6f3eb945861ce4e5c89cef4427629798e1c7604d3c70535ebb3b21004eaab54521bbe020b66134bf7d4489574efc6ccf5438663336997cde881bbe376"
       },
-      "expiry": 1658572863560
+      "expiry": 1659319638025
     },
     "/opt/homebrew/opt/python@3.9/bin/python3.9.v3": {
       "data": {
@@ -324,7 +324,7 @@
         "sysPrefix": "/opt/homebrew/opt/python@3.9/Frameworks/Python.framework/Versions/3.9",
         "fileHash": "c61099235369ff5a476300b2dc0c2bf638631734021d3c28494591d2e4cf46605bebd227867f92fb3f1bcab5cf840a1017359244eb2bc6d9de25ff9f892d6ca4"
       },
-      "expiry": 1658572863779
+      "expiry": 1659319638313
     },
     "/System/Library/Frameworks/Python.framework/Versions/2.7/Resources/Python.app/Contents/MacOS/Python.v3": {
       "data": {
@@ -349,7 +349,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "9bcfd3f6f3eb945861ce4e5c89cef4427629798e1c7604d3c70535ebb3b21004eaab54521bbe020b66134bf7d4489574efc6ccf5438663336997cde881bbe376"
       },
-      "expiry": 1658572863825
+      "expiry": 1659319638364
     },
     "/Users/hidemal/.pyenv/shims/python2.v3": {
       "data": {
@@ -374,7 +374,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "66a6afd9cdfb062642fbc576c6ce67f9c7e5677eefc59b9d1c99f654b5695590238c808fe568826844d41a7f49275c7d47139f221dc0dd567c7281a43d7c8ad6"
       },
-      "expiry": 1658572863824
+      "expiry": 1659319638360
     },
     "/Users/hidemal/.pyenv/shims/python.v3": {
       "data": {
@@ -399,7 +399,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "38e96412fa43a10d8e2bd18177ab162f6fa6fe561efb35a5bbacc8018f3f18262abcef32909d75f9c6545f5f17d1e380b891e07660b5f166290643ca5ad60a48"
       },
-      "expiry": 1658572863824
+      "expiry": 1659319638365
     },
     "/Users/hidemal/.pyenv/shims/python2.7.v3": {
       "data": {
@@ -424,7 +424,7 @@
         "sysPrefix": "/System/Library/Frameworks/Python.framework/Versions/2.7",
         "fileHash": "ec2c86c354d378052cb342bc0b98c26828d7330835cc985ce6bfdefaceb2c31e94f962b3d021f8321c7838202d85122873e5eb92d899c95cc0eeaa49008e4b3d"
       },
-      "expiry": 1658572863827
+      "expiry": 1659319638366
     },
     "INTERPRETERS_CACHE_v3_KnownPathsService": [
       {
@@ -920,7 +920,7 @@
         "displayName": "Python 2.7.18 64-bit ('2.7.18': pyenv)",
         "hash": "d596cfec49a22bf0cfee9003c788713de3cb07d1390882782776c12195a80ba752938d6a09cbcd27f4ca77bd10ec09ac84845bed72014fbfbaca53e5f545e468-5cc3287ddf83a7e5d1fdd69b5ad19a10"
       },
-      "expiry": 1658572863695
+      "expiry": 1659319638185
     },
     "/Users/hidemal/.pyenv/shims/python.interpreter.displayName.v7": {
       "data": {
@@ -962,7 +962,7 @@
         "displayName": "Python 3.9.13 64-bit",
         "hash": "c61099235369ff5a476300b2dc0c2bf638631734021d3c28494591d2e4cf46605bebd227867f92fb3f1bcab5cf840a1017359244eb2bc6d9de25ff9f892d6ca4-a95aab35b36298858cf72dd2a367acd5"
       },
-      "expiry": 1658572863775
+      "expiry": 1659319638360
     },
     "InterpreterAutoSeletionRule-system": {
       "architecture": 3,
@@ -1018,7 +1018,7 @@
           "displayName": "Python 2.7.18 64-bit ('2.7.18': pyenv)"
         }
       },
-      "expiry": 1658572863722
+      "expiry": 1659319638207
     },
     "/Users/hidemal/.pyenv/shims/python.interpreter.Details.v7": {
       "data": {
@@ -1200,7 +1200,7 @@
           "__store": true
         }
       },
-      "expiry": 1658572863741
+      "expiry": 1659319638310
     },
     "InterpreterAutoSeletionRule-cachedInterpreters": {
       "architecture": 3,
@@ -1262,6 +1262,35 @@
     "INTERPRETERS_CACHE_v3_PipEnvService:0a9bec2923657c98ba9b4f66e7309136": [],
     "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:0a9bec2923657c98ba9b4f66e7309136": [],
     "autoSelectedWorkspacePythonInterpreter-/Users/hidemal/Documents/remove-career-app": {
+      "architecture": 3,
+      "path": "/opt/homebrew/opt/python@3.9/bin/python3.9",
+      "version": {
+        "options": {
+          "loose": false,
+          "includePrerelease": false
+        },
+        "loose": false,
+        "raw": "3.9.13-final",
+        "major": 3,
+        "minor": 9,
+        "patch": 13,
+        "prerelease": [
+          "final"
+        ],
+        "build": [],
+        "version": "3.9.13-final"
+      },
+      "sysPrefix": "/opt/homebrew/opt/python@3.9/Frameworks/Python.framework/Versions/3.9",
+      "fileHash": "c61099235369ff5a476300b2dc0c2bf638631734021d3c28494591d2e4cf46605bebd227867f92fb3f1bcab5cf840a1017359244eb2bc6d9de25ff9f892d6ca4",
+      "type": "Unknown"
+    },
+    "INTERPRETERS_CACHE_v3_PipEnvService": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService": []
+  },
+  "coc-python|/Users/hidemal/Documents/MyMarkdown/cappuccino": {
+    "INTERPRETERS_CACHE_v3_PipEnvService:09df6e67b00c73e165c96a2a4a1bafd7": [],
+    "INTERPRETERS_CACHE_v3_WorkspaceVirtualEnvService:09df6e67b00c73e165c96a2a4a1bafd7": [],
+    "autoSelectedWorkspacePythonInterpreter-/Users/hidemal/Documents/MyMarkdown/cappuccino": {
       "architecture": 3,
       "path": "/opt/homebrew/opt/python@3.9/bin/python3.9",
       "version": {
