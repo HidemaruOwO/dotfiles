@@ -70,7 +70,7 @@ let g:go_highlight_variable_assignments = 1
 let g:go_highlight_variable_declarations = 1
 " Vim cord setting
 let g:vimcord_nvim=1
-
+" nvim-treesitter setting
 lua << EOF
 require("nvim-treesitter.configs").setup {
   highlight = {
@@ -87,3 +87,6 @@ require("nvim-treesitter.configs").setup {
   }
 }
 EOF
+" vim-prettier setting
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
