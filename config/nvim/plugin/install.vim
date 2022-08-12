@@ -65,7 +65,9 @@ call jetpack#begin()
   Jetpack 'vim-airline/vim-airline-themes'
 
 " =========== Tools ===========
-  " Bracketを虹色でみやすくする
+" Share code at realtime
+  Jetpack 'jbyuki/instant.nvim'
+" Bracketを虹色でみやすくする
   Jetpack 'frazrepo/vim-rainbow'
   Jetpack 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Jetpack 'mattn/emmet-vim'
