@@ -70,8 +70,20 @@ let g:go_highlight_variable_assignments = 1
 let g:go_highlight_variable_declarations = 1
 " Vim cord setting
 let g:vimcord_nvim=1
-" nvim-treesitter setting
+
 lua << EOF
+-- nvim-lsp-installer setting
+require("nvim-lsp-installer").setup {
+  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
+    ui = {
+        icons = {
+            server_installed = "✓",
+            server_pending = "➜",
+            server_uninstalled = "✗"
+        }
+    }
+  }
+-- nvim-treesitter setting
 require("nvim-treesitter.configs").setup {
   highlight = {
       -- ...
