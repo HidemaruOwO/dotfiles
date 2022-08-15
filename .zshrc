@@ -49,6 +49,7 @@ chpwd() {
     fi
 }
 #auto ls
+
 google() {
     local str opt
     if [ $# != 0 ]; then
