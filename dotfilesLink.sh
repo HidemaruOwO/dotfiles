@@ -1,4 +1,7 @@
 #!/bin/zsh
+if [ ! -e ~/.oh-my-zsh ]; then
+  mkdir ~/.oh-my-zsh
+fi
 if [ ! -e ~/.config ]; then
     mkdir ~/.config
 fi
@@ -11,6 +14,7 @@ ln -sf ~/dotfiles/config/coc ~/.config
 ln -sf ~/dotfiles/config/fish ~/.config
 ln -sf ~/dotfiles/config/wezterm ~/.config
 ln -sf ~/dotfiles/config/fcitx ~/.config
+ln -sf ~/dotfiles/config/gh-dash ~/.config
 ln -sf ~/dotfiles/oh-my-zsh/* ~/.oh-my-zsh
 
 # UNIXではlnコマンドに-Tオプションが存在しない
@@ -20,3 +24,4 @@ rm -rf ~/dotfiles/oh-my-zsh/.oh-my-zsh
 rm -rf ~/dotfiles/config/fish/fish
 rm -rf ~/dotfiles/config/wezterm/wezterm
 rm -rf ~/dotfiles/config/fcitx/fcitx
+rm -rf ~/dotfiles/config/gh-dash/gh-dash
