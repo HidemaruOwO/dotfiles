@@ -42,7 +42,6 @@ call jetpack#begin()
   " Dotnet
   Jetpack 'OmniSharp/omnisharp-vim'
   Jetpack 'neovim/nvim.net'
-  Jetpack 'github/copilot.vim'
   " MarkDown
   Jetpack 'previm/previm'
   Jetpack 'mattn/vim-maketable'
@@ -65,16 +64,20 @@ call jetpack#begin()
   Jetpack 'vim-airline/vim-airline-themes'
 
 " =========== Tools ===========
+  Jetpack 'github/copilot.vim'
   " LSP packager
   Jetpack 'williamboman/nvim-lsp-installer'
   Jetpack 'neovim/nvim-lspconfig'
   " Share code at realtime
   Jetpack 'jbyuki/instant.nvim'
-  " Bracketを虹色でみやすくする
-  Jetpack 'frazrepo/vim-rainbow'
-  Jetpack 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Jetpack 'mattn/emmet-vim'
   " 入力補完
+  Jetpack 'Shougo/ddc.vim'
+  " Install your sources
+  Jetpack 'Shougo/ddc-around'
+  " Install your filters
+  Jetpack 'Shougo/ddc-matcher_head'
+  Jetpack 'Shougo/ddc-sorter_rank'
+  " 括弧の入力補完
   Jetpack 'cohama/lexima.vim'
   " Discordにアクティビティを表示
   Jetpack 'HidemaruOwO/vimcord'
