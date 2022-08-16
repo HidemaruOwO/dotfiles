@@ -1,7 +1,7 @@
 " plugin
 call jetpack#begin()
-" =========== ddu Plugins ===========
-  Jetpack  'Shougo/ddu.vim'
+" =========== ddu Plugins ===========  
+Jetpack  'Shougo/ddu.vim'
   Jetpack  'Shougo/ddu-ui-ff'
   Jetpack  'Shougo/ddu-commands.vim'
   Jetpack  'Shougo/ddu-source-file_rec'
