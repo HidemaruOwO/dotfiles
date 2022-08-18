@@ -60,9 +60,9 @@ function gitcommit() {
   fi 
 
   if [ "$(uname)" = "Darwin" ]; then
-    git_change=$(echo "$_git_change" | sed -e :loop -e 'N; $!b loop' -e 's/\n/ /g')
+    git_change=$(echo "$_git_change" | sed -e :loop -e 'N; $!b loop' -e 's/\n/, /g')
   else 
-    git_change=$(echo "$_git_change" | sed -e ':loop; N; $!b loop; s/\n/ /g')
+    git_change=$(echo "$_git_change" | sed -e ':loop; N; $!b loop; s/\n/, /g')
   fi
   
   if [ -z "$git_change" ]; then
