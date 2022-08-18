@@ -39,9 +39,35 @@ alias free="top -l 1 | grep Mem"
 alias gitlog="git log --oneline --graph --decorate"
 alias crlf2lf="grep -Ilrs `printf "\r\n"` . | xargs nkf -Lu --overwrite"
 alias lf2crlf="grep -Ilrs `printf "\n"` . | xargs nkf -Lw --overwrite"
-alias gitpullforce="git fetch origin HEAD && git reset --hard origin/HEAD"
 alias monitor="wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
+
+alias gitpullforce="git fetch origin HEAD && git reset --hard origin/HEAD"
 alias gitpushquick='git add . && git commit -m ":sparkles: update $(pwd)" && git push origin HEAD'
+function gitcommit() {
+  git_change=$(git diff --name-only HEAD)
+  
+  if [ -z "$git_change" ]; then
+    echo "No change"
+    return 0
+  fi
+
+  if [ -z "$2" ]; then
+    echo "No subject"    
+    if [ -z "$1" ]; then
+      echo "No emoji prefix"
+    fi
+    return 0
+  fi 
+
+  if [ "$(uname)" = "Darwin" ]; then
+    git_change=$(echo "$git_change" | sed -e :loop -e 'N; $!b loop' -e 's/\n/ /g')
+  else 
+    git_change=$(echo $git_change | sed -e ':loop; N; $!b loop; s/\n/ /g')
+  fi
+
+  git commit -m ":$1: ($git_change) $2"
+}
+
 alias dc="cd"
 #alias
 
