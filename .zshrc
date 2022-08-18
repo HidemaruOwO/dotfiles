@@ -42,7 +42,7 @@ alias lf2crlf="grep -Ilrs `printf "\n"` . | xargs nkf -Lw --overwrite"
 alias monitor="wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
 
 alias gitpullforce="git fetch origin HEAD && git reset --hard origin/HEAD"
-alias gitpushquick='git add . && git commit -m ":sparkles: update $(pwd)" && git push origin HEAD'
+alias gitpushquick='git add . && gitcommit sparkles "quick push" && git push origin HEAD'
 function gitcommit() {
   _git_change=$(git diff --name-only HEAD)
   
