@@ -50,6 +50,7 @@ function gitcommit() {
     echo "No change"
     return 0
   fi
+  echo "$git_change"
 
   if [ -z "$2" ]; then
     echo "No subject"    
@@ -62,7 +63,7 @@ function gitcommit() {
   if [ "$(uname)" = "Darwin" ]; then
     git_change=$(echo "$git_change" | sed -e :loop -e 'N; $!b loop' -e 's/\n/ /g')
   else 
-    git_change=$(echo $git_change | sed -e ':loop; N; $!b loop; s/\n/ /g')
+    git_change=$(echo "$git_change" | sed -e ':loop; N; $!b loop; s/\n/ /g')
   fi
 
   git commit -m ":$1: ($git_change) $2"
