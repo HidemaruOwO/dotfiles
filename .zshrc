@@ -50,7 +50,6 @@ function gitcommit() {
     echo "No change"
     return 0
   fi
-  echo "$_git_change"
 
   if [ -z "$2" ]; then
     echo "No subject"    
