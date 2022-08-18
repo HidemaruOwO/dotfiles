@@ -44,13 +44,13 @@ alias monitor="wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
 alias gitpullforce="git fetch origin HEAD && git reset --hard origin/HEAD"
 alias gitpushquick='git add . && git commit -m ":sparkles: update $(pwd)" && git push origin HEAD'
 function gitcommit() {
-  git_change=$(git diff --name-only HEAD)
+  _git_change=$(git diff --name-only HEAD)
   
-  if [ -z "$git_change" ]; then
+  if [ -z "$_git_change" ]; then
     echo "No change"
     return 0
   fi
-  echo "$git_change"
+  echo "$_git_change"
 
   if [ -z "$2" ]; then
     echo "No subject"    
@@ -61,12 +61,16 @@ function gitcommit() {
   fi 
 
   if [ "$(uname)" = "Darwin" ]; then
-    git_change=$(echo "$git_change" | sed -e :loop -e 'N; $!b loop' -e 's/\n/ /g')
+    git_change=$(echo "$_git_change" | sed -e :loop -e 'N; $!b loop' -e 's/\n/ /g')
   else 
-    git_change=$(echo "$git_change" | sed -e ':loop; N; $!b loop; s/\n/ /g')
+    git_change=$(echo "$_git_change" | sed -e ':loop; N; $!b loop; s/\n/ /g')
   fi
-
-  git commit -m ":$1: ($git_change) $2"
+  
+  if [ -z "$git_change" ]; then
+    git commit -m ":$1: ($_git_change) $2"
+  else
+    git commit -m ":$1: ($git_change) $2"
+  fi
 }
 
 alias dc="cd"
