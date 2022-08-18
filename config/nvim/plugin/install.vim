@@ -51,19 +51,26 @@ Jetpack  'Shougo/ddu.vim'
   Jetpack 'dag/vim-fish'
 " =========== Color Scheme ===========
   Jetpack 'Rigellute/rigel'
-" =========== Exterior ===========
-  Jetpack 'vim-jp/vimdoc-ja'
-  " 置き換えのプレビュー
-  Jetpack 'markonm/traces.vim'
-  Jetpack 'preservim/nerdtree'
   Jetpack 'joshdick/onedark.vim'
+" =========== Exterior ===========
+  " Change vimdoc language to Japanese
+  Jetpack 'vim-jp/vimdoc-ja'
+" =========== Tools ===========
+  " Preview replace
+  Jetpack 'markonm/traces.vim'
+  " Show directory tree
+  Jetpack 'preservim/nerdtree'
   Jetpack 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  " Atom icon for NERDTree
   Jetpack 'ryanoasis/vim-devicons'
+  " Paint indent
   Jetpack 'nathanaelkane/vim-indent-guides'
+  " Show rich status bar
   Jetpack 'vim-airline/vim-airline'
   Jetpack 'vim-airline/vim-airline-themes'
-
-" =========== Tools ===========
+  " 
+  Jetpack 'Shougo/deol.nvim'
+  " Writing code with AI
   Jetpack 'github/copilot.vim'
   " LSP packager
   Jetpack 'williamboman/nvim-lsp-installer'
@@ -72,6 +79,8 @@ Jetpack  'Shougo/ddu.vim'
   Jetpack 'jbyuki/instant.nvim'
   " 入力補完
   Jetpack 'Shougo/ddc.vim'
+  " wakatimes plugin
+  Jetpack 'wakatime/vim-wakatime'
   " Install your sources
   Jetpack 'Shougo/ddc-around'
   " Install your filters

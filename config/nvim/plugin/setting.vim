@@ -134,3 +134,7 @@ inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
 
 " Use ddc.
 call ddc#enable()
+
+function! DeolFloat() abort 
+    :Deol -split=floating -winheight=25 -winwidth=90 -winrow=4 -wincol=40 
+endfunction
