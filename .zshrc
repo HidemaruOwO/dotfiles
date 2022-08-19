@@ -65,7 +65,10 @@ function gitcommit() {
     git_change=$(echo "$_git_change" | sed -e ':loop; N; $!b loop; s/\n/, /g')
   fi
   
-  if [ -n "$git_change" ]; then
+  echo "_git_change: $_git_change"
+  echo "git_change: $git_change"
+
+  if [ -z "$git_change" ]; then
     git commit -m ":$1: ($_git_change) $2"
   else
     git commit -m ":$1: ($git_change) $2"
