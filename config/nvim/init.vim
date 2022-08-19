@@ -5,6 +5,6 @@ runtime ./plugin/setting.vim
 runtime ./vim-setting/main.vim
 runtime ./vim-setting/color.vim
 " aliasmap
-runtime ./noremap/inore.vim
-runtime ./noremap/nnore.vim
-runtime ./noremap/vnore.vim
+runtime ./map/inore.vim
+runtime ./map/nnore.vim
+runtime ./map/vnore.vim
