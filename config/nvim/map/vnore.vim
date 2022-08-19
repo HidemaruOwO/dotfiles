@@ -1,1 +1,1 @@
-vnoremap <C-m> :'<,'>MakeTable
+vnoremap <C-m> :'<,'>MakeTable<CR>
