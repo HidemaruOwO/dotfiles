@@ -3,7 +3,7 @@ if [ ! -e ~/.oh-my-zsh ]; then
   mkdir ~/.oh-my-zsh
 fi
 if [ ! -e ~/.config ]; then
-    mkdir ~/.config
+  mkdir ~/.config
 fi
 
 ln -sf ~/dotfiles/.p10k.zsh ~/.p10k.zsh
