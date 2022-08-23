@@ -70,7 +70,7 @@ Jetpack  'Shougo/ddu.vim'
   " 
   Jetpack 'Shougo/deol.nvim'
   " Writing code with AI
-  Jetpack 'github/copilot.vim'
+  "Jetpack 'github/copilot.vim'
   " LSP packager
   Jetpack 'williamboman/nvim-lsp-installer'
   Jetpack 'neovim/nvim-lspconfig'
