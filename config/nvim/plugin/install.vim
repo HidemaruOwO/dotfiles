@@ -30,12 +30,11 @@ Jetpack  'Shougo/ddu.vim'
   Jetpack 'rust-lang/rust.vim'
   Jetpack 'jonathanfilip/vim-lucius'
   " JavaScript
-  Jetpack 'p00f/nvim-ts-rainbow'
+  Jetpack 'othree/es.next.syntax.vim'
   Jetpack 'othree/yajs.vim'
-  Jetpack 'pangloss/vim-javascript', { 'for': ['javascript'] }
-  Jetpack 'mxw/vim-jsx'
+  Jetpack 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
   " TypeScript
-  Jetpack 'leafgarland/typescript-vim'
+  "Jetpack 'leafgarland/typescript-vim'
   " C
   Jetpack 'zchee/deoplete-clang'
   Jetpack 'rhysd/vim-clang-format'

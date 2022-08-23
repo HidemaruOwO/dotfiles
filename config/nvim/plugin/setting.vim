@@ -138,3 +138,8 @@ call ddc#enable()
 function! DeolFloat() abort 
     :Deol -split=floating -winheight=35 -winwidth=120 -winrow=11.5 -wincol=45
 endfunction
+
+" vim javascript setting
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+
