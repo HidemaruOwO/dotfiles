@@ -78,6 +78,12 @@ Jetpack  'Shougo/ddu.vim'
   Jetpack 'jbyuki/instant.nvim'
   " 入力補完
   Jetpack 'Shougo/ddc.vim'
+  " 入力補完
+  Jetpack 'onsails/lspkind-nvim'
+  Jetpack 'L3MON4D3/LuaSnip'
+  Jetpack 'hrsh7th/cmp-nvim-lsp'
+  Jetpack 'hrsh7th/cmp-buffer'
+  Jetpack 'hrsh7th/nvim-cmp'
   " wakatimes plugin
   Jetpack 'wakatime/vim-wakatime'
   " Install your sources
