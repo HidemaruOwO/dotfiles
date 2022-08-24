@@ -83,35 +83,7 @@ require("nvim-lsp-installer").setup {
         }
     }
   }
--- nvim-treesitter setting
-local status, ts = pcall(require, "nvim-treesitter.configs")
-if (not status) then return end
 
-ts.setup {
-  highlight = {
-    enable = true,
-    disable = {},
-  },
-  indent = {
-    enable = true,
-    disable = {},
-  },
-  ensure_installed = {
-    "jsx",
-    "tsx",
-    "toml",
-    "yaml",
-    "css",
-    "html",
-    "lua",
-  },
-  autotag = {
-    enable = true,
-  },
-}
-
-local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
 -- 補完の設定
 local status, cmp = pcall(require, "cmp")
 if (not status) then return end
