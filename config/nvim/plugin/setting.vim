@@ -120,10 +120,13 @@ vim.cmd [[
 ]]
 
 -- nvim-autotag
-local status, autotag = pcall(require, "nvim-ts-autotag")
-if (not status) then return end
+require'nvim-treesitter.configs'.setup {
+  autotag = {
+    enable = true,
+    filetypes = { 'html', 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'svelte', 'vue', 'tsx', 'jsx', 'rescript','xml','php','markdown','glimmer','handlebars','hbs'},
+  }
+}
 
-autotag.setup({})
 -- nvim-autorepair
 local status, autopairs = pcall(require, "nvim-autopairs")
 if (not status) then return end
