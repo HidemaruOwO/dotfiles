@@ -55,6 +55,8 @@ Jetpack  'Shougo/ddu.vim'
   " Change vimdoc language to Japanese
   Jetpack 'vim-jp/vimdoc-ja'
 " =========== Tools ===========
+  " syntax hilighting
+  Jetpack 'nvim-treesitter/nvim-treesitter'
   " Preview replace
   Jetpack 'markonm/traces.vim'
   " Show directory tree
@@ -90,7 +92,7 @@ Jetpack  'Shougo/ddu.vim'
   Jetpack 'Shougo/ddc-around'
   " Install your filters
   Jetpack 'Shougo/ddc-matcher_head'
-  Jetpack 'Shougo/ddc-sorter_rank'
+  " Jetpack 'Shougo/ddc-sorter_rank'
   " 括弧の入力補完
   Jetpack 'cohama/lexima.vim'
   " Discordにアクティビティを表示
