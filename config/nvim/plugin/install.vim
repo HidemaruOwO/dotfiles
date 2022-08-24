@@ -14,8 +14,6 @@ Jetpack  'Shougo/ddu.vim'
   Jetpack 'Shougo/pum.vim'
 
 " =========== Language Plugins ===========
-  " JavaScript
-  Jetpack 'p00f/nvim-ts-rainbow'
   " Any
   Jetpack 'prettier/vim-prettier'
   " Go
@@ -30,6 +28,8 @@ Jetpack  'Shougo/ddu.vim'
   Jetpack 'rust-lang/rust.vim'
   Jetpack 'jonathanfilip/vim-lucius'
   " JavaScript
+  Jetpack 'windwp/nvim-ts-autotag'
+  Jetpack 'windwp/nvim-autopairs'
   Jetpack 'othree/es.next.syntax.vim'
   Jetpack 'othree/yajs.vim'
   Jetpack 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }

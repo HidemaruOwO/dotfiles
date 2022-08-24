@@ -84,20 +84,81 @@ require("nvim-lsp-installer").setup {
     }
   }
 -- nvim-treesitter setting
-require("nvim-treesitter.configs").setup {
+local status, ts = pcall(require, "nvim-treesitter.configs")
+if (not status) then return end
+
+ts.setup {
   highlight = {
-      -- ...
-  },
-  -- ...
-  rainbow = {
     enable = true,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {}, -- table of hex strings
-    -- termcolors = {} -- table of colour name strings
-  }
+    disable = {},
+  },
+  indent = {
+    enable = true,
+    disable = {},
+  },
+  ensure_installed = {
+    "jsx",
+    "tsx",
+    "toml",
+    "yaml",
+    "css",
+    "html",
+    "lua",
+  },
+  autotag = {
+    enable = true,
+  },
 }
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+-- 補完の設定
+local status, cmp = pcall(require, "cmp")
+if (not status) then return end
+local lspkind = require 'lspkind'
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true
+    }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'buffer' },
+  }),
+  formatting = {
+    format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
+  }
+})
+
+vim.cmd [[
+  set completeopt=menuone,noinsert,noselect
+  highlight! default link CmpItemKind CmpItemMenuDefault
+]]
+
+-- nvim-autotag
+local status, autotag = pcall(require, "nvim-ts-autotag")
+if (not status) then return end
+
+autotag.setup({})
+-- nvim-autorepair
+local status, autopairs = pcall(require, "nvim-autopairs")
+if (not status) then return end
+
+autopairs.setup({
+  disable_filetype = { "TelescopePrompt" , "vim" },
+})
 EOF
 " vim-prettier setting
 let g:prettier#autoformat = 1
@@ -149,38 +210,5 @@ endfunction
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
-lua << EOF
-local status, cmp = pcall(require, "cmp")
-if (not status) then return end
-local lspkind = require 'lspkind'
 
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
-    }),
-  }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-  }),
-  formatting = {
-    format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
-  }
-})
 
-vim.cmd [[
-  set completeopt=menuone,noinsert,noselect
-  highlight! default link CmpItemKind CmpItemMenuDefault
-]]
-EOF
