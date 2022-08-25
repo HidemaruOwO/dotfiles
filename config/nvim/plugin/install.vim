@@ -101,6 +101,7 @@ Jetpack  'Shougo/ddu.vim'
   Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
   " 曖昧検索
   Jetpack 'junegunn/fzf'
+  Jetpack 'junegunn/fzf.vim'
   " Denoを使えるようにする
   Jetpack 'vim-denops/denops.vim'
   " 一部の行をコピー
