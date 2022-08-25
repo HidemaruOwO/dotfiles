@@ -17,6 +17,7 @@ source $ZSH/oh-my-zsh.sh
 POWERLEVEL9K_MODE="nerdfont-complete"
 # oh my zsh
 neofetch
+figlet 'Welcome to Zsh !!'
 # auto load dotfiles
 sh $HOME/dotfiles/dotfilesLink.sh
 # path
