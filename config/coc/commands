@@ -1,2 +1,3 @@
+workspace.showOutput
 go.install.gopls
 go.install.gopls

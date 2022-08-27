@@ -55,8 +55,6 @@ Jetpack  'Shougo/ddu.vim'
   " Change vimdoc language to Japanese
   Jetpack 'vim-jp/vimdoc-ja'
 " =========== Tools ===========
-  " syntax hilighting
-  Jetpack 'nvim-treesitter/nvim-treesitter'
   " Preview replace
   Jetpack 'markonm/traces.vim'
   " Show directory tree
