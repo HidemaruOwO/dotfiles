@@ -1,7 +1,8 @@
 " plugin
 call jetpack#begin()
 " =========== ddu Plugins ===========
-Jetpack  'Shougo/ddu.vim'
+  Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
+  Jetpack  'Shougo/ddu.vim'
   Jetpack  'Shougo/ddu-ui-ff'
   Jetpack  'Shougo/ddu-commands.vim'
   Jetpack  'Shougo/ddu-source-file_rec'
@@ -78,7 +79,7 @@ Jetpack  'Shougo/ddu.vim'
   " Share code at realtime
   Jetpack 'jbyuki/instant.nvim'
   " 入力補完
-  Jetpack 'Shougo/ddc.vim'
+  "Jetpack 'Shougo/ddc.vim'
   " 入力補完
   Jetpack 'onsails/lspkind-nvim'
   Jetpack 'L3MON4D3/LuaSnip'
@@ -88,9 +89,9 @@ Jetpack  'Shougo/ddu.vim'
   " wakatimes plugin
   Jetpack 'wakatime/vim-wakatime'
   " Install your sources
-  Jetpack 'Shougo/ddc-around'
+  "Jetpack 'Shougo/ddc-around'
   " Install your filters
-  Jetpack 'Shougo/ddc-matcher_head'
+  "Jetpack 'Shougo/ddc-matcher_head'
   " Jetpack 'Shougo/ddc-sorter_rank'
   " 括弧の入力補完
   Jetpack 'cohama/lexima.vim'
@@ -105,5 +106,5 @@ Jetpack  'Shougo/ddu.vim'
   Jetpack 'vim-denops/denops.vim'
   " 一部の行をコピー
   Jetpack 'Rasukarusan/nvim-select-multi-line'
-call jetpack#end()
+  call jetpack#end()
 

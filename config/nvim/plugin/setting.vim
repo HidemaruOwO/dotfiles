@@ -76,6 +76,7 @@ let g:vimcord_nvim=1
 
 lua << EOF
 -- nvim-lsp-installer setting
+--[[
 require("nvim-lsp-installer").setup {
   automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
     ui = {
@@ -121,9 +122,10 @@ vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
+--]]
 vim.opt.runtimepath:append("~/dotfiles/templates/treesitter")
 
--- nvim-autotag
+-- vim-treesitter-config
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
   ensure_installed = { "bash","lua", "c", "css", "dockerfile", "gomod", "gowork",  "go", "html", "http", "java", "javascript", "jsdoc", "json", "make", "markdown", "python", "rust", "scss", "sql", "toml", "tsx", "typescript", "vim", "zig", "vue", "yaml" },
@@ -160,38 +162,34 @@ let g:previm_custom_css_path = '~/dotfiles/templates/previm/github.css'
 " instant.nvim setting
 let g:instant_username = "HidemaruOwO"
 " ddc vim setting
-" Use around source.
-" https://github.com/Shougo/ddc-around
-call ddc#custom#patch_global('sources', ['around'])
 
-" Use matcher_head and sorter_rank.
-" https://github.com/Shougo/ddc-matcher_head
-" https://github.com/Shougo/ddc-sorter_rank
-call ddc#custom#patch_global('sourceOptions', {
-      \ '_': {
-      \   'matchers': ['matcher_head']
-      \ },
-      \ })
+"call ddc#custom#patch_global('sources', ['around'])
+
+"call ddc#custom#patch_global('sourceOptions', {
+"      \ '_': {
+"      \   'matchers': ['matcher_head']
+"      \ },
+"      \ })
 
 " Mappings
 
 " <TAB>: completion.
-inoremap <silent><expr> <TAB>
-\ ddc#map#pum_visible() ? '<C-n>' :
-\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-\ '<TAB>' : ddc#map#manual_complete()
+"inoremap <silent><expr> <TAB>
+"\ ddc#map#pum_visible() ? '<C-n>' :
+"\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+"\ '<TAB>' : ddc#map#manual_complete()
 
 " <ENTER>: completion.
-inoremap <silent><expr> <ENTER>
-\ ddc#map#pum_visible() ? '<C-n>' :
-\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-\ '<TAB>' : ddc#map#manual_complete()
+"inoremap <silent><expr> <ENTER>
+"\ ddc#map#pum_visible() ? '<C-n>' :
+"\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
+"\ '<TAB>' : ddc#map#manual_complete()
 
 " <S-TAB>: completion back.
-inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
+"inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
 
 " Use ddc.
-call ddc#enable()
+"call ddc#enable()
 
 function! DeolFloat() abort
     :Deol -split=floating -winheight=35 -winwidth=120 -winrow=11.5 -wincol=45
