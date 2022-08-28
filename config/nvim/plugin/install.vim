@@ -1,19 +1,6 @@
 " plugin
 call jetpack#begin()
 Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
-" =========== ddu Plugins ===========
-"  Jetpack  'Shougo/ddu.vim'
-"  Jetpack  'Shougo/ddu-ui-ff'
-"  Jetpack  'Shougo/ddu-commands.vim'
-"  Jetpack  'Shougo/ddu-source-file_rec'
-"  Jetpack  'Shougo/ddu-kind-file'
-"  Jetpack  'Shougo/ddu-source-file'
-"  Jetpack  'shun/ddu-source-rg'
-"  Jetpack  'yuki-yano/ddu-filter-fzf'
-"  Jetpack  'liquidz/ddu-source-custom-list'
-"  Jetpack  'shun/ddu-source-buffer'
-"  Jetpack 'Shougo/pum.vim'
-
 " =========== Language Plugins ===========
   " Any
   Jetpack 'prettier/vim-prettier'
@@ -34,8 +21,6 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
   Jetpack 'othree/es.next.syntax.vim'
   Jetpack 'othree/yajs.vim'
   Jetpack 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-  " TypeScript
-  "Jetpack 'leafgarland/typescript-vim'
   " C
   Jetpack 'zchee/deoplete-clang'
   Jetpack 'rhysd/vim-clang-format'
@@ -78,14 +63,7 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
   Jetpack 'neovim/nvim-lspconfig'
   " Share code at realtime
   Jetpack 'jbyuki/instant.nvim'
-  " ddc 入力補完
-  "Jetpack 'Shougo/ddc.vim'
-  " Install your sources
-  "Jetpack 'Shougo/ddc-around'
-  " Install your filters
-  "Jetpack 'Shougo/ddc-matcher_head'
-  " Jetpack 'Shougo/ddc-sorter_rank'
-  " 入力補完
+ " 入力補完
   Jetpack 'onsails/lspkind-nvim'
   Jetpack 'L3MON4D3/LuaSnip'
   Jetpack 'hrsh7th/cmp-nvim-lsp'
@@ -107,4 +85,29 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
   " 一部の行をコピー
   Jetpack 'Rasukarusan/nvim-select-multi-line'
   call jetpack#end()
+
+
+" Comment out backup
+" =========== ddu Plugins ===========
+"  Jetpack  'Shougo/ddu.vim'
+"  Jetpack  'Shougo/ddu-ui-ff'
+"  Jetpack  'Shougo/ddu-commands.vim'
+"  Jetpack  'Shougo/ddu-source-file_rec'
+"  Jetpack  'Shougo/ddu-kind-file'
+"  Jetpack  'Shougo/ddu-source-file'
+"  Jetpack  'shun/ddu-source-rg'
+"  Jetpack  'yuki-yano/ddu-filter-fzf'
+"  Jetpack  'liquidz/ddu-source-custom-list'
+"  Jetpack  'shun/ddu-source-buffer'
+"  Jetpack 'Shougo/pum.vim'
+" ddc 入力補完
+"Jetpack 'Shougo/ddc.vim'
+" Install your sources
+"Jetpack 'Shougo/ddc-around'
+" Install your filters
+"Jetpack 'Shougo/ddc-matcher_head'
+" Jetpack 'Shougo/ddc-sorter_rank'
+" TypeScript
+"Jetpack 'leafgarland/typescript-vim'
+ 
 

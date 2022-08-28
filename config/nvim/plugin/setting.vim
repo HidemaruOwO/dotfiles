@@ -103,6 +103,10 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
+    ['<TAB>'] = cmp.mapping.confirm({
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true
+    }),
     ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true
@@ -160,6 +164,17 @@ let g:previm_disable_default_css = 1
 let g:previm_custom_css_path = '~/dotfiles/templates/previm/github.css'
 " instant.nvim setting
 let g:instant_username = "HidemaruOwO"
+
+function! DeolFloat() abort
+    :Deol -split=floating -winheight=35 -winwidth=120 -winrow=11.5 -wincol=45
+endfunction
+
+" vim javascript setting
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+
+
+" Comment out backup
 " ddc vim setting
 
 "call ddc#custom#patch_global('sources', ['around'])
@@ -189,14 +204,4 @@ let g:instant_username = "HidemaruOwO"
 
 " Use ddc.
 "call ddc#enable()
-
-function! DeolFloat() abort
-    :Deol -split=floating -winheight=35 -winwidth=120 -winrow=11.5 -wincol=45
-endfunction
-
-" vim javascript setting
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-
-
 
