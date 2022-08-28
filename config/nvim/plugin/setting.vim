@@ -1,6 +1,8 @@
 " coc-pretteir format
 command! -nargs=0 Format :call CocAction('format')
 
+" add runtimepath
+
 " vim-indent-guidesの起動
 let g:indent_guides_enable_on_vim_startup = 1
 let NERDTreeShowHidden = 1
@@ -119,11 +121,12 @@ vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
+vim.opt.runtimepath:append("~/dotfiles/templates/treesitter")
 
 -- nvim-autotag
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = {"lua", "c", "c_sharp", "css", "dart", "dockerfile", "gomod", "gowork",  "go", "glsl", "html", "http", "java", "javascript", "jsdoc", "json", "julia", "make", "markdown",  "perl", "php", "python", "r", "ruby", "rust", "scss", "sql", "toml", "tsx", "typescript", "vim", "zig", "vue", "yaml"  },
+  ensure_installed = {"lua", "c", "css", "dockerfile", "gomod", "gowork",  "go", "html", "http", "java", "javascript", "jsdoc", "json", "make", "markdown", "python", "rust", "scss", "sql", "toml", "tsx", "typescript", "vim", "zig", "vue", "yaml" },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
 
@@ -135,7 +138,7 @@ require'nvim-treesitter.configs'.setup {
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
   -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
+  parser_install_dir = "~/dotfiles/templates/treesitter",
   highlight = {
     -- `false` will disable the whole extension
     enable = true,
@@ -151,6 +154,14 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  rainbow = {
+    enable = true,
+    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+    extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+    max_file_lines = nil, -- Do not enable for files with more than n lines, int
+    -- colors = {}, -- table of hex strings
+    -- termcolors = {} -- table of colour name strings
+    },
 }
 -- nvim-autorepair
 local status, autopairs = pcall(require, "nvim-autopairs")

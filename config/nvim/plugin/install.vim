@@ -1,6 +1,6 @@
 " plugin
 call jetpack#begin()
-" =========== ddu Plugins ===========  
+" =========== ddu Plugins ===========
 Jetpack  'Shougo/ddu.vim'
   Jetpack  'Shougo/ddu-ui-ff'
   Jetpack  'Shougo/ddu-commands.vim'
@@ -18,7 +18,7 @@ Jetpack  'Shougo/ddu.vim'
   Jetpack 'prettier/vim-prettier'
   " Go
   Jetpack 'fatih/vim-go'
-  " Python 
+  " Python
   Jetpack 'python/mypy'
   " Zig
   Jetpack 'ziglang/zig.vim'
@@ -68,7 +68,7 @@ Jetpack  'Shougo/ddu.vim'
   " Show rich status bar
   Jetpack 'vim-airline/vim-airline'
   Jetpack 'vim-airline/vim-airline-themes'
-  " 
+  "
   Jetpack 'Shougo/deol.nvim'
   " Writing code with AI
   Jetpack 'github/copilot.vim'
