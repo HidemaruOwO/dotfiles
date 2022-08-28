@@ -1,18 +1,18 @@
 " plugin
 call jetpack#begin()
+Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
 " =========== ddu Plugins ===========
-  Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
-  Jetpack  'Shougo/ddu.vim'
-  Jetpack  'Shougo/ddu-ui-ff'
-  Jetpack  'Shougo/ddu-commands.vim'
-  Jetpack  'Shougo/ddu-source-file_rec'
-  Jetpack  'Shougo/ddu-kind-file'
-  Jetpack  'Shougo/ddu-source-file'
-  Jetpack  'shun/ddu-source-rg'
-  Jetpack  'yuki-yano/ddu-filter-fzf'
-  Jetpack  'liquidz/ddu-source-custom-list'
-  Jetpack  'shun/ddu-source-buffer'
-  Jetpack 'Shougo/pum.vim'
+"  Jetpack  'Shougo/ddu.vim'
+"  Jetpack  'Shougo/ddu-ui-ff'
+"  Jetpack  'Shougo/ddu-commands.vim'
+"  Jetpack  'Shougo/ddu-source-file_rec'
+"  Jetpack  'Shougo/ddu-kind-file'
+"  Jetpack  'Shougo/ddu-source-file'
+"  Jetpack  'shun/ddu-source-rg'
+"  Jetpack  'yuki-yano/ddu-filter-fzf'
+"  Jetpack  'liquidz/ddu-source-custom-list'
+"  Jetpack  'shun/ddu-source-buffer'
+"  Jetpack 'Shougo/pum.vim'
 
 " =========== Language Plugins ===========
   " Any
@@ -78,8 +78,13 @@ call jetpack#begin()
   Jetpack 'neovim/nvim-lspconfig'
   " Share code at realtime
   Jetpack 'jbyuki/instant.nvim'
-  " 入力補完
+  " ddc 入力補完
   "Jetpack 'Shougo/ddc.vim'
+  " Install your sources
+  "Jetpack 'Shougo/ddc-around'
+  " Install your filters
+  "Jetpack 'Shougo/ddc-matcher_head'
+  " Jetpack 'Shougo/ddc-sorter_rank'
   " 入力補完
   Jetpack 'onsails/lspkind-nvim'
   Jetpack 'L3MON4D3/LuaSnip'
@@ -88,11 +93,6 @@ call jetpack#begin()
   Jetpack 'hrsh7th/nvim-cmp'
   " wakatimes plugin
   Jetpack 'wakatime/vim-wakatime'
-  " Install your sources
-  "Jetpack 'Shougo/ddc-around'
-  " Install your filters
-  "Jetpack 'Shougo/ddc-matcher_head'
-  " Jetpack 'Shougo/ddc-sorter_rank'
   " 括弧の入力補完
   Jetpack 'cohama/lexima.vim'
   " Discordにアクティビティを表示

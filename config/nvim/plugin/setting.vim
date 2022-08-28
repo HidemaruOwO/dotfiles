@@ -76,7 +76,6 @@ let g:vimcord_nvim=1
 
 lua << EOF
 -- nvim-lsp-installer setting
---[[
 require("nvim-lsp-installer").setup {
   automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
     ui = {
@@ -122,7 +121,7 @@ vim.cmd [[
   set completeopt=menuone,noinsert,noselect
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
---]]
+
 vim.opt.runtimepath:append("~/dotfiles/templates/treesitter")
 
 -- vim-treesitter-config
