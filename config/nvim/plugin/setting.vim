@@ -1,5 +1,6 @@
 " coc-pretteir format
 command! -nargs=0 Format :call CocAction('format')
+
 " vim-indent-guidesの起動
 let g:indent_guides_enable_on_vim_startup = 1
 let NERDTreeShowHidden = 1
@@ -122,16 +123,15 @@ vim.cmd [[
 -- nvim-autotag
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "all" },
-
+  ensure_installed = {"lua", "c", "c_sharp", "css", "dart", "dockerfile", "gomod", "gowork",  "go", "glsl", "html", "http", "java", "javascript", "jsdoc", "json", "julia", "make", "markdown",  "perl", "php", "python", "r", "ruby", "rust", "scss", "sql", "toml", "tsx", "typescript", "vim", "zig", "vue", "yaml"  },
   -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = true,
+  sync_install = false,
 
   -- Automatically install missing parsers when entering buffer
   auto_install = true,
 
   -- List of parsers to ignore installing (for "all")
-  ignore_install = { "javascript" },
+  --ignore_install = { "javascript" },
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
   -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
@@ -144,7 +144,6 @@ require'nvim-treesitter.configs'.setup {
     -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
     -- the name of the parser)
     -- list of language that will be disabled
-    disable = { "c", "rust" },
 
     -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
     -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
@@ -203,7 +202,7 @@ inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
 " Use ddc.
 call ddc#enable()
 
-function! DeolFloat() abort 
+function! DeolFloat() abort
     :Deol -split=floating -winheight=35 -winwidth=120 -winrow=11.5 -wincol=45
 endfunction
 

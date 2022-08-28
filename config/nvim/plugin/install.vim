@@ -59,6 +59,7 @@ Jetpack  'Shougo/ddu.vim'
   Jetpack 'markonm/traces.vim'
   " Show directory tree
   Jetpack 'preservim/nerdtree'
+  Jetpack 'p00f/nvim-ts-rainbow'
   Jetpack 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   " Atom icon for NERDTree
   Jetpack 'ryanoasis/vim-devicons'
