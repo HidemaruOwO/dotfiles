@@ -126,7 +126,7 @@ vim.opt.runtimepath:append("~/dotfiles/templates/treesitter")
 -- nvim-autotag
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "lua", "c", "css", "dockerfile", "gomod", "gowork",  "go", "html", "http", "java", "javascript", "jsdoc", "json", "make", "markdown", "python", "rust", "scss", "sql", "toml", "tsx", "typescript", "vim", "zig", "vue", "yaml" },
+  ensure_installed = { "bash","lua", "c", "css", "dockerfile", "gomod", "gowork",  "go", "html", "http", "java", "javascript", "jsdoc", "json", "make", "markdown", "python", "rust", "scss", "sql", "toml", "tsx", "typescript", "vim", "zig", "vue", "yaml" },
   sync_install = false,
 
   auto_install = true,
@@ -141,7 +141,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     extended_mode = true, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    },
+  },
 }
 -- nvim-autorepair
 local status, autopairs = pcall(require, "nvim-autopairs")
