@@ -11,7 +11,7 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
   " Zig
   Jetpack 'ziglang/zig.vim'
   " Nim
-  Jetpack 'baabelfish/nvim-nim'
+  Jetpack 'alaviss/nim.nvim'
   " Rust
   Jetpack 'rust-lang/rust.vim'
   Jetpack 'jonathanfilip/vim-lucius'
@@ -30,8 +30,6 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
   " MarkDown
   Jetpack 'previm/previm'
   Jetpack 'mattn/vim-maketable'
-  " VimL
-  Jetpack 'prabirshrestha/vim-lsp'
   " Fish
   Jetpack 'dag/vim-fish'
 " =========== Color Scheme ===========
@@ -58,9 +56,6 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
   Jetpack 'Shougo/deol.nvim'
   " Writing code with AI
   Jetpack 'github/copilot.vim'
-  " LSP packager
-  Jetpack 'williamboman/nvim-lsp-installer'
-  Jetpack 'neovim/nvim-lspconfig'
   " Share code at realtime
   Jetpack 'jbyuki/instant.nvim'
  " 入力補完
@@ -84,7 +79,8 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
   Jetpack 'vim-denops/denops.vim'
   " 一部の行をコピー
   Jetpack 'Rasukarusan/nvim-select-multi-line'
-  call jetpack#end()
+call jetpack#end()
+
 
 
 " Comment out backup
@@ -108,6 +104,8 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
 "Jetpack 'Shougo/ddc-matcher_head'
 " Jetpack 'Shougo/ddc-sorter_rank'
 " TypeScript
+  " LSP packager
+  "Jetpack 'williamboman/nvim-lsp-installer'
+  "Jetpack 'neovim/nvim-lspconfig'
 "Jetpack 'leafgarland/typescript-vim'
  
-

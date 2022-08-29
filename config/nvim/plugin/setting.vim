@@ -76,6 +76,7 @@ let g:vimcord_nvim=1
 
 lua << EOF
 -- nvim-lsp-installer setting
+--[[
 require("nvim-lsp-installer").setup {
   automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
     ui = {
@@ -86,7 +87,7 @@ require("nvim-lsp-installer").setup {
         }
     }
   }
-
+]]--
 -- 補完の設定
 local status, cmp = pcall(require, "cmp")
 if (not status) then return end
@@ -104,10 +105,6 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<TAB>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
-    }),
-    ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true
     }),
