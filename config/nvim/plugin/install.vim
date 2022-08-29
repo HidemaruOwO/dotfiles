@@ -1,7 +1,7 @@
 " plugin
 call jetpack#begin()
-Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
-" =========== Language Plugins ===========
+  Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
+  " =========== Language Plugins ===========
   " Any
   Jetpack 'prettier/vim-prettier'
   " Go
@@ -32,13 +32,13 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
   Jetpack 'mattn/vim-maketable'
   " Fish
   Jetpack 'dag/vim-fish'
-" =========== Color Scheme ===========
+  " =========== Color Scheme ===========
   Jetpack 'Rigellute/rigel'
   Jetpack 'joshdick/onedark.vim'
-" =========== Exterior ===========
+  " =========== Exterior ===========
   " Change vimdoc language to Japanese
   Jetpack 'vim-jp/vimdoc-ja'
-" =========== Tools ===========
+  " =========== Tools ===========
   " Preview replace
   Jetpack 'markonm/traces.vim'
   " Show directory tree
@@ -68,14 +68,14 @@ Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
   Jetpack 'wakatime/vim-wakatime'
   " 括弧の入力補完
   Jetpack 'cohama/lexima.vim'
-  " Discordにアクティビティを表示
+  " Show Discord activity
   Jetpack 'HidemaruOwO/vimcord'
-  " IDE化
+  " coc
   Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
-  " 曖昧検索
+  " Fuzzy Finder
   Jetpack 'junegunn/fzf'
   Jetpack 'junegunn/fzf.vim'
-  " Denoを使えるようにする
+  " Enable Deno
   Jetpack 'vim-denops/denops.vim'
   " 一部の行をコピー
   Jetpack 'Rasukarusan/nvim-select-multi-line'
