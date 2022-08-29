@@ -39,6 +39,9 @@ call jetpack#begin()
   " Change vimdoc language to Japanese
   Jetpack 'vim-jp/vimdoc-ja'
   " =========== Tools ===========
+  " LSP
+  Jetpack 'williamboman/nvim-lsp-installer'
+  Jetpack 'neovim/nvim-lspconfig'
   " Preview replace
   Jetpack 'markonm/traces.vim'
   " Show directory tree
@@ -81,8 +84,6 @@ call jetpack#begin()
   Jetpack 'Rasukarusan/nvim-select-multi-line'
 call jetpack#end()
 
-
-
 " Comment out backup
 " =========== ddu Plugins ===========
 "  Jetpack  'Shougo/ddu.vim'
@@ -105,7 +106,4 @@ call jetpack#end()
 " Jetpack 'Shougo/ddc-sorter_rank'
 " TypeScript
   " LSP packager
-  "Jetpack 'williamboman/nvim-lsp-installer'
-  "Jetpack 'neovim/nvim-lspconfig'
-"Jetpack 'leafgarland/typescript-vim'
  
