@@ -176,6 +176,14 @@ endfunction
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 
+" Coc Hover
+function! ShowDocumentation()
+  " Hoverがあれば呼び出す
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  endif
+endfunction
+
 
 " Comment out backup
 " ddc vim setting

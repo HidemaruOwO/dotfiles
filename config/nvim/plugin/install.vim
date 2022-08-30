@@ -82,7 +82,8 @@ call jetpack#begin()
   Jetpack 'vim-denops/denops.vim'
   " 一部の行をコピー
   Jetpack 'Rasukarusan/nvim-select-multi-line'
-call jetpack#end()
+  Jetpack 'thinca/vim-scouter'
+  call jetpack#end()
 
 " Comment out backup
 " =========== ddu Plugins ===========
