@@ -70,9 +70,9 @@ function gitcommit() {
   echo "git_change: $git_change"
 
   if [ -z "$git_change" ]; then
-    git commit -m ":$1: ($_git_change) $2"
+    git commit -m ":$1: $2 ($_git_change)"
   else
-    git commit -m ":$1: ($git_change) $2"
+    git commit -m ":$1: $2 ($git_change)"
   fi
 }
 
