@@ -1,11 +1,9 @@
 " plugin
 call jetpack#begin()
   Jetpack 'tani/vim-jetpack', {'opt': 1} " bootstrap
-  " =========== Language Plugins ===========
+  " =========== Language Jetpackins ===========
   " Any
   Jetpack 'prettier/vim-prettier'
-  " Go
-  Jetpack 'fatih/vim-go'
   " Python
   Jetpack 'python/mypy'
   " Zig
@@ -39,10 +37,19 @@ call jetpack#begin()
   " Change vimdoc language to Japanese
   Jetpack 'vim-jp/vimdoc-ja'
   " =========== Tools ===========
-  " LSP
-  Jetpack 'williamboman/nvim-lsp-installer'
+  " Builtin LSP
   Jetpack 'neovim/nvim-lspconfig'
-  " Preview replace
+  Jetpack 'williamboman/mason.nvim'
+  Jetpack 'williamboman/mason-lspconfig.nvim'
+  " Cmp 入力補完
+  Jetpack 'hrsh7th/cmp-nvim-lsp'
+  Jetpack 'hrsh7th/cmp-buffer'
+  Jetpack 'hrsh7th/cmp-path'
+  Jetpack 'hrsh7th/cmp-cmdline'
+  Jetpack 'hrsh7th/nvim-cmp'
+  Jetpack 'L3MON4D3/LuaSnip'
+  Jetpack 'saadparwaiz1/cmp_luasnip'
+" Preview replace
   Jetpack 'markonm/traces.vim'
   " Show directory tree
   Jetpack 'preservim/nerdtree'
@@ -61,20 +68,12 @@ call jetpack#begin()
   Jetpack 'github/copilot.vim'
   " Share code at realtime
   Jetpack 'jbyuki/instant.nvim'
- " 入力補完
-  Jetpack 'onsails/lspkind-nvim'
-  Jetpack 'L3MON4D3/LuaSnip'
-  Jetpack 'hrsh7th/cmp-nvim-lsp'
-  Jetpack 'hrsh7th/cmp-buffer'
-  Jetpack 'hrsh7th/nvim-cmp'
   " wakatimes plugin
   Jetpack 'wakatime/vim-wakatime'
   " 括弧の入力補完
   Jetpack 'cohama/lexima.vim'
   " Show Discord activity
   Jetpack 'HidemaruOwO/vimcord'
-  " coc
-  Jetpack 'neoclide/coc.nvim', {'branch': 'release'}
   " Fuzzy Finder
   Jetpack 'junegunn/fzf'
   Jetpack 'junegunn/fzf.vim'
@@ -83,10 +82,10 @@ call jetpack#begin()
   " 一部の行をコピー
   Jetpack 'Rasukarusan/nvim-select-multi-line'
   Jetpack 'thinca/vim-scouter'
-  call jetpack#end()
+call jetpack#end()
 
 " Comment out backup
-" =========== ddu Plugins ===========
+" =========== ddu Jetpackins ===========
 "  Jetpack  'Shougo/ddu.vim'
 "  Jetpack  'Shougo/ddu-ui-ff'
 "  Jetpack  'Shougo/ddu-commands.vim'

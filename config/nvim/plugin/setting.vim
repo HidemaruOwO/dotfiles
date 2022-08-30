@@ -1,6 +1,3 @@
-" coc-pretteir format
-command! -nargs=0 Format :call CocAction('format')
-
 " add runtimepath
 
 " vim-indent-guidesの起動
@@ -55,80 +52,10 @@ let g:jetpack#opimization = 1
 
 let g:sml#echo_yank_str = 0
 
-" Vim Go setting
-let g:go_highlight_array_whitespace_error = 1
-let g:go_highlight_chan_whitespace_error = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_space_tab_error = 1
-let g:go_highlight_trailing_whitespace_error = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_arguments = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_variable_assignments = 1
-let g:go_highlight_variable_declarations = 1
 " Vim cord setting
 let g:vimcord_nvim=1
 
 lua << EOF
--- nvim-lsp-installer setting
-require("nvim-lsp-installer").setup {
-  automatic_installation = true, -- automatically detect which servers to install (based on which servers are set up via lspconfig)
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        }
-    }
-  }
--- 補完の設定
-local status, cmp = pcall(require, "cmp")
-if (not status) then return end
-local lspkind = require 'lspkind'
-
-cmp.setup({
-  snippet = {
-    expand = function(args)
-      require('luasnip').lsp_expand(args.body)
-    end,
-  },
-  mapping = cmp.mapping.preset.insert({
-    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    ['<CR>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
-    }),    
-    ['<S-TAB>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
-    }),
-    ['<TAB>'] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
-    }),
-  }),
-  sources = cmp.config.sources({
-    { name = 'nvim_lsp' },
-    { name = 'buffer' },
-  }),
-  formatting = {
-    format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
-  }
-})
-
-vim.cmd [[
-  set completeopt=menuone,noinsert,noselect
-  highlight! default link CmpItemKind CmpItemMenuDefault
-]]
-
 vim.opt.runtimepath:append("~/dotfiles/templates/treesitter")
 
 -- vim-treesitter-config
@@ -158,7 +85,84 @@ if (not status) then return end
 autopairs.setup({
   disable_filetype = { "TelescopePrompt" , "vim" },
 })
+
+-- Setup nvim-cmp.
+  local cmp = require'cmp'
+
+  cmp.setup({
+    snippet = {
+      -- REQUIRED - you must specify a snippet engine
+      expand = function(args)
+        require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+        -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
+        -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+      end,
+    },
+    window = {
+      -- completion = cmp.config.window.bordered(),
+      -- documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'luasnip' }, -- For luasnip users.
+      -- { name = 'ultisnips' }, -- For ultisnips users.
+      -- { name = 'snippy' }, -- For snippy users.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Set configuration for specific filetype.
+  cmp.setup.filetype('gitcommit', {
+    sources = cmp.config.sources({
+      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+    }, {
+      { name = 'buffer' },
+    })
+  })
+
+  -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
+
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
+
+--local on_attach = function(client, bufnr)
+
+-- Setup lspconfig.
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+require("mason-lspconfig").setup_handlers {
+  function (server_name) -- default handler (optional)
+    require("lspconfig")[server_name].setup {
+      on_attach = on_attach,
+      capabilities = capabilities
+    }
+  end,
+}
 EOF
+
 " vim-prettier setting
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -175,15 +179,6 @@ endfunction
 " vim javascript setting
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
-
-" Coc Hover
-function! ShowDocumentation()
-  " Hoverがあれば呼び出す
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  endif
-endfunction
-
 
 " Comment out backup
 " ddc vim setting
