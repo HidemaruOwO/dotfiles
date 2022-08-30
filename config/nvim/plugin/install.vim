@@ -6,25 +6,11 @@ call jetpack#begin()
   Jetpack 'prettier/vim-prettier'
   " Python
   Jetpack 'python/mypy'
-  " Zig
-  Jetpack 'ziglang/zig.vim'
   " Nim
   Jetpack 'alaviss/nim.nvim'
-  " Rust
-  Jetpack 'rust-lang/rust.vim'
-  Jetpack 'jonathanfilip/vim-lucius'
   " JavaScript
-  Jetpack 'windwp/nvim-ts-autotag'
-  Jetpack 'windwp/nvim-autopairs'
-  Jetpack 'othree/es.next.syntax.vim'
   Jetpack 'othree/yajs.vim'
-  Jetpack 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-  " C
-  Jetpack 'zchee/deoplete-clang'
-  Jetpack 'rhysd/vim-clang-format'
-  " Dotnet
-  Jetpack 'OmniSharp/omnisharp-vim'
-  Jetpack 'neovim/nvim.net'
+  Jetpack 'othree/es.next.syntax.vim'
   " MarkDown
   Jetpack 'previm/previm'
   Jetpack 'mattn/vim-maketable'
@@ -41,6 +27,10 @@ call jetpack#begin()
   Jetpack 'neovim/nvim-lspconfig'
   Jetpack 'williamboman/mason.nvim'
   Jetpack 'williamboman/mason-lspconfig.nvim'
+  Jetpack 'kkharji/lspsaga.nvim'
+  Jetpack 'onsails/lspkind.nvim'
+  Jetpack 'ray-x/lsp_signature.nvim'
+  Jetpack 'j-hui/fidget.nvim'
   " Cmp 入力補完
   Jetpack 'hrsh7th/cmp-nvim-lsp'
   Jetpack 'hrsh7th/cmp-buffer'
@@ -54,6 +44,7 @@ call jetpack#begin()
   " Show directory tree
   Jetpack 'preservim/nerdtree'
   Jetpack 'p00f/nvim-ts-rainbow'
+  Jetpack 'windwp/nvim-autopairs'
   Jetpack 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   " Atom icon for NERDTree
   Jetpack 'ryanoasis/vim-devicons'
@@ -62,7 +53,9 @@ call jetpack#begin()
   " Show rich status bar
   Jetpack 'vim-airline/vim-airline'
   Jetpack 'vim-airline/vim-airline-themes'
-  "
+  " Theme
+  Jetpack 'jonathanfilip/vim-lucius'
+  " ターミナル
   Jetpack 'Shougo/deol.nvim'
   " Writing code with AI
   Jetpack 'github/copilot.vim'
