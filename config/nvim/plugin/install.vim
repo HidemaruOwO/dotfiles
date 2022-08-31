@@ -51,6 +51,7 @@ call jetpack#begin()
   " Paint indent
   Jetpack 'nathanaelkane/vim-indent-guides'
   " Show rich status bar
+  Jetpack 'akinsho/bufferline.nvim'
   Jetpack 'vim-airline/vim-airline'
   Jetpack 'vim-airline/vim-airline-themes'
   " Theme
