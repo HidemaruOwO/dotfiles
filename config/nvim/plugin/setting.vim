@@ -45,8 +45,6 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
-" rust format
-let g:rustfmt_autosave = 1
 " Jetpackの起動の高速化
 let g:jetpack#opimization = 1
 
