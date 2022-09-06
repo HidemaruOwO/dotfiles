@@ -30,7 +30,7 @@ alias snvim-nobg="nvim -c NERDTreeToggle -c 'highlight Normal guibg=NONE'"
 alias reboot="sudo reboot"
 alias ...="cd ../.."
 alias root="sudo su -"
-alias zsh="nvim ~/dotfiles/.zshrc"
+alias ezsh="nvim ~/dotfiles/.zshrc"
 alias szsh="source ~/dotfiles/.zshrc"
 alias envim="cd ~/dotfiles/config/nvim/ && snvim && cd -1"
 alias ping="pingu"
@@ -144,3 +144,6 @@ export PATH="$PATH:/Users/hidemal/.local/bin"
 # bun
 export BUN_INSTALL="/home/hidemaru/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Created by `pipx` on 2022-09-05 23:50:12
+export PATH="$PATH:/Users/hidemaru/.local/bin"
