@@ -39,7 +39,9 @@ call jetpack#begin()
   Jetpack 'hrsh7th/nvim-cmp'
   Jetpack 'L3MON4D3/LuaSnip'
   Jetpack 'saadparwaiz1/cmp_luasnip'
-" Preview replace
+  " Preview replace
+  " Generte Image from code
+  Jetpack 'skanehira/denops-silicon.vim'
   Jetpack 'markonm/traces.vim'
   " Show directory tree
   Jetpack 'preservim/nerdtree'
