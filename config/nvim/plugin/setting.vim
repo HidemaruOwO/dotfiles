@@ -154,17 +154,42 @@ vim.cmd [[
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+local lspconfig = require("lspconfig")
+
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("mason-lspconfig").setup_handlers {
   function (server_name) -- default handler (optional)
-    require("lspconfig")[server_name].setup {
-      capabilities = capabilities
+    if server_name == "denols" then
+      lspconfig["denols"].setup {
+      root_dir = lspconfig.util.root_pattern("deno.json"),
+      capabilities = capabilities,
+            lint = true,
+      unstable = true,
+      suggest = {
+        imports = {
+          hosts = {
+            ["https://deno.land"] = true,
+            ["https://cdn.nest.land"] = true,
+            ["https://crux.land"] = true,
+          },
+        },
+      },
     }
-  end,
+  elseif server_name == "tsserver" then
+    lspconfig["tsserver"].setup  {
+		  root_dir = lspconfig.util.root_pattern("package.json"),
+      capabilities = capabilities,
+	  }
+  else
+    lspconfig[server_name].setup {
+      capabilities = capabilities,
+    }
+  end
+end
 }
 EOF
-    
+
 lua << EOF
 local status, saga = pcall(require, "lspsaga")
 if (not status) then return end
