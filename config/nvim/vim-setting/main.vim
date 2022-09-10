@@ -14,6 +14,10 @@ set helplang=ja
 syntax enable
 filetype plugin indent on
 
+set runtimepath^=~/Code/denops-clippy.vim
+
+let g:denops#debug = 1
+
 " LinuxとMacでの条件分岐
 if (has("linux"))
   let g:previm_open_cmd = 'xdg-open'
