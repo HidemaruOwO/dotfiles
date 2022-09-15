@@ -54,11 +54,10 @@ if status is-interactive
     end
 
     if test -z "$git_change"
-      git commit -m ":$1: $2 ($_git_change)"
+      git commit -m ":$argv[1]: $argv[2] ($_git_change)"
     else
-      git commit -m ":$1: $2 ($git_change)"
+      git commit -m ":$argv[1]: $argv[2] ($git_change)"
     end
 
-    git commit -m "$argv[1]: $argv[2]"
   end
 end
