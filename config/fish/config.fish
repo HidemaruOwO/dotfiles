@@ -7,6 +7,8 @@ if status is-interactive
   set -x PATH $HOME/.cargo/bin $PATH
   # alias
   balias sudo "sudo "
+  balias dc "cd"
+  balias sl "ls"
   balias ls "lsd"
   balias la "ls -la"
   balias relogin "exec $SHELL -l"
@@ -17,8 +19,8 @@ if status is-interactive
   balias envim "nvim ~/dotfiles/config/nvim/init.vim"
   balias sfish "source ~/dotfiles/config/fish/config.fish"
   # vim
-  balias vi "vim"
-  balias vim "env VIM (nvim) nvim"
+  balias vi "nvim"
+  balias vim "nvim"
   balias snvim "nvim -c 'NERDTreeToggle'"
   balias snvim-nobg "nvim -c 'highlight Normal guibg NONE' -c 'NERDTreeToggle'"
   balias monitor "wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
