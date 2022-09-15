@@ -1,4 +1,11 @@
 if status is-interactive
+  # path
+  set -x PATH $HOME/.local/bin $PATH
+  set -x PATH /opt/homebrew/bin $PATH
+  set -x PATH /opt/homebrew/sbin $PATH
+  set -x PATH $HOME/.bin $PATH
+  set -x PATH $HOME/.cargo/bin $PATH
+  # alias
   balias sudo "sudo "
   balias ls "lsd"
   balias la "ls -la"
@@ -23,10 +30,35 @@ if status is-interactive
   balias g "git"
   balias gitpullforce "git fetch origin HEAD && git reset --hard origin/HEAD"
   balias gitpushquick 'git add . && gitcommit sparkles "quick push" && git push origin HEAD'
-  
-  set -x PATH $HOME/.local/bin $PATH
-  set -x PATH /opt/homebrew/bin $PATH
-  set -x PATH /opt/homebrew/sbin $PATH
-  set -x PATH $HOME/.bin $PATH
-  set -x PATH $HOME/.cargo/bin $PATH
+  # function
+  function gitcommit
+    set _git_change (git diff --name-only --cached HEAD)
+    
+    if test -z "$_git_change"
+      echo "No change"
+      return 1
+    end
+
+    if test -z "$argv[2]"
+      echo "No subject"
+      if test -z "$argv[1]"
+        echo "No emoji prefix"
+      end
+      return 1
+    end
+
+    if test (uname) = "Darwin"
+      set git_change (echo "$_git_change" | sed -e :loop -e 'N; $!b loop' -e 's/\n/, /g')
+    else
+      set git_change (echo "$_git_change" | sed -e ':loop; N; $!b loop; s/\n/, /g')
+    end
+
+    if test -z "$git_change"
+      git commit -m ":$1: $2 ($_git_change)"
+    else
+      git commit -m ":$1: $2 ($git_change)"
+    end
+
+    git commit -m "$argv[1]: $argv[2]"
+  end
 end
