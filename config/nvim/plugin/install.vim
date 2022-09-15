@@ -45,9 +45,11 @@ call jetpack#begin()
   Jetpack 'markonm/traces.vim'
   " Show directory tree
   Jetpack 'preservim/nerdtree'
-  Jetpack 'p00f/nvim-ts-rainbow'
-  Jetpack 'windwp/nvim-autopairs'
+  " Tree Sitter
   Jetpack 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Jetpack 'p00f/nvim-ts-rainbow'
+  Jetpack 'windwp/nvim-ts-autotag'
+  Jetpack 'windwp/nvim-autopairs'
   " Atom icon for NERDTree
   Jetpack 'ryanoasis/vim-devicons'
   " Paint indent
@@ -69,7 +71,7 @@ call jetpack#begin()
   " 括弧の入力補完
   Jetpack 'cohama/lexima.vim'
   " Show Discord activity
-  Jetpack 'HidemaruOwO/vimcord'
+  Jetpack 'andweeb/presence.nvim'
   " Fuzzy Finder
   Jetpack 'junegunn/fzf'
   Jetpack 'junegunn/fzf.vim'

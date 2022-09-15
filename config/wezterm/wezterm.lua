@@ -17,8 +17,8 @@ end
 return {
 	launch_menu = {
     {
-      label="Zsh",
-      args = {"zsh","-l"},
+      label="Fish",
+      args = {"fish","-l"},
     },
   },
   --background setting
@@ -158,6 +158,4 @@ return {
     window:spawn_tab{}
   end),
   
-  -- shell
-  default_prog = {"zsh", "--login"},
 }
