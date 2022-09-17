@@ -11,6 +11,7 @@ if status is-interactive
   balias sl "ls"
   balias ls "lsd"
   balias la "ls -la"
+  balias cat "bat"
   balias relogin "exec $SHELL -l"
   balias gpp "g++"
   # edit config

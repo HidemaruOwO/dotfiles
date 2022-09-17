@@ -2,5 +2,5 @@
 set termguicolors
 " enable the theme
 syntax enable
-colorscheme rigel
+colorscheme gruvbox
 

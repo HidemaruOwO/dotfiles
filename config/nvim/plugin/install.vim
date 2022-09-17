@@ -17,8 +17,9 @@ call jetpack#begin()
   " Fish
   Jetpack 'dag/vim-fish'
   " =========== Color Scheme ===========
-  Jetpack 'Rigellute/rigel'
-  Jetpack 'joshdick/onedark.vim'
+  "Jetpack 'Rigellute/rigel'
+  "Jetpack 'joshdick/onedark.vim'
+  Jetpack 'morhetz/gruvbox'
   " =========== Exterior ===========
   " Change vimdoc language to Japanese
   Jetpack 'vim-jp/vimdoc-ja'
@@ -63,7 +64,7 @@ call jetpack#begin()
   " ターミナル
   Jetpack 'Shougo/deol.nvim'
   " Writing code with AI
-  Jetpack 'github/copilot.vim'
+  " Jetpack 'github/copilot.vim'
   " Share code at realtime
   Jetpack 'jbyuki/instant.nvim'
   " wakatimes plugin
