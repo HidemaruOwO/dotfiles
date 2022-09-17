@@ -16,7 +16,7 @@ if status is-interactive
   # edit config
   balias ewezterm "nvim ~/dotfiles/config/wezterm/wezterm.lua"
   balias efish "nvim ~/dotfiles/config/fish/config.fish"
-  balias envim "nvim ~/dotfiles/config/nvim/init.vim"
+  balias envim "cd ~/dotfiles/config/nvim && snvim && cd -"
   balias sfish "source ~/dotfiles/config/fish/config.fish"
   # vim
   balias vi "nvim"
