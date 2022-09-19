@@ -64,7 +64,7 @@ call jetpack#begin()
   " ターミナル
   Jetpack 'Shougo/deol.nvim'
   " Writing code with AI
-  " Jetpack 'github/copilot.vim'
+  Jetpack 'github/copilot.vim'
   " Share code at realtime
   Jetpack 'jbyuki/instant.nvim'
   " wakatimes plugin
