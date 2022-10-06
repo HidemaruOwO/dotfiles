@@ -5,6 +5,7 @@ if status is-interactive
   set -x PATH /opt/homebrew/sbin $PATH
   set -x PATH $HOME/.bin $PATH
   set -x PATH $HOME/.cargo/bin $PATH
+  set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
   # alias
   balias sudo "sudo "
   balias dc "cd"
