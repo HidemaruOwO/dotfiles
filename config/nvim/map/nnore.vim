@@ -6,5 +6,4 @@ nnoremap <silent><C-j> :Lspsaga diagnostic_jump_next<CR>
 nnoremap <silent>gd :Lspsaga lsp_finder<CR> 
 nnoremap <silent>gp :Lspsaga preview_definition<CR> 
 nnoremap <silent>gr :Lspsaga rename<CR> 
-nnoremap <silent><Space>f :lua vim.lsp.buf.formatting()<CR>
-
+nnoremap <silent><C-f> :lua vim.lsp.buf.formatting()<CR>
