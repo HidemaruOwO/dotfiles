@@ -169,6 +169,7 @@ require("mason-lspconfig").setup()
 require("mason-lspconfig").setup_handlers {
   function (server_name) -- default handler (optional)
     if server_name == "denols" then
+      vim.cmd('autocmd BufWritePre * :lua vim.lsp.buf.formatting()')
       lspconfig["denols"].setup {
       root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
       capabilities = capabilities,
@@ -186,12 +187,14 @@ require("mason-lspconfig").setup_handlers {
     }
   return
   elseif server_name == "tsserver" then
+    vim.cmd('let g:prettier#autoformat = 1')
     lspconfig["tsserver"].setup  {
 		  root_dir = lspconfig.util.root_pattern("package.json"),
       capabilities = capabilities,
 	  }
   return
   else
+    vim.cmd('autocmd BufWritePre * :lua vim.lsp.buf.formatting()')
     lspconfig[server_name].setup {
       capabilities = capabilities,
     }
@@ -213,7 +216,6 @@ saga.init_lsp_saga {
 EOF
 
 " vim-prettier setting
-let g:prettier#autoformat = 0
 let g:prettier#autoformat_require_pragma = 0
 " previm-setting
 let g:previm_disable_default_css = 1
