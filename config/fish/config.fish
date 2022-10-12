@@ -65,4 +65,7 @@ if status is-interactive
     end
 
   end
+  function fish_command_not_found
+              echo 💩 "<" $argv[1] コマンドが存在しないよ！！
+end
 end
