@@ -16,6 +16,8 @@ call jetpack#begin()
   Jetpack 'mattn/vim-maketable'
   " Fish
   Jetpack 'dag/vim-fish'
+  " Astro
+  Jetpack 'wuelnerdotexe/vim-astro'
   " =========== Color Scheme ===========
   "Jetpack 'Rigellute/rigel'
   "Jetpack 'joshdick/onedark.vim'

@@ -53,6 +53,9 @@ let g:sml#echo_yank_str = 0
 " Vim cord setting
 let g:vimcord_nvim=1
 
+" vim-astro setting
+let g:astro_typescript = 'enable'
+
 lua << EOF
 vim.opt.runtimepath:append("~/dotfiles/templates/treesitter")
 
@@ -160,7 +163,7 @@ vim.cmd [[
 --local on_attach = function(client, bufnr)
 
 -- Setup lspconfig.
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local lspconfig = require("lspconfig")
 
