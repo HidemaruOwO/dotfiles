@@ -59,7 +59,7 @@ vim.opt.runtimepath:append("~/dotfiles/templates/treesitter")
 -- vim-treesitter-config
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "bash","lua", "c", "css", "dockerfile", "gomod", "gowork",  "go", "html", "http", "java", "javascript", "jsdoc", "json", "make", "markdown", "python", "rust", "scss", "sql", "toml", "tsx", "typescript", "vim", "zig", "vue", "yaml" },
+  ensure_installed = { "astro","bash","lua", "c", "css", "dockerfile", "gomod", "gowork",  "go", "html", "http", "java", "javascript", "jsdoc", "json", "make", "markdown", "python", "rust", "scss", "sql", "toml", "tsx", "typescript", "vim", "zig", "vue", "yaml" },
   sync_install = false,
 
   auto_install = true,
@@ -169,7 +169,6 @@ require("mason-lspconfig").setup()
 require("mason-lspconfig").setup_handlers {
   function (server_name) -- default handler (optional)
     if server_name == "denols" then
-      vim.cmd('autocmd BufWritePre * :lua vim.lsp.buf.formatting()')
       lspconfig["denols"].setup {
       root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc", "deps.ts", "import_map.json"),
       capabilities = capabilities,
@@ -187,14 +186,12 @@ require("mason-lspconfig").setup_handlers {
     }
   return
   elseif server_name == "tsserver" then
-    vim.cmd('let g:prettier#autoformat = 1')
     lspconfig["tsserver"].setup  {
 		  root_dir = lspconfig.util.root_pattern("package.json"),
       capabilities = capabilities,
 	  }
   return
   else
-    vim.cmd('autocmd BufWritePre * :lua vim.lsp.buf.formatting()')
     lspconfig[server_name].setup {
       capabilities = capabilities,
     }
