@@ -22,8 +22,6 @@ if status is-interactive
   balias envim "cd ~/dotfiles/config/nvim && snvim && cd -"
   balias sfish "source ~/dotfiles/config/fish/config.fish"
   # vim
-  balias vi "nvim"
-  balias vim "nvim"
   balias snvim "nvim -c 'NERDTreeToggle'"
   balias snvim-nobg "nvim -c 'highlight Normal guibg NONE' -c 'NERDTreeToggle'"
   balias monitor "wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"

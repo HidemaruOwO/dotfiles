@@ -19,13 +19,14 @@ call jetpack#begin()
   " Astro
   Jetpack 'wuelnerdotexe/vim-astro'
   " =========== Color Scheme ===========
-  "Jetpack 'Rigellute/rigel'
-  "Jetpack 'joshdick/onedark.vim'
+  Jetpack 'Rigellute/rigel'
+  Jetpack 'joshdick/onedark.vim'
   Jetpack 'morhetz/gruvbox'
-  " =========== Exterior ===========
+  " =========== Tools ===========
+  " Transperent background
+  Jetpack 'miyakogi/seiya.vim'
   " Change vimdoc language to Japanese
   Jetpack 'vim-jp/vimdoc-ja'
-  " =========== Tools ===========
   " Builtin LSP
   Jetpack 'neovim/nvim-lspconfig'
   Jetpack 'williamboman/mason.nvim'
@@ -83,6 +84,8 @@ call jetpack#begin()
   " 一部の行をコピー
   Jetpack 'Rasukarusan/nvim-select-multi-line'
   Jetpack 'thinca/vim-scouter'
+  " コンフリクトを協調する
+  Jetpack 'rhysd/conflict-marker.vim'
 call jetpack#end()
 
 " Comment out backup
