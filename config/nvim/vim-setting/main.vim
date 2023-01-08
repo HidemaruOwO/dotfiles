@@ -11,6 +11,7 @@ set showmatch
 set laststatus=2
 set wildmode=list:longest
 set helplang=ja
+set mouse-=nvi
 syntax enable
 filetype plugin indent on
 

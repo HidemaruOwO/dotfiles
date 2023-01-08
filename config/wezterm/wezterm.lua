@@ -6,7 +6,7 @@ local mux = wezterm.mux
 
 
 if os_name == "Mac" then
-  will_font_size = 13
+  will_font_size = 14
 elseif os_name == "Linux" then
   will_font_size = 10
 end
@@ -22,7 +22,7 @@ return {
     },
   },
   --background setting
-  window_background_opacity = 0.65,
+  window_background_opacity = 0.7,
   window_background_image_hsb = {
     brightness = 0.15,
     saturation = 1.0,
@@ -154,7 +154,7 @@ return {
 
   wezterm.on("gui-startup", function()
     local tab, pane, window = mux.spawn_window {}
-    pane:send_text("zenith\n")
+    pane:send_text("btm\n")
     window:spawn_tab {}
   end),
 

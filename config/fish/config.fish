@@ -7,13 +7,14 @@ if status is-interactive
   set -x PATH $HOME/.bin $PATH
   set -x PATH $HOME/.cargo/bin $PATH
   set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
+  set -x PATH /opt/homebrew/opt/openjdk/bin $PATH
   # alias
+  balias en2ja "strans -s en -t ja"
   balias sudo "sudo "
   balias dc "cd"
   balias sl "ls"
   balias ls "lsd"
   balias la "ls -la"
-  balias cat "bat"
   balias relogin "exec $SHELL -l"
   balias gpp "g++"
   # edit config
@@ -33,6 +34,7 @@ if status is-interactive
   balias g "git"
   balias gitpullforce "git fetch origin HEAD && git reset --hard origin/HEAD"
   balias gitpushquick 'git add . && gitcommit sparkles "quick push" && git push origin HEAD'
+  thefuck --alias | source
   # function
   function gitcommit
     set _git_change (git diff --name-only --cached HEAD)

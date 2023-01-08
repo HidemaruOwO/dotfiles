@@ -258,3 +258,5 @@ endfunction
 " Use ddc.
 "call ddc#enable()
 
+let g:jetpack_copy_method='copy' " Neovimのみ使用可能 高速
+let g:jetpack#optimization=2 " 全てのプラグインを最適化
