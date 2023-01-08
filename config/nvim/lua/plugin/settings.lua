@@ -1,27 +1,25 @@
-" add runtimepath
 
-" vim-indent-guidesの起動
-let g:indent_guides_enable_on_vim_startup = 1
-let NERDTreeShowHidden = 1
-" airlineの設定
-let g:airline_theme = 'tomorrow'
-" Powerline系フォントを利用する
-set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#whitespace#mixed_indent_algo = 1
-let g:airline_theme = 'violet'
+vim.cmd [[
+function! DeolFloat() abort
+    :Deol -split=floating -winheight=35 -winwidth=120 -winrow=11.5 -wincol=45
+endfunction
+]]
+
+-- set global variables
+vim.cmd [[
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
+]]
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
+vim.cmd [[
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#buffer_idx_mode = 1
+  let g:airline#extensions#whitespace#mixed_indent_algo = 1
+  let g:sml#echo_yank_str = 0
+  let g:prettier#autoformat_require_pragma = 0
+  let g:jetpack#optimization=2
+  let g:airline_symbols.crypt = '🔒'
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.linenr = '␊'
 let g:airline_symbols.linenr = '␤'
@@ -35,28 +33,47 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
-" Jetpackの起動の高速化
-let g:jetpack#opimization = 1
+]]
 
-let g:sml#echo_yank_str = 0
+local g = {
+indent_guides_enable_on_vim_startup = 1                                 ,
+NERDTreeShowHidden = 1                                                  ,
+-- airline                                                              
+airline_theme = "tomorrow"                                              ,
+airline_powerline_fonts = 1                                             ,
+airline_theme = "violet"                                                ,
+-- unicode symbols                                                      
+airline_left_sep = "»"                                                  ,
+airline_left_sep = "▶"                                                  ,
+airline_right_sep = "«"                                                 ,
+airline_right_sep = "◀"                                                 ,
 
-" Vim cord setting
-let g:vimcord_nvim=1
+-- powerline symbols                                                    
+airline_left_sep = ""                                                  ,
+airline_left_alt_sep = ""                                              ,
+airline_right_sep = ""                                                 ,
+airline_right_alt_sep = ""                                             ,
 
-" vim-astro setting
-let g:astro_typescript = 'enable'
+--                                                                      
+vimcord_nvim=1                                                          ,
+astro_typescript = "enable"                                             ,
+-- previm-setting                                                       
+previm_disable_default_css = 1                                          ,
+previm_custom_css_path = "~/dotfiles/templates/previm/github.css"       ,
+instant_username = "HidemaruOwO"                                        ,
+-- jetpack settings                                                     ,
+jetpack_copy_method="copy"                                              ,
+}
 
-lua << EOF
+for k, v in pairs(g) do
+  vim.g[k] = v
+end
+
+-- add runtimepath
 vim.opt.runtimepath:append("~/dotfiles/templates/treesitter")
 
 -- vim-treesitter-config
@@ -89,8 +106,6 @@ if (not status) then return end
 autopairs.setup({
   disable_filetype = { "TelescopePrompt" , "vim" },
 })
-EOF
-lua << EOF
 -- Setup nvim-cmp.
 local cmp = require'cmp'
 
@@ -201,9 +216,6 @@ require("mason-lspconfig").setup_handlers {
   end
 end
 }
-EOF
-
-lua << EOF
 local status, saga = pcall(require, "lspsaga")
 if (not status) then return end
 
@@ -213,50 +225,4 @@ saga.init_lsp_saga {
   }
 }
 
-EOF
 
-" vim-prettier setting
-let g:prettier#autoformat_require_pragma = 0
-" previm-setting
-let g:previm_disable_default_css = 1
-let g:previm_custom_css_path = '~/dotfiles/templates/previm/github.css'
-" instant.nvim setting
-let g:instant_username = "HidemaruOwO"
-
-function! DeolFloat() abort
-    :Deol -split=floating -winheight=35 -winwidth=120 -winrow=11.5 -wincol=45
-endfunction
-
-" Comment out backup
-" ddc vim setting
-
-"call ddc#custom#patch_global('sources', ['around'])
-
-"call ddc#custom#patch_global('sourceOptions', {
-"      \ '_': {
-"      \   'matchers': ['matcher_head']
-"      \ },
-"      \ })
-
-" Mappings
-
-" <TAB>: completion.
-"inoremap <silent><expr> <TAB>
-"\ ddc#map#pum_visible() ? '<C-n>' :
-"\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-"\ '<TAB>' : ddc#map#manual_complete()
-
-" <ENTER>: completion.
-"inoremap <silent><expr> <ENTER>
-"\ ddc#map#pum_visible() ? '<C-n>' :
-"\ (col('.') <= 1 <Bar><Bar> getline('.')[col('.') - 2] =~# '\s') ?
-"\ '<TAB>' : ddc#map#manual_complete()
-
-" <S-TAB>: completion back.
-"inoremap <expr><S-TAB>  ddc#map#pum_visible() ? '<C-p>' : '<C-h>'
-
-" Use ddc.
-"call ddc#enable()
-
-let g:jetpack_copy_method='copy' " Neovimのみ使用可能 高速
-let g:jetpack#optimization=2 " 全てのプラグインを最適化
