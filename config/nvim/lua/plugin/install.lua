@@ -6,9 +6,6 @@ require("jetpack.packer").startup(function(use)
    use { 'prettier/vim-prettier' }
    -- Nim
    use { 'alaviss/nim.nvim' }
-   -- JavaScript
-   use { 'othree/yajs.vim' }
-   use { 'othree/es.next.syntax.vim' }
    -- MarkDown
    use { 'previm/previm' }
    use { 'mattn/vim-maketable' }
@@ -54,7 +51,7 @@ require("jetpack.packer").startup(function(use)
    use { 'p00f/nvim-ts-rainbow' }
    use { 'windwp/nvim-ts-autotag' }
    use { 'windwp/nvim-autopairs' }
-   -- Atom icon for NERDTree
+   -- Atom icon
    use { 'ryanoasis/vim-devicons' }
    -- Paint indent
    use { 'nathanaelkane/vim-indent-guides' }
