@@ -15,3 +15,9 @@ elseif theme == "deep_sea" then
    ]]
    vim.g.airline_theme = ""
 end
+
+vim.cmd [[
+   highlight GitGutterAdd ctermfg=green
+   highlight GitGutterChange ctermfg=blue
+   highlight GitGutterDelete ctermfg=red
+]]

@@ -44,8 +44,6 @@ require("jetpack.packer").startup(function(use)
    -- Generte Image from code
    use { 'skanehira/denops-silicon.vim' }
    use { 'markonm/traces.vim' }
-   -- Show directory tree
-   use { 'preservim/nerdtree' }
    -- Tree Sitter
    use { 'nvim-treesitter/nvim-treesitter', cmd = ':TSUpdate' }
    use { 'p00f/nvim-ts-rainbow' }
@@ -83,4 +81,14 @@ require("jetpack.packer").startup(function(use)
    use { 'rhysd/conflict-marker.vim' }
    -- Undoの履歴を表示する
    use { 'sjl/gundo.vim' }
+   -- File tree
+   use { 'lambdalisue/fern.vim' }
+   use { 'lambdalisue/fern-git-status.vim' }
+   use { 'lambdalisue/glyph-palette.vim' }
+   use { 'lambdalisue/nerdfont.vim' }
+   use { 'lambdalisue/fern-renderer-nerdfont.vim' }
+   use { 'lambdalisue/glyph-palette.vim' }
+   -- Git差分表示
+   use { 'airblade/vim-gitgutter' }
+
 end)

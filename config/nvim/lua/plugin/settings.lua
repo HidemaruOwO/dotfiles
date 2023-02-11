@@ -12,6 +12,7 @@ endif
 ]]
 
 vim.cmd [[
+   let g:fern#renderer = 'nerdfont'
    let g:airline#extensions#tabline#enabled = 1
    let g:airline#extensions#tabline#buffer_idx_mode = 1
    let g:airline#extensions#whitespace#mixed_indent_algo = 1
