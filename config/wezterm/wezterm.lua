@@ -35,7 +35,7 @@ return {
    color_scheme = "nord",
    use_ime = true,
    --font setting
-   font = wezterm.font("Hack Nerd Font"),
+   font = wezterm.font("UDEV Gothic 35NFLG"),
    font_size = will_font_size,
 
    warn_about_missing_glyphs = false,
