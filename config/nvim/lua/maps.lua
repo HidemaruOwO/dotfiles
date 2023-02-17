@@ -12,7 +12,9 @@ vim.api.nvim_set_keymap("n", "gd", ":Lspsaga lsp_finder<CR>", { noremap = true, 
 vim.api.nvim_set_keymap("n", "gp", ":Lspsaga preview_definition<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gr", ":Lspsaga rename<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "fp", ":Prettier<CR>", { noremap = true, silent = true })
+-- Fern mapping
 vim.api.nvim_set_keymap("n", "<C-n>", ":FernToggle<CR>", { noremap = true, silent = true })
+-- Git Gutter mapping
 vim.api.nvim_set_keymap("n", "g[", ":GitGutterPrevHunk<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "g]", ":GitGutterNextHunk<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gh", ":GitGutterLineHighlightsToggle<CR>", { noremap = true, silent = true })

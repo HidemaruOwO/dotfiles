@@ -9,6 +9,7 @@ if status is-interactive
   set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
   set -x PATH /opt/homebrew/opt/openjdk/bin $PATH
   # alias
+  balias lg "lazygit"
   balias en2ja "strans -s en -t ja"
   balias sudo "sudo "
   balias dc "cd"
