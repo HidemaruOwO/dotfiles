@@ -51,13 +51,11 @@ local g = {
    airline_left_sep = "▶",
    airline_right_sep = "«",
    airline_right_sep = "◀",
-
    -- powerline symbols
    airline_left_sep = "",
    airline_left_alt_sep = "",
    airline_right_sep = "",
    airline_right_alt_sep = "",
-
    --
    vimcord_nvim = 1,
    astro_typescript = "enable",
@@ -79,9 +77,6 @@ vim.opt.runtimepath:append("~/dotfiles/templates/treesitter")
 -- vim-treesitter-config
 require 'nvim-treesitter.configs'.setup {
    -- A list of parser names, or "all"
-   ensure_installed = { "astro", "bash", "lua", "c", "css", "dockerfile", "gomod", "gowork", "go", "html", "http", "java",
-      "javascript", "jsdoc", "json", "make", "markdown", "python", "rust", "scss", "sql", "toml", "tsx", "typescript",
-      "vim", "zig", "vue", "yaml" },
    sync_install = false,
 
    auto_install = true,
@@ -122,7 +117,7 @@ cmp.setup({
       end,
    },
    mapping = cmp.mapping.preset.insert({
-      ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-d>'] = cmp.mapping.scroll_docs( -4),
       ['<C-f>'] = cmp.mapping.scroll_docs(4),
       ['<C-Space>'] = cmp.mapping.complete(),
       ['<C-e>'] = cmp.mapping.close(),
