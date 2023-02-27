@@ -79,6 +79,7 @@ require("jetpack.packer").startup(function(use)
    use { 'thinca/vim-scouter' }
    -- コンフリクトを協調する
    use { 'rhysd/conflict-marker.vim' }
+   use { 'akinsho/git-conflict.nvim' }
    -- Undoの履歴を表示する
    use { 'sjl/gundo.vim' }
    -- File tree
