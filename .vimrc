@@ -1,4 +1,5 @@
 inoremap /* /*  */<LEFT><LEFT><LEFT>
+nnoremap ci a/images/posts/inside/
 
 set number             
 set autoindent         
