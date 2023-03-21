@@ -22,6 +22,7 @@ ln -sf ~/dotfiles/config/fish ~/.config
 ln -sf ~/dotfiles/config/wezterm ~/.config
 ln -sf ~/dotfiles/config/fcitx ~/.config
 ln -sf ~/dotfiles/config/gh-dash ~/.config
+ln -sf ~/dotfiles/config/lazygit ~/.config
 ln -sf ~/dotfiles/oh-my-zsh/* ~/.oh-my-zsh
 
 # UNIXではlnコマンドに-Tオプションが存在しない

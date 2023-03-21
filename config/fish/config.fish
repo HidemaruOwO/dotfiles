@@ -1,4 +1,6 @@
 if status is-interactive
+   neofetch
+   figlet 'Welcome to fish!!'
   # path
   set -x PATH $HOME/go/bin $PATH
   set -x PATH $HOME/.local/bin $PATH
@@ -9,6 +11,8 @@ if status is-interactive
   set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
   set -x PATH /opt/homebrew/opt/openjdk/bin $PATH
   set -x PATH /opt/rocm/bin $PATH
+  # set variable
+  set -x GRNTEMP ~/dotfiles/templates/git-release-notes/markdown.ejs
   # alias
   balias lg "lazygit"
   balias en2ja "strans -s en -t ja"
@@ -24,6 +28,7 @@ if status is-interactive
   balias efish "nvim ~/dotfiles/config/fish/config.fish"
   balias envim "cd ~/dotfiles/config/nvim && snvim && cd -"
   balias sfish "source ~/dotfiles/config/fish/config.fish"
+  balias egrntemp "nvim ~/dotfiles/templates/git-release-notes/markdown.ejs"
   # vim
   balias snvim "nvim -c 'FernToggle'"
   balias monitor "wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
