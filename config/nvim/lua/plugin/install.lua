@@ -13,6 +13,8 @@ require("jetpack.packer").startup(function(use)
   use { 'dag/vim-fish' }
   -- Astro
   use { 'wuelnerdotexe/vim-astro' }
+  -- Neovim Lua
+  use "folke/neodev.nvim"
   -- =========== Color Scheme ===========
   use { 'Rigellute/rigel' }
   use { 'joshdick/onedark.vim' }

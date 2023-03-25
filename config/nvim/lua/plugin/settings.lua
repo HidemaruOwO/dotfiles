@@ -75,6 +75,7 @@ end
 -- add runtimepath
 vim.opt.runtimepath:append("~/dotfiles/templates/treesitter")
 
+
 -- vim-treesitter-config
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
@@ -112,7 +113,6 @@ if (not status) then return end
 local lspkind = require 'lspkind'
 
 cmp.setup({
-
   snippet = {
     expand = function(args)
       require('luasnip').lsp_expand(args.body)
@@ -176,6 +176,11 @@ vim.cmd [[
 
 --local on_attach = function(client, bufnr)
 
+require("neodev").setup({
+  -- add any options here, or leave empty to use the default settings
+})
+
+
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
@@ -208,6 +213,16 @@ require("mason-lspconfig").setup_handlers {
         capabilities = capabilities,
       }
       return
+    elseif server_name == "lua_ls" then
+      lspconfig["lua_ls"].setup {
+        settings = {
+          Lua = {
+            completion = {
+              lcallSinppet = "Replace",
+            },
+          },
+        },
+      }
     else
       lspconfig[server_name].setup {
         capabilities = capabilities,
