@@ -21,7 +21,7 @@ map("n", "g[", ":GitGutterPrevHunk<CR>", { noremap = true, silent = true })
 map("n", "g]", ":GitGutterNextHunk<CR>", { noremap = true, silent = true })
 map("n", "gh", ":GitGutterLineHighlightsToggle<CR>", { noremap = true, silent = true })
 -- LazyGit
-map("n", "lg", ":LazyGit", { noremap = true, silent = true })
+map("n", "lg", ":LazyGit<CR>", { noremap = true, silent = true })
 
 vim.cmd [[
 let g:fern#disable_default_mappings = 1
