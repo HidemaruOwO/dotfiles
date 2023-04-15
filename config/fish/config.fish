@@ -14,6 +14,7 @@ if status is-interactive
   # set variable
   set -x GRNTEMP ~/dotfiles/templates/git-release-notes/markdown.ejs
   # alias
+      balias drun 'docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/pwd'
   balias lg "lazygit"
   balias en2ja "strans -s en -t ja"
   balias sudo "sudo "
@@ -39,7 +40,7 @@ if status is-interactive
   # git
   balias g "git"
   balias gitpullforce "git fetch origin HEAD && git reset --hard origin/HEAD"
-  balias gitpushquick 'git add . && gitcommit sparkles "quick push" && git push origin HEAD'
+  balias gitpushquick 'git add . && pummit sparkles "quick push" && git push origin HEAD'
   thefuck --alias | source
   pummit complete --fish | source
 
