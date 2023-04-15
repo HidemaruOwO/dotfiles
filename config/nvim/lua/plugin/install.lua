@@ -95,4 +95,6 @@ require("jetpack.packer").startup(function(use)
   use { 'airblade/vim-gitgutter' }
   -- Comment
   use { 'tpope/vim-commentary' }
+  -- quick run
+  use { 'Comamoca/runit.nvim' }
 end)
