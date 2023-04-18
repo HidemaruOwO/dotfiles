@@ -40,8 +40,8 @@ return {
    -- disable_default_key_bindings = true,
 
    keys = {
-      { key = "C", mods = "SHIFT|CTRL", action = "Copy" },
-      { key = "V", mods = "SHIFT|CTRL", action = "Paste" },
+      { key = "C", mods = "SHIFT|CTRL", action = {CopyTo ="Clipboard"} },
+      { key = "V", mods = "SHIFT|CTRL", action = {PasteFrom ="Clipboard"} },
 
       { key = "e", mods = "CTRL", action = wezterm.action.SendString("snvim\n") },
 
