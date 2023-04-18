@@ -12,7 +12,19 @@ if status is-interactive
   set -x PATH /opt/homebrew/opt/openjdk/bin $PATH
   set -x PATH /opt/rocm/bin $PATH
   # set variable
-  set -x GRNTEMP ~/dotfiles/templates/git-release-notes/markdown.ejs
+  set GRNTEMP ~/dotfiles/templates/git-release-notes/markdown.ejs
+  set EDITOR nvim
+
+  if test (uname -s) = "Darwin"
+	  set dist_name "macOS"
+  else
+	  # Other
+	  set dist_name "unknown"
+    if test -z "$DISPLAY" -a "$XDG_VTNR" -eq 1
+      exec Hyprland
+    end
+  end
+
   # alias
       balias drun 'docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/pwd'
   balias lg "lazygit"
