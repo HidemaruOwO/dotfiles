@@ -275,4 +275,4 @@ require("runit").setup({
   go = function(file)
     return "go run" .. file
   end,
-})
+}, "Deol")
