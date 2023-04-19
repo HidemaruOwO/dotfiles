@@ -1,17 +1,7 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/hidemaru/sshconf
-- /home/hidemaru/Code/sandbox
-- /home/hidemaru/Code/pummit
-- /home/hidemaru/temp
 - /home/hidemaru/dotfiles
-- /home/hidemaru/Code/stable-diffusion-webui
-- /home/hidemaru/Code/testrepo
-- /home/hidemaru/Code/thinkerAI-Installer
-- /home/hidemaru/Code/thinkerAI
-- /home/hidemaru/Code/Awesome-HelloWorld
-- /home/hidemaru/Code/MyHomePage
-- /home/hidemaru/Code/nuts
+- /home/hidemaru/sshconf
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false
