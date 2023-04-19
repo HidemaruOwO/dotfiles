@@ -8,7 +8,7 @@ local mux = wezterm.mux
 if os_name == "Mac" then
    will_font_size = 15
 elseif os_name == "Linux" then
-   will_font_size = 10
+   will_font_size = 11.5
 end
 
 -- wezterm cli spawn -- zenith
