@@ -20,9 +20,6 @@ if status is-interactive
   else
 	  # Other
 	  set dist_name "unknown"
-    if test -z "$DISPLAY" -a "$XDG_VTNR" -eq 1
-      exec Hyprland
-    end
   end
 
   # alias
