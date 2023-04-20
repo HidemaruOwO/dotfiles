@@ -37,7 +37,7 @@ return {
    font_size = will_font_size,
    warn_about_missing_glyphs = false,
    adjust_window_size_when_changing_font_size = false,
-   -- disable_default_key_bindings = true,
+   disable_default_key_bindings = true,
 
    keys = {
       { key = "C", mods = "SHIFT|CTRL", action = {CopyTo ="Clipboard"} },

@@ -18,7 +18,8 @@ if status is-interactive
   if test (uname -s) = "Darwin"
 	  set dist_name "macOS"
   else
-	  # Other
+	  fcitx5 &
+    # Other
 	  set dist_name "unknown"
   end
 
