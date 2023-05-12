@@ -30,9 +30,7 @@ if [ "$OsName" == "arch" ]; then
   echo -e "🤘 \e[1mリポジトリの同期とソフトウェアの更新中...\e[0m"
   sudo pacman -Syyu --noconfirm
   echo -e "🤘 \e[1m周辺パッケージをインストール中...\e[0m"
-  sudo pacman -Syu --noconfirm figlet xdg-user-dirs-gtk gufw cmake yay neovim zsh git wezterm opera gnome-keyring fish fcitx-im fcitx-mozc blender gimp obs-studio vim
-  echo -e "🤘 \e[1mプログラミング言語をインストール中...\e[0m"
-  sudo pacman -Syu --noconfirm nodejs npm yarn go rust nim deno lua dotnet-sdk julia jdk-openjdk kotlin
+  sudo pacman -Syu --noconfirm deno nodejs npm yarn fish neovim figlet
   echo -e "🤘 \e[1mxprofileにfcitxの設定を書き込み中...\e[0m"
   echo 'export LANG="ja_JP.UTF-8"
 export XMODIFIERS="@im=fcitx"
