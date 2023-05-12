@@ -1,4 +1,6 @@
 if status is-interactive
+  set -x PATH /opt/homebrew/bin $PATH
+  set -x PATH /opt/homebrew/sbin $PATH
    neofetch
    figlet 'Welcome to fish!!'
   # path
@@ -10,6 +12,7 @@ if status is-interactive
   set -x PATH $HOME/.cargo/bin $PATH
   set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
   set -x PATH /opt/homebrew/opt/openjdk/bin $PATH
+  set -x PATH $HOME/.nodebrew/current/bin $PATH
   set -x PATH /opt/rocm/bin $PATH
   # set variable
   set GRNTEMP ~/dotfiles/templates/git-release-notes/markdown.ejs
