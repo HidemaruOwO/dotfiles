@@ -18,14 +18,6 @@ if status is-interactive
   set GRNTEMP ~/dotfiles/templates/git-release-notes/markdown.ejs
   set EDITOR nvim
 
-  if test (uname -s) = "Darwin"
-	  set dist_name "macOS"
-  else
-	  fcitx5 &
-    # Other
-	  set dist_name "unknown"
-  end
-
   # alias
       balias drun 'docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/pwd'
   balias lg "lazygit"

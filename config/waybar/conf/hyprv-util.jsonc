@@ -1,0 +1,15 @@
+{
+    "custom/myhyprv": {
+        //shows the current power profile and switches to next on click
+        "format": "{}",
+        "on-click": "cat",
+        "tooltip": false
+    },
+
+    "custom/light_dark": {
+        "format": "󰐾",
+        "on-click": "cat",
+        "tooltip": false
+    }
+
+}

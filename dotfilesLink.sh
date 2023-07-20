@@ -24,16 +24,22 @@ ln -sf ~/dotfiles/config/fcitx ~/.config
 ln -sf ~/dotfiles/config/gh-dash ~/.config
 ln -sf ~/dotfiles/config/lazygit ~/.config
 ln -sf ~/dotfiles/config/hypr ~/.config
-ln -sf ~/dotfiles/oh-my-zsh/* ~/.oh-my-zsh
+ln -sf ~/dotfiles/config/oguri ~/.config
 
 # UNIXではlnコマンドに-Tオプションが存在しない
 rm -rf ~/dotfiles/config/omf/omf
 rm -rf ~/dotfiles/config/nvim/nvim
 rm -rf ~/dotfiles/config/coc/coc
-rm -rf ~/dotfiles/oh-my-zsh/.oh-my-zsh
 rm -rf ~/dotfiles/config/fish/fish
 rm -rf ~/dotfiles/config/wezterm/wezterm
 rm -rf ~/dotfiles/config/fcitx/fcitx
 rm -rf ~/dotfiles/config/gh-dash/gh-dash
 rm -rf ~/dotfiles/config/hypr/hypr
 rm -rf ~/dotfiles/config/lazygit/lazygit
+ln -sf ~/dotfiles/config/oguri ~/.config
+
+ln -sf ~/dotfiles/config/wofi ~/.config
+ln -sf ~/dotfiles/config/wofi ~/.config
+
+ln -sf ~/dotfiles/config/waybar ~/.config
+ln -sf ~/dotfiles/config/waybar ~/.config
