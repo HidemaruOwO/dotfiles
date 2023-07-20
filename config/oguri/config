@@ -1,5 +1,5 @@
 [output LVDS-1]
-image=$XDG_CONFIG_HOME/wallpaper/bg.mp4
+image=/home/hidemaru/dotfiles/templates/background/wolf.mp4
 filter=nearest
 scaling-mode=fill
 anchor=center

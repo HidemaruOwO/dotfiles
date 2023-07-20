@@ -3,7 +3,7 @@ local gon = require("getOsName")
 local os_name, arch_name = gon.get_os_name()
 local will_font_size
 local mux = wezterm.mux
-
+local act = wezterm.action
 
 if os_name == "Mac" then
    will_font_size = 15
@@ -39,7 +39,7 @@ return {
    adjust_window_size_when_changing_font_size = false,
    disable_default_key_bindings = true,
 
-   keys = {
+   keys = { 
       { key = "C", mods = "SHIFT|CTRL", action = {CopyTo ="Clipboard"} },
       { key = "V", mods = "SHIFT|CTRL", action = {PasteFrom ="Clipboard"} },
 

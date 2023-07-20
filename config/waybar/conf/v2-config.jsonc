@@ -22,10 +22,7 @@
         "custom/power_btn"
     ],
     "modules-right": [
-        "temperature",
         "custom/power_profile",
-        "battery",
-        "backlight",
         "pulseaudio",
         "pulseaudio#microphone",
         "tray",
@@ -138,7 +135,7 @@
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "{icon}  {volume}%",
         "format-muted": "",
         "on-click": "~/.config/waybar/scripts/volume --toggle",
         "on-click-right": "pavucontrol",

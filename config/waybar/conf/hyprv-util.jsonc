@@ -7,7 +7,7 @@
     },
 
     "custom/light_dark": {
-        "format": "󰐾",
+        "format": "󰐾 ",
         "on-click": "cat",
         "tooltip": false
     }

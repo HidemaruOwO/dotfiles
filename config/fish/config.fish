@@ -14,6 +14,7 @@ if status is-interactive
   set -x PATH /opt/homebrew/opt/openjdk/bin $PATH
   set -x PATH $HOME/.nodebrew/current/bin $PATH
   set -x PATH /opt/rocm/bin $PATH
+  set -x PATH /snap/bin $PATH
   # set variable
   set GRNTEMP ~/dotfiles/templates/git-release-notes/markdown.ejs
   set EDITOR nvim
