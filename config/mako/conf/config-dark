@@ -3,14 +3,14 @@ max-history=100
 sort=-time
 
 # BINDING OPTIONS
-on-button-left=dismiss
+on-button-left=invoke-default-action
 on-button-middle=none
 on-button-right=dismiss-all
-on-touch=dismiss
+on-touch=invoke-default-action
 #on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
 
 # STYLE OPTIONS
-font=Fantasque Sans Mono 14
+font=Fantasque Sans Mono 9
 width=300
 height=100
 margin=10
