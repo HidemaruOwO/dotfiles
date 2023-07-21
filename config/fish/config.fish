@@ -1,8 +1,8 @@
 if status is-interactive
   set -x PATH /opt/homebrew/bin $PATH
   set -x PATH /opt/homebrew/sbin $PATH
-   neofetch
-   figlet 'Welcome to fish!!'
+  hyfetch --ascii-file ~/dotfiles/templates/neofetch/ascii-slime-1.txt
+  figlet 'Welcome to fish!!'
   # path
   set -x PATH $HOME/go/bin $PATH
   set -x PATH $HOME/.local/bin $PATH
@@ -48,6 +48,10 @@ if status is-interactive
   balias g "git"
   balias gitpullforce "git fetch origin HEAD && git reset --hard origin/HEAD"
   balias gitpushquick 'git add . && pummit sparkles "quick push" && git push origin HEAD'
+
+  balias hyfetch 'hyfetch --ascii-file ~/dotfiles/templates/neofetch/ascii-slime-1.txt'
+  balias neofetch 'hyfetch'
+
   thefuck --alias | source
   pummit complete --fish | source
 
