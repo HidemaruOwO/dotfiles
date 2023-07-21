@@ -33,6 +33,7 @@ if status is-interactive
   # edit config
   balias ewezterm "nvim ~/dotfiles/config/wezterm/wezterm.lua"
   balias efish "nvim ~/dotfiles/config/fish/config.fish"
+  balias ehypr "nvim ~/dotfiles/config/hypr/hyprland.conf"
   balias envim "cd ~/dotfiles/config/nvim && snvim && cd -"
   balias sfish "source ~/dotfiles/config/fish/config.fish"
   balias egrntemp "nvim ~/dotfiles/templates/git-release-notes/markdown.ejs"

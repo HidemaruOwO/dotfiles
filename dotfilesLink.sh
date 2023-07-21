@@ -43,3 +43,9 @@ ln -sf ~/dotfiles/config/wofi ~/.config
 
 ln -sf ~/dotfiles/config/waybar ~/.config
 ln -sf ~/dotfiles/config/waybar ~/.config
+
+ln -sf ~/dotfiles/config/mako ~/.config
+ln -sf ~/dotfiles/config/mako ~/.config
+
+ln -sf ~/dotfiles/config/kitty ~/.config
+ln -sf ~/dotfiles/config/kitty ~/.config
