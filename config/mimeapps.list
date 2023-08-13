@@ -1,0 +1,18 @@
+[Added Associations]
+application/pdf=org.gnome.Evince.desktop;
+application/x-bittorrent=deluge.desktop;
+image/jpeg=org.gnome.gThumb.desktop;
+image/png=xnviewmp.desktop;org.gnome.gThumb.desktop;vlc.desktop;
+text/plain=org.gnome.gedit.desktop;
+
+[Default Applications]
+application/x-bittorrent=deluge.desktop;
+image/jpeg=org.gnome.gThumb.desktop;
+image/png=xnviewmp.desktop;
+text/html=vivaldi-stable.desktop
+x-scheme-handler/localhost=127.0.0.1
+x-scheme-handler/about=vivaldi-stable.desktop
+x-scheme-handler/http=vivaldi-stable.desktop
+x-scheme-handler/https=vivaldi-stable.desktop
+x-scheme-handler/msteams=teams.desktop
+x-scheme-handler/unknown=vivaldi-stable.desktop
