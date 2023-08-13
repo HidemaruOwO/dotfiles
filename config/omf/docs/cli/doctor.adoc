@@ -1,7 +1,0 @@
-Troubleshoot Oh My Fish.
-
-== USAGE
-  omf doctor
-
-== DESCRIPTION
-  Checks your environment and Oh My Fish install for any potential or common problems.

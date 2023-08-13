@@ -1,4 +1,0 @@
-Uninstall Oh My Fish.
-
-== USAGE
-  omf destroy
