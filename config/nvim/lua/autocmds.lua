@@ -12,4 +12,6 @@ vim.cmd [[
 	\ call ddu#ui#filer#do_action('checkItems')
 
 autocmd FileType ddu-filer call Ddu_filer_my_settings()
-]]
+
+autocmd FileType fern call Init_fern()
+ ]]

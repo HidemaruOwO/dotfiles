@@ -1,7 +1,7 @@
 local map = vim.api.nvim_set_keymap
 
 local opt = { silent = true, noremap = true }
-local opt_expr = { silent = true, noremap = true, expr = true  }
+local opt_expr = { silent = true, noremap = true, expr = true }
 
 map("n", "<Space>v", ":call sml#mode_on()<CR>", opt)
 map("n", "<C-t>", ":call DeolFloat()<CR>", opt)
@@ -19,7 +19,25 @@ map("n", "gp", ":Lspsaga preview_definition<CR>", opt)
 map("n", "gr", ":Lspsaga rename<CR>", opt)
 map("n", "fp", ":Prettier<CR>", opt)
 -- Fern mapping
---map("n", "<C-n>", ":FernToggle<CR>", opt)
+map("n", "<C-m>", ":FernToggle<CR>", opt)
+vim.cmd [[
+function! Init_fern() abort
+	nmap <buffer><expr> <Plug>(fern-my-open-or-expand)
+	      \ fern#smart#leaf(
+	      \   "<Plug>(fern-action-open)",
+	      \   "<Plug>(fern-action-expand)",
+	      \ )
+
+   nmap <buffer><nowait> <CR> <Plug>(fern-my-open-or-expand)
+   nmap <buffer><nowait> s <Plug>(fern-action-open:split)
+   nmap <buffer><nowait> S <Plug>(fern-action-open:vsplit)
+   nmap <buffer><nowait> h <Plug>(fern-action-collapse)
+   nmap <buffer><nowait> d <Plug>(fern-action-remove)
+   nmap <buffer><nowait> c <Plug>(fern-action-copy)
+   nmap <buffer><nowait> m <Plug>(fern-action-move)
+   nmap <buffer><nowait> n <Plug>(fern-action-new-file)
+ endfunction
+]]
 -- ddu-ui-filer
 map("n", "<C-n>", ":DduFiler<CR>", opt)
 -- Git Gutter mapping

@@ -83,12 +83,12 @@ require("jetpack.packer").startup(function(use)
   -- Undoの履歴を表示する
   use { 'sjl/gundo.vim' }
   -- Fern
-  -- use { 'lambdalisue/fern.vim' }
-  --use { 'lambdalisue/fern-git-status.vim' }
-  --use { 'lambdalisue/glyph-palette.vim' }
-  -- use { 'lambdalisue/nerdfont.vim' }
-  -- use { 'lambdalisue/fern-renderer-nerdfont.vim' }
-  -- use { 'lambdalisue/glyph-palette.vim' }
+  use { 'lambdalisue/fern.vim' }
+  use { 'lambdalisue/fern-git-status.vim' }
+  use { 'lambdalisue/glyph-palette.vim' }
+  use { 'lambdalisue/nerdfont.vim' }
+  use { 'lambdalisue/fern-renderer-nerdfont.vim' }
+  use { 'lambdalisue/glyph-palette.vim' }
   -- Git差分表示
   use { 'airblade/vim-gitgutter' }
   -- Comment

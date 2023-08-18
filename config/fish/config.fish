@@ -39,7 +39,7 @@ if status is-interactive
   balias sfish "source ~/dotfiles/config/fish/config.fish"
   balias egrntemp "nvim ~/dotfiles/templates/git-release-notes/markdown.ejs"
   # vim
-  balias snvim "nvim -c 'DduFiler'"
+  balias snvim "nvim -c 'FernToggle'"
   balias monitor "wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
   balias ping "pingu"
   balias gitlog "git log --oneline --graph --decorate"
