@@ -17,7 +17,10 @@ map("n", "<C-c>", ":Commentary<CR>", opt)
 map("n", "gd", ":Lspsaga lsp_finder<CR>", opt)
 map("n", "gp", ":Lspsaga preview_definition<CR>", opt)
 map("n", "gr", ":Lspsaga rename<CR>", opt)
-map("n", "fp", ":Prettier<CR>", opt)
+map("n", "ga", ":Lspsaga code_action<CR>", opt)
+map("n", "ge", ":Lspsaga show_line_diagnostics<CR>", opt)
+map("n", "[e", ":Lspsaga diagnostic_jump_next<CR>", opt)
+map("n", "]e", ":Lspsaga diagnostic_jump_prev<CR>", opt)
 -- Fern mapping
 map("n", "<C-m>", ":FernToggle<CR>", opt)
 vim.cmd [[
@@ -29,8 +32,9 @@ function! Init_fern() abort
 	      \ )
 
    nmap <buffer><nowait> <CR> <Plug>(fern-my-open-or-expand)
-   nmap <buffer><nowait> s <Plug>(fern-action-open:split)
-   nmap <buffer><nowait> S <Plug>(fern-action-open:vsplit)
+   nmap <buffer><nowait> l <Plug>(fern-action-open)
+   nmap <buffer><nowait> S <Plug>(fern-action-open:split)
+   nmap <buffer><nowait> s <Plug>(fern-action-open:vsplit)
    nmap <buffer><nowait> h <Plug>(fern-action-collapse)
    nmap <buffer><nowait> d <Plug>(fern-action-remove)
    nmap <buffer><nowait> c <Plug>(fern-action-copy)

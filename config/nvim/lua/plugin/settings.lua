@@ -1,6 +1,22 @@
 vim.cmd [[
+function! RoundToInteger(number)
+    let integer_part = float2nr(a:number)
+    let decimal_part = a:number - integer_part
+    let rounded_decimal = round(decimal_part)
+
+    if rounded_decimal == 1
+        return integer_part + 1
+    else
+        return integer_part
+    endif
+endfunction
+
+
 function! DeolFloat() abort
-    :Deol -split=floating -winheight=35 -winwidth=120 -winrow=11.5 -wincol=45
+  let my_winwidth = winwidth('0') / 2
+  let my_winheight = RoundToInteger( winheight('0') / 3 )
+  let cmd = 'Deol -split=floating -winheight=' . my_winheight . ' -winwidth=' . my_winwidth . ' '
+  execute cmd
 endfunction
 ]]
 
@@ -228,14 +244,20 @@ require("mason-lspconfig").setup_handlers {
     end
   end
 }
-local status, saga = pcall(require, "lspsaga")
-if (not status) then return end
 
-saga.init_lsp_saga {
-  server_filetype_map = {
-    typescript = 'typescript'
-  }
-}
+require("lspsaga").setup({
+  border_style = "single",
+  symbol_in_winbar = {
+    enable = true,
+  },
+  code_action_lightbulb = {
+    enable = true,
+  },
+  show_outline = {
+    win_width = 50,
+    auto_preview = false,
+  },
+})
 
 require('git-conflict').setup()
 
@@ -284,7 +306,7 @@ local async = event == "BufWritePost"
 null_ls.setup({
   on_attach = function(client, bufnr)
     if client.supports_method("textDocument/formatting") then
-      vim.keymap.set("n", "<Leader>f", function()
+      vim.keymap.set("n", "<C-f>", function()
         vim.lsp.buf.format({ bufnr = vim.api.nvim_get_current_buf() })
       end, { buffer = bufnr, desc = "[lsp] format" })
 
@@ -354,4 +376,3 @@ vim.cmd [[
 \   },
 \ })
 ]]
-

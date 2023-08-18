@@ -1,6 +1,6 @@
 require("jetpack.packer").startup(function(use)
   -- bootstrap
-  use { 'tani/vim-jetpack' , opt = 1}
+  use { 'tani/vim-jetpack', opt = 1 }
   -- =========== Language Jetpackins ===========
   -- Nim
   use { 'alaviss/nim.nvim' }
@@ -26,7 +26,7 @@ require("jetpack.packer").startup(function(use)
   use { 'MunifTanjim/prettier.nvim' }
   use { 'williamboman/mason.nvim' }
   use { 'williamboman/mason-lspconfig.nvim' }
-  use { 'kkharji/lspsaga.nvim' }
+  use { 'nvimdev/lspsaga.nvim' }
   use { 'onsails/lspkind.nvim' }
   use { 'ray-x/lsp_signature.nvim' }
   use { 'j-hui/fidget.nvim' }
@@ -46,7 +46,8 @@ require("jetpack.packer").startup(function(use)
   use { 'markonm/traces.vim' }
   -- Tree Sitter
   use { 'nvim-treesitter/nvim-treesitter', cmd = ':TSUpdate' }
-  use { 'p00f/nvim-ts-rainbow' }
+  -- use { 'p00f/nvim-ts-rainbow' }
+  use { 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim', as = 'rainbow-delimiters.nvim' }
   use { 'windwp/nvim-ts-autotag' }
   use { 'windwp/nvim-autopairs' }
   -- Atom icon
@@ -73,6 +74,7 @@ require("jetpack.packer").startup(function(use)
   use { 'andweeb/presence.nvim' }
   -- Fuzzy Finder
   use { 'junegunn/fzf' }
+  use { 'ibhagwan/fzf-lua' }
   use { 'junegunn/fzf.vim' }
   -- 一部の行をコピー
   use { 'Rasukarusan/nvim-select-multi-line' }
@@ -99,9 +101,13 @@ require("jetpack.packer").startup(function(use)
   use { 'christoomey/vim-system-copy' }
   -- ddu
   use { 'Shougo/ddu.vim' }
-  use {'Shougo/ddu-ui-filer'}
-  use {'Shougo/ddu-kind-file'}
-  use {'Shougo/ddu-column-filename'}
-  use {'Shougo/ddu-source-file'}
-  use {'ryota2357/ddu-column-icon_filename'}
+  use { 'Shougo/ddu-ui-filer' }
+  use { 'Shougo/ddu-kind-file' }
+  use { 'Shougo/ddu-column-filename' }
+  use { 'Shougo/ddu-source-file' }
+  use { 'ryota2357/ddu-column-icon_filename' }
+  -- LazyGit
+  use { 'kdheepak/lazygit.nvim' }
+  -- Window Decoration
+  use { 'nvim-lua/plenary.nvim' }
 end)

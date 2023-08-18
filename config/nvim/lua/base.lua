@@ -14,3 +14,23 @@ vim.cmd [[
   filetype on
   filetype plugin indent on
 ]]
+
+-- local border = {
+--   { "┏", "FloatBorder" }, -- upper left
+--   { "━", "FloatBorder" }, -- upper
+--   { "┓", "FloatBorder" }, -- upper right
+--   { "┃", "FloatBorder" }, -- right
+--   { "┛", "FloatBorder" }, -- lower right
+--   { "━", "FloatBorder" }, -- lower
+--   { "┗", "FloatBorder" }, -- lower left
+--   { "┃", "FloatBorder" }, -- left
+-- }
+
+-- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+--   vim.lsp.handlers.hover,
+--   {
+--     border = "single", -- "shadow" , "none", "rounded"
+--     -- border = border
+--     -- width = 100,
+--   }
+-- )
