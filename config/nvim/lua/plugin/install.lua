@@ -110,4 +110,5 @@ require("jetpack.packer").startup(function(use)
   use { 'kdheepak/lazygit.nvim' }
   -- Window Decoration
   use { 'nvim-lua/plenary.nvim' }
+  use { 'Allianaab2m/vimskey' }
 end)
