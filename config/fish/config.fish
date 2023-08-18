@@ -5,6 +5,7 @@ if status is-interactive
   figlet 'Welcome to fish!!'
   # path
   set -x PATH $HOME/go/bin $PATH
+  set -x PATH $HOME/.bun/bin $PATH
   set -x PATH $HOME/.local/bin $PATH
   set -x PATH /opt/homebrew/bin $PATH
   set -x PATH /opt/homebrew/sbin $PATH
@@ -38,7 +39,7 @@ if status is-interactive
   balias sfish "source ~/dotfiles/config/fish/config.fish"
   balias egrntemp "nvim ~/dotfiles/templates/git-release-notes/markdown.ejs"
   # vim
-  balias snvim "nvim -c 'FernToggle'"
+  balias snvim "nvim -c 'DduFiler'"
   balias monitor "wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
   balias ping "pingu"
   balias gitlog "git log --oneline --graph --decorate"
@@ -59,3 +60,7 @@ if status is-interactive
               echo 💩 "<" $argv[1] コマンドが存在しないよ！！
 end
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
