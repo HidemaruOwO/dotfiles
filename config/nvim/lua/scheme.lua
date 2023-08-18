@@ -20,4 +20,5 @@ vim.cmd [[
    highlight GitGutterAdd ctermfg=green
    highlight GitGutterChange ctermfg=blue
    highlight GitGutterDelete ctermfg=red
+   hi NormalFloat NONE
 ]]
