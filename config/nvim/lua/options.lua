@@ -14,7 +14,7 @@ local options = {
    smartindent = true,
    showmatch = true,
    laststatus = 2,
-   updatetime = 250
+   updatetime = 250,
 }
 
 vim.cmd [[

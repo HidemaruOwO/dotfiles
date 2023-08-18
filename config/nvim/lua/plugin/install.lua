@@ -1,9 +1,7 @@
 require("jetpack.packer").startup(function(use)
   -- bootstrap
-  use { 'tani/vim-jetpack' }
+  use { 'tani/vim-jetpack' , opt = 1}
   -- =========== Language Jetpackins ===========
-  -- Any
-  use { 'prettier/vim-prettier' }
   -- Nim
   use { 'alaviss/nim.nvim' }
   -- MarkDown
@@ -13,8 +11,6 @@ require("jetpack.packer").startup(function(use)
   use { 'dag/vim-fish' }
   -- Astro
   use { 'wuelnerdotexe/vim-astro' }
-  -- Neovim Lua
-  use "folke/neodev.nvim"
   -- =========== Color Scheme ===========
   use { 'Rigellute/rigel' }
   use { 'joshdick/onedark.vim' }
@@ -26,6 +22,8 @@ require("jetpack.packer").startup(function(use)
   use { 'vim-jp/vimdoc-ja' }
   -- Builtin LSP
   use { 'neovim/nvim-lspconfig' }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
+  use { 'MunifTanjim/prettier.nvim' }
   use { 'williamboman/mason.nvim' }
   use { 'williamboman/mason-lspconfig.nvim' }
   use { 'kkharji/lspsaga.nvim' }
@@ -84,17 +82,26 @@ require("jetpack.packer").startup(function(use)
   use { 'akinsho/git-conflict.nvim' }
   -- Undoの履歴を表示する
   use { 'sjl/gundo.vim' }
-  -- File tree
-  use { 'lambdalisue/fern.vim' }
-  use { 'lambdalisue/fern-git-status.vim' }
-  use { 'lambdalisue/glyph-palette.vim' }
-  use { 'lambdalisue/nerdfont.vim' }
-  use { 'lambdalisue/fern-renderer-nerdfont.vim' }
-  use { 'lambdalisue/glyph-palette.vim' }
+  -- Fern
+  -- use { 'lambdalisue/fern.vim' }
+  --use { 'lambdalisue/fern-git-status.vim' }
+  --use { 'lambdalisue/glyph-palette.vim' }
+  -- use { 'lambdalisue/nerdfont.vim' }
+  -- use { 'lambdalisue/fern-renderer-nerdfont.vim' }
+  -- use { 'lambdalisue/glyph-palette.vim' }
   -- Git差分表示
   use { 'airblade/vim-gitgutter' }
   -- Comment
   use { 'tpope/vim-commentary' }
   -- quick run
   use { 'Comamoca/runit.nvim' }
+  -- Clipboard
+  use { 'christoomey/vim-system-copy' }
+  -- ddu
+  use { 'Shougo/ddu.vim' }
+  use {'Shougo/ddu-ui-filer'}
+  use {'Shougo/ddu-kind-file'}
+  use {'Shougo/ddu-column-filename'}
+  use {'Shougo/ddu-source-file'}
+  use {'ryota2357/ddu-column-icon_filename'}
 end)

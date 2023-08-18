@@ -7,4 +7,9 @@ vim.cmd [[
       autocmd FileType fern call glyph_palette#apply()
       autocmd FileType nerdtree,startify call glyph_palette#apply()
    augroup END
+
+ autocmd TabEnter,CursorHold,FocusGained <buffer>
+	\ call ddu#ui#filer#do_action('checkItems')
+
+autocmd FileType ddu-filer call Ddu_filer_my_settings()
 ]]

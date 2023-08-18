@@ -1,53 +1,77 @@
 local map = vim.api.nvim_set_keymap
 
-map("n", "<Space>v", ":call sml#mode_on()<CR>", { noremap = true, silent = true })
-map("n", "<C-t>", ":call DeolFloat()<CR>", { noremap = true, silent = true })
-map("n", "<C-s>", ":Ag<CR>", { noremap = true, silent = true })
-map("n", "<C-q>", ":Lspsaga hover_doc<CR>", { noremap = true, silent = true })
-map("n", "<C-j>", ":Lspsaga diagnostic_jump_next<CR>", { noremap = true, silent = true })
-map("n", "<C-f>", ":lua vim.lsp.buf.format()<CR>", { noremap = true, silent = true })
-map("n", "<C-h>", "<C-w>h<CR>", { noremap = true, silent = true })
-map("n", "<C-j>", "<C-j>j<CR>", { noremap = true, silent = true })
-map("n", "<C-k>", "<C-w>k<CR>", { noremap = true, silent = true })
-map("n", "<C-l>", "<C-w>l<CR>", { noremap = true, silent = true })
-map("n", "gd", ":Lspsaga lsp_finder<CR>", { noremap = true, silent = true })
-map("n", "gp", ":Lspsaga preview_definition<CR>", { noremap = true, silent = true })
-map("n", "gr", ":Lspsaga rename<CR>", { noremap = true, silent = true })
-map("n", "fp", ":Prettier<CR>", { noremap = true, silent = true })
+local opt = { silent = true, noremap = true }
+local opt_expr = { silent = true, noremap = true, expr = true  }
+
+map("n", "<Space>v", ":call sml#mode_on()<CR>", opt)
+map("n", "<C-t>", ":call DeolFloat()<CR>", opt)
+map("n", "<C-s>", ":Ag<CR>", opt)
+map("n", "<C-q>", ":Lspsaga hover_doc<CR>", opt)
+map("n", "<C-j>", ":Lspsaga diagnostic_jump_next<CR>", opt)
+map("n", "<C-f>", ":lua vim.lsp.buf.format()<CR>", opt)
+map("n", "<C-h>", "<C-w>h<CR>", opt)
+map("n", "<C-j>", "<C-j>j<CR>", opt)
+map("n", "<C-k>", "<C-w>k<CR>", opt)
+map("n", "<C-l>", "<C-w>l<CR>", opt)
+map("n", "<C-c>", ":Commentary<CR>", opt)
+map("n", "gd", ":Lspsaga lsp_finder<CR>", opt)
+map("n", "gp", ":Lspsaga preview_definition<CR>", opt)
+map("n", "gr", ":Lspsaga rename<CR>", opt)
+map("n", "fp", ":Prettier<CR>", opt)
 -- Fern mapping
-map("n", "<C-n>", ":FernToggle<CR>", { noremap = true, silent = true })
+--map("n", "<C-n>", ":FernToggle<CR>", opt)
+-- ddu-ui-filer
+map("n", "<C-n>", ":DduFiler<CR>", opt)
 -- Git Gutter mapping
-map("n", "g[", ":GitGutterPrevHunk<CR>", { noremap = true, silent = true })
-map("n", "g]", ":GitGutterNextHunk<CR>", { noremap = true, silent = true })
-map("n", "gh", ":GitGutterLineHighlightsToggle<CR>", { noremap = true, silent = true })
+map("n", "g[", ":GitGutterPrevHunk<CR>", opt)
+map("n", "g]", ":GitGutterNextHunk<CR>", opt)
+map("n", "gh", ":GitGutterLineHighlightsToggle<CR>", opt)
 -- LazyGit
-map("n", "lg", ":LazyGit<CR>", { noremap = true, silent = true })
+map("n", "lg", ":LazyGit<CR>", opt)
 
 vim.cmd [[
-let g:fern#disable_default_mappings = 1
-function! FernInit() abort
-  nmap <buffer><expr>
-        \ <Plug>(fern-my-open-expand-collapse)
-        \ fern#smart#leaf(
-        \   "\<Plug>(fern-action-open:select)",
-        \   "\<Plug>(fern-action-expand)",
-        \   "\<Plug>(fern-action-collapse)",
-        \ )
-  nmap <buffer> <cr> <Plug>(fern-action-open-or-enter)
-  nmap <buffer> <CR> <Plug>(fern-my-open-expand-collapse)
-  nmap <buffer> n <Plug>(fern-action-new-path)
-  nmap <buffer> d <Plug>(fern-action-remove)
-  nmap <buffer> m <Plug>(fern-action-move)
-  nmap <buffer> M <Plug>(fern-action-rename)
-  nmap <buffer> r <Plug>(fern-action-reload)
-  nmap <buffer> i <Plug>(fern-action-open:split)
-  nmap <buffer> s <Plug>(fern-action-open:vsplit)
-  nmap <buffer><nowait> < <Plug>(fern-action-leave)
-  nmap <buffer><nowait> > <Plug>(fern-action-enter)
-endfunction
+function! Ddu_filer_my_settings() abort
+  nnoremap <buffer><silent><expr> <CR>
+    \ ddu#ui#get_item()->get('isTree', v:false) ?
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'narrow'})<CR>" :
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'open', 'params': {'command': 'vsplit'}})<CR>"
 
-augroup FernGroup
-  autocmd!
-  autocmd FileType fern call FernInit()
-augroup END
+  nnoremap <buffer><silent><expr> s
+    \ ddu#ui#get_item()->get('isTree', v:false) ?
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'narrow'})<CR>" :
+    \ "<Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'open', 'params': {'command': 'split'}})<CR>"
+
+  nnoremap <buffer><silent> <Esc>
+    \ <Cmd>call ddu#ui#filer#do_action('quit')<CR>
+
+  nnoremap <buffer><silent> q
+    \ <Cmd>call ddu#ui#filer#do_action('quit')<CR>
+
+  nnoremap <buffer><silent> ..
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'narrow', 'params': {'path': '..'}})<CR>
+
+  nnoremap <buffer><silent> c
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'copy'})<CR>
+
+  nnoremap <buffer><silent> p
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'paste'})<CR>
+
+  nnoremap <buffer><silent> d
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'delete'})<CR>
+
+  nnoremap <buffer><silent> r
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'rename'})<CR>
+
+  nnoremap <buffer><silent> m
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'move'})<CR>
+
+  nnoremap <buffer><silent> nf
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'newFile'})<CR>
+
+  nnoremap <buffer><silent> nd
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'newDirectory'})<CR>
+
+  nnoremap <buffer><silent> yy
+    \ <Cmd>call ddu#ui#filer#do_action('itemAction', {'name': 'yank'})<CR>
+endfunction
 ]]
