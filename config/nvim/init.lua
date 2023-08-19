@@ -1,3 +1,4 @@
+vim.o.termguicolors = true
 vim.cmd [[runtime ./autoload/jetpack.vim]]
 -- Plugin
 require("plugin/install")

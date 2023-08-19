@@ -6,14 +6,15 @@ vim.cmd [[
 
 vim.cmd [[
   autocmd ColorScheme * highlight NormalFloat NONE
-  autocmd ColorScheme * highlight FloatBorder guifg=gray guibg=#073642
+  autocmd ColorScheme * highlight FloatBorder guifg=gray guibg=NONE
 ]]
 
 vim.cmd [[
   syntax enable
 ]]
 
-local theme = "red_sand"
+
+local theme = "deep_snow"
 
 if theme == "red_sand" then
   vim.cmd [[
@@ -24,5 +25,9 @@ elseif theme == "deep_sea" then
   vim.cmd [[
       colorscheme rigel
   ]]
-  vim.g.airline_theme = ""
+elseif theme == "deep_snow" then
+  vim.cmd [[
+      colorscheme hybrid
+  ]]
+  vim.g.airline_theme = "deus"
 end

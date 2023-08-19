@@ -1,5 +1,4 @@
-vim.cmd [[
-function! RoundToInteger(number)
+vim.cmd [[ function! RoundToInteger(number)
     let integer_part = float2nr(a:number)
     let decimal_part = a:number - integer_part
     let rounded_decimal = round(decimal_part)
@@ -155,6 +154,14 @@ cmp.setup({
   }),
   formatting = {
     format = lspkind.cmp_format({ with_text = false, maxwidth = 50 })
+  },
+  window = {
+    completion = cmp.config.window.bordered({
+      border = 'single'
+    }),
+    documentation = cmp.config.window.bordered({
+      border = 'single'
+    })
   }
 })
 
@@ -190,15 +197,12 @@ vim.cmd [[
   highlight! default link CmpItemKind CmpItemMenuDefault
 ]]
 
---local on_attach = function(client, bufnr)
-
-
-
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local lspconfig = require("lspconfig")
+
 
 require("mason").setup()
 require("mason-lspconfig").setup()
@@ -376,3 +380,69 @@ vim.cmd [[
 \   },
 \ })
 ]]
+
+require('telescope').setup({
+  defaults = {
+    borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+  },
+})
+
+require('dressing').setup({
+  input = {
+    border = 'single',
+  },
+  builtin = {
+    border = 'single',
+  },
+})
+
+local noice = require("noice")
+
+local function myMiniView(pattern, kind)
+  kind = kind or ""
+  return {
+    view = "mini",
+    filter = {
+      event = "msg_show",
+      kind = kind,
+      find = pattern,
+    },
+  }
+end
+
+noice.setup({
+  messages = {
+    view_search = "mini",
+  },
+  routes = {
+    {
+      view = "notify",
+      filter = { event = "msg_showmode" },
+    },
+    {
+      filter = {
+        event = "notify",
+        warning = true,
+        find = "failed to run generator.*is not executable",
+      },
+      opts = { skip = true },
+    },
+    myMiniView("Already at .* change"),
+    myMiniView("written"),
+    myMiniView("yanked"),
+    myMiniView("more lines?"),
+    myMiniView("fewer lines?"),
+    myMiniView("fewer lines?", "lua_error"),
+    myMiniView("change; before"),
+    myMiniView("change; after"),
+    myMiniView("line less"),
+    myMiniView("lines indented"),
+    myMiniView("No lines in buffer"),
+    myMiniView("search hit .*, continuing at", "wmsg"),
+    myMiniView("E486: Pattern not found", "emsg"),
+  },
+})
+
+require('barbar').setup()
+require('colorizer').setup()
+require('nvim-surround').setup()

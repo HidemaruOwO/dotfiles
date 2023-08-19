@@ -13,8 +13,15 @@ require("jetpack.packer").startup(function(use)
   use { 'wuelnerdotexe/vim-astro' }
   -- =========== Color Scheme ===========
   use { 'Rigellute/rigel' }
+  use { 'sainnhe/everforest' }
   use { 'joshdick/onedark.vim' }
   use { 'morhetz/gruvbox' }
+  use { 'KKPMW/moonshine-vim' }
+  use { 'AlessandroYorba/Alduin' }
+  use { 'w0ng/vim-hybrid' }
+  use { 'nanotech/jellybeans.vim' }
+  use { 'altercation/solarized' }
+  use { 'tomasr/molokai' }
   -- =========== Tools ===========
   -- Transperent background
   use { 'miyakogi/seiya.vim' }
@@ -51,6 +58,7 @@ require("jetpack.packer").startup(function(use)
   use { 'windwp/nvim-ts-autotag' }
   use { 'windwp/nvim-autopairs' }
   -- Atom icon
+  use { 'kyazdani42/nvim-web-devicons' }
   use { 'ryanoasis/vim-devicons' }
   -- Paint indent
   use { 'nathanaelkane/vim-indent-guides' }
@@ -111,4 +119,12 @@ require("jetpack.packer").startup(function(use)
   -- Window Decoration
   use { 'nvim-lua/plenary.nvim' }
   use { 'Allianaab2m/vimskey' }
+  use { 'stevearc/dressing.nvim' }
+  use { 'nvim-telescope/telescope.nvim' }
+  use { 'folke/noice.nvim' }
+  use { 'MunifTanjim/nui.nvim' }
+  use { 'rcarriga/nvim-notify' }
+  use { 'romgrk/barbar.nvim' }
+  use { 'norcalli/nvim-colorizer.lua' }
+  use { 'kylechui/nvim-surround' }
 end)
