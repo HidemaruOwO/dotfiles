@@ -17,7 +17,7 @@ map("n", "<C-k>", "<C-w>k<CR>", opt)
 map("n", "<C-l>", "<C-w>l<CR>", opt)
 map("n", "<C-c>", ":Commentary<CR>", opt)
 map("n", "<C-S-h>", ":BufferPrevious<CR>", opt)
-map("n", "<C-S-j>", ":BufferNext<CR>", opt)
+map("n", "<C-S-l>", ":BufferNext<CR>", opt)
 map("n", "<C-S-q>", ":BufferClose<CR>", opt)
 map("n", "gd", ":Lspsaga lsp_finder<CR>", opt)
 map("n", "gp", ":Lspsaga preview_definition<CR>", opt)
@@ -28,6 +28,7 @@ map("n", "[e", ":Lspsaga diagnostic_jump_next<CR>", opt)
 map("n", "]e", ":Lspsaga diagnostic_jump_prev<CR>", opt)
 -- Fern mapping
 map("n", "<C-m>", ":FernToggle<CR>", opt)
+
 vim.cmd [[
 function! Init_fern() abort
 	nmap <buffer><expr> <Plug>(fern-my-open-or-expand)
