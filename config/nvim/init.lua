@@ -3,8 +3,6 @@ vim.cmd [[runtime ./autoload/jetpack.vim]]
 -- Plugin
 require("plugin/install")
 
--- init.lua
-
 local pluginSettingsDir = vim.fn.stdpath('config') .. '/lua/plugin/settings'
 
 local function require_all_files_in_directory(directory)
