@@ -4,6 +4,8 @@ local opt = { silent = true, noremap = true }
 local opt_expr = { silent = true, noremap = true, expr = true }
 
 map("n", "<Space>v", ":call sml#mode_on()<CR>", opt)
+map("i", "<C-b>", "<br/>", opt)
+map("n", "<C-b>", "a<br/><ESC>", opt)
 map("n", "<C-t>", ":call DeolFloat()<CR>", opt)
 map("n", "<C-s>", ":Ag<CR>", opt)
 map("n", "<C-q>", ":Lspsaga hover_doc<CR>", opt)
@@ -32,7 +34,6 @@ function! Init_fern() abort
 	      \ )
 
    nmap <buffer><nowait> <CR> <Plug>(fern-my-open-or-expand)
-   nmap <buffer><nowait> l <Plug>(fern-action-open)
    nmap <buffer><nowait> S <Plug>(fern-action-open:split)
    nmap <buffer><nowait> s <Plug>(fern-action-open:vsplit)
    nmap <buffer><nowait> h <Plug>(fern-action-collapse)
@@ -49,7 +50,7 @@ map("n", "g[", ":GitGutterPrevHunk<CR>", opt)
 map("n", "g]", ":GitGutterNextHunk<CR>", opt)
 map("n", "gh", ":GitGutterLineHighlightsToggle<CR>", opt)
 -- LazyGit
-map("n", "lg", ":LazyGit<CR>", opt)
+map("n", "gg", ":LazyGit<CR>", opt)
 
 vim.cmd [[
 function! Ddu_filer_my_settings() abort
