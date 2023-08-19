@@ -65,7 +65,3 @@ local g = {
 for k, v in pairs(g) do
   vim.g[k] = v
 end
-
-require('barbar').setup()
-require('colorizer').setup()
-require('nvim-surround').setup()
