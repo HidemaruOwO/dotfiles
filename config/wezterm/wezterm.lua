@@ -1,13 +1,16 @@
 local wezterm = require 'wezterm';
 local gon = require("getOsName")
 local os_name, arch_name = gon.get_os_name()
+local hostname = require("hostname").getHostname()
 local will_font_size
 local mux = wezterm.mux
 local act = wezterm.action
 
-if os_name == "Mac" then
-  will_font_size = 15
-elseif os_name == "Linux" then
+print(hostname)
+
+if hostname == "Slime-MBA" then
+  will_font_size = 18
+elseif hostname == "Linux" then
   will_font_size = 11.5
 end
 
