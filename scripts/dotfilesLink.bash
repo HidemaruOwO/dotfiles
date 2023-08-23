@@ -26,6 +26,7 @@ configs=(
   "mako"
   "kitty"
   "mimeapps.list"
+  "input-remapper-2"
 )
 
 dotfiles_dir=$HOME/dotfiles
