@@ -33,12 +33,12 @@ if status is-interactive
   balias relogin "exec $SHELL -l"
   balias gpp "g++"
   # edit config
-  balias ewezterm "nvim ~/dotfiles/config/wezterm/wezterm.lua"
-  balias efish "nvim ~/dotfiles/config/fish/config.fish"
-  balias ehypr "nvim ~/dotfiles/config/hypr/hyprland.conf"
-  balias envim "cd ~/dotfiles/config/nvim && snvim && cd -"
-  balias sfish "source ~/dotfiles/config/fish/config.fish"
-  balias egrntemp "nvim ~/dotfiles/templates/git-release-notes/markdown.ejs"
+  balias ewezterm "nvim $HOME/.config/wezterm/wezterm.lua"
+  balias efish "nvim $HOME/.config/fish/config.fish"
+  balias ehypr "nvim $HOME/.config/hypr/hyprland.conf"
+  balias envim "cd $HOME/.config/nvim && snvim && cd -"
+  balias sfish "source $HOME/.config/fish/config.fish"
+  balias egrntemp "nvim $HOME/dotfiles/templates/git-release-notes/markdown.ejs"
   # vim
   balias snvim "nvim -c 'FernToggle'"
   balias monitor "wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
