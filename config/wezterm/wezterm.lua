@@ -9,7 +9,7 @@ local act = wezterm.action
 print(hostname)
 
 if hostname == "Slime-MBA" then
-  will_font_size = 18
+  will_font_size = 13
 elseif hostname == "Linux" then
   will_font_size = 11.5
 end
