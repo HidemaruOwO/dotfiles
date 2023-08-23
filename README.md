@@ -13,10 +13,11 @@
 ## what is this ?
 
 Better hidemaru's dotfiles
-  
+
 </div>
 
 ## Usage
+
 ```bash
 git clone https://github.com/HidemaruOwO/dotfiles.git
 
@@ -24,9 +25,17 @@ cd dotfiles
 
 ./setup.sh
 ```
+
 **※ This script does not include installation of many of the use packages. Please install them yourself.**
+
 ## Screenshots
+
 - Terminal
-![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/ab9be6cf-f959-4f08-9614-588b3a9b95ff)
+  ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/ab9be6cf-f959-4f08-9614-588b3a9b95ff)
 - Neovim
-![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/e3a398c2-4dfa-456b-9e36-0ca009631eed)
+  ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/e3a398c2-4dfa-456b-9e36-0ca009631eed)
+
+## Reference
+
+- Asahi's waybar (https://github.com/doremire/dotfiles)
+- Hyprland Base (https://github.com/SolDoesTech/HyprV4)
