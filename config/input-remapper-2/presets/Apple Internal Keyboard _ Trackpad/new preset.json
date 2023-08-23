@@ -9,7 +9,18 @@
         ],
         "target_uinput": "keyboard",
         "output_symbol": "KEY_ENTER",
-        "name": "CapsToEnter",
+        "mapping_type": "key_macro"
+    },
+    {
+        "input_combination": [
+            {
+                "type": 1,
+                "code": 122,
+                "origin_hash": "4a8fbb139565ff8b56192411905e6106"
+            }
+        ],
+        "target_uinput": "keyboard",
+        "output_symbol": "KEY_ENTER",
         "mapping_type": "key_macro"
     }
 ]
