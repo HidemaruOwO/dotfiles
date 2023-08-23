@@ -16,7 +16,6 @@ configs=(
   "coc"
   "fish"
   "wezterm"
-  "fcitx"
   "gh-dash"
   "lazygit"
   "hypr"
