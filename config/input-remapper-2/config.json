@@ -1,0 +1,6 @@
+{
+    "version": "2.0.0",
+    "autoload": {
+        "Apple Internal Keyboard / Trackpad 2": "new preset"
+    }
+}
