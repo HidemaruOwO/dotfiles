@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# 出典情報をコメントで示す
+# https://github.com/speltriao/Pacman-Update-for-GNOME-Shell
+# https://github.com/SolDoesTech/HyprV2/blob/main/waybar/scripts/update-sys
+
+# もしオペレーティングシステムがArch Linuxでない場合、スクリプトを終了
+if [ ! -f /etc/arch-release ]; then
+    exit 0
+fi
+
+# AURと公式のアップデート数を計算
+AUR_UPDATES=$(yay -Qua | wc -l)
+OFFICIAL_UPDATES=$(checkupdates | wc -l)
+TOTAL_UPDATES=$((OFFICIAL_UPDATES + AUR_UPDATES))
+
+# パラメータに基づいてアップデート数を表示
+case $1 in
+    aur)
+        echo " $AUR_UPDATES" # AURアップデート数を表示
+        ;;
+    official)
+        echo " $OFFICIAL_UPDATES" # 公式アップデート数を表示
+        ;;
+    update)
+        # パラメータが"update"の場合、すべてのアップデートを実行
+        wezterm start -- sh -c 'yay -Syu'
+        ;;
+    *)
+        # パラメータが指定されていない場合、合計アップデート数を表示
+        if [[ "$TOTAL_UPDATES" -eq 0 ]]; then
+            echo "" # アップデートがない場合は何も表示
+        else
+            # アップデートがある場合、合計アップデート数を表示
+            echo " $TOTAL_UPDATES"
+        fi
+        ;;
+esac

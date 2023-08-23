@@ -1,298 +1,145 @@
-
-@keyframes blink-warning {
-    70% {
-        color: @light;
-    }
-
-    to {
-        color: @light;
-        background-color: @warning;
-    }
-}
-
-@keyframes blink-critical {
-    70% {
-      color: @light;
-    }
-
-    to {
-        color: @light;
-        background-color: @critical;
-    }
-}
-
-
-/* -----------------------------------------------------------------------------
- * Styles
- * -------------------------------------------------------------------------- */
-
-/* COLORS */
-
-/* Nord */
-/* @define-color bg #353C4A;
-@define-color light #eceff4;
-@define-color dark #2e3440;
-@define-color warning #ebcb8b;
-@define-color critical #d08770;
-@define-color mode #4c566a;
-@define-color workspaces @bg;
-@define-color workspacesfocused #434C5E;
-@define-color tray @workspacesfocused;
-@define-color sound #46536A;
-@define-color network #5D7096;
-@define-color memory #546484;
-@define-color cpu #596A8D;
-@define-color temp #4D5C78;
-@define-color layout #5e81ac;
-@define-color battery #88d089;
-@define-color date #2e3440;
-@define-color time #3A4253;
-@define-color backlight #3F495D; */
-@define-color bg #353C4A;
-@define-color light #cdd6f4;
-@define-color dark #2e3440;
-@define-color warning #ebcb8b;
-@define-color critical #f38ba8;
-@define-color mode #1e1e2e;
-@define-color workspaces #1e1e2e;
-@define-color workspacesfocused #1e1e2e;
-@define-color tray @workspacesfocused;
-@define-color sound #1e1e2e;
-@define-color network #1e1e2e;
-@define-color memory #1e1e2e;
-@define-color cpu #1e1e2e;
-@define-color temp #1e1e2e;
-@define-color layout #1e1e2e;
-@define-color battery #1e1e2e;
-@define-color date #1e1e2e;
-@define-color time #3A4253;
-@define-color backlight #1e1e2e;
-@define-color apple #1e1e2e;
-
-
-
-
-/* Reset all styles */
 * {
-    border: none;
-    border-radius: 0;
-    min-height: 0;
-    margin: 0;
-    padding: 0;
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 16px;
+  min-height: 0;
 }
 
-/* The whole bar */
-#waybar {
-    background: rgba(0,0,0,0);
-    color: @light;
-    font-family: "Noto Sans", "Font Awesome 6 Free";
-    font-size: 12px;
-    font-weight: bold;
+window#waybar {
+  background: rgba(21, 18, 27, 0);
+  color: #cdd6f4;
 }
 
-/* Each module */
-#battery,
-#cpu,
-#custom-layout,
-#memory,
-#mode,
-#network,
-#pulseaudio,
-#temperature,
-#custom-alsa,
-#tray,
-#backlight {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-left: 5px;
-    margin-top: 4px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 3px;
+tooltip {
+  background: #1e1e2e;
+  opacity: 0.8;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #11111b;
 }
 
-#clock {
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-right: 5px;
-    margin-top: 4px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 3px;
+tooltip label {
+  color: #cdd6f4;
 }
-
-#custom-apple {
-    padding-left: 8px;
-    padding-right: 8px;
-    margin-right: 5px;
-    margin-top: 4px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    margin-bottom: 3px;
-}
-/* Each module that should blink */
-#mode,
-#memory,
-#temperature,
-#battery {
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-/* Each critical module */
-#memory.critical,
-#cpu.critical,
-#temperature.critical,
-#battery.critical {
-    color: @critical;
-}
-
-/* Each critical that should blink */
-#mode,
-#memory.critical,
-#temperature.critical,
-#battery.critical.discharging {
-    animation-name: blink-critical;
-    animation-duration: 2s;
-}
-
-/* Each warning */
-#network.disconnected,
-#memory.warning,
-#cpu.warning,
-#temperature.warning,
-#battery.warning {
-    color: @warning;
-}
-
-
-/* Each warning that should blink */
-#battery.warning.discharging {
-    animation-name: blink-warning;
-    animation-duration: 3s;
-}
-
-/* And now modules themselves in their respective order */
-
-#mode { /* Shown current Sway mode (resize etc.) */
-	color: @light;
-	background: @mode;
-}
-
-/* Workspaces stuff */
-
-/* #workspaces {
-    border-radius: 8px;
-} */
-
 
 #workspaces button {
-	font-weight: bold;
-	padding-left: 5px;
-	padding-right: 5px;
-	color: @light;
-	background: @workspaces;
-    border-radius: 8px;
-    margin-top: 4px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-bottom: 3px;
-    margin-right: 1px;
-
+  padding: 5px;
+  color: #313244;
+  margin-right: 5px;
 }
 
 #workspaces button.active {
-    color: #f9e2af;
+  color: #a6adc8;
+}
+
+#workspaces button.focused {
+  color: #a6adc8;
+  background: #eba0ac;
+  border-radius: 10px;
 }
 
 #workspaces button.urgent {
-    color: #f38ba8;
+  color: #11111b;
+  background: #a6e3a1;
+  border-radius: 10px;
 }
 
-#window {
-	margin-right: 40px;
-	margin-left: 40px;
+#workspaces button:hover {
+  background: #11111b;
+  color: #cdd6f4;
+  border-radius: 10px;
 }
 
-#custom-alsa {
-	background: @sound;
-    border-radius: 8px;
-
+#custom-launch_wofi,
+#custom-lock_screen,
+#custom-power_btn,
+#custom-power_profile,
+#window,
+#custom-window-name,
+#cpu,
+#disk,
+#custom-updates,
+#memory,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#tray,
+#temperature,
+#workspaces,
+#backlight {
+  background: #1e1e2e;
+  opacity: 0.8;
+  padding: 0px 10px;
+  margin: 3px 0px;
+  margin-top: 10px;
+  border: 0px;
 }
 
-#network {
-    background: @network;
-    border-radius: 8px;
-}
-
-#memory {
-    background: @memory;
-    border-radius: 8px;
-}
-
+#tray,
+#custom-lock_screen,
+#temperature,
+#backlight,
+#custom-launch_wofi,
 #cpu {
-    background: @cpu;
-    border-radius: 8px;
+  border-radius: 10px 0px 0px 10px;
 }
 
-#temperature {
-    background: @temp;
-    border-radius: 8px;
+#custom-light_dark,
+#custom-power_btn,
+#workspaces,
+#pulseaudio.microphone,
+#disk {
+  border-radius: 0px 10px 10px 0px;
+  margin-right: 10px;
 }
 
-#custom-layout {
-    background: @layout;
-    border-radius: 8px;
+#temperature.critical {
+  color: #e92d4d;
+}
+
+
+#workspaces {
+  padding-right: 0px;
+  padding-left: 5px;
+}
+
+#custom-power_profile {
+  color: #a6e3a1;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#window,
+#custom-window-name {
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+#custom-launch_wofi {
+  color: #89b4fa;
+  margin-left: 10px;
+  border-right: 0px;
+}
+
+#pulseaudio {
+  color: #89b4fa;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#pulseaudio.microphone {
+  color: #cba6f7;
+  border-left: 0px;
+  border-right: 0px;
 }
 
 #battery {
-    background: @battery;
-    border-radius: 8px;
-    border-top-right-radius: 16px;
-    margin-right: 5px;
-
-    /* border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px; */
-}
-
-#backlight {
-	background: @backlight;
-    border-radius: 8px;
-}
-
-#clock {
-    background: @date;
-    border-radius: 8px;
-    /* border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px; */
-}
-
-
-#pulseaudio {
-    background: @sound;
-    border-radius: 8px;
-}
-
-
-#tray {
-	background: @tray;
-    border-radius: 8px;
-}
-
-#custom-apple {
-    font-size: 17px;
-    background: @apple;
-    border-radius: 8px;
-    border-top-left-radius: 16px;
-    margin-left: 5px;
-    padding-left: 14px;
-    padding-right: 14px;
-}
-
-#custom-notch {
-    margin-left: 100px;
-    margin-right: 100px;
-    padding-left: 14px;
-    padding-right: 14px;
+  color: #a6e3a1;
+  border-radius: 10px;
+  margin-right: 10px;
 }
