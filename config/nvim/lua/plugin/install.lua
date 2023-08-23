@@ -26,7 +26,7 @@ require("jetpack.packer").startup(function(use)
   -- Transperent background
   use { 'miyakogi/seiya.vim' }
   -- Change vimdoc language to Japanese
-  use { 'vim-jp/vimdoc-ja' }
+  -- use { 'vim-jp/vimdoc-ja' }
   -- Builtin LSP
   use { 'neovim/nvim-lspconfig' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
@@ -52,6 +52,7 @@ require("jetpack.packer").startup(function(use)
   use { 'skanehira/denops-silicon.vim' }
   use { 'markonm/traces.vim' }
   -- Tree Sitter
+  use { "luckasRanarison/tree-sitter-hypr" }
   use { 'nvim-treesitter/nvim-treesitter', cmd = ':TSUpdate' }
   -- use { 'p00f/nvim-ts-rainbow' }
   use { 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim', as = 'rainbow-delimiters.nvim' }

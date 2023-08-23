@@ -1,20 +1,20 @@
 local options = {
-   encoding = "utf-8",
-   fileencoding = "utf-8",
-   shell = "fish",
-   number = true,
-   autoindent = true,
-   tabstop = 2,
-   shiftwidth = 2,
-   helplang = "ja",
-   virtualedit = "onemore",
-   expandtab = true,
-   splitright = true,
-   hls = true,
-   smartindent = true,
-   showmatch = true,
-   laststatus = 2,
-   updatetime = 250,
+  encoding = "utf-8",
+  fileencoding = "utf-8",
+  shell = "fish",
+  number = true,
+  autoindent = true,
+  tabstop = 2,
+  shiftwidth = 2,
+  helplang = "ja",
+  virtualedit = "onemore",
+  expandtab = true,
+  splitright = true,
+  hls = true,
+  smartindent = true,
+  showmatch = true,
+  laststatus = 2,
+  updatetime = 250,
 }
 
 vim.cmd [[
@@ -23,5 +23,5 @@ vim.cmd [[
 ]]
 
 for k, v in pairs(options) do
-   vim.opt[k] = v
+  vim.opt[k] = v
 end
