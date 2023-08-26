@@ -24,7 +24,7 @@ case $1 in
         ;;
     update)
         # パラメータが"update"の場合、すべてのアップデートを実行
-        wezterm start -- sh -c 'yay -Syu'
+        kitty --title update-sys sh -c 'yay -Syu'
         ;;
     *)
         # パラメータが指定されていない場合、合計アップデート数を表示

@@ -82,7 +82,6 @@
     },
     "wlr/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
         "on-click": "activate",
         "persistent_workspaces": {
             "1": [],
