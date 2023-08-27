@@ -34,6 +34,9 @@ cd dotfiles
   ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/ab9be6cf-f959-4f08-9614-588b3a9b95ff)
 - Neovim
   ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/e3a398c2-4dfa-456b-9e36-0ca009631eed)
+- Asahi Linux
+  ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/a327fc95-5e3e-4fc7-a9a9-c25b40455408)
+
 
 ## Reference
 
