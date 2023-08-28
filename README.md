@@ -36,7 +36,9 @@ cd dotfiles
   ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/e3a398c2-4dfa-456b-9e36-0ca009631eed)
 - Asahi Linux
   ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/a327fc95-5e3e-4fc7-a9a9-c25b40455408)
-
+- dotfilesLink.sh
+  ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/7a213141-bb66-49fe-b069-54095da5489d)
+  ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/102bf260-5658-4bd3-8e9c-3b779eaa4448)
 
 ## Reference
 
