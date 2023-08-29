@@ -17,6 +17,7 @@ dots=(
 
 # Input the files and folders located in the directory $dotfiles_dir/config/
 configs=(
+  "autokey"
   "nvim"
   "coc"
   "fish"
