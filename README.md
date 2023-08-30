@@ -51,7 +51,7 @@ When they are complete, create a directory named "autokey-hjkl" at home.
 ```bash
 mkdir $HOME/autokey-hjkl
 # Because some file systems are not recognized as directories by autokey (ext4)
-tocuh $HOME/autokey-hjkl/.empty
+touch $HOME/autokey-hjkl/.empty
 ```
 
 After that, click "File->New->Folder" in the autokey menu bar, select "autokey-hjkl" in your home directory, and click "Use Default".
