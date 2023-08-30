@@ -31,13 +31,14 @@ if status is-interactive
   balias sl "ls"
   balias ls "lsd"
   balias la "ls -la"
-  balias relogin "exec $SHELL -l"
+  balias reload "exec $SHELL -l"
   balias gpp "g++"
   # edit config
   balias ewezterm "nvim $HOME/.config/wezterm/wezterm.lua"
   balias efish "nvim $HOME/.config/fish/config.fish"
   balias ehypr "nvim $HOME/.config/hypr/hyprland.conf"
   balias envim "cd $HOME/.config/nvim && snvim && cd -"
+  balias ewaybar "cd $HOME/.config/waybar && snvim && cd -"
   balias sfish "source $HOME/.config/fish/config.fish"
   balias egrntemp "nvim $HOME/dotfiles/templates/git-release-notes/markdown.ejs"
   # vim
