@@ -41,12 +41,12 @@ case $1 in
             code
         fi
 
-    elif [[ $WINDOW_CLASS == "firefox" ]]; then
+    elif [[ $WINDOW_CLASS == "vivaldi-stable" ]]; then
         echo "新しいタブを開く"
         ACTION_TYPE=$2
 
         if [[ $ACTION_TYPE == "click" ]]; then
-            firefox --new-tab
+            vivaldi-stable chrome://newtab
         fi
         # Firefoxに対するアクションを追加
     elif [[ $WINDOW_CLASS == "org.wezfurlong.wezterm" ]]; then
