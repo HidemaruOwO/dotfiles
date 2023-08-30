@@ -28,6 +28,45 @@ cd dotfiles
 
 **※ This script does not include installation of many of the use packages. Please install them yourself.**
 
+### Autokey Manual
+
+Install autokey-gtk
+
+```bash
+paru -S autokey-gtk
+```
+
+Run autokey-gtk
+
+```bash
+autokey-gtk
+```
+
+**※ Do not close autokey-gtk while working!**
+
+Right click on a folder in the auto key and click "Delete item." to all of them.
+
+When they are complete, create a directory named "autokey-hjkl" at home.
+
+```bash
+mkdir $HOME/autokey-hjkl
+# Because some file systems are not recognized as directories by autokey (ext4)
+tocuh $HOME/autokey-hjkl/.empty
+```
+
+After that, click "File->New->Folder" in the autokey menu bar, select "autokey-hjkl" in your home directory, and click "Use Default".
+Then a pop-up window will appear and type "autokey-hjkl".
+
+Next, copy the files to make hjkl work into the "$HOME/.config/autokey/data/autokey-hjkl" directory.
+
+```bash
+cp -rf $HOME/dotfiles/config/autokey/data/hjkl/* $HOME/.config/autokey/data/autokey-hjkl
+```
+
+Now you can use <C-{h,j,k,l}> as arrow keys as long as "autokey-gtk" is running.
+
+**※ In my Hyprland configuration it starts up automatically.**
+
 ## Screenshots
 
 - Terminal
