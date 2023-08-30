@@ -17,7 +17,6 @@ dots=(
 
 # Input the files and folders located in the directory $dotfiles_dir/config/
 configs=(
-  "autokey"
   "nvim"
   "coc"
   "fish"
@@ -76,7 +75,7 @@ while true; do
 
           echo -e "🌟 \e[1mSynchronized..\e[0m \e[1;35m${dotfiles_dir}/${config}\e[0m"
           if [ -e "${dotfiles_dir}/${config}" ]; then
-            echo -e "'$HOME/.config/$config' -> '${dotfiles_dir}/config/${config}"
+            echo -e "'$HOME/$config' -> '${dotfiles_dir}/${config}"
           else
             ln -snfv "${dotfiles_dir}/${config}" "$HOME/.config"
           fi
