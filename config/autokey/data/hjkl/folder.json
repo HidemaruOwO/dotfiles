@@ -1,11 +1,8 @@
 {
-    "type": "phrase",
-    "description": "First phrase",
+    "type": "folder",
+    "title": "hjkl",
     "modes": [],
     "usageCount": 0,
-    "prompt": false,
-    "omitTrigger": false,
-    "matchCase": false,
     "showInTrayMenu": false,
     "abbreviation": {
         "abbreviations": [],
@@ -20,8 +17,7 @@
         "hotKey": null
     },
     "filter": {
-        "regex": ".* - gedit",
+        "regex": null,
         "isRecursive": false
-    },
-    "sendMode": "<ctrl>+v"
+    }
 }
