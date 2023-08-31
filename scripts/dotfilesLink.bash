@@ -12,13 +12,13 @@ dots=(
   ".p10k.zsh"
   ".vimrc"
   ".zshrc"
+  ".textlintrc"
   )
 
 
 # Input the files and folders located in the directory $dotfiles_dir/config/
 configs=(
   "nvim"
-  "coc"
   "fish"
   "wezterm"
   "gh-dash"
@@ -74,10 +74,10 @@ while true; do
         for config in "${dots[@]}"; do
 
           echo -e "🌟 \e[1mSynchronized..\e[0m \e[1;35m${dotfiles_dir}/${config}\e[0m"
-          if [ -e "${dotfiles_dir}/${config}" ]; then
+          if [ -e "${HOME}/${config}" ]; then
             echo -e "'$HOME/$config' -> '${dotfiles_dir}/${config}"
           else
-            ln -snfv "${dotfiles_dir}/${config}" "$HOME/.config"
+            ln -snfv "${dotfiles_dir}/${config}" "$HOME"
           fi
         done
 
@@ -89,7 +89,7 @@ while true; do
 
         for config in "${configs[@]}"; do
           echo -e "🌟 \e[1mSynchronized..\e[0m \e[1;35m${dotfiles_dir}/config/${config}\e[0m"
-          if [ -e "${dotfiles_dir}/config/${config}" ]; then
+          if [ -e "${HOME}/.config/${config}" ]; then
             echo "'$HOME/.config/$config' -> '${dotfiles_dir}/config/${config}"
           else
               if [[ "${asahiconfigs[*]}" == *"${config}"* ]] && [ "$ASAHI" == 1 ] ; then

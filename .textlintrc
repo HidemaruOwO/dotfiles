@@ -1,0 +1,30 @@
+{
+  "filters": {},
+  "rules": {
+    "preset-ja-technical-writing": {
+      "arabic-kanji-numbers": true,
+      "ja-no-weak-phrase": false,
+      "ja-no-mixed-period": false,
+      "no-exclamation-question-mark": false,
+      "no-dropping-the-ra": true,
+      "no-double-negative-ja": true,
+      "ja-no-redundant-expression": true,
+      "no-doubled-joshi": {
+        "min_interval": 1
+      }
+    },
+    "preset-ja-spacing": {
+      "ja-space-around-code": {
+        "before": true,
+        "after": true
+      },
+    },
+    "preset-jtf-style": true,
+    "prh": {
+      "rulePaths": ["~/.prh-rules/media/WEB+DB_PRESS.yml"]
+    },
+    "terminology": {
+      "defaultTerms": true
+    }
+  }
+}

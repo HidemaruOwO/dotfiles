@@ -30,3 +30,5 @@ null_ls.setup({
     end
   end,
 })
+
+null_ls.builtins.diagnostics.textlint.with({ filetypes = { "markdown" } })

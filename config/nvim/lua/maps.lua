@@ -3,6 +3,7 @@ local map = vim.api.nvim_set_keymap
 local opt = { silent = true, noremap = true }
 local opt_expr = { silent = true, noremap = true, expr = true }
 
+map("i", "<C-i>", 'copilot#Accept("<CR>")', opt_expr)
 map("n", "<Space>v", ":call sml#mode_on()<CR>", opt)
 map("i", "<C-b>", "<br/>", opt)
 map("n", "<C-b>", "a<br/><ESC>", opt)
