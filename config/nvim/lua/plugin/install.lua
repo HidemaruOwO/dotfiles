@@ -2,6 +2,8 @@ require("jetpack.packer").startup(function(use)
   -- bootstrap
   use { 'tani/vim-jetpack', opt = 1 }
   -- =========== Language Jetpackins ===========
+  -- Zig
+  use { 'ziglang/zig.vim' }
   -- Nim
   use { 'alaviss/nim.nvim' }
   -- MarkDown
@@ -26,7 +28,7 @@ require("jetpack.packer").startup(function(use)
   -- Transperent background
   use { 'miyakogi/seiya.vim' }
   -- Change vimdoc language to Japanese
-  -- use { 'vim-jp/vimdoc-ja' }
+  use { 'vim-jp/vimdoc-ja' }
   -- Builtin LSP
   use { 'neovim/nvim-lspconfig' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
@@ -65,12 +67,12 @@ require("jetpack.packer").startup(function(use)
   use { 'nathanaelkane/vim-indent-guides' }
   -- Show rich status bar
   use { 'akinsho/bufferline.nvim' }
-  use { 'vim-airline/vim-airline' }
-  use { 'vim-airline/vim-airline-themes' }
+  use { 'nvim-lualine/lualine.nvim' }
   -- Theme
   use { 'jonathanfilip/vim-lucius' }
   -- ターミナル
   use { 'Shougo/deol.nvim' }
+  use { 'numToStr/FTerm.nvim' }
   -- Writing code with AI
   use { 'github/copilot.vim' }
   -- Share code at realtime
@@ -83,8 +85,8 @@ require("jetpack.packer").startup(function(use)
   use { 'andweeb/presence.nvim' }
   -- Fuzzy Finder
   use { 'junegunn/fzf' }
-  use { 'ibhagwan/fzf-lua' }
-  use { 'junegunn/fzf.vim' }
+  -- use { 'ibhagwan/fzf-lua' }
+  -- use { 'junegunn/fzf.vim' }
   -- 一部の行をコピー
   use { 'Rasukarusan/nvim-select-multi-line' }
   use { 'thinca/vim-scouter' }
@@ -108,20 +110,22 @@ require("jetpack.packer").startup(function(use)
   use { 'Comamoca/runit.nvim' }
   -- Clipboard
   use { 'christoomey/vim-system-copy' }
-  -- ddu
-  use { 'Shougo/ddu.vim' }
-  use { 'Shougo/ddu-ui-filer' }
-  use { 'Shougo/ddu-kind-file' }
-  use { 'Shougo/ddu-column-filename' }
-  use { 'Shougo/ddu-source-file' }
-  use { 'ryota2357/ddu-column-icon_filename' }
   -- LazyGit
   use { 'kdheepak/lazygit.nvim' }
   -- Window Decoration
   use { 'nvim-lua/plenary.nvim' }
   use { 'Allianaab2m/vimskey' }
   use { 'stevearc/dressing.nvim' }
+  -- Telescope
   use { 'nvim-telescope/telescope.nvim' }
+  use {
+    "nvim-telescope/telescope-frecency.nvim",
+    requires = { "kkharji/sqlite.lua" },
+  }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-symbols.nvim' }
+  use { 'nvim-telescope/telescope-media-files.nvim' }
+  --
   use { 'folke/noice.nvim' }
   use { 'MunifTanjim/nui.nvim' }
   use { 'rcarriga/nvim-notify' }
