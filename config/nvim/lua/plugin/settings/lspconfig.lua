@@ -40,6 +40,14 @@ require("mason-lspconfig").setup_handlers {
           },
         },
       }
+      return
+    elseif server_name == "zls" then
+      lspconfig["zls"].setup {
+        root_dir = lspconfig.util.root_pattern("build.zig"),
+        cmd = { "/usr/bin/zls" },
+        capabilities = capabilities,
+      }
+      return
     else
       lspconfig[server_name].setup {
         capabilities = capabilities,
