@@ -15,9 +15,6 @@ end
 
 require_all_files_in_directory(pluginSettingsDir)
 
-
-
-
 -- Other
 require("variables")
 require("base")
