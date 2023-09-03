@@ -76,7 +76,7 @@
             }
         ],
         "target_uinput": "keyboard",
-        "output_symbol": "KP_Top",
+        "output_symbol": "KP_Up",
         "mapping_type": "key_macro"
     }
 ]
