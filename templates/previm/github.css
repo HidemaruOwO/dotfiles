@@ -491,7 +491,11 @@ pre tt::after {
   padding: 30px;
   border-radius: 0 0 3px 3px;
   border: 1px solid #ddd;
-}
   border-radius: 0 0 3px 3px;
   border: 1px solid #ddd;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
 }
