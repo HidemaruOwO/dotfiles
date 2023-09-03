@@ -19,7 +19,5 @@ prettier.setup({
 })
 
 vim.cmd [[
-  augroup Prettier
-    autocmd!
     autocmd BufWritePre *.js,*.jsx,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.yaml,*.html Prettier
-  augroup END]]
+]]
