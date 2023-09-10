@@ -6,6 +6,8 @@ require('nvim-treesitter.configs').setup({
 
   auto_install = true,
 
+  -- ignore filetypes
+  ignore_install = { "astro" },
 
   parser_install_dir = "~/dotfiles/templates/treesitter",
   highlight = {
