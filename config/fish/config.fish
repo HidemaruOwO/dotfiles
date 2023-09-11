@@ -23,6 +23,7 @@ if status is-interactive
   set EDITOR nvim
 
   # alias
+  balias nvim "env LANG=C nvim"
   balias code 'code --ozone-platform=wayland --enable-wayland-ime'
   balias drun 'docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/pwd'
   balias lg "lazygit"
