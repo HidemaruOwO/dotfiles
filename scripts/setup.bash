@@ -63,7 +63,18 @@ echo -e "🤘 \e[1mgit configにuser.emailを登録中...\e[0m"
 git config --global user.email $GIT_EMAIL
 echo -e "🤘 \e[1mgit configにcore.editorにNeovimを登録中...\e[0m"
 git config --global core.editor nvim
-
+echo -e "🤘 \e[1msddmのセットアップ中...\e[0m"
+git clone https://github.com/aczw/sddm-theme-corners.git /tmp/sddm-theme-corners
+cd /tmp/sddm-theme-corners
+sudo cp -r corners/ /usr/share/sddm/themes/
+echo "[Theme]
+Current=corners" > /tmp/theme.conf
+sudo mv /tmp/theme.conf /etc/sddm.conf.d/theme.conf
+echo -e "🤘 \e[1mGRUBテーマのセットアップ中...\e[0m"
+git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git /tmp/darkmatter-grub-theme && cd /tmp/darkmatter-grub-theme
+sudo python3 darkmatter-theme.py --install
+cd $HOME
+done
 figlet 'Finished!!'
 }
 
