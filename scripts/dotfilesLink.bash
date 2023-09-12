@@ -42,9 +42,9 @@ asahiconfigs=(
 ###########################
 clear
 
-echo -e "\e[1m┌──────────────────────────────────────┐\e[0m"
+echo "┌──────────────────────────────────────┐"
 echo -e "\e[1m│   💫 Dotfiles Link V1                │\e[0m"
-echo -e "\e[1m└──────────────────────────────────────┘\e[0m"
+echo "└──────────────────────────────────────┘"
 
 while true; do
     echo -n -e "\e[1;35m🤝 Would you like to synchronize your dotfiles?\e[0m [Y/n]: "
@@ -105,7 +105,7 @@ while true; do
         exit 0
         ;;  
       [Nn]*)
-        exit 1
+        exit 0
         ;;
       *)
         echo "Please type Y or N"
