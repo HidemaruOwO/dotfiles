@@ -17,6 +17,7 @@ map("n", "<C-j>", "<C-j>j<CR>", opt)
 map("n", "<C-k>", "<C-w>k<CR>", opt)
 map("n", "<C-l>", "<C-w>l<CR>", opt)
 map("n", "<C-c>", "<Cmd>Commentary<CR>", opt)
+map("n", "<C-r>", "<Cmd>source $MYVIMRC<CR>", opt)
 -- barbar
 map("n", "<C-S-h>", "<Cmd>BufferPrevious<CR>", opt)
 map("n", "<S-Left>", "<Cmd>BufferPrevious<CR>", opt)

@@ -132,4 +132,12 @@ require("jetpack.packer").startup(function(use)
   use { 'romgrk/barbar.nvim' }
   use { 'norcalli/nvim-colorizer.lua' }
   use { 'kylechui/nvim-surround' }
+  use {
+    "jackMort/ChatGPT.nvim",
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  }
 end)
