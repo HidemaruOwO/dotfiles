@@ -49,6 +49,10 @@ dev_environments=(
     slack-desktop
 )
 module_utils=(
+    ufw
+    gufw
+    xdg-user-dirs
+    xdg-user-dirs-gtk
     spdlog-git
     polkit-gnome           # GNOMEのためのPolkit認証ダイアログ
     wl-clipboard           # Waylandのクリップボードユーティリティ
@@ -100,6 +104,8 @@ unixporn=(
     bat          #catの高機能版
     exa          #lsの高機能版
     lsd          # 絵文字がつく
+    figlet
+    toilet
 )
 language=(
     deno
@@ -146,10 +152,10 @@ installed() {
 #-- 表示 -----------------------------------------
 clear
 echo "┌──────────────────────────────────────┐"
-echo -e "\e[1m│  💾 Install deps? (Y/n)              │\e[0m"
+echo -e "\e[1m│  💾 Install Deps V1                  │\e[0m"
 echo "└──────────────────────────────────────┘"
 while true; do
-    echo -n -e "\e[1;35m🤝 Would you like to synchronize your dotfiles?\e[0m [Y/n]: "
+    echo -n -e "\e[1;35m🤝 Would you like to install dependencies?\e[0m [Y/n]: "
     read ANS
     case $ANS in
       [Yy]*|"")
@@ -226,11 +232,11 @@ while true; do
         done
         ;;
       [Nn]*)
-        echo -e "Setup cancelled."
+        echo -e "Step: install-deps cancelled."
         exit 0
         ;;
       *)
-        echo "Please type Y or N"
+        echo -e "\e[1;31m🙅 Please answer YES or NO.\e[0m"
         ;;
     esac
 done

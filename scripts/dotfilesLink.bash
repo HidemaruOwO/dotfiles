@@ -108,7 +108,7 @@ while true; do
         exit 0
         ;;
       *)
-        echo "Please type Y or N"
+        echo -e "\e[1;31m🙅 Please answer YES or NO.\e[0m"
         ;;
     esac
   done
