@@ -4,6 +4,7 @@ if status is-interactive
   hyfetch --ascii-file ~/dotfiles/templates/neofetch/ascii-slime-1.txt
   figlet 'Welcome to fish!!'
   # path
+  set -x PATH /usr/lib/jvm/java-20-openjdk/bin $PATH
   set -x PATH $HOME/dotfiles/scripts $PATH
   set -x PATH $HOME/.zig-bin $PATH
   set -x PATH $HOME/go/bin $PATH
