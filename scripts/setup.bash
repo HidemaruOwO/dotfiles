@@ -44,11 +44,13 @@ DefaultIMModule=fcitx' >> /tmp/environment.tmp
   sudo mv /tmp/environment.tmp /etc/environment
   echo -e "🤘 \e[1mSSDのTrimコマンドを有効中...\e[0m"
   sudo systemctl enable fstrim.timer
- fi
+fi
 
 echo -e "🤘 \e[1mDotfilesとローカルをリンク中...\e[0m"
 bash $CURRENT/dotfilesLink.bash
 echo -e "💎 \e[1mホームディレクトリのカレントディレクトリの英語化\e[0m"
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+fish $CURRENT/install-omf-plugin.fish
 LANG=C xdg-user-dirs-gtk-update
 echo -e "💎 \e[1mファイアーウォールの有効化\e[0m"
 sudo systemctl enable ufw
@@ -69,12 +71,22 @@ cd /tmp/sddm-theme-corners
 sudo cp -r corners/ /usr/share/sddm/themes/
 echo "[Theme]
 Current=corners" > /tmp/theme.conf
+sudo mkdir -p /etc/sddm.conf.d
 sudo mv /tmp/theme.conf /etc/sddm.conf.d/theme.conf
+sudo systemctl enable sddm
+done
 echo -e "🤘 \e[1mGRUBテーマのセットアップ中...\e[0m"
 git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git /tmp/darkmatter-grub-theme && cd /tmp/darkmatter-grub-theme
 sudo python3 darkmatter-theme.py --install
-cd $HOME
+echo -e "🤘 \e[1mSet fish to default shell...\e[0m"
+sudo chsh $USER -s $(which fish)
+sudo chsh -s $(which fish)
+
+echo -e "🤘 \e[1mAdd locale...\e[0m"
+sudo localedef -f UTF-8 -i ja_JP ja_JP
+sudo localedef -f UTF-8 -i en_US en_US
 done
+cd $HOME
 figlet 'Finished!!'
 }
 
@@ -84,7 +96,7 @@ while true; do
     case $ANS in
       [Yy]*|"")
       process
-      done
+      exit 0
       ;;
       [Nn]*)
         echo "👋 See you again!"

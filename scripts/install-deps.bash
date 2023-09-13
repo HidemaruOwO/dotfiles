@@ -72,6 +72,21 @@ module_utils=(
     zsh
     fish
     thefuck
+    neovim-nvim-treesitter
+    less
+    autokey-gtk
+    imwheel
+    lazygit
+    ripgrep
+    the_silver_searcher
+    fd
+    xsel
+    wget
+    got-bin
+    zip
+    unzip
+    p7zip
+    sqlite
 )
 core_apps=(
     hyprland        # WM
@@ -91,6 +106,7 @@ wayland_apps=(
     mako                        # Wayland通知デーモン
     waybar-hyprland-cava-git                      # Wayland用のステータスバー
     swaybg                      # 壁紙
+    swww
     swaylock-effects            # swayのロックスクリーン
 )
 unixporn=(
@@ -110,7 +126,6 @@ unixporn=(
 language=(
     deno
     python
-    python-pip
     nodejs
     go
     jdk-openjdk
@@ -118,8 +133,14 @@ language=(
     bunjs-bin
     zig
     lua
+    php
+    composer
+    ruby
+    julia
 )
 language_tools=(
+    python-pip
+    python-neovim
     prettier
     eslint
     npm
@@ -127,6 +148,7 @@ language_tools=(
     zls
     zigmod-bin
     gyro-bin
+    luarocks
 )
 # 新しい `packages` 配列の作成
 packages=(
@@ -139,6 +161,8 @@ packages=(
     "${core_apps[@]}"
     "${wayland_apps[@]}"
     "${unixporn[@]}"
+    "${language[@]}"
+    "${language_tools[@]}"
 )
 #-- 関数 -----------------------------------------
 install_software() {
@@ -176,7 +200,6 @@ while true; do
 
         sleep 2
         echo "✅ Installed yay"
-
         #-- インストールステップ -----------------------------------------
         package_count=${#packages[@]}
         current_package=0
@@ -220,7 +243,12 @@ while true; do
             display_installation
         done
         sleep 1
-        echo -e "✅ Installation step completed ..."
+	echo "Install pumimt"
+	go install github.com/HidemaruOwO/pummit/pummit@v1.1.3 &>> $INSTLOG
+  echo "Install neovim deps"
+  sudo npm install -g neovim
+  echo -e "✅ Installation step completed ..."
+	# #-- Install Pummit ---------------------------------------------
         sleep 5
         # Display installation completion for each package with a random delay
         echo -e "\n==> Installation Summary: [packages]"
@@ -230,6 +258,7 @@ while true; do
             random_delay=$(awk -v min=0 -v max=0.3 'BEGIN{srand(); print min+rand()*(max-min)}')
             sleep $random_delay
         done
+	exit 0
         ;;
       [Nn]*)
         echo -e "Step: install-deps cancelled."

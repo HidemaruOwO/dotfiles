@@ -23,7 +23,7 @@ git clone https://github.com/HidemaruOwO/dotfiles.git
 
 cd dotfiles
 
-./setup.sh
+scripts/setup.sh
 ```
 
 **※ This script does not include installation of many of the use packages. Please install them yourself.**
