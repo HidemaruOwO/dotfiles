@@ -45,6 +45,8 @@ dev_environments=(
     neovim                 # 高機能なテキストエディタ
     gedit
     discord
+    webcord
+    kitty
     zoom
     slack-desktop
 )
