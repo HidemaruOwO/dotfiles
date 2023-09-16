@@ -245,12 +245,7 @@ while true; do
             display_installation
         done
         sleep 1
-	echo "Install pumimt"
-	go install github.com/HidemaruOwO/pummit/pummit@v1.1.3 &>> $INSTLOG
-  echo "Install neovim deps"
-  sudo npm install -g neovim
   echo -e "✅ Installation step completed ..."
-	# #-- Install Pummit ---------------------------------------------
         sleep 5
         # Display installation completion for each package with a random delay
         echo -e "\n==> Installation Summary: [packages]"
@@ -260,6 +255,14 @@ while true; do
             random_delay=$(awk -v min=0 -v max=0.3 'BEGIN{srand(); print min+rand()*(max-min)}')
             sleep $random_delay
         done
+	
+  echo "Install pumimt"
+	go install github.com/HidemaruOwO/pummit/pummit@v1.1.3 &>> $INSTLOG
+  echo "Install neovim deps"
+  sudo npm install -g neovim &>> $INSTLOG
+  echo "Install github extensions"
+  gh extension install dlvhdr/gh-dash &>> $INSTLOG
+
 	exit 0
         ;;
       [Nn]*)
