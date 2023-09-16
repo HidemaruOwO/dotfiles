@@ -167,7 +167,9 @@ return {
   end),
   wezterm.on("gui-startup", function()
     local tab, pane, window = mux.spawn_window {}
-    pane:send_text("btm\n")
+    pane:send_text("exit\n")
+    window:spawn_tab { args = { "btm" } }
+    window:spawn_tab { args = { "gh", "dash" } }
     window:spawn_tab {}
   end),
 }
