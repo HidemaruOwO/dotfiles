@@ -18,6 +18,7 @@ dots=(
 
 # Input the files and folders located in the directory $dotfiles_dir/config/
 configs=(
+  "neofetch"
   "nvim"
   "fish"
   "wezterm"
