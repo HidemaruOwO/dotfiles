@@ -30,8 +30,10 @@ configs=(
   "waybar"
   "mako"
   "kitty"
-  "mimeapps.list"
   "input-remapper-2"
+  # single file
+  "starship.toml"
+  "mimeapps.list"
 )
 
 # If there are separate configurations for Asahi Linux, please input the item "$configs" to escape and set them.
@@ -76,7 +78,7 @@ while true; do
 
           echo -e "🌟 \e[1mSynchronized..\e[0m \e[1;35m${dotfiles_dir}/${config}\e[0m"
           if [ -e "${HOME}/${config}" ]; then
-            echo -e "'$HOME/$config' -> '${dotfiles_dir}/${config}"
+            echo -e "'$HOME/$config' -> '${dotfiles_dir}/${config}'"
           else
             ln -snfv "${dotfiles_dir}/${config}" "$HOME"
           fi
@@ -91,7 +93,7 @@ while true; do
         for config in "${configs[@]}"; do
           echo -e "🌟 \e[1mSynchronized..\e[0m \e[1;35m${dotfiles_dir}/config/${config}\e[0m"
           if [ -e "${HOME}/.config/${config}" ]; then
-            echo "'$HOME/.config/$config' -> '${dotfiles_dir}/config/${config}"
+            echo "'$HOME/.config/$config' -> '${dotfiles_dir}/config/${config}'"
           else
               if [[ "${asahiconfigs[*]}" == *"${config}"* ]] && [ "$ASAHI" == 1 ] ; then
                 echo -e "\e[1;33m🌞 This is Asahi Linux !!\e[0m"
