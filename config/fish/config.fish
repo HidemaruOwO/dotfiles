@@ -2,7 +2,11 @@ if status is-interactive
   set -x PATH /opt/homebrew/bin $PATH
   set -x PATH /opt/homebrew/sbin $PATH
   hyfetch --ascii-file ~/dotfiles/templates/neofetch/ascii-slime-1.txt
-  figlet 'Welcome to fish!!'
+  echo "__        __   _                            _           __ _     _     _ _
+\ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___    / _(_)___| |__ | | |
+ \ \ /\ / / _ \ |/ __/ _ \| '_ ` _ \ / _ \ | __/ _ \  | |_| / __| '_ \| | |
+  \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) | |  _| \__ \ | | |_|_|
+   \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  |_| |_|___/_| |_(_|_)"
   # path
   set -x PATH /usr/lib/jvm/java-20-openjdk/bin $PATH
   set -x PATH $HOME/dotfiles/scripts $PATH
