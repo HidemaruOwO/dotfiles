@@ -1,6 +1,8 @@
 require("jetpack.packer").startup(function(use)
   -- bootstrap
   use { 'tani/vim-jetpack', opt = 1 }
+  -- Treesitter
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
   -- =========== Language Jetpackins ===========
   -- Zig
   use { 'ziglang/zig.vim' }
@@ -53,9 +55,8 @@ require("jetpack.packer").startup(function(use)
   -- Generte Image from code
   use { 'skanehira/denops-silicon.vim' }
   use { 'markonm/traces.vim' }
-  -- Tree Sitter
+  -- Tree Sitter modules
   use { "luckasRanarison/tree-sitter-hypr" }
-  use { 'nvim-treesitter/nvim-treesitter', cmd = ':TSUpdate' }
   -- use { 'p00f/nvim-ts-rainbow' }
   use { 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim', as = 'rainbow-delimiters.nvim' }
   use { 'windwp/nvim-ts-autotag' }
