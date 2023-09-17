@@ -74,18 +74,15 @@ Current=corners" > /tmp/theme.conf
 sudo mkdir -p /etc/sddm.conf.d
 sudo mv /tmp/theme.conf /etc/sddm.conf.d/theme.conf
 sudo systemctl enable sddm
-done
 echo -e "🤘 \e[1mGRUBテーマのセットアップ中...\e[0m"
 git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git /tmp/darkmatter-grub-theme && cd /tmp/darkmatter-grub-theme
 sudo python3 darkmatter-theme.py --install
 echo -e "🤘 \e[1mSet fish to default shell...\e[0m"
 sudo chsh $USER -s $(which fish)
 sudo chsh -s $(which fish)
-
 echo -e "🤘 \e[1mAdd locale...\e[0m"
 sudo localedef -f UTF-8 -i ja_JP ja_JP
 sudo localedef -f UTF-8 -i en_US en_US
-done
 cd $HOME
 figlet 'Finished!!'
 }
