@@ -8,7 +8,7 @@ text/plain=org.gnome.gedit.desktop;
 [Default Applications]
 application/x-bittorrent=deluge.desktop;
 image/jpeg=org.gnome.gThumb.desktop;
-image/png=xnviewmp.desktop;
+image/png=org.gnome.gThumb.desktop;
 inode/directory=thunar.desktop;
 text/html=vivaldi-stable.desktop
 x-scheme-handler/localhost=127.0.0.1
