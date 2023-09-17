@@ -49,8 +49,10 @@ dev_environments=(
     kitty
     zoom
     slack-desktop
+    google-chrome
 )
 module_utils=(
+    obs-studio
     ufw
     gufw
     xdg-user-dirs
@@ -72,6 +74,7 @@ module_utils=(
     wireplumber
     chafa
     zsh
+    webapp-manager
     fish
     thefuck
     neovim-nvim-treesitter
@@ -90,6 +93,7 @@ module_utils=(
     p7zip
     gthumb
     deluge
+    gnome-system-monitor
     sqlite
 )
 core_apps=(
