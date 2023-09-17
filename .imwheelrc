@@ -1,0 +1,7 @@
+"vivaldi-stable"
+None, Up,   Button4, 1
+None, Down, Button5, 1
+
+".*"
+None, Up,   Button4, 3
+None, Down, Button5, 3

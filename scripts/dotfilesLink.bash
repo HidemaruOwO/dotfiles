@@ -13,6 +13,7 @@ dots=(
   ".vimrc"
   ".zshrc"
   ".textlintrc"
+  ".imwheelrc"
   )
 
 
