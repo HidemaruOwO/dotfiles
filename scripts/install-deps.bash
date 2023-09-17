@@ -88,6 +88,8 @@ module_utils=(
     zip
     unzip
     p7zip
+    gthumb
+    deluge
     sqlite
 )
 core_apps=(
