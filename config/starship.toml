@@ -21,7 +21,7 @@ ap-northeast-1 = "jp"
 command = "uname -m"
 when = """ test $(uname -m) = "x86_64" """
 style = "bold yellow"
-format = "[$output]($style)"
+format = "[$output]($style) "
 
 [docker_context]
 format = "via [🐋 $context](bold blue)"
