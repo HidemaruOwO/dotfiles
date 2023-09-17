@@ -44,6 +44,7 @@ if status is-interactive
   balias efish "nvim $HOME/.config/fish/config.fish"
   balias ehypr "nvim $HOME/.config/hypr/hyprland.conf"
   balias envim "cd $HOME/.config/nvim && snvim && cd -"
+  balias edscript "cd $HOME/dotfiles/scripts && snvim && cd -"
   balias ewaybar "cd $HOME/.config/waybar && snvim && cd -"
   balias sfish "source $HOME/.config/fish/config.fish"
   balias egrntemp "nvim $HOME/dotfiles/templates/git-release-notes/markdown.ejs"
