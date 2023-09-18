@@ -1,4 +1,4 @@
 #!/bin/sh
 while true; do
-    xsel -fin </dev/null
+	xsel -fin </dev/null
 done

@@ -1,1 +1,1 @@
-require('barbar').setup()
+require("barbar").setup()

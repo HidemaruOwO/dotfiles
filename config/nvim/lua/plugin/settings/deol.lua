@@ -1,4 +1,4 @@
-vim.cmd [[
+vim.cmd([[
 function! RoundToInteger(number)
     let integer_part = float2nr(a:number)
     let decimal_part = a:number - integer_part
@@ -18,4 +18,4 @@ function! DeolFloat() abort
   let cmd = 'Deol -split=floating -winheight=' . my_winheight . ' -winwidth=' . my_winwidth . ' '
   execute cmd
 endfunction
-]]
+]])

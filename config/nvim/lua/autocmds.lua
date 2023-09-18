@@ -1,33 +1,33 @@
-local api = vim.api;
+local api = vim.api
 
-vim.cmd [[
+vim.cmd([[
 "   autocmd Filetype *.jsx inoremap <buffer> </ </<C-x><C-o><ESC>F<i
 "   autocmd Filetype *.tsx inoremap <buffer> </ </<C-x><C-o><ESC>F<i
    " autocmd BufWritePre * :lua vim.lsp.buf.format()
- ]]
+ ]])
 
 api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function(args)
-    require("conform").format({ bufnr = args.buf })
-  end,
+	pattern = "*",
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf })
+	end,
 })
 
 api.nvim_create_autocmd("FileType", {
-  pattern = "fern",
-  callback = function()
-    vim.cmd [[
+	pattern = "fern",
+	callback = function()
+		vim.cmd([[
       call Init_fern()
-      ]]
-  end
+      ]])
+	end,
 })
 
 api.nvim_create_augroup("my-glyph-palette", { clear = true })
 api.nvim_create_autocmd("FileType", {
-  pattern = "fern",
-  callback = function()
-    vim.cmd [[
+	pattern = "fern",
+	callback = function()
+		vim.cmd([[
       call glyph_palette#apply()
-      ]]
-  end
+      ]])
+	end,
 })

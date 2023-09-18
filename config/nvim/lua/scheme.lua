@@ -1,33 +1,32 @@
-vim.cmd [[
+vim.cmd([[
   autocmd ColorScheme * highlight GitGutterAdd ctermfg=green
   autocmd ColorScheme * highlight GitGutterChange ctermfg=blue
   autocmd ColorScheme * highlight GitGutterDelete ctermfg=red
-]]
+]])
 
-vim.cmd [[
+vim.cmd([[
   autocmd ColorScheme * highlight NormalFloat NONE
   autocmd ColorScheme * highlight FloatBorder guifg=gray guibg=NONE
-]]
+]])
 
-vim.cmd [[
+vim.cmd([[
   syntax enable
-]]
-
+]])
 
 local theme = "deep_snow"
 
 if theme == "red_sand" then
-  vim.cmd [[
+	vim.cmd([[
       colorscheme gruvbox
-  ]]
-  vim.g.airline_theme = "violet"
+  ]])
+	vim.g.airline_theme = "violet"
 elseif theme == "deep_sea" then
-  vim.cmd [[
+	vim.cmd([[
       colorscheme rigel
-  ]]
+  ]])
 elseif theme == "deep_snow" then
-  vim.cmd [[
+	vim.cmd([[
       colorscheme hybrid
-  ]]
-  vim.g.airline_theme = "deus"
+  ]])
+	vim.g.airline_theme = "deus"
 end

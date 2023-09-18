@@ -1,5 +1,5 @@
 <div align="center">
-  
+
 # 📚 Hidemaru's dotfiles 🔧
 
 ![最終コミット](https://img.shields.io/github/last-commit/HidemaruOwO/dotfiles?style=flat-square)

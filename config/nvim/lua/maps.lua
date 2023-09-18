@@ -45,7 +45,7 @@ map("n", "gh", "<Cmd>GitGutterLineHighlightsToggle<CR>", opt)
 -- LazyGit
 map("n", "gg", "<Cmd>LazyGit<CR>", opt)
 
-vim.cmd [[
+vim.cmd([[
 function! Init_fern() abort
 	nmap <buffer><expr> <Plug>(fern-my-open-or-expand)
 	      \ fern#smart#leaf(
@@ -62,4 +62,4 @@ function! Init_fern() abort
    nmap <buffer><nowait> m <Plug>(fern-action-move)
    nmap <buffer><nowait> n <Plug>(fern-action-new-file)
  endfunction
-]]
+]])
