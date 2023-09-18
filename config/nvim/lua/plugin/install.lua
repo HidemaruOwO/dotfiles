@@ -1,3 +1,10 @@
+function getHostname()
+  local f = io.open("/etc/hostname", "r")
+  for line in f:lines() do
+    return line
+  end
+end
+
 require("jetpack.packer").startup(function(use)
   -- bootstrap
   use { 'tani/vim-jetpack', opt = 1 }
@@ -33,15 +40,15 @@ require("jetpack.packer").startup(function(use)
   use { 'vim-jp/vimdoc-ja' }
   -- Builtin LSP
   use { 'neovim/nvim-lspconfig' }
-  use { 'jose-elias-alvarez/null-ls.nvim' }
-  use { 'MunifTanjim/prettier.nvim' }
   use { 'williamboman/mason.nvim' }
   use { 'williamboman/mason-lspconfig.nvim' }
   use { 'nvimdev/lspsaga.nvim' }
   use { 'onsails/lspkind.nvim' }
   use { 'ray-x/lsp_signature.nvim' }
   use { 'j-hui/fidget.nvim' }
-  -- Cmp 入力補完
+  -- Format code from LSP
+  use { 'stevearc/conform.nvim' }
+  -- Cmp completion
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-buffer' }
   use { 'hrsh7th/cmp-path' }
@@ -52,8 +59,11 @@ require("jetpack.packer").startup(function(use)
   -- Preview replace
   -- Enable Deno
   use { 'vim-denops/denops.vim' }
-  -- Generte Image from code
-  use { 'skanehira/denops-silicon.vim' }
+  -- Disable plugin on my MacBook Air
+  if not (getHostname() == "Slime-MBA") then
+    -- Generte Image from code
+    use { 'skanehira/denops-silicon.vim' }
+  end
   use { 'markonm/traces.vim' }
   -- Tree Sitter modules
   use { "luckasRanarison/tree-sitter-hypr" }
