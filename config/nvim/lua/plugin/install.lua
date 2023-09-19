@@ -106,7 +106,8 @@ require("jetpack.packer").startup(function(use)
 	use({ "akinsho/git-conflict.nvim" })
 	-- Undoの履歴を表示する
 	use({ "sjl/gundo.vim" })
-	-- Fern
+	-- File manager
+	-- -- Fern
 	use({ "lambdalisue/fern.vim" })
 	use({ "lambdalisue/fern-git-status.vim" })
 	use({ "lambdalisue/glyph-palette.vim" })
@@ -136,7 +137,7 @@ require("jetpack.packer").startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "nvim-telescope/telescope-symbols.nvim" })
 	use({ "nvim-telescope/telescope-media-files.nvim" })
-	-- use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	--
 	use({ "folke/noice.nvim" })
 	use({ "MunifTanjim/nui.nvim" })
