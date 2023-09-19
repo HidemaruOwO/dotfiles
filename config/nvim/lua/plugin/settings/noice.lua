@@ -17,10 +17,10 @@ noice.setup({
 		view_search = "mini",
 	},
 	routes = {
-		{
-			view = "notify",
-			filter = { event = "msg_showmode" },
-		},
+		-- {
+		-- view = "notify",
+		-- filter = { event = "msg_showmode" },
+		-- },
 		{
 			filter = {
 				event = "notify",
