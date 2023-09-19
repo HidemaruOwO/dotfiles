@@ -12,7 +12,8 @@
         "cpu",
         "memory",
         "disk",
-        "custom/window-name"
+        "custom/window-name",
+        "hyprland/window"
     ],
     "modules-center": [
         "custom/lock_screen",
@@ -92,8 +93,7 @@
             "6": [],
             "7": [],
             "8": [],
-            "9": [],
-            "10": []
+            "9": []
         }
     },
     "tray": {
