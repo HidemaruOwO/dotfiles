@@ -1,5 +1,5 @@
 local telescope = require("telescope")
-local fb_act = telescope.extensions.file_browser.actions
+-- local fb_act = telescope.extensions.file_browser.actions
 -- Load extensions
 telescope.load_extension("fzf")
 telescope.load_extension("frecency")
