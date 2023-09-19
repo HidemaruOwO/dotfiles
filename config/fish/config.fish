@@ -43,13 +43,13 @@ if status is-interactive
     balias ewezterm "nvim $HOME/.config/wezterm/wezterm.lua"
     balias efish "nvim $HOME/.config/fish/config.fish"
     balias ehypr "nvim $HOME/.config/hypr/hyprland.conf"
-    balias envim "cd $HOME/.config/nvim && snvim && cd -"
-    balias edscript "cd $HOME/dotfiles/scripts && snvim && cd -"
-    balias ewaybar "cd $HOME/.config/waybar && snvim && cd -"
+    balias envim "cd $HOME/.config/nvim && nvim && cd -"
+    balias edscript "cd $HOME/dotfiles/scripts && nvim && cd -"
+    balias ewaybar "cd $HOME/.config/waybar && nvim && cd -"
     balias sfish "source $HOME/.config/fish/config.fish"
     balias egrntemp "nvim $HOME/dotfiles/templates/git-release-notes/markdown.ejs"
     # vim
-    balias snvim "nvim -c 'FernToggle'"
+    # balias snvim "nvim -c 'FernToggle'"
     balias monitor "wezterm cli spawn -- zenith && wezterm cli move-pane-to-new-tab"
     balias ping pingu
     balias gitlog "git log --oneline --graph --decorate"
