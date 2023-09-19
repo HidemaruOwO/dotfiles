@@ -136,6 +136,7 @@ require("jetpack.packer").startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "nvim-telescope/telescope-symbols.nvim" })
 	use({ "nvim-telescope/telescope-media-files.nvim" })
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
 	--
 	use({ "folke/noice.nvim" })
 	use({ "MunifTanjim/nui.nvim" })
