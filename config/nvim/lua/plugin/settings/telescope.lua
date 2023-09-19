@@ -17,18 +17,18 @@ telescope.setup({
 			override_file_sorter = true, -- override the file sorter
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 		},
-		file_browser = {
-			hijack_netrw = true,
-			mappings = {
-				["n"] = {
-					["<CR>"] = fb_act.open,
-					["c"] = fb_act.create,
-					["m"] = fb_act.move,
-					["d"] = fb_act.remove,
-					["r"] = fb_act.rename,
-					["."] = fb_act.toggle_hidden,
-				},
-			},
-		},
+		-- file_browser = {
+		-- 	hijack_netrw = true,
+		-- 	mappings = {
+		-- 		["n"] = {
+		-- 			["<CR>"] = fb_act.open,
+		-- 			["c"] = fb_act.create,
+		-- 			["m"] = fb_act.move,
+		-- 			["d"] = fb_act.remove,
+		-- 			["r"] = fb_act.rename,
+		-- 			["."] = fb_act.toggle_hidden,
+		-- 		},
+		-- 	},
+		-- },
 	},
 })
