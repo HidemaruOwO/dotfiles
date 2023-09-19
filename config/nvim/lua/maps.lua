@@ -13,7 +13,7 @@ map("n", "<C-q>", "<Cmd>Lspsaga hover_doc<CR>", opt)
 map("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opt)
 map("n", "<C-f>", "<Cmd>lua vim.lsp.buf.format()<CR>", opt)
 map("n", "<C-c>", "<Cmd>Commentary<CR>", opt)
--- map("v", "<C-c>", "<Cmd>Commentary<CR>", opt)
+map("v", "<C-c>", ":'<,'>Commentary<CR>", opt)
 map("n", "<C-S-r>", "<Cmd>source $MYVIMRC<CR>", opt)
 -- barbar
 -- map("n", "<C-S-h>", "<Cmd>BufferPrevious<CR>", opt)
