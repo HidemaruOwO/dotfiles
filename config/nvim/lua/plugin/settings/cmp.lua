@@ -29,7 +29,9 @@ cmp.setup({
 		{ name = "buffer" },
 	}),
 	formatting = {
-		format = lspkind.cmp_format({ with_text = false, maxwidth = 50 }),
+		format = lspkind.cmp_format({
+			menu = {},
+		}),
 	},
 	window = {
 		completion = cmp.config.window.bordered({

@@ -23,7 +23,7 @@ require("conform").setup({
 		go = { "gofmt" },
 		zig = { "zigfmt" },
 		["*"] = { "trim_whitespace", "trim_newlines", "codespell" },
-		["_"] = { "trim_whitespace", "trim_newlines", "codespell" },
+		-- ["_"] = { "trim_whitespace", "trim_newlines", "codespell" },
 	},
 	format_on_save = {
 		-- I recommend these options. See :help conform.format for details.
