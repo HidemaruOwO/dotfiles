@@ -1,4 +1,8 @@
 local prettier = { "prettierd", "prettier" }
+local rustfmt = require("conform.formatters.rustfmt")
+rustfmt.args = function()
+	return { "--edition", "2021", "--emit", "stdout" }
+end
 
 require("conform").setup({
 	formatters_by_ft = {
