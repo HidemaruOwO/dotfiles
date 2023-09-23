@@ -77,7 +77,6 @@ module_utils=(
 	webapp-manager
 	fish
 	thefuck
-	neovim-nvim-treesitter
 	less
 	autokey-gtk
 	imwheel
@@ -191,7 +190,7 @@ packages=(
 #-- 関数 -----------------------------------------
 install_software() {
 	echo -en "\e[90mInstalling\e[0m \e[97m$1\e[0m..."
-	yay -S --noconfirm $1 &>>$INSTLOG &
+	yay -S --needed --noconfirm $1 &>>$INSTLOG &
 	show_progress $!
 }
 installed() {
