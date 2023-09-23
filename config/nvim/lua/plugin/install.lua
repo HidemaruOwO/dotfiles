@@ -60,7 +60,10 @@ require("jetpack.packer").startup(function(use)
 	-- Enable Deno
 	use({ "vim-denops/denops.vim" })
 	-- Disable plugin on my MacBook Air
-	if not (getHostname() == "Slime-MBA") then
+	if getHostname() == "Slime-MBA" then
+		-- Generte Image from code
+		use({ "segeljakt/vim-silicon" })
+	else
 		-- Generte Image from code
 		use({ "skanehira/denops-silicon.vim" })
 	end
@@ -137,7 +140,7 @@ require("jetpack.packer").startup(function(use)
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "nvim-telescope/telescope-symbols.nvim" })
 	use({ "nvim-telescope/telescope-media-files.nvim" })
-	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use({ "HidemaruOwO/telescope-file-browser.nvim" })
 	--
 	use({ "folke/noice.nvim" })
 	use({ "MunifTanjim/nui.nvim" })

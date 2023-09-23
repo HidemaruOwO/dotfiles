@@ -36,7 +36,7 @@ map("n", "]e", "<Cmd>Lspsaga diagnostic_jump_prev<CR>", opt)
 map("n", "<C-n>", "<Cmd>FernToggle<CR>", opt)
 -- Telescope
 map("n", "<C-m>", "<Cmd>Telescope file_browser path=%:p:h select_buffer=true<CR><ESC>", opt)
-map("n", "<C-S-m>", "<Cmd>Telescope frecency<CR>", opt)
+map("n", "<C-S-m>", "<Cmd>Telescope frecency<CR><ESC>", opt)
 map("n", "<C-.>", "<Cmd>Telescope symbols<CR>", opt)
 map("i", "<C-.>", "<Cmd>Telescope symbols<CR>", opt)
 -- Git Gutter mapping

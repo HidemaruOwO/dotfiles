@@ -32,4 +32,7 @@ require("runit").setup({
 	go = function(file)
 		return "go run" .. file
 	end,
+	rs = function(file)
+		return "rustc --edition 2021" .. file
+	end,
 })

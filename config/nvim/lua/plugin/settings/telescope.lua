@@ -1,4 +1,5 @@
 local telescope = require("telescope")
+local act = require("telescope.actions")
 local fb_act = telescope.extensions.file_browser.actions
 -- Load extensions
 telescope.load_extension("fzf")
@@ -9,6 +10,16 @@ telescope.load_extension("file_browser")
 telescope.setup({
 	defaults = {
 		borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+		mappings = {
+			i = {
+				["C-s"] = act.select_vertical,
+				["C-S-s"] = act.select_horizontal,
+			},
+			n = {
+				["s"] = act.select_vertical,
+				["S"] = act.select_horizontal,
+			},
+		},
 	},
 	extensions = {
 		fzf = {
@@ -23,11 +34,12 @@ telescope.setup({
 				["n"] = {
 					f = false,
 					["<CR>"] = fb_act.open,
-					["c"] = fb_act.create,
+					["n"] = fb_act.create,
 					["m"] = fb_act.move,
 					["d"] = fb_act.remove,
 					["r"] = fb_act.rename,
 					["."] = fb_act.toggle_hidden,
+					["s"] = false,
 				},
 			},
 		},

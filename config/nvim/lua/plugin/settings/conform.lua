@@ -26,7 +26,7 @@ require("conform").setup({
 		rust = { "rustfmt" },
 		go = { "gofmt" },
 		zig = { "zigfmt" },
-		["*"] = { "trim_whitespace", "trim_newlines", "codespell" },
+		["*"] = { "trim_whitespace", "trim_newlines" },
 		-- ["_"] = { "trim_whitespace", "trim_newlines", "codespell" },
 	},
 	format_on_save = {
