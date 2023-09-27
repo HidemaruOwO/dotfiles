@@ -8,6 +8,15 @@ local function isNodejs()
 	end
 end
 
+local function removeExtension(fullPath)
+	local lastDotIndex = string.find(fullPath, "%.[^%.]*$")
+	if lastDotIndex then
+		return string.sub(fullPath, 1, lastDotIndex - 1)
+	else
+		return fullPath
+	end
+end
+
 require("runit").setup({
 	js = function(file)
 		if isNodejs() then
@@ -33,6 +42,7 @@ require("runit").setup({
 		return "go run" .. file
 	end,
 	rs = function(file)
-		return "rustc --edition 2021" .. file
+		return "cargo run"
+		-- return "bash -c '" .. "rustc --edition 2021" .. file .. " && " .. removeExtension(file) .. "'"
 	end,
 })

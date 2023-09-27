@@ -77,6 +77,8 @@ Current=corners" >/tmp/theme.conf
 	sudo mkdir -p /etc/sddm.conf.d
 	sudo mv /tmp/theme.conf /etc/sddm.conf.d/theme.conf
 	sudo systemctl enable sddm
+	sudo $CURRENT/change-sddm-background.bash $HOME/dotfiles/templates/background/sddm/modern_slime.png
+
 	echo -e "🤘 \e[1mGRUBテーマのセットアップ中...\e[0m"
 	git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git /tmp/darkmatter-grub-theme && cd /tmp/darkmatter-grub-theme
 	sudo python3 darkmatter-theme.py --install
@@ -88,6 +90,9 @@ Current=corners" >/tmp/theme.conf
 	sudo localedef -f UTF-8 -i en_US en_US
 	cd $HOME
 	figlet 'Finished!!'
+	echo -e "📓 \e[1mToDo: \e[0m"
+	echo "    - Set your icon for sddm"
+	echo "      (You can set it by running 'sudo $CURRENT/add-sddm-icon.bash <path-to-png-image> <username>')"
 }
 
 while true; do
