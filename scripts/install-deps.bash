@@ -92,6 +92,7 @@ module_utils=(
 	p7zip
 	gthumb
 	deluge
+	deluge-gtk
 	gnome-system-monitor
 	sqlite
 )
