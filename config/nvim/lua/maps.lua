@@ -45,6 +45,11 @@ map("n", "g]", "<Cmd>GitGutterNextHunk<CR>", opt)
 map("n", "gh", "<Cmd>GitGutterLineHighlightsToggle<CR>", opt)
 -- LazyGit
 map("n", "gg", "<Cmd>LazyGit<CR>", opt)
+-- Conflict nvim
+map("n", "ck", "<Cmd>GitConflictChooseOurs<CR>", opt)
+map("n", "cj", "<Cmd>GitConflictChooseTheirs<CR>", opt)
+map("n", "cc", "<Cmd>GitConflictNextConflict<CR>", opt)
+map("n", "cx", "<Cmd>GitConflictPrevConflict<CR>", opt)
 
 vim.cmd([[
 function! Init_fern() abort
