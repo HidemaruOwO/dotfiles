@@ -146,7 +146,13 @@ window#waybar.hidden {
   /* background-color: @critical; */
   color: @critical;
 }
-
+#battery.warning:not(.charging) {
+  color: @warning;
+}
+#battery.charging {
+  background-color: rgba(0, 0, 0, 0);
+  /* color: @warning; */
+}
 label:focus {
   background-color: #000000;
 }
