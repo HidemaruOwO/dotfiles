@@ -108,7 +108,7 @@
     "format-alt": " {:%a,%b %d}" // Icon: calendar-alt
   },
   "cpu": {
-    "format": "&#8239;{usage}%",
+    "format": " &#8239;{usage}%",
     "tooltip": false,
     "on-click": "kitty -e 'btop'"
   },
