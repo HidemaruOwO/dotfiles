@@ -143,8 +143,8 @@ window#waybar.hidden {
 }
 
 #battery.critical:not(.charging) {
-  background-color: @critical;
-  color: @white;
+  /* background-color: @critical; */
+  color: @critical;
 }
 
 label:focus {
