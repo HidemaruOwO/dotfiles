@@ -4,38 +4,45 @@ WINDOW_CLASS=$(hyprctl activewindow | grep "class:" | awk '{print $2}')
 
 case $WINDOW_CLASS in
 discord)
-    echo "󰙯 Discord"
-    ;;
+	echo "󰙯 Discord"
+	;;
 WebCord)
-    echo "󰙯 Webcord"
-    ;;
+	echo "󰙯 Webcord"
+	;;
 firefox)
-    echo " Firefox"
-    ;;
+	echo " Firefox"
+	;;
 Code)
-    echo " Visual Studio Code"
-    ;;
+	echo " Visual Studio Code"
+	;;
 org.wezfurlong.wezterm)
-    echo " WezTerm"
-    ;;
+	echo " WezTerm"
+	;;
 alacritty)
-    echo " Alacritty"
-    ;;
+	echo " Alacritty"
+	;;
+kitty)
+	echo " Alacritty"
+	;;
 org.kde.dolphin)
-    echo " Dolphin"
-    ;;
+	echo " Dolphin"
+	;;
 thunar)
-    echo " Thunar"
-    ;;
+	echo " Thunar"
+	;;
 google-chrome)
-    echo " Google Chrome"
-    ;;
+	echo " Google Chrome"
+	;;
 vivaldi-stable)
-    echo " Vivaldi"
-    ;;
-
-"") ;;
+	echo " Vivaldi"
+	;;
+slack)
+	echo "󰒱 Slack"
+	;;
+"")
+	echo "󰇄 Desktop"
+	;;
 *)
-    echo " $WINDOW_CLASS"
-    ;;
+	echo " $WINDOW_CLASS"
+	;;
 esac

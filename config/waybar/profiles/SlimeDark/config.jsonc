@@ -1,26 +1,35 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 33,
-  "width": 1350,
-  "margin": "3, 0, 2, 0",
+  // "mod": "dock",
+  "height": 46,
+  //"width": 1350,
+  "margin": "0, 0, 0, 0",
   // Choose the order of the modules
   "modules-left": [
-    "custom/wmname",
+    "custom/launch_wofi",
+    "custom/window-name",
     "sway/workspaces",
     "hyprland/workspaces",
     "sway/mode",
     "cpu",
     "custom/separator",
     "memory",
-    "custom/separator",
-    "network",
     "custom/recorder",
     "custom/audiorec"
   ],
-  "modules-center": ["tray", "mpd", "custom/updates"],
+  "modules-center": [
+    "custom/lock_screen",
+    "custom/separator",
+    "tray",
+    "mpd",
+    "custom/separator",
+    "custom/updates"
+  ],
   "modules-right": [
     "idle_inhibitor",
+    "custom/separator",
+    "network",
     "custom/separator",
     "backlight",
     "custom/separator",
@@ -55,6 +64,17 @@
     "format": "",
     "tooltip": false
   },
+  "custom/launch_wofi": {
+    "format": "",
+    "on-click": "pkill wofi; wofi -n",
+    "tooltip": false
+  },
+  "custom/lock_screen": {
+    "format": "",
+    "on-click": "sh -c '(sleep 0.5s; wlogout)'",
+    "tooltip": false
+  },
+
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
@@ -99,22 +119,25 @@
   },
   "tray": {
     "icon-size": 20,
-    "spacing": 6
+    "spacing": 10
   },
   "clock": {
     "interval": 1,
-    "locale": "C",
-    "format": " {:%I:%M %p}",
-    "format-alt": " {:%a,%b %d}" // Icon: calendar-alt
+    "locale": "ja_JP.UTF-8",
+    // "format": " {:%a,%b %d} {:%I:%M %p}",
+    "format": " {:%B%d日(%a) %H:%M}"
+    // "format-alt": " {:%B%d日(%a) %H:%M}"
+    // "format-alt": " {:%a, %B %d, %Y (%R)}" // Icon: calendar-alt
   },
   "cpu": {
+    "interval": 1,
     "format": " &#8239;{usage}%",
     "tooltip": false,
     "on-click": "kitty -e 'btop'"
   },
   "memory": {
-    "interval": 30,
-    "format": " {used:0.2f}GB",
+    "interval": 3,
+    "format": "󰞯 {used:0.1f}GB",
 
     "max-length": 10,
     "tooltip": false,
@@ -131,43 +154,42 @@
   },
   "backlight": {
     // "device": "acpi_video1",
-    "format": "{icon}&#8239;{percent}%",
-    "format-icons": ["💡", "💡"],
-    "on-scroll-down": "brightnessctl -c backlight set 1%-",
-    "on-scroll-up": "brightnessctl -c backlight set +1%"
+    "format": "{icon}",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "on-scroll-up": "echo 0",
+    "on-scroll-down": "echo 0"
   },
   "battery": {
+    "interval": 60,
     "states": {
       // "good": 95,
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}&#8239;{capacity}%",
-    "format-charging": "&#8239;{capacity}%",
-    "format-plugged": "&#8239;{capacity}%",
-    "format-alt": "{icon} {time}",
+    "format": "{icon} &#8239;{capacity}%",
+    "format-charging": " &#8239;{capacity}%",
+    "format-plugged": " &#8239;{capacity}%",
+    "format-alt": "{icon}  {time}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
     "format-icons": ["", "", "", "", ""]
     // "format-icons": ["", "", "", "", ""]
   },
   "network": {
+    "interval": 30,
     // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "&#8239;({signalStrength}%)",
-    "format-ethernet": "&#8239;{ifname}: {ipaddr}/{cidr}",
-    "format-linked": "&#8239;{ifname} (No IP)",
-    "format-disconnected": "✈&#8239;Disconnected",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "tooltip-format": "{essid}: {ipaddr}"
+    "format-wifi": "{icon}",
+    "format-ethernet": "{icon}",
+    "format-linked": "󰤦 ",
+    "format-disconnected": "✈",
+    "format-alt": "{icon} {ifname}: {ipaddr}/{cidr}",
+    "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format": " {essid}: {ipaddr}"
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{icon} {volume}% {format_source}",
-    "format-bluetooth": "{icon} {volume}% {format_source}",
-    "format-bluetooth-muted": " {format_source}",
     "format-muted": "  {format_source}",
-    "format-source": " {volume}%",
-    "format-source-muted": "",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -177,8 +199,15 @@
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click": "pavucontrol"
+    "on-click": "~/.config/waybar/scripts/volume --toggle"
   },
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "~/.config/waybar/scripts/volume --toggle-mic"
+  },
+
   "mpd": {
     "format": "{stateIcon} {artist} - {title}",
     "format-disconnected": "🎶",
@@ -205,7 +234,11 @@
     "tooltip-format-disconnected": "MPD (disconnected)",
     "max-length": 45
   },
-
+  "custom/window-name": {
+    "format": "<b>{}</b>",
+    "interval": 1,
+    "exec": "~/.config/waybar/scripts/window.sh"
+  },
   "custom/recorder": {
     "format": " Rec",
     "format-disabled": " Off-air", //An empty format will hide the module.
