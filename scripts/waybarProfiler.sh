@@ -9,12 +9,12 @@ echo "┌───────────────────────�
 echo -e "\e[1m│   🎨 Waybar Profiler V1              │\e[0m"
 echo "└──────────────────────────────────────┘"
 
-echo -e "\e[1m:) Available profiles:\e[0m"
+echo -e "\e[1m:: Available profiles:\e[0m"
 for i in "${!profiles_list[@]}"; do
 	if [ "$i" -eq 0 ]; then
 		continue
 	fi
-	echo ":: $i: ${profiles_list[i]}"
+	echo "$i) ${profiles_list[i]}"
 done
 
 read -p "Select profile number: " profile_number
