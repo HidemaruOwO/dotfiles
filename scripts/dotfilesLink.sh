@@ -38,7 +38,6 @@ configs=(
 
 # If there are separate configurations for Asahi Linux, please input the item "$configs" to escape and set them.
 asahiconfigs=(
-	"waybar"
 	"hypr"
 )
 
