@@ -4,6 +4,11 @@ CURRENT=$(
 	pwd
 )
 
+if [ "$(pwd)" != "$HOME/dotfiles" ]; then
+	echo -e "\e[1;31m🙅 Please run this script in $HOME/dotfiles\e[0m"
+	exit 1
+fi
+
 echo "┌──────────────────────────────────────┐"
 echo -e "\e[1m│   ♻ Dotfiles Setup V1                │\e[0m"
 echo "└──────────────────────────────────────┘"
@@ -36,7 +41,7 @@ function process() {
 		echo -e "🤘 \e[1mリポジトリの同期とソフトウェアの更新中...\e[0m"
 		sudo pacman -Syyu --noconfirm
 		echo -e "🤘 \e[1m周辺パッケージをインストール中...\e[0m"
-		bash $CURRENT/install-deps.bash
+		bash $CURRENT/installDeps.sh
 		echo -e "🤘 \e[1mxprofileにfcitxの設定を書き込み中...\e[0m"
 		cat /etc/environment >/tmp/environment.tmp
 		echo 'EDITOR=nvim
@@ -50,10 +55,10 @@ DefaultIMModule=fcitx' >>/tmp/environment.tmp
 	fi
 
 	echo -e "🤘 \e[1mDotfilesとローカルをリンク中...\e[0m"
-	bash $CURRENT/dotfilesLink.bash
+	bash $CURRENT/dotfilesLink.sh
 	echo -e "💎 \e[1mホームディレクトリのカレントディレクトリの英語化\e[0m"
 	curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-	fish $CURRENT/install-omf-plugin.fish
+	fish $CURRENT/installOmfPlugin.fish
 	LANG=C xdg-user-dirs-gtk-update
 	echo -e "💎 \e[1mファイアーウォールの有効化\e[0m"
 	sudo systemctl enable ufw
@@ -77,7 +82,7 @@ Current=corners" >/tmp/theme.conf
 	sudo mkdir -p /etc/sddm.conf.d
 	sudo mv /tmp/theme.conf /etc/sddm.conf.d/theme.conf
 	sudo systemctl enable sddm
-	sudo $CURRENT/change-sddm-background.bash $HOME/dotfiles/templates/background/sddm/modern_slime.png
+	sudo $CURRENT/changeSddmBackground.sh $HOME/dotfiles/templates/background/sddm/modern_slime.png
 
 	echo -e "🤘 \e[1mGRUBテーマのセットアップ中...\e[0m"
 	git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git /tmp/darkmatter-grub-theme && cd /tmp/darkmatter-grub-theme
@@ -92,7 +97,7 @@ Current=corners" >/tmp/theme.conf
 	figlet 'Finished!!'
 	echo -e "📓 \e[1mToDo: \e[0m"
 	echo "    - Set your icon for sddm"
-	echo "      (You can set it by running 'sudo $CURRENT/add-sddm-icon.bash <path-to-png-image> <username>')"
+	echo "      (You can set it by running 'sudo $CURRENT/addSddmIcon.sh <path-to-png-image> <username>')"
 }
 
 while true; do
