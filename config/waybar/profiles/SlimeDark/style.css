@@ -36,7 +36,7 @@ window#waybar.hidden {
 }
 
 #workspaces button {
-  padding: 5px 6px 5px 0;
+  padding: 0 6px 0 0;
   margin: 4px 0px 4px 0px;
   background-color: transparent;
   color: #ffffff;
@@ -45,7 +45,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.active {
-  padding: 5px 6px 5px 0;
+  padding: 0 6px 0 0;
   margin: 4px 0px 4px 0px;
   background-color: #ddddff;
   color: #303030;
