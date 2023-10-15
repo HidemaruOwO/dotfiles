@@ -23,6 +23,19 @@
   /* font-size: 14px; */
 }
 
+tooltip {
+  background: #1e1e2e;
+  opacity: 0.8;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #11111b;
+}
+
+tooltip label {
+  color: #cdd6f4;
+}
+
 window#waybar {
   background-color: rgba(15, 19, 26, 0);
   color: #ffffff;
@@ -181,10 +194,6 @@ label:focus {
 
 #pulseaudio {
   color: @accent4;
-}
-
-#pulseaudio.muted {
-  color: #a0a0a0;
 }
 
 #custom-launch_wofi {

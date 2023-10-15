@@ -1,7 +1,11 @@
 {
   "layer": "top",
   "position": "top",
-  // "mod": "dock",
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+
   "height": 46,
   //"width": 1350,
   "margin": "0, 0, 0, 0",
@@ -105,7 +109,7 @@
     "exec": "~/.config/waybar/scripts/update-sys",
     "on-click": "~/.config/waybar/scripts/update-sys update",
     "interval": 300,
-    "tooltip": true
+    "tooltip": false
   },
   "sway/mode": {
     "format": "<span style=\"italic\">{}</span>"
@@ -115,7 +119,8 @@
     "format-icons": {
       "activated": "",
       "deactivated": ""
-    }
+    },
+    "tooltip": false
   },
   "tray": {
     "icon-size": 20,
@@ -157,7 +162,8 @@
     "format": "{icon}",
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "on-scroll-up": "echo 0",
-    "on-scroll-down": "echo 0"
+    "on-scroll-down": "echo 0",
+    "tooltip": false
   },
   "battery": {
     "interval": 60,
@@ -172,7 +178,8 @@
     "format-alt": "{icon}  {time}",
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": ["", "", "", "", ""],
+    "tooltip": false
     // "format-icons": ["", "", "", "", ""]
   },
   "network": {
@@ -190,6 +197,8 @@
     // "scroll-step": 1, // %, can be a float
     "format": "{icon} {volume}% {format_source}",
     "format-muted": "  {format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
     "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -199,15 +208,9 @@
       "car": "",
       "default": ["", "", ""]
     },
-    "on-click": "~/.config/waybar/scripts/volume --toggle"
+    "on-click": "~/.config/waybar/scripts/volume --toggle",
+    "on-click-right": "~/.config/waybar/scripts/volume --toggle-mic"
   },
-  "pulseaudio#microphone": {
-    "format": "{format_source}",
-    "format-source": " {volume}%",
-    "format-source-muted": "",
-    "on-click": "~/.config/waybar/scripts/volume --toggle-mic"
-  },
-
   "mpd": {
     "format": "{stateIcon} {artist} - {title}",
     "format-disconnected": "🎶",
