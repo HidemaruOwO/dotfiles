@@ -99,6 +99,7 @@ window#waybar.hidden {
 #custom-power,
 #custom-pacman,
 #language {
+  background-color: rgba(0, 0, 0, 0);
   padding: 0px 3px;
   margin: 4px 3px 5px 3px;
   color: @fgcolor;
@@ -156,10 +157,12 @@ window#waybar.hidden {
 }
 
 #battery.critical:not(.charging) {
+  background-color: rgba(0, 0, 0, 0);
   /* background-color: @critical; */
   color: @critical;
 }
 #battery.warning:not(.charging) {
+  background-color: rgba(0, 0, 0, 0);
   color: @warning;
 }
 #battery.charging {
