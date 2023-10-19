@@ -72,10 +72,10 @@ Now you can use <C-{h,j,k,l}> as arrow keys as long as "autokey-gtk" is running.
   <summary>Preview Screenshots</summary>
   
 - Terminal
-  ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/2163e4e2-bed5-46e2-aa67-7bda302691f6)
+  ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/feeeab24-7084-4887-b11f-c1987b5c330f)
   
 - Waybar
-  ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/43f09a32-0f67-4c20-a2ac-aeaba9bd99b7)
+  ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/7cf1637d-a981-42b5-a315-205f3d14add4)
   
 - Neovim
   ![image](https://github.com/HidemaruOwO/dotfiles/assets/82384920/e3a398c2-4dfa-456b-9e36-0ca009631eed)
