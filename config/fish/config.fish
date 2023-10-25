@@ -33,6 +33,7 @@ if status is-interactive
     balias drun 'docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/pwd'
     balias lg lazygit
     balias en2ja "strans -s en -t ja"
+    balias yarninstall "bun install -y"
     balias sudo "sudo "
     balias dc cd
     balias sl ls
