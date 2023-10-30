@@ -1,0 +1,91 @@
+{
+  "title": "hotkeys to switch app",
+  "rules":
+  [
+    {
+      "description": "ctrl-E to Vivaldi",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'vivaldi'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ctrl-F to Finder",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'finder'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ctrl-D to discord",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'discord'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "ctrl-6 to iTerm2",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "6",
+            "modifiers": {
+              "mandatory": [
+                "control"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "open -a 'iTerm'"
+            }
+          ]
+        }
+      ]
+    },
+  ]
+}
+

@@ -9,9 +9,9 @@ directories=("$HOME/.oh-my-zsh" "$HOME/.config" "$HOME/.local" "$HOME/.local/sha
 
 # Input the files and folders located in the directory $dotfiles_dir/
 dots=(
-	".p10k.zsh"
+	# ".p10k.zsh"
 	".vimrc"
-	".zshrc"
+	# ".zshrc"
 	".textlintrc"
 	".imwheelrc"
 )
@@ -31,6 +31,8 @@ configs=(
 	"mako"
 	"kitty"
 	"input-remapper-2"
+	"pummit"
+	"karabiner"
 	# single file
 	"starship.toml"
 	"mimeapps.list"

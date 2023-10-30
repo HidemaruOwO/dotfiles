@@ -8,8 +8,14 @@ local act = wezterm.action
 
 print(hostname)
 
+print(os_name)
+
 if hostname == "Slime-MBA" then
-	will_font_size = 13
+	if os_name == "Mac" then
+		will_font_size = 16
+	elseif os_name == "Linux" then
+		will_font_size = 13
+	end
 elseif hostname == "Linux" then
 	will_font_size = 11.5
 end
@@ -168,8 +174,14 @@ return {
 	wezterm.on("gui-startup", function()
 		local tab, pane, window = mux.spawn_window({})
 		pane:send_text("exit\n")
-		window:spawn_tab({ args = { "btop" } })
-		window:spawn_tab({ args = { "gh", "dash" } })
+
+		if os_name == "Mac" then
+			window:spawn_tab({ args = { "/opt/homebrew/bin/btop" } })
+		else
+			window:spawn_tab({ args = { "btop" } })
+		end
+		-- window:spawn_tab({ args = { "fish", "-c", "gh", "dash" } })
 		window:spawn_tab({})
+		-- pane:send_text("hyfetch --ascii-file ~/dotfiles/templates/neofetch/ascii-slime-1.txt\n")
 	end),
 }
