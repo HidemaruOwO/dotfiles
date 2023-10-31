@@ -11,7 +11,7 @@ vim.wo.number = true
 vim.scriptencoding = "utf-8"
 
 vim.cmd([[
-  language C
+  language en_US.UTF-8
   filetype on
   filetype plugin indent on
 ]])
