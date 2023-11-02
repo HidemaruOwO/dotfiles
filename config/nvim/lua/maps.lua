@@ -3,11 +3,22 @@ local map = vim.api.nvim_set_keymap
 local opt = { silent = true, noremap = true }
 local opt_expr = { silent = true, noremap = true, expr = true }
 
+local Terminal = require("toggleterm.terminal").Terminal
+local term = Terminal:new({
+	cmd = "fish",
+	direction = "float",
+	hidden = true,
+})
+
+function _term_toggle()
+	term:toggle()
+end
+
 map("i", "<C-i>", 'copilot#Accept("<CR>")', opt_expr)
 map("n", "<Space>v", "<Cmd>call sml#mode_on()<CR>", opt)
 map("i", "<C-b>", "<br/>", opt)
 map("n", "<C-b>", "a<br/><ESC>", opt)
-map("n", "<C-t>", "<Cmd>lua require('FTerm').toggle()()<CR>", opt)
+map("n", "<C-t>", "<Cmd>lua _term_toggle()<CR>", opt)
 map("n", "<C-s>", "<Cmd>Telescope grep_string<CR>", opt)
 map("n", "<C-q>", "<Cmd>Lspsaga hover_doc<CR>", opt)
 map("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<CR>", opt)

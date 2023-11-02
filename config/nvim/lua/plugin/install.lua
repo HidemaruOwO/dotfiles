@@ -46,6 +46,8 @@ require("jetpack.packer").startup(function(use)
 	use({ "onsails/lspkind.nvim" })
 	use({ "ray-x/lsp_signature.nvim" })
 	use({ "j-hui/fidget.nvim" })
+	-- Always show icon
+	use({ "kosayoda/nvim-lightbulb" })
 	-- Format code from LSP
 	use({ "stevearc/conform.nvim" })
 	-- Cmp completion
@@ -85,8 +87,9 @@ require("jetpack.packer").startup(function(use)
 	-- Theme
 	use({ "jonathanfilip/vim-lucius" })
 	-- ターミナル
-	use({ "Shougo/deol.nvim" })
-	use({ "numToStr/FTerm.nvim" })
+	-- use({ "Shougo/deol.nvim" })
+	-- use({ "numToStr/FTerm.nvim" })
+	use({ "akinsho/toggleterm.nvim" })
 	-- Writing code with AI
 	use({ "github/copilot.vim" })
 	-- Share code at realtime
