@@ -1,0 +1,26 @@
+# focus window
+# alt - n: yabai -m window --focus next || yabai -m display --focus next
+# alt - b: yabai -m window --focus prev || yabai -m display --focus prev
+
+# move managed window
+# shift + cmd - h: yabai -m window --warp next
+# shift + cmd - j: yabai -m window --warp prev
+
+# make window fill screen
+# shift + cmd - m: yabai -m window --grid 1:1:0:0:1:1
+
+# make window fill a half of screen
+# shift +  cmd - left: yabai -m window --grid 1:2:0:0:1:1
+# shift +  cmd - right: yabai -m window --grid 1:2:1:0:1:1
+# shift +  cmd - up: yabai -m window --grid 2:1:1:0:1:1
+# shift +  cmd - down: yabai -m window --grid 2:1:0:1:1:1
+
+# move window between displays
+# shift + ctrl + alt - left: yabai -m window --display next; yabai -m display --focus next; yabai -m window --focus last; yabai -m window --grid 1:1:0:0:1:1;
+# shift + ctrl + alt - right: yabai -m window --display prev; yabai -m display --focus prev; yabai -m window --focus last; yabai -m window --grid 1:1:0:0:1:1;
+
+# open app
+cmd - q: open /Applications/WezTerm.app
+cmd - e: open /Applications/Vivaldi.app
+cmd - d: open /Applications/Discord.app
+cmd - f: open ~/
