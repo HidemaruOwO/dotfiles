@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 INSTLOG="install.log"
-LF=$'\n'
 TAPPING=""
 #-- パッケージ -----------------------------------------
 taps=(
