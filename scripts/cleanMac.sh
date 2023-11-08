@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 sudo rm -rf ~/Library/Caches/
 sudo rm -rf /System/Library/Caches/
 sudo rm -rf ~/Library/Logs/

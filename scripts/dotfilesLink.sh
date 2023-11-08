@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 ####### Please Edit #######
 
 # dotfiles directory
@@ -33,6 +33,8 @@ configs=(
 	"input-remapper-2"
 	"pummit"
 	"karabiner"
+	"yabai"
+	"skhd"
 	# single file
 	"starship.toml"
 	"mimeapps.list"

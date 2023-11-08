@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 profiles_dir="$HOME/.config/waybar/profiles"
 waybar_dir="$HOME/.config/waybar"

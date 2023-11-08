@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Check args
 if [ $# -ne 2 ]; then
 	echo "Need 2 args."

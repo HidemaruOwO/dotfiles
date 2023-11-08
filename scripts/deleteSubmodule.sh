@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 submodule_path="$1"
 
