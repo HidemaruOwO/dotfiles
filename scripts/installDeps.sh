@@ -4,6 +4,14 @@
 #
 INSTLOG="install.log"
 #-- パッケージ -----------------------------------------
+go_apps=(
+	github.com/melbahja/got/cmd/got@latest # Go製のCLIダウンローダー
+	github.com/nao1215/gup@latest          # Go製のCLIのアップデーター
+	github.com/sheepla/pingu@latest        # Go製のCLIのping
+	github.com/koki-develop/sheep@latest   # Go製のCLIのsleep
+	github.com/hidemaruowo/pummit@latest   # Go製のCLIのgit commit
+)
+
 dm_packages=(
 	sddm # モダンなディスプレイマネージャ
 	sddm-theme-corners-git
@@ -194,6 +202,11 @@ install_software() {
 	yay -S --needed --noconfirm $1 &>>$INSTLOG &
 	show_progress $!
 }
+install_go_app() {
+	echo -en "\e[90m⭐ Installing\e[0m \e[97m$1\e[0m..."
+	go install $1 >>$INSTLOG
+}
+
 installed() {
 	echo -en "✅ Installed package \e[97m$1\e[0m."
 }
@@ -207,13 +220,11 @@ while true; do
 	read AND
 	case $AND in
 	[Yy]* | "")
-		echo -e "Installing dependencies..."
-		sleep 2
 		# #-- AURのインストール -----------------------------------------
-		echo "Please enter password required"
+		echo "🔒 Please enter password required"
 		sudo -v
 
-		if [ ! -f /sbin/yay ]; then
+		if !(type "yay" > /dev/null 2>&1); then
 			echo -en "Configuering yay."
 			git clone https://aur.archlinux.org/yay.git &>>$INSTLOG
 			cd yay
@@ -225,12 +236,16 @@ while true; do
 		sleep 2
 		echo "✅ Installed yay"
 		#-- インストールステップ -----------------------------------------
-		package_count=${#packages[@]}
+		package_count=$((${#packages[@]} + ${#go_apps[@]}))
 		current_package=0
 		DISPLAY_LINES=10
 		CURSOR_MOVE=$((DISPLAY_LINES + 1))
 		# Display the header
 		display_header() {
+			echo "┌──────────────────────────────────────┐"
+			echo -e "\e[1m│  💾 Install Deps V1                  │\e[0m"
+			echo "└──────────────────────────────────────┘"
+
 			echo -e "\e[K:: Installing package ($current_package/$package_count)"
 		}
 		# Print the last DISPLAY_LINES actions
@@ -250,6 +265,7 @@ while true; do
 		}
 		# Manage the entire display
 		display_installation() {
+			clear
 			echo -en "\e[${CURSOR_MOVE}A"
 			display_header
 			display_actions
@@ -266,6 +282,12 @@ while true; do
 			((current_package++))
 			display_installation
 		done
+		for GO_APP in ${go_apps[@]}; do
+			((current_package++))
+			display_installation
+			install_go_app $GO_APP &>/dev/null
+		done
+
 		sleep 1
 		echo -e "✅ Installation step completed ..."
 		sleep 5
@@ -277,13 +299,6 @@ while true; do
 			random_delay=$(awk -v min=0 -v max=0.3 'BEGIN{srand(); print min+rand()*(max-min)}')
 			sleep $random_delay
 		done
-
-		echo "Install pumimt"
-		go install github.com/HidemaruOwO/pummit/pummit@v1.1.3 &>>$INSTLOG
-		echo "Install neovim deps"
-		sudo npm install -g neovim &>>$INSTLOG
-		echo "Install github extensions"
-		gh extension install dlvhdr/gh-dash &>>$INSTLOG
 
 		exit 0
 		;;
