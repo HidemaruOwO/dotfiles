@@ -3,3 +3,4 @@
 install.log
 */**/install.log
 config/lazygit/state.yml
+*/**/.DS_Store
