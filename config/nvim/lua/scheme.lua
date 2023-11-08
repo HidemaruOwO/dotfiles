@@ -27,6 +27,7 @@ elseif theme == "deep_sea" then
 elseif theme == "deep_snow" then
 	vim.cmd([[
       colorscheme hybrid
+      "highlight LineNr term=bold cterm=NONE ctermfg=Grey ctermbg=NONE gui=NONE guifg=Grey guibg=NONE
   ]])
 	vim.g.airline_theme = "deus"
 end

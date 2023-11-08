@@ -46,8 +46,8 @@ require("jetpack.packer").startup(function(use)
 	use({ "onsails/lspkind.nvim" })
 	use({ "ray-x/lsp_signature.nvim" })
 	use({ "j-hui/fidget.nvim" })
-	-- Always show icon
-	use({ "kosayoda/nvim-lightbulb" })
+	-- Code actions
+	use({ "aznhe21/actions-preview.nvim" })
 	-- Format code from LSP
 	use({ "stevearc/conform.nvim" })
 	-- Cmp completion
@@ -150,4 +150,6 @@ require("jetpack.packer").startup(function(use)
 	use({ "rcarriga/nvim-notify" })
 	use({ "norcalli/nvim-colorizer.lua" })
 	use({ "kylechui/nvim-surround" })
+	-- カーソルの位置を強調する
+	use({ "tummetott/reticle.nvim" })
 end)

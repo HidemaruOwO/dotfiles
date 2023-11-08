@@ -15,6 +15,7 @@ local options = {
 	showmatch = true,
 	laststatus = 2,
 	updatetime = 250,
+	signcolumn = "yes",
 }
 
 vim.cmd([[
