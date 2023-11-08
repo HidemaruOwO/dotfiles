@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 INSTLOG="install.log"
+LF=$'\n'
+TAPPING=""
 #-- パッケージ -----------------------------------------
 taps=(
 	hidemaruowo/tap        # 自作パッケージ
@@ -141,6 +143,8 @@ install_go_app() {
 }
 let_s_tap() {
 	echo -e "\e[90m🍺 Tapping\e[0m \e[97m$1\e[0m..."
+	TAPPING="$TAPPING
+  $(echo -e "\e[90m🍺 Taped\e[0m \e[97m$1\e[0m...")"
 	brew tap $1 >>$INSTLOG
 }
 installed() {
@@ -156,18 +160,17 @@ while true; do
 	read AND
 	case $AND in
 	[Yy]* | "")
-		echo -e "Installing dependencies..."
-		sleep 2
-		echo "Please enter password required"
+		echo "🔒 Please enter password required"
 		sudo -v
 
 		if !(type "brew" > /dev/null 2>&1); then
-			echo -en "Installing homebrew."
+			echo -en "Installing homebrew..."
 			bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+			echo "✅ Installed brew"
+			sleep 2
+			echo
 		fi
 
-		sleep 2
-		echo "✅ Installed brew"
 		#-- インストールステップ -----------------------------------------
 		package_count=$((${#packages[@]} + ${#other_casks[@]} + ${#go_apps[@]}))
 		current_package=0
@@ -175,6 +178,11 @@ while true; do
 		CURSOR_MOVE=$((DISPLAY_LINES + 1))
 		# Display the header
 		display_header() {
+			echo "┌──────────────────────────────────────┐"
+			echo -e "\e[1m│  💾 Install Deps For Mac V1          │\e[0m"
+			echo "└──────────────────────────────────────┘"
+			echo -e "$TAPPING"
+			echo
 			echo -e "\e[K:: Installing package ($current_package/$package_count)"
 		}
 		# Print the last DISPLAY_LINES actions
@@ -194,6 +202,7 @@ while true; do
 		}
 		# Manage the entire display
 		display_installation() {
+			clear
 			echo -en "\e[${CURSOR_MOVE}A"
 			display_header
 			display_actions
@@ -204,7 +213,7 @@ while true; do
 			done
 		}
 		# Initialize the display
-
+		echo
 		for TAP in ${taps[@]}; do
 			let_s_tap $TAP
 		done
