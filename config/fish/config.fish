@@ -8,6 +8,7 @@ if status is-interactive
   \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) | |  _| \__ \ | | |_|_|
    \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  |_| |_|___/_| |_(_|_)"
     # path
+    set -x PATH $HOME/bin/jdk-17.0.2.jdk/Contents/Home/bin $PATH
     set -x PATH /usr/lib/jvm/java-20-openjdk/bin $PATH
     set -x PATH $HOME/dotfiles/scripts $PATH
     set -x PATH $HOME/.zig-bin $PATH
