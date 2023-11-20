@@ -70,6 +70,11 @@ if status is-interactive
     thefuck --alias | source
     pummit complete --fish | source
 
+    if command -q rbenv
+        status --is-interactive; and rbenv init - fish | source
+    end
+
+
     function fish_command_not_found
         echo 💩 "<" $argv[1] コマンドが存在しないよ！！
     end
