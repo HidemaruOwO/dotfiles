@@ -354,16 +354,6 @@
                                     "key_code": "return_or_enter"
                                 }
                             ]
-                        },
-                        {
-                            "from": {
-                                "key_code": "right_command"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "slash"
-                                }
-                            ]
                         }
                     ],
                     "treat_as_built_in_keyboard": false
