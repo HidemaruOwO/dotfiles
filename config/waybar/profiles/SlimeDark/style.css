@@ -13,10 +13,10 @@
 @define-color accent6 #0db9d7;
 
 * {
-  /* font-family: "JetBrainsMono"; */
+  font-family: "JetBrainsMono";
   border: none;
   border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font";
+  /* font-family: "JetBrainsMono Nerd Font"; */
   font-weight: bold;
   font-size: 16px;
   min-height: 0;
