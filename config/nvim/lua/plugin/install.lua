@@ -45,6 +45,7 @@ require("jetpack.packer").startup(function(use)
 	use({ "nvimdev/lspsaga.nvim" })
 	use({ "onsails/lspkind.nvim" })
 	use({ "ray-x/lsp_signature.nvim" })
+	use({ "dgagn/diagflow.nvim" })
 	use({ "j-hui/fidget.nvim" })
 	-- Code actions
 	use({ "aznhe21/actions-preview.nvim" })
