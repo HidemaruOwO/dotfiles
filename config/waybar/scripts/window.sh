@@ -22,7 +22,7 @@ alacritty)
 	echo " Alacritty"
 	;;
 kitty)
-	echo " Alacritty"
+	echo " Kitty"
 	;;
 org.kde.dolphin)
 	echo " Dolphin"

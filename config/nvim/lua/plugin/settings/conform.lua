@@ -8,6 +8,7 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		python = { "isort", "black" },
+		astro = { prettier },
 		javascript = { prettier },
 		typescript = { prettier },
 		javascriptreact = { prettier },
