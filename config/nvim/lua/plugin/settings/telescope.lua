@@ -9,7 +9,7 @@ telescope.load_extension("file_browser")
 -- Setup telescope
 telescope.setup({
 	defaults = {
-		borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+		borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
 		mappings = {
 			i = {
 				["C-s"] = act.select_vertical,
