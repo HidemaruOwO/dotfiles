@@ -347,21 +347,21 @@
                         },
                         {
                             "from": {
-                                "key_code": "right_shift"
-                            },
-                            "to": [
-                                {
-                                    "key_code": "return_or_enter"
-                                }
-                            ]
-                        },
-                        {
-                            "from": {
                                 "key_code": "right_command"
                             },
                             "to": [
                                 {
                                     "key_code": "slash"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "right_shift"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "return_or_enter"
                                 }
                             ]
                         }
@@ -383,7 +383,7 @@
                     "treat_as_built_in_keyboard": false
                 },
                 {
-                    "disable_built_in_keyboard_if_exists": false,
+                    "disable_built_in_keyboard_if_exists": true,
                     "fn_function_keys": [],
                     "identifiers": {
                         "is_keyboard": true,
@@ -391,7 +391,7 @@
                         "product_id": 2311,
                         "vendor_id": 7847
                     },
-                    "ignore": true,
+                    "ignore": false,
                     "manipulate_caps_lock_led": true,
                     "simple_modifications": [],
                     "treat_as_built_in_keyboard": false
