@@ -33,7 +33,7 @@ thunar)
 google-chrome)
 	echo " Google Chrome"
 	;;
-vivaldi-stable)
+Vivaldi-stable)
 	echo " Vivaldi"
 	;;
 slack)

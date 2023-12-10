@@ -30,6 +30,7 @@ return {
 			args = { "fish", "-l" },
 		},
 	},
+	-- enable_wayland = false,
 	--background setting
 	window_background_opacity = 0.65,
 	text_background_opacity = 0.65,
