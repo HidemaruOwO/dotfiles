@@ -13,6 +13,7 @@ if status is-interactive
     set -x PATH $HOME/dotfiles/scripts $PATH
     set -x PATH $HOME/.zig-bin $PATH
     set -x PATH $HOME/go/bin $PATH
+    set -x PATH /opt/android-sdk/platform-tools $PATH
     set -x PATH $HOME/.bun/bin $PATH
     set -x PATH $HOME/.local/bin $PATH
     set -x PATH /opt/homebrew/bin $PATH
