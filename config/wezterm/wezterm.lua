@@ -133,7 +133,7 @@ return {
 			background = "#1b1f2f",
 
 			active_tab = {
-				bg_color = "#444b71",
+				bg_color = "#141433",
 				fg_color = "#c6c8d1",
 				intensity = "Normal",
 				underline = "None",
