@@ -27,6 +27,7 @@ nmap("n", "<C-S-f>", "<Cmd>Telescope filetypes<CR>", opt)
 nmap("n", "<C-c>", "<Cmd>Commentary<CR>", opt)
 nmap("v", "<C-c>", ":'<,'>Commentary<CR>", opt)
 nmap("n", "<C-S-r>", "<Cmd>source $MYVIMRC<CR>", opt)
+nmap("n", "<C-d>", "<Cmd>Telescope diagnostics<CR>", opt)
 -- barbar
 -- nmap("n", "<C-S-h>", "<Cmd>BufferPrevious<CR>", opt)
 -- nmap("n", "<S-Left>", "<Cmd>BufferPrevious<CR>", opt)
