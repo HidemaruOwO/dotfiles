@@ -63,7 +63,7 @@ require("jetpack.packer").startup(function(use)
 	-- Enable Deno
 	use({ "vim-denops/denops.vim" })
 	-- Disable plugin on my MacBook Air
-	if getHostname() == "Slime-MBA" then
+	if getHostname() == "Slime-MBArch" then
 		-- Generte Image from code
 		use({ "segeljakt/vim-silicon" })
 	else
