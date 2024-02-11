@@ -14,89 +14,112 @@ echo -e "\e[1m│   ♻ Dotfiles Setup V1                │\e[0m"
 echo "└──────────────────────────────────────┘"
 
 function process() {
-	echo -e "🔎 \e[1mあなたのOSを判別中...\e[0m"
-	OsName=""
+	OS_NAME=""
+	IS_WSL=1
+	IS_CLI_ONLY=1
+
+	# Check if using WSL
+	if [ -f /proc/sys/fs/binfmt_misc/WSLInterop ]; then
+		IS_WSL=0
+		IS_CLI_ONLY=0
+	fi
+	if [ "$1" == "--cli-only" ]; then
+		IS_CLI_ONLY=0
+	fi
+
+	echo -e "🔎 \e[1mChecking your OS...\e[0m"
 	if [ "$(uname)" == "Darwin" ]; then
-		# Mac OSX
-		OsName="mac"
+		OS_NAME="darwin"
 	elif [ -e /etc/redhat-release ]; then
-		# Red Hat
-		OsName="redhat"
+		OS_NAME="redhat"
 	elif [ -e /etc/arch-release ]; then
-		# Arch
-		OsName="arch"
+		OS_NAME="arch"
 	elif [ -e /etc/lsb-release ] || [ -e /etc/debian_version ]; then
-		# Ubuntu, Debian
-		OsName="ubuntu"
+		OS_NAME="ubuntu"
 	elif [ -e /etc/suse-release ]; then
-		# SUSE
-		OsName="suse"
+		OS_NAME="suse"
 	else
-		echo "Your OS is not supported."
+		echo "Your OS is not supported"
 		return 0
 	fi
-	echo "💡 あなたのOSは$OsNameです"
-	#OS別環境構築
-	if [ "$OsName" == "arch" ]; then
-		echo -e "🤘 \e[1mリポジトリの同期とソフトウェアの更新中...\e[0m"
+
+	echo "💡 Your OS: $OS_NAME"
+	if [ "$IS_CLI_ONLY" == 0 ]; then
+		echo "⌨ CLI Only: true"
+	else
+		echo "⌨ CLI Only: false"
+	fi
+
+	if [ "$OS_NAME" == "arch" ]; then
+		echo -e "♻ \e[1mSyncing repositories and Updating softwares...\e[0m"
 		sudo pacman -Syyu --noconfirm
-		echo -e "🤘 \e[1m周辺パッケージをインストール中...\e[0m"
-		bash $CURRENT/installDeps.sh
-		echo -e "🤘 \e[1mxprofileにfcitxの設定を書き込み中...\e[0m"
-		cat /etc/environment >/tmp/environment.tmp
-		echo 'EDITOR=nvim
+		if [ "$IS_CLI_ONLY" == 0 ]; then
+			# CLI only
+			echo -e "⬇ \e[1mInstalling dependecies...\e[0m"
+			bash $CURRENT/installDepsOnlyCli.sh
+			echo 'EDITOR=nvim' >>/etc/environment
+		else
+			# GUI
+			echo -e "⬇ \e[1mInstalling dependecies...\e[0m"
+			bash $CURRENT/installDeps.sh
+			cat <<EOF >>/tmp/environment.tmp
+EDITOR=nvim
 LC_CTYPE=ja_JP.UTF-8
 GTK_IM_MODULE=fcitx
 QT_IM_MODULE=fcitx
-DefaultIMModule=fcitx' >>/tmp/environment.tmp
-		sudo mv /tmp/environment.tmp /etc/environment
-		echo -e "🤘 \e[1mSSDのTrimコマンドを有効中...\e[0m"
-		sudo systemctl enable fstrim.timer
+DefaultIMModule=fcitx
+EOF
+
+			sudo mv /tmp/environment.tmp /etc/environment
+
+			echo -e "🔥 \e[1mEnable firewall with ufw...\e[0m"
+			sudo systemctl enable ufw
+			sudo systemctl start ufw
+			sudo ufw enable
+
+			echo -e "🪟 \e[1mSetup sddm and theme...\e[0m"
+			git clone https://github.com/aczw/sddm-theme-corners.git /tmp/sddm-theme-corners
+			cd /tmp/sddm-theme-corners
+			sudo cp -r corners/ /usr/share/sddm/themes/
+			cat <<EOF >>/tmp/theme.conf
+[Theme]
+Current=corners
+EOF
+			sudo mkdir -p /etc/sddm.conf.d
+			sudo mv /tmp/theme.conf /etc/sddm.conf.d/theme.conf
+			sudo systemctl enable sddm
+			sudo $CURRENT/changeSddmBackground.sh $HOME/dotfiles/templates/background/sddm/modern_slime.png
+
+			echo -e "🤘 \e[1mSetup GRUB theme...\e[0m"
+			git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git /tmp/darkmatter-grub-theme && cd /tmp/darkmatter-grub-theme
+			sudo python3 darkmatter-theme.py --install
+
+		fi # GUI
 	fi
 
-	echo -e "🤘 \e[1mDotfilesとローカルをリンク中...\e[0m"
+	echo -e "♻ \e[1mCreating symbolic from dotfiles's config...\e[0m"
 	bash $CURRENT/dotfilesLink.sh
-	echo -e "💎 \e[1mホームディレクトリのカレントディレクトリの英語化\e[0m"
+	echo -e "⬇ \e[1mInstalling fish's plugin manager named 'oh my fish'...\e[0m"
 	curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-	fish $CURRENT/installOmfPlugin.fish
-	LANG=C xdg-user-dirs-gtk-update
-	echo -e "💎 \e[1mファイアーウォールの有効化\e[0m"
-	sudo systemctl enable ufw
-	sudo systemctl start ufw
-	sudo ufw enable
-	echo -e "✏️ \e[1m\]git configにユーザー情報を登録\e[0m"
-	read -p ":: Type your Git username: " GIT_USERNAME
-	read -p ":: Type your Git email: " GIT_EMAIL
-	echo -e "🤘 \e[1mgit configにuser.nameを登録中...\e[0m"
-	git config --global user.name $GIT_USERNAME
-	echo -e "🤘 \e[1mgit configにuser.emailを登録中...\e[0m"
-	git config --global user.email $GIT_EMAIL
-	echo -e "🤘 \e[1mgit configにcore.editorにNeovimを登録中...\e[0m"
-	git config --global core.editor nvim
-	echo -e "🤘 \e[1msddmのセットアップ中...\e[0m"
-	git clone https://github.com/aczw/sddm-theme-corners.git /tmp/sddm-theme-corners
-	cd /tmp/sddm-theme-corners
-	sudo cp -r corners/ /usr/share/sddm/themes/
-	echo "[Theme]
-Current=corners" >/tmp/theme.conf
-	sudo mkdir -p /etc/sddm.conf.d
-	sudo mv /tmp/theme.conf /etc/sddm.conf.d/theme.conf
-	sudo systemctl enable sddm
-	sudo $CURRENT/changeSddmBackground.sh $HOME/dotfiles/templates/background/sddm/modern_slime.png
+	echo -e "⬇ \e[1mInstalling fish's plugins...\e[0m"
+	cat $CURRENT/installOmfPlugin.fish | fish
+	echo -e "✏️ \e[1mConfigure Git settings\e[0m"
+	cat $CURRENT/setupGit.sh
+	echo -e "🤘 \e[1mConfigure default shell with fish...\e[0m"
+	if [ "$OS_NAME" == "darwin" ]; then
+		echo $(which fish) | sudo tee -a /etc/shells
+		sudo chsh -s $(which fish)
+	else
+		sudo chsh $USER -s $(which fish)
+	fi
 
-	echo -e "🤘 \e[1mGRUBテーマのセットアップ中...\e[0m"
-	git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git /tmp/darkmatter-grub-theme && cd /tmp/darkmatter-grub-theme
-	sudo python3 darkmatter-theme.py --install
-	echo -e "🤘 \e[1mSet fish to default shell...\e[0m"
-	sudo chsh $USER -s $(which fish)
-	sudo chsh -s $(which fish)
 	echo -e "🤘 \e[1mAdd locale...\e[0m"
 	sudo localedef -f UTF-8 -i ja_JP ja_JP
 	sudo localedef -f UTF-8 -i en_US en_US
 	cd $HOME
-	figlet 'Finished!!'
+	figlet 'finished!!'
 	echo -e "📓 \e[1mToDo: \e[0m"
-	echo "    - Set your icon for sddm"
+	echo "    - Set your icon for sddm (Linux GUI user only)"
 	echo "      (You can set it by running 'sudo $CURRENT/addSddmIcon.sh <path-to-png-image> <username>')"
 }
 
@@ -105,7 +128,7 @@ while true; do
 	read AND
 	case $AND in
 	[Yy]* | "")
-		process
+		process $1
 		exit 0
 		;;
 	[Nn]*)
