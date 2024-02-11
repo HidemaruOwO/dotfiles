@@ -78,17 +78,8 @@ EOF
 			sudo ufw enable
 
 			echo -e "🪟 \e[1mSetup sddm and theme...\e[0m"
-			git clone https://github.com/aczw/sddm-theme-corners.git /tmp/sddm-theme-corners
-			cd /tmp/sddm-theme-corners
-			sudo cp -r corners/ /usr/share/sddm/themes/
-			cat <<EOF >>/tmp/theme.conf
-[Theme]
-Current=corners
-EOF
-			sudo mkdir -p /etc/sddm.conf.d
-			sudo mv /tmp/theme.conf /etc/sddm.conf.d/theme.conf
-			sudo systemctl enable sddm
-			sudo $CURRENT/changeSddmBackground.sh $HOME/dotfiles/templates/background/sddm/modern_slime.png
+			cat $CURRENT/installSDDMCorner.sh | sudo bash
+			cat $CURRENT/changeSddmBackground.sh | sudo bash -s $HOME/dotfiles/templates/background/sddm/modern_slime.png
 
 			echo -e "🤘 \e[1mSetup GRUB theme...\e[0m"
 			git clone --depth 1 https://gitlab.com/VandalByte/darkmatter-grub-theme.git /tmp/darkmatter-grub-theme && cd /tmp/darkmatter-grub-theme
@@ -106,13 +97,7 @@ EOF
 	echo -e "✏️ \e[1mConfigure Git settings\e[0m"
 	cat $CURRENT/setupGit.sh | bash
 	echo -e "🤘 \e[1mConfigure default shell with fish...\e[0m"
-	if [ "$OS_NAME" == "darwin" ]; then
-		echo $(which fish) | sudo tee -a /etc/shells
-		sudo chsh -s $(which fish)
-	else
-		sudo chsh $USER -s $(which fish)
-	fi
-
+	cat $CURRENT/setDefaultShell.sh | bash -s fish
 	echo -e "🤘 \e[1mAdd locale...\e[0m"
 	sudo localedef -f UTF-8 -i ja_JP ja_JP
 	sudo localedef -f UTF-8 -i en_US en_US
@@ -121,6 +106,7 @@ EOF
 	echo -e "📓 \e[1mToDo: \e[0m"
 	echo "    - Set your icon for sddm (Linux GUI user only)"
 	echo "      (You can set it by running 'sudo $CURRENT/addSddmIcon.sh <path-to-png-image> <username>')"
+	echo "    - Reboot (Linux GUI user only)"
 }
 
 while true; do
