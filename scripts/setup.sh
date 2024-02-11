@@ -56,12 +56,12 @@ function process() {
 		if [ "$IS_CLI_ONLY" == 0 ]; then
 			# CLI only
 			echo -e "⬇ \e[1mInstalling dependecies...\e[0m"
-			bash $CURRENT/installDepsOnlyCli.sh
+			cat $CURRENT/installDepsOnlyCli.sh | bash
 			echo 'EDITOR=nvim' >>/etc/environment
 		else
 			# GUI
 			echo -e "⬇ \e[1mInstalling dependecies...\e[0m"
-			bash $CURRENT/installDeps.sh
+			cat $CURRENT/installDeps.sh | bash
 			cat <<EOF >>/tmp/environment.tmp
 EDITOR=nvim
 LC_CTYPE=ja_JP.UTF-8
@@ -98,13 +98,13 @@ EOF
 	fi
 
 	echo -e "♻ \e[1mCreating symbolic from dotfiles's config...\e[0m"
-	bash $CURRENT/dotfilesLink.sh
+	cat $CURRENT/dotfilesLink.sh | bash
 	echo -e "⬇ \e[1mInstalling fish's plugin manager named 'oh my fish'...\e[0m"
 	curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 	echo -e "⬇ \e[1mInstalling fish's plugins...\e[0m"
 	cat $CURRENT/installOmfPlugin.fish | fish
 	echo -e "✏️ \e[1mConfigure Git settings\e[0m"
-	cat $CURRENT/setupGit.sh
+	cat $CURRENT/setupGit.sh | bash
 	echo -e "🤘 \e[1mConfigure default shell with fish...\e[0m"
 	if [ "$OS_NAME" == "darwin" ]; then
 		echo $(which fish) | sudo tee -a /etc/shells
