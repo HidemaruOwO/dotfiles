@@ -21,6 +21,6 @@
 
 # open app
 cmd - q: open /Applications/WezTerm.app
-cmd - e: open /Applications/Vivaldi.app
+cmd - e: open /Applications/Firefox.app
 cmd - d: open /Applications/Discord.app
 cmd - f: open ~/
