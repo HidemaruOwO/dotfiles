@@ -3,7 +3,6 @@ local act = require("telescope.actions")
 local fb_act = telescope.extensions.file_browser.actions
 -- Load extensions
 telescope.load_extension("fzf")
-telescope.load_extension("frecency")
 telescope.load_extension("media_files")
 telescope.load_extension("file_browser")
 -- Setup telescope

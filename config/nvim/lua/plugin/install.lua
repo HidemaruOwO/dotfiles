@@ -137,10 +137,6 @@ require("jetpack.packer").startup(function(use)
 	use({ "stevearc/dressing.nvim" })
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim" })
-	use({
-		"nvim-telescope/telescope-frecency.nvim",
-		requires = { "kkharji/sqlite.lua" },
-	})
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use({ "nvim-telescope/telescope-symbols.nvim" })
 	use({ "nvim-telescope/telescope-media-files.nvim" })
