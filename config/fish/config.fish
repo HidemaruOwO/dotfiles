@@ -16,22 +16,25 @@ if status is-interactive
     set -x PATH /opt/android-sdk/platform-tools $PATH
     set -x PATH $HOME/.bun/bin $PATH
     set -x PATH $HOME/.local/bin $PATH
-    set -x PATH /opt/homebrew/bin $PATH
-    set -x PATH /opt/homebrew/sbin $PATH
     set -x PATH $HOME/.bin $PATH
     set -x PATH $HOME/.cargo/bin $PATH
-    set -x PATH /home/linuxbrew/.linuxbrew/bin $PATH
-    set -x PATH /opt/homebrew/opt/openjdk/bin $PATH
-    set -x PATH $HOME/.nodebrew/current/bin $PATH
-    set -x PATH /opt/rocm/bin $PATH
-    set -x PATH /snap/bin $PATH
     # set variable
     set GRNTEMP ~/dotfiles/templates/git-release-notes/markdown.ejs
     set EDITOR nvim
 
+    if test $(uname) = Darwin
+        fish_add_path /opt/homebrew/bin
+        fish_add_path /opt/homebrew/sbin
+        fish_add_path /opt/homebrew/opt/openjdk/bin
+        fish_add_path $HOME/.nodebrew/current/bin
+        fish_add_path /opt/homebrew/opt/llvm/bin
+        set -gx LDFLAGS -L/opt/homebrew/opt/llvm/lib
+        set -gx CPPFLAGS -I/opt/homebrew/opt/llvm/include
+    end
+
     # alias
     balias tc "termius connect"
-    balias code 'code --ozone-platform=wayland --enable-wayland-ime'
+    # balias code 'code --ozone-platform=wayland --enable-wayland-ime'
     balias drun 'docker run -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v $(pwd):/pwd'
     balias lg lazygit
     balias en2ja "strans -s en -t ja"
