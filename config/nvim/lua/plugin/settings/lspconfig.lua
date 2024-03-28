@@ -26,6 +26,11 @@ require("mason-lspconfig").setup_handlers({
 		elseif server_name == "tsserver" then
 			lspconfig["tsserver"].setup({
 				root_dir = lspconfig.util.root_pattern("package.json"),
+				init_options = {
+					hostInfo = "neovim",
+					maxTsServerMemory = 4096,
+					tsserver = { useSyntaxServer = "never" },
+				},
 				capabilities = capabilities,
 			})
 			return
