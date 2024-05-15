@@ -8,16 +8,18 @@ if status is-interactive
   \ V  V /  __/ | (_| (_) | | | | | |  __/ | || (_) | |  _| \__ \ | | |_|_|
    \_/\_/ \___|_|\___\___/|_| |_| |_|\___|  \__\___/  |_| |_|___/_| |_(_|_)"
     # path
-    set -x PATH $HOME/bin/jdk-17.0.2.jdk/Contents/Home/bin $PATH
-    set -x PATH /usr/lib/jvm/java-20-openjdk/bin $PATH
-    set -x PATH $HOME/dotfiles/scripts $PATH
-    set -x PATH $HOME/.zig-bin $PATH
-    set -x PATH $HOME/go/bin $PATH
-    set -x PATH /opt/android-sdk/platform-tools $PATH
-    set -x PATH $HOME/.bun/bin $PATH
-    set -x PATH $HOME/.local/bin $PATH
-    set -x PATH $HOME/.bin $PATH
-    set -x PATH $HOME/.cargo/bin $PATH
+    fish_add_path /opt/google-cloud-cli/bin
+    fish_add_path /usr/lib/jvm/java-20-openjdk/bin
+    fish_add_path /opt/android-sdk/platform-tools
+
+    fish_add_path $HOME/bin/jdk-17.0.2.jdk/Contents/Home/bin
+    fish_add_path $HOME/dotfiles/scripts
+    fish_add_path $HOME/.zig-bin
+    fish_add_path $HOME/go/bin
+    fish_add_path $HOME/.bun/bin
+    fish_add_path $HOME/.local/bin
+    fish_add_path $HOME/.bin
+    fish_add_path $HOME/.cargo/bin
     # set variable
     set GRNTEMP ~/dotfiles/templates/git-release-notes/markdown.ejs
     set EDITOR nvim
