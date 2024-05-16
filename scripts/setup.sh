@@ -75,9 +75,14 @@ EOF
 			echo -e "🔥 \e[1mEnable firewall with ufw...\e[0m"
 			sudo systemctl enable --now ufw
 			sudo ufw enable
+			sudo ufw allow 22
+			sudo ufw allow 80
+			sudo ufw allow 443
+			sudo ufw allow 9090
 
 			echo -e "🪟 \e[1mSetup sddm and theme...\e[0m"
 			cat $CURRENT/installSDDMAstronaut.sh | sudo bash
+			cat $CURRENT/installDraculaThemes.sh | sudo bash
 			cat $CURRENT/changeSddmBackground.sh | sudo bash -s $HOME/dotfiles/templates/background/sddm/modern_slime.png
 
 			echo -e "🤘 \e[1mSetup GRUB theme...\e[0m"

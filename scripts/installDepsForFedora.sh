@@ -12,6 +12,10 @@ go_apps=(
 	github.com/hidemaruowo/pummit@latest   # Go製のCLIのgit commit
 )
 
+pip_apps=(
+	hyfetch # 同じく
+)
+
 core_apps=(
 	hyprland       # WM
 	chromium       # ブラウザ
@@ -29,40 +33,33 @@ dm_packages=(
 )
 input_tools=(
 	fcitx5 # 入力メソッドフレームワーク
-	# │
-	# ├─ fcitx5
-	# ├─ fcitx5-configtool
-	# ├─ fcitx5-gtk
-	# └─ fcitx5-qt
+	# dependencies
+	fcitx5-configtool
+	fcitx5-gtk
+	fcitx5-qt5
 	fcitx5-mozc # Mozcに基づく日本語入力メソッド
 )
-themes=(
-	dracula-icons-git
-	dracula-gtk-theme
-)
 font_resources=(
-	otf-font-awesome # アイコンフォント
-	ttf-symbola      # Unicodeの記号と文字のフォント
-	ttf-twemoji      # TwitterのEmoji用フォント
-	noto-fonts-cjk   # GoogleのNoto CJKフォント
-	ttf-nerd-fonts-symbols
-	ttf-jetbrains-mono-nerd
-	ttf-hack-nerd
-	ttf-udev-gothic
-	ttf-roboto
-	ttf-firacode-nerd # モノスペースのコーディング用フォント
+	fontawesome-fonts-all
+	gdouros-symbola-fonts
+	twitter-twemoji-fonts
+	google-noto-sans-cjk-fonts
+	google-roboto-fonts
+	jetbrains-mono-fonts
+	fira-code-fonts
 )
 dev_environments=(
-	visual-studio-code-bin # 人気のあるコードエディタ
-	github-cli             # GitHubのCLIツール
-	neovim                 # 高機能なテキストエディタ
-	gedit
-	discord
-	webcord
+	code
+	golang-github-cli2-devel
+	neovim # 高機能なテキストエディタ
 	kitty
-	zoom
-	slack-desktop
-	google-chrome
+	zsh
+	fish
+	lazygit
+	ripgrep
+	the_silver_searcher
+	thefuck
+	pipx
 )
 module_utils=(
 	obs-studio
@@ -71,42 +68,29 @@ module_utils=(
 	xdg-user-dirs
 	xdg-user-dirs-gtk
 	spdlog-git
-	polkit-gnome           # GNOMEのためのPolkit認証ダイアログ
-	wl-clipboard           # Waylandのクリップボードユーティリティ
-	cliphist               # 不明
-	pacman-contrib         # pacmanの追加ユーティリティ
-	pavucontrol            # PulseAudioボリュームコントロール
-	brightnessctl          # 明るさの調整ユーティリティ
-	bluez                  # LinuxのBluetoothスタック
-	bluez-utils            # Bluetoothユーティリティ
-	blueman                # Bluetoothマネージャ
+	polkit-gnome  # GNOMEのためのPolkit認証ダイアログ
+	wl-clipboard  # Waylandのクリップボードユーティリティ
+	pavucontrol   # PulseAudioボリュームコントロール
+	brightnessctl # 明るさの調整ユーティリティ
+	bluez         # LinuxのBluetoothスタック
+	blueman       # Bluetoothマネージャ
+	NetworkManager
 	network-manager-applet # ネットワークマネージャのアプレット
 	thunar-archive-plugin  # Thunarのアーカイブプラグイン
 	pipewire
-	paru
 	wireplumber
 	chafa
-	zsh
-	webapp-manager
-	fish
-	thefuck
-	less
 	autokey-gtk
+	autokey-common
 	imwheel
-	lazygit
-	ripgrep
-	the_silver_searcher
-	fd
 	xsel
 	wget
-	got-bin
 	zip
 	unzip
 	p7zip
 	gthumb
 	deluge
 	deluge-gtk
-	gnome-system-monitor
 	sqlite
 )
 
@@ -119,73 +103,65 @@ wayland_apps=(
 	wlogout                     # Waylandのログアウトユーティリティ
 	xdg-desktop-portal-hyprland # 画面キャプチャするためのdesktop-portal
 	mako                        # Wayland通知デーモン
-	waybar-hyprland-cava-git    # Wayland用のステータスバー
+	waybar                      # Wayland用のステータスバー
 	swaybg                      # 壁紙
-	swww
-	swaylock-effects # swayのロックスクリーン
+	swaylock                    # swayのロックスクリーン
 )
 unixporn=(
 	neofetch     # システム情報を表示するユーティリティ
-	hyfetch      # 同じく
 	starship     # カスタマイズ可能なシェルプロンプト
 	btop         # リソースモニタ
-	bottom       # 同じく
 	lxappearance # GTKテーマのカスタマイズツール
-	nwg-look-bin # 同じ
 	bat          #catの高機能版
-	exa          #lsの高機能版
+	eza          #lsの高機能版
 	lsd          # 絵文字がつく
 	figlet
 	toilet
-	python-neovim
 )
+
 language=(
-	deno
-	python
+	python3
 	nodejs
 	go
-	jdk-openjdk
+	java-17-openjdk
 	rust
-	bunjs-bin
 	zig
 	lua
-	php
-	composer
 	ruby
-	julia
 	gawk
 )
 language_tools=(
 	# lsp
-	zls
-	gopls
+	golang-x-tools-gopls
 	rust-analyzer
 	# package manager
-	python-pip
-	python-pipx
+	pip
 	npm
-	yarn
 	pnpm
-	zigmod-bin
-	gyro-bin
 	luarocks
 	# formatter
-	eslint
-	eslint_d
-	prettier
-	prettierd
-	python-isort
-	python-black
-	stylua
+	python3-isort
+	python3-lsp-black
 	shfmt
 	# linter
 	codespell
+)
+taps=(
+	"oven-sh/bun"
+)
+brew_apps=(
+	deno
+	bun
+	zls
+	stylua
+	eslint
+	prettier
+	prettierd
 )
 # 新しい `packages` 配列の作成
 packages=(
 	"${dm_packages[@]}"
 	"${input_tools[@]}"
-	"${themes[@]}"
 	"${font_resources[@]}"
 	"${dev_environments[@]}"
 	"${module_utils[@]}"
@@ -198,14 +174,28 @@ packages=(
 #-- 関数 -----------------------------------------
 install_software() {
 	echo -en "\e[90mInstalling\e[0m \e[97m$1\e[0m..."
-	yay -S --needed --noconfirm $1 &>>$INSTLOG &
+	sudo dnf install -y $1 &>>$INSTLOG &
 	show_progress $!
 }
 install_go_app() {
 	echo -en "\e[90m⭐ Installing\e[0m \e[97m$1\e[0m..."
 	go install $1 >>$INSTLOG
 }
+install_pip_app() {
+	echo -en "\e[90m⭐ Installing\e[0m \e[97m$1\e[0m..."
+	pipx install $1 >>$INSTLOG
+}
+install_brew_app() {
+	echo -en "\e[90m⭐ Installing\e[0m \e[97m$1\e[0m..."
+	brew install $1 >>$INSTLOG
+}
 
+let_s_tap() {
+	echo -e "\e[90m🍺 Tapping\e[0m \e[97m$1\e[0m..."
+	TAPPING="$TAPPING
+  $(echo -e "\e[90m🍺 Taped\e[0m \e[97m$1\e[0m...")"
+	brew tap $1 >>$INSTLOG
+}
 installed() {
 	echo -en "✅ Installed package \e[97m$1\e[0m."
 }
@@ -223,19 +213,8 @@ while true; do
 		echo "🔒 Please enter password required"
 		sudo -v
 
-		if !(type "yay" > /dev/null 2>&1); then
-			echo -en "Configuering yay."
-			git clone https://aur.archlinux.org/yay.git &>>$INSTLOG
-			cd yay
-			makepkg -si --noconfirm &>>../$INSTLOG
-			cd ..
-			rm -rf yay
-		fi
-
-		sleep 2
-		echo "✅ Installed yay"
 		#-- インストールステップ -----------------------------------------
-		package_count=$((${#packages[@]} + ${#go_apps[@]}))
+		package_count=$((${#packages[@]} + ${#go_apps[@]} + ${#pip_apps[@]} + ${#brew_apps[@]}))
 		current_package=0
 		DISPLAY_LINES=10
 		CURSOR_MOVE=$((DISPLAY_LINES + 1))
@@ -274,7 +253,21 @@ while true; do
 				sleep 1
 			done
 		}
+		echo "Adding other repositories"
+		sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+		echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo >/dev/null
+		sudo dnf install -y dnf-plugins-core
+		sudo dnf copr -y enable atim/lazygit
+		sudo dnf update -y
+		curl -fsSL https://deno.land/install.sh | sh >>$INSTLOG
+		curl -fsSL https://bun.sh/install | bash >>$INSTLOG
+		curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash >>$INSTLOG
+		export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 		# Initialize the display
+		for TAP in ${taps[@]}; do
+			let_s_tap $TAP
+		done
+
 		display_installation
 		for SOFTWR in ${packages[@]}; do
 			install_software $SOFTWR &>/dev/null
@@ -285,6 +278,16 @@ while true; do
 			((current_package++))
 			display_installation
 			install_go_app $GO_APP &>/dev/null
+		done
+		for PIP_APP in ${pip_apps[@]}; do
+			((current_package++))
+			display_installation
+			install_pip_app $PIP_APP &>/dev/null
+		done
+		for BREW_APP in ${brew_apps[@]}; do
+			((current_package++))
+			display_installation
+			install_brew_app $BREW_APP &>/dev/null
 		done
 
 		sleep 1
