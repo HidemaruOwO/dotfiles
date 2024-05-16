@@ -210,8 +210,8 @@ while true; do
 	case $AND in
 	[Yy]* | "")
 		# #-- AURのインストール -----------------------------------------
-		echo "🔒 Please enter password required"
-		sudo -v
+		#echo "🔒 Please enter password required"
+		#sudo -v
 
 		#-- インストールステップ -----------------------------------------
 		package_count=$((${#packages[@]} + ${#go_apps[@]} + ${#pip_apps[@]} + ${#brew_apps[@]}))
