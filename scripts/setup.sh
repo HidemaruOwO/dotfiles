@@ -50,9 +50,15 @@ function process() {
 		echo "⌨ CLI Only: false"
 	fi
 
-	if [ "$OS_NAME" == "arch" ]; then
+	if [ "$OS_NAME" == "arch" || "$OS_NAME" == "redhat" ]; then
 		echo -e "♻ \e[1mSyncing repositories and Updating softwares...\e[0m"
-		sudo pacman -Syyu --noconfirm
+		if [ "$OS_NAME" == "arch" ]; then
+			sudo pacman -Syyu --noconfirm
+		fi
+		if [ "$OS_NAME" == "redhat" ]; then
+			sudo dnf update -y
+			sudo dnf upgrade -y
+		fi
 		if [ "$IS_CLI_ONLY" == 0 ]; then
 			# CLI only
 			echo -e "⬇ \e[1mInstalling dependecies...\e[0m"
@@ -61,7 +67,13 @@ function process() {
 		else
 			# GUI
 			echo -e "⬇ \e[1mInstalling dependecies...\e[0m"
-			cat $CURRENT/installDeps.sh | bash
+			if [ "$OS_NAME" == "arch" ]; then
+				cat $CURRENT/installDeps.sh | bash
+			fi
+			if [ "$OS_NAME" == "redhat" ]; then
+				cat $CURRENT/installDepsForFedora.sh | bash
+			fi
+
 			cat <<EOF >>/tmp/environment.tmp
 EDITOR=nvim
 LC_CTYPE=ja_JP.UTF-8
