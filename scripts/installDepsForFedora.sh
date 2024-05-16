@@ -174,7 +174,7 @@ packages=(
 #-- 関数 -----------------------------------------
 install_software() {
 	echo -en "\e[90mInstalling\e[0m \e[97m$1\e[0m..."
-	sudo dnf install -y $1 &>>$INSTLOG &
+	sudo dnf install -y $1 >>$INSTLOG
 	show_progress $!
 }
 install_go_app() {
