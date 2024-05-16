@@ -270,7 +270,7 @@ while true; do
 
 		display_installation
 		for SOFTWR in ${packages[@]}; do
-			install_software $SOFTWR &>/dev/null
+			install_software $SOFTWR >/dev/null
 			((current_package++))
 			display_installation
 		done
@@ -287,7 +287,7 @@ while true; do
 		for BREW_APP in ${brew_apps[@]}; do
 			((current_package++))
 			display_installation
-			install_brew_app $BREW_APP &>/dev/null
+			install_brew_app $BREW_APP >/dev/null
 		done
 
 		sleep 1
