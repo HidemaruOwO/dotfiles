@@ -14,7 +14,7 @@ function _term_toggle()
 	term:toggle()
 end
 
-nmap("i", "<C-i>", 'copilot#Accept("<CR>")', opt_expr)
+-- nmap("i", "<C-i>", 'copilot#Accept("<CR>")', opt_expr)
 nmap("n", "<Space>v", "<Cmd>call sml#mode_on()<CR>", opt)
 nmap("i", "<C-b>", "<br/>", opt)
 nmap("n", "<C-b>", "a<br/><ESC>", opt)

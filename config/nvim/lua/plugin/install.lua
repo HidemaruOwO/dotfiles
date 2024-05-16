@@ -91,8 +91,6 @@ require("jetpack.packer").startup(function(use)
 	-- use({ "Shougo/deol.nvim" })
 	-- use({ "numToStr/FTerm.nvim" })
 	use({ "akinsho/toggleterm.nvim" })
-	-- Writing code with AI
-	use({ "github/copilot.vim" })
 	-- Share code at realtime
 	use({ "jbyuki/instant.nvim" })
 	-- wakatimes plugin
