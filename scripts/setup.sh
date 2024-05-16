@@ -73,12 +73,11 @@ EOF
 			sudo mv /tmp/environment.tmp /etc/environment
 
 			echo -e "🔥 \e[1mEnable firewall with ufw...\e[0m"
-			sudo systemctl enable ufw
-			sudo systemctl start ufw
+			sudo systemctl enable --now ufw
 			sudo ufw enable
 
 			echo -e "🪟 \e[1mSetup sddm and theme...\e[0m"
-			cat $CURRENT/installSDDMCorner.sh | sudo bash
+			cat $CURRENT/installSDDMAstronaut.sh | sudo bash
 			cat $CURRENT/changeSddmBackground.sh | sudo bash -s $HOME/dotfiles/templates/background/sddm/modern_slime.png
 
 			echo -e "🤘 \e[1mSetup GRUB theme...\e[0m"
