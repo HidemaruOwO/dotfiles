@@ -106,6 +106,8 @@ EOF
 		fi # GUI
 	fi
 
+	sleep 4
+
 	echo -e "♻ \e[1mCreating symbolic from dotfiles's config...\e[0m"
 	cat $CURRENT/dotfilesLink.sh | bash
 	echo -e "⬇ \e[1mInstalling fish's plugin manager named 'oh my fish'...\e[0m"
