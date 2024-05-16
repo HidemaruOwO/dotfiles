@@ -50,7 +50,7 @@ function process() {
 		echo "⌨ CLI Only: false"
 	fi
 
-	if [ "$OS_NAME" == "arch" || "$OS_NAME" == "redhat" ]; then
+	if [ "$OS_NAME" == "arch" ] || [ "$OS_NAME" == "redhat" ]; then
 		echo -e "♻ \e[1mSyncing repositories and Updating softwares...\e[0m"
 		if [ "$OS_NAME" == "arch" ]; then
 			sudo pacman -Syyu --noconfirm
