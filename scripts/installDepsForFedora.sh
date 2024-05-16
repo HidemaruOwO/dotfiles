@@ -259,8 +259,6 @@ while true; do
 		sudo dnf install -y dnf-plugins-core
 		sudo dnf copr -y enable atim/lazygit
 		sudo dnf update -y
-		curl -fsSL https://deno.land/install.sh | sh | tee $INSTLOG
-		curl -fsSL https://bun.sh/install | bash | tee $INSTLOG
 		curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash | tee $INSTLOG
 		export PATH=$PATH:/home/linuxbrew/.linuxbrew/bin
 		# Initialize the display
