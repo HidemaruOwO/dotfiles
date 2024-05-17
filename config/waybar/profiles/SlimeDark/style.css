@@ -13,7 +13,8 @@
 @define-color accent6 #0db9d7;
 
 * {
-  font-family: "JetBrainsMono";
+  /* font-family: "JetBrainsMono"; */
+  font-family: "UDEV Gothic 35NFLG";
   border: none;
   border-radius: 0;
   /* font-family: "JetBrainsMono Nerd Font"; */
