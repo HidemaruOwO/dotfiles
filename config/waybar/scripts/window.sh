@@ -9,6 +9,9 @@ discord)
 WebCord)
 	echo "󰙯 Webcord"
 	;;
+org.mozilla.firefox)
+	echo " Firefox"
+	;;
 firefox)
 	echo " Firefox"
 	;;
