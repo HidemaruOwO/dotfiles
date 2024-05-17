@@ -17,6 +17,9 @@ style = "bold blue"
 [aws.region_aliases]
 ap-northeast-1 = "jp"
 
+[gcloud]
+format = "🇬️ "
+
 [custom.arch]
 command = "uname -m"
 when = """ test $(uname -m) = "x86_64" """
