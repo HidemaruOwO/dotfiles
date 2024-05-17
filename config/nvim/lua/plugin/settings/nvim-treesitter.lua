@@ -1,7 +1,7 @@
 vim.opt.runtimepath:append("~/dotfiles/templates/treesitter")
 
-local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
-ft_to_parser.mdx = "tsx"
+-- local ft_to_parser = require("nvim-treesitter.parsers").filetype_to_parsername
+--ft_to_parser.mdx = "tsx"
 -- Nvim 0.10.0
 -- vim.treesitter.language.register("mdx", "tsx")
 
@@ -38,3 +38,5 @@ parser_config.hypr = {
 	},
 	filetype = "hypr",
 }
+
+vim.treesitter.language.register("tsx", { "mdx" })
