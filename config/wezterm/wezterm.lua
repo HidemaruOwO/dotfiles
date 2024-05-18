@@ -41,7 +41,8 @@ return {
 	--tab bar setting
 	tab_bar_at_bottom = true,
 	-- disable_default_key_bindings = true,
-	color_scheme = "nord",
+	-- color_scheme = "nord",
+	color_scheme = "Tokyo Night Moon",
 	use_ime = true,
 	--font setting
 	font = wezterm.font("UDEV Gothic 35NFLG"),
