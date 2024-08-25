@@ -29,21 +29,15 @@ font_resources=(
 )
 dev_environments=(
 	wezterm            # ターミナル
-	kitty              # ターミナル
-	vivaldi            # ブラウザ
 	google-chrome      # ブラウザ
 	firefox            # ブラウザ
-	floorp             # ブラウザ
 	jetbrains-toolbox  # IDEマネージャー
 	visual-studio-code # エディター
 	neovide            # エディター
 	visual-studio      # IDE
 	github             # GitHubクライアント
 	discord            # チャット
-	slack              # チャット
-	zoom               # チャット
 	termius            # SSHクライアント
-	deluge             # torrentクライアント
 )
 module_utils=(
 	karabiner-elements # キーバインドユーティリティ
@@ -55,13 +49,10 @@ module_utils=(
 	obs-virtualcam     # OBSのカメラ出力
 	wget               # ダウンローダー
 	p7zip              # 圧縮・解凍
-	sqlite             # DB
 )
 unixporn=(
-	bat                 # 高機能版cat
 	gat                 # 高機能版cat
 	lsd                 # 高機能版ls
-	exa                 # 高機能版ls
 	gh                  # GitHub CLI
 	neovim              # エディタ
 	thefuck             # コマンド修正
@@ -71,8 +62,6 @@ unixporn=(
 	the_silver_searcher # 高機能版grep
 	btop                # パフォーマンスモニター
 	htop                # パフォーマンスモニター
-	bottom              # パフォーマンスモニター
-	zenith              # パフォーマンスモニター
 	figlet              # メッセージレンダラー
 	toilet              # メッセージレンダラー
 )
@@ -82,23 +71,17 @@ shells=(
 	zsh  # シェル
 )
 languages=(
-	deno
 	node
 	go
 	openjdk@8
 	openjdk@17
 	rust
-	zig
 	lua
 	luajit
-	php
-	ruby
-	julia
+  python
 )
 language_tools=(
-	composer
 	rust-analyzer
-	zls
 	gopls
 	pipx
 	npm
