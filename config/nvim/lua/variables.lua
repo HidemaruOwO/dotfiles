@@ -34,6 +34,7 @@ local g = {
 	--
 	vimcord_nvim = 1,
 	astro_typescript = "enable",
+	gitgutter_highlight_lines = 0,
 	-- previm-setting
 	previm_disable_default_css = 1,
 	previm_custom_css_path = "~/dotfiles/templates/previm/github.css",
