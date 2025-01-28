@@ -60,16 +60,7 @@ require("jetpack.packer").startup(function(use)
 	use({ "L3MON4D3/LuaSnip" })
 	use({ "saadparwaiz1/cmp_luasnip" })
 	-- Preview replace
-	-- Enable Deno
-	use({ "vim-denops/denops.vim" })
-	-- Disable plugin on my MacBook Air
-	if getHostname() == "Slime-MBArch" then
-		-- Generte Image from code
-		use({ "segeljakt/vim-silicon" })
-	else
-		-- Generte Image from code
-		use({ "skanehira/denops-silicon.vim" })
-	end
+	use({ "segeljakt/vim-silicon" })
 	use({ "markonm/traces.vim" })
 	-- Tree Sitter modules
 	use({ "luckasRanarison/tree-sitter-hypr" })
