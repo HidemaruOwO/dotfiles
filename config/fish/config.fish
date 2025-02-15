@@ -1,6 +1,7 @@
 if status is-interactive
     set -x PATH /opt/homebrew/bin $PATH
     set -x PATH /opt/homebrew/sbin $PATH
+    set -x PATH ~/.nodebrew/current/bin $PATH
     # hyfetch --ascii-file ~/dotfiles/templates/neofetch/ascii-slime-1.txt
     echo "__        __   _                            _           __ _     _     _ _
 \ \      / /__| | ___ ___  _ __ ___   ___  | |_ ___    / _(_)___| |__ | | |
