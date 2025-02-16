@@ -20,7 +20,7 @@
     "custom/separator",
     "memory",
     "custom/recorder",
-    "custom/audiorec"
+    "custom/audiorec",
   ],
   "modules-center": [
     "custom/lock_screen",
@@ -28,20 +28,20 @@
     "tray",
     "mpd",
     "custom/separator",
-    "custom/updates"
+    "custom/updates",
   ],
   "modules-right": [
     "idle_inhibitor",
     "custom/separator",
     "network",
     "custom/separator",
-    "backlight",
-    "custom/separator",
-    "battery",
-    "custom/separator",
+    // "backlight",
+    // "custom/separator",
+    // "battery",
+    // "custom/separator",
     "pulseaudio",
     "custom/separator",
-    "clock"
+    "clock",
   ],
 
   // Modules configuration
@@ -61,22 +61,22 @@
       "9": "",
       "urgent": "",
       "focused": "",
-      "default": ""
-    }
+      "default": "",
+    },
   },
   "custom/wmname": {
     "format": "",
-    "tooltip": false
+    "tooltip": false,
   },
   "custom/launch_wofi": {
     "format": "",
     "on-click": "pkill wofi; wofi -n",
-    "tooltip": false
+    "tooltip": false,
   },
   "custom/lock_screen": {
     "format": "",
     "on-click": "sh -c '(sleep 0.5s; wlogout)'",
-    "tooltip": false
+    "tooltip": false,
   },
 
   "hyprland/workspaces": {
@@ -93,52 +93,52 @@
       "9": "",
       "urgent": "",
       "focused": "",
-      "default": ""
-    }
+      "default": "",
+    },
   },
   "custom/language": {
-    "exec": "swaymsg --type get_inputs | grep \"xkb_active_layout_name\" | sed -u '1!d; s/^.*xkb_active_layout_name\": \"//; s/ (US)//; s/\",//' && swaymsg --type subscribe --monitor '[\"input\"]' | sed -u 's/^.*xkb_active_layout_name\": \"//; s/\",.*$//; s/ (US)//'"
+    "exec": "swaymsg --type get_inputs | grep \"xkb_active_layout_name\" | sed -u '1!d; s/^.*xkb_active_layout_name\": \"//; s/ (US)//; s/\",//' && swaymsg --type subscribe --monitor '[\"input\"]' | sed -u 's/^.*xkb_active_layout_name\": \"//; s/\",.*$//; s/ (US)//'",
   },
   "custom/separator": {
     "format": "|",
     "interval": "once",
-    "tooltip": false
+    "tooltip": false,
   },
   "custom/updates": {
     "format": "{}",
     "exec": "~/.config/waybar/scripts/update-sys",
     "on-click": "~/.config/waybar/scripts/update-sys update",
     "interval": 300,
-    "tooltip": false
+    "tooltip": false,
   },
   "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
+    "format": "<span style=\"italic\">{}</span>",
   },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
       "activated": "",
-      "deactivated": ""
+      "deactivated": "",
     },
-    "tooltip": false
+    "tooltip": false,
   },
   "tray": {
     "icon-size": 20,
-    "spacing": 10
+    "spacing": 10,
   },
   "clock": {
     "interval": 1,
     "locale": "ja_JP.UTF-8",
     // "format": " {:%a,%b %d} {:%I:%M %p}",
-    "format": " {:%B%d日(%a) %H:%M}"
+    "format": " {:%m/%d %A, %H:%M}",
     // "format-alt": " {:%B%d日(%a) %H:%M}"
-    // "format-alt": " {:%a, %B %d, %Y (%R)}" // Icon: calendar-alt
+    // "format-alt": " {:%a, %B %d, %Y (%R)}", // Icon: calendar-alt
   },
   "cpu": {
     "interval": 1,
     "format": " &#8239;{usage}%",
     "tooltip": false,
-    "on-click": "kitty -e 'btop'"
+    "on-click": "kitty -e 'btop'",
   },
   "memory": {
     "interval": 3,
@@ -147,7 +147,7 @@
     "max-length": 10,
     "tooltip": false,
     "warning": 70,
-    "critical": 90
+    "critical": 90,
   },
   "temperature": {
     // "thermal-zone": 2,
@@ -155,7 +155,7 @@
     "critical-threshold": 80,
     // "format-critical": "{temperatureC}°C {icon}",
     "format": "{icon}&#8239;{temperatureC}°C",
-    "format-icons": ["", "", ""]
+    "format-icons": ["", "", ""],
   },
   "backlight": {
     // "device": "acpi_video1",
@@ -163,14 +163,14 @@
     "format-icons": ["", "", "", "", "", "", "", "", ""],
     "on-scroll-up": "echo 0",
     "on-scroll-down": "echo 0",
-    "tooltip": false
+    "tooltip": false,
   },
   "battery": {
     "interval": 60,
     "states": {
       // "good": 95,
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
     "format": "{icon} &#8239;{capacity}%",
     "format-charging": " &#8239;{capacity}%",
@@ -179,7 +179,7 @@
     // "format-good": "", // An empty format will hide the module
     // "format-full": "",
     "format-icons": ["", "", "", "", ""],
-    "tooltip": false
+    "tooltip": false,
     // "format-icons": ["", "", "", "", ""]
   },
   "network": {
@@ -191,7 +191,7 @@
     "format-disconnected": "✈",
     "format-alt": "{icon} {ifname}: {ipaddr}/{cidr}",
     "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
-    "tooltip-format": " {essid}: {ipaddr}"
+    "tooltip-format": " {essid}: {ipaddr}",
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -206,10 +206,10 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", ""]
+      "default": ["", "", ""],
     },
     "on-click": "~/.config/waybar/scripts/volume --toggle",
-    "on-click-right": "~/.config/waybar/scripts/volume --toggle-mic"
+    "on-click-right": "~/.config/waybar/scripts/volume --toggle-mic",
   },
   "mpd": {
     "format": "{stateIcon} {artist} - {title}",
@@ -217,30 +217,30 @@
     "format-stopped": "♪",
     "interval": 10,
     "consume-icons": {
-      "on": " " // Icon shows only when "consume" is on
+      "on": " ", // Icon shows only when "consume" is on
     },
     "random-icons": {
       "off": "<span color=\"#f53c3c\"></span> ", // Icon grayed out when "random" is off
-      "on": " "
+      "on": " ",
     },
     "repeat-icons": {
-      "on": " "
+      "on": " ",
     },
     "single-icons": {
-      "on": "1 "
+      "on": "1 ",
     },
     "state-icons": {
       "paused": "",
-      "playing": ""
+      "playing": "",
     },
     "tooltip-format": "MPD (connected)",
     "tooltip-format-disconnected": "MPD (disconnected)",
-    "max-length": 45
+    "max-length": 45,
   },
   "custom/window-name": {
     "format": "<b>{}</b>",
     "interval": 1,
-    "exec": "~/.config/waybar/scripts/window.sh"
+    "exec": "~/.config/waybar/scripts/window.sh",
   },
   "custom/recorder": {
     "format": " Rec",
@@ -248,7 +248,7 @@
     "return-type": "json",
     "interval": 1,
     "exec": "echo '{\"class\": \"recording\"}'",
-    "exec-if": "pgrep wf-recorder"
+    "exec-if": "pgrep wf-recorder",
   },
 
   "custom/audiorec": {
@@ -257,6 +257,6 @@
     "return-type": "json",
     "interval": 1,
     "exec": "echo '{\"class\": \"audio recording\"}'",
-    "exec-if": "pgrep ffmpeg"
-  }
+    "exec-if": "pgrep ffmpeg",
+  },
 }
