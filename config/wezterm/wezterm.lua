@@ -17,7 +17,7 @@ if hostname == "Slime-MBA" then
 		will_font_size = 13
 	end
 elseif hostname == "slimelinux" then
-	will_font_size = 14
+	will_font_size = 13
 end
 
 -- wezterm cli spawn -- zenith
