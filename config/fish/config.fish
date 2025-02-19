@@ -35,6 +35,7 @@ if status is-interactive
         set -gx CPPFLAGS -I/opt/homebrew/opt/llvm/include
     end
 
+    balias change-windows "sudo grub-reboot (awk -F\' '/Windows / {print $2}' /boot/grub/grub.cfg) && sleep 3 && sudo reboot"
     # alias
     balias tc "termius connect"
     # balias code 'code --ozone-platform=wayland --enable-wayland-ime'
