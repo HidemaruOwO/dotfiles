@@ -35,7 +35,12 @@ if status is-interactive
         set -gx CPPFLAGS -I/opt/homebrew/opt/llvm/include
     end
 
-    balias change-windows "sudo grub-reboot (awk -F\' '/Windows / {print $2}' /boot/grub/grub.cfg) && sleep 3 && sudo reboot"
+    function reboot_to_windows
+        set windows_title (grep -i windows /boot/grub/grub.cfg | cut -d "'" -f 2)
+        sudo grub-reboot "$windows_title" && sudo reboot
+    end
+
+    balias change-windows reboot_to_windows
     # alias
     balias tc "termius connect"
     # balias code 'code --ozone-platform=wayland --enable-wayland-ime'
@@ -72,8 +77,8 @@ if status is-interactive
     balias gitpullforce "git fetch origin HEAD && git reset --hard origin/HEAD"
     balias gitpushquick 'git add . && pummit sparkles "quick push" && git push origin HEAD'
 
-    balias hyfetch 'hyfetch --ascii-file ~/dotfiles/templates/neofetch/ascii-slime-1.txt'
-    balias neofetch hyfetch
+    balias fastfetch 'fastfetch -l ~/dotfiles/templates/neofetch/ascii-slime-1.txt'
+    balias neofetch fastfetch
 
     thefuck --alias | source
     pummit complete --fish | source
