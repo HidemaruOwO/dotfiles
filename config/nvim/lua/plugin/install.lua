@@ -34,6 +34,8 @@ require("jetpack.packer").startup(function(use)
 	use({ "altercation/solarized" })
 	use({ "tomasr/molokai" })
 	-- =========== Tools ===========
+	-- Copilot
+	use({ "zbirenbaum/copilot.lua" })
 	-- Transparent background
 	use({ "miyakogi/seiya.vim" })
 	-- Change vimdoc language to Japanese
@@ -59,6 +61,7 @@ require("jetpack.packer").startup(function(use)
 	use({ "hrsh7th/nvim-cmp" })
 	use({ "L3MON4D3/LuaSnip" })
 	use({ "saadparwaiz1/cmp_luasnip" })
+	use({ "zbirenbaum/copilot-cmp" })
 	-- Preview replace
 	use({ "segeljakt/vim-silicon" })
 	use({ "markonm/traces.vim" })
@@ -138,5 +141,4 @@ require("jetpack.packer").startup(function(use)
 	use({ "kylechui/nvim-surround" })
 	-- カーソルの位置を強調する
 	use({ "tummetott/reticle.nvim" })
-	use({ "zbirenbaum/copilot-cmp" })
 end)

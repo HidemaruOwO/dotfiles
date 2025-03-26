@@ -25,11 +25,16 @@ cmp.setup({
 		}),
 	}),
 	sources = cmp.config.sources({
+		{ name = "path" },
+		{ name = "copilot" },
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
 	}),
 	formatting = {
 		format = lspkind.cmp_format({
+			mode = "symbol",
+			max_width = 50,
+			symbol_map = { Copilot = "" },
 			menu = {},
 		}),
 	},
