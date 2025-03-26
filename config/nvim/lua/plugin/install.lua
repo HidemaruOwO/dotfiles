@@ -138,4 +138,5 @@ require("jetpack.packer").startup(function(use)
 	use({ "kylechui/nvim-surround" })
 	-- カーソルの位置を強調する
 	use({ "tummetott/reticle.nvim" })
+	use({ "zbirenbaum/copilot-cmp" })
 end)

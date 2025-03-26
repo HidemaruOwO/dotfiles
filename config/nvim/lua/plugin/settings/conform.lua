@@ -1,4 +1,4 @@
-local web_formatter = { "biome-check", "prettierd", "prettier", stop_after_first = true }
+local web_formatter = { "prettier", stop_after_first = true }
 local rustfmt = require("conform.formatters.rustfmt")
 rustfmt.args = function()
 	return { "--edition", "2021", "--emit", "stdout" }
