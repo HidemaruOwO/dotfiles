@@ -80,7 +80,6 @@ if status is-interactive
     balias fastfetch 'fastfetch -l ~/dotfiles/templates/neofetch/ascii-slime-1.txt'
     balias neofetch fastfetch
 
-    thefuck --alias | source
     pummit complete --fish | source
 
     if command -q rbenv
