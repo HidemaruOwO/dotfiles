@@ -19,10 +19,10 @@ cmp.setup({
 			behavior = cmp.ConfirmBehavior.Replace,
 			select = true,
 		}),
-		["<TAB>"] = cmp.mapping.confirm({
-			behavior = cmp.ConfirmBehavior.Replace,
-			select = true,
-		}),
+		-- ["<TAB>"] = cmp.mapping.confirm({
+		-- 	behavior = cmp.ConfirmBehavior.Replace,
+		-- 	select = true,
+		-- }),
 	}),
 	sources = cmp.config.sources({
 		{ name = "path" },
