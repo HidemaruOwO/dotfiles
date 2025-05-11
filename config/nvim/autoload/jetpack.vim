@@ -160,6 +160,10 @@ if has('nvim')
     \   'on_exit': { _, st -> st != 0 ? execute("echoerr '`'.join(a:cmd, ' ').'`:'.join(buf, '')") : a:cb(join(buf, '')) }
     \ })
   endfunction
+
+  function! jetpack#system(cmd) abort
+    return a:cmd->split(" ")->system()
+  endfunction
 else
   function! jetpack#jobstart(cmd, cb) abort
     let buf = []
@@ -170,6 +174,15 @@ else
     \   'err_cb': { _, data -> extend(buf, split(data, "\n")) },
     \   'exit_cb': function('jetpack#nvim_exit_cb', [a:cmd, buf, a:cb])
     \ })
+  endfunction
+
+  function! jetpack#system(cmd) abort
+    let buf = []
+    let job = job_start(a:cmd, {
+          \ 'out_cb': { _, data -> extend(buf, split(data, "\n")) }
+          \})
+    call jetpack#jobwait([job], 0)
+    return buf->join("\n")
   endfunction
 endif
 
@@ -230,9 +243,13 @@ function! jetpack#clean_plugins() abort
     return
   endif
   for [pkg_name, pkg] in items(s:declared_packages)
+    if !isdirectory(pkg.path . '/.git')
+      call delete(pkg.path, 'rf')
+      continue
+    endif
     if isdirectory(pkg.path)
-      call system(printf('git -C %s reset --hard', pkg.path))
-      let branch = trim(system(printf('git -C %s rev-parse --abbrev-ref %s', pkg.path, pkg.commit)))
+      call jetpack#system(printf('git -C %s reset --hard', pkg.path))
+      let branch = trim(jetpack#system(printf('git -C %s rev-parse --abbrev-ref %s', pkg.path, pkg.commit)))
       if v:shell_error && !empty(pkg.commit)
         call delete(pkg.path, 'rf')
         continue
@@ -250,7 +267,11 @@ function! jetpack#clean_plugins() abort
 endfunction
 
 function! jetpack#make_download_cmd(pkg) abort
-  if g:jetpack_download_method ==# 'git'
+  let download_method = g:jetpack_download_method
+  if a:pkg.url =~? '\.tar\.gz$'
+    let download_method = 'curl'
+  endif
+  if download_method ==# 'git'
     if isdirectory(a:pkg.path)
       return [join(['git', '-C', a:pkg.path, 'pull', '--rebase'], ' ')]
     else
@@ -283,13 +304,21 @@ function! jetpack#make_download_cmd(pkg) abort
     else
       let label = a:pkg.commit
     endif
-    if g:jetpack_download_method ==# 'curl'
+    if download_method ==# 'curl'
       let curl_flags = has('ivim') ? ' -kfsSL ' : ' -fsSL '
-      let download_cmd = 'curl' . curl_flags .  a:pkg.url . '/archive/' . label . '.tar.gz' . ' -o ' . temp
-    elseif g:jetpack_download_method ==# 'wget'
-      let download_cmd = 'wget ' .  a:pkg.url . '/archive/' . label . '.tar.gz' . ' -O ' . temp
+      if a:pkg.url =~? '\.tar\.gz$'
+        let download_cmd = 'curl' . curl_flags .  a:pkg.url . ' -o ' . temp
+      else
+        let download_cmd = 'curl' . curl_flags .  a:pkg.url . '/archive/' . label . '.tar.gz' . ' -o ' . temp
+      endif
+    elseif download_method ==# 'wget'
+      if a:pkg.url =~? '\.tar\.gz$'
+        let download_cmd = 'wget ' .  a:pkg.url . ' -O ' . temp
+      else
+        let download_cmd = 'wget ' .  a:pkg.url . '/archive/' . label . '.tar.gz' . ' -O ' . temp
+      endif
     else
-      throw 'g:jetpack_download_method: ' . g:jetpack_download_method . ' is not a valid value'
+      throw 'g:jetpack_download_method: ' . download_method . ' is not a valid value'
     endif
     let extract_cmd = 'tar -zxf ' . temp . ' -C ' . a:pkg.path . ' --strip-components 1'
     if has('unix')
@@ -340,7 +369,7 @@ function! jetpack#download_plugins() abort
       call add(jobs, job)
       call jetpack#jobwait(jobs, g:jetpack_njobs)
     else
-      let pkg.output = join(map(cmds, { _, cmd -> system(cmd) }), "\n")
+      let pkg.output = join(map(cmds, { _, cmd -> jetpack#system(cmd) }), "\n")
       call add(pkg.status, status)
     endif
   endfor
@@ -362,7 +391,7 @@ function! jetpack#switch_plugins() abort
     else
       call add(pkg.status, s:status.switched)
     endif
-    call system(printf('git -C %s checkout %s', pkg.path, pkg.commit))
+    call jetpack#system(printf('git -C %s checkout %s', pkg.path, pkg.commit))
   endfor
 endfunction
 
@@ -379,7 +408,7 @@ function! jetpack#postupdate_plugins() abort
       if pkg.do =~# '^:'
         execute pkg.do
       else
-        call system(pkg.do)
+        call jetpack#system(pkg.do)
       endif
     endif
     call chdir(pwd)
@@ -432,7 +461,7 @@ function! jetpack#is_opt(pkg) abort
        \ || !empty(a:pkg.cmd)
        \ || !empty(a:pkg.keys)
        \ || !empty(a:pkg.event)
-  endfunction
+endfunction
 
 function! jetpack#gets(pkg, keys, default) abort
   let values = []
@@ -449,15 +478,15 @@ function! jetpack#gets(pkg, keys, default) abort
 endfunction
 
 function! jetpack#add(plugin, ...) abort
-  if has_key(s:declared_packages, a:plugin)
+  let opts = a:0 > 0 ? a:1 : {}
+  let name = jetpack#gets(opts, ['as', 'name'], [fnamemodify(a:plugin, ':t')])[0]
+  if has_key(s:declared_packages, name)
     return
   endif
-  let opts = a:0 > 0 ? a:1 : {}
   let local = jetpack#is_local_plug(a:plugin)
   let url = local ? expand(a:plugin) : (a:plugin !~# '.\+://' ? 'https://github.com/' : '') . a:plugin
   let path = s:optdir . '/' .  substitute(url, '.\+/\(.\+\)', '\1', '')
   let path = expand(local ? a:plugin : jetpack#gets(opts, ['dir', 'path'], [path])[0])
-  let name = jetpack#gets(opts, ['as', 'name'], [fnamemodify(a:plugin, ':t')])[0]
   let dependees = jetpack#gets(opts, ['requires', 'depends'], [])
   call map(dependees, { _, r -> r =~# '/' ? substitute(r, '.*/', '', '') : r })
   let dependers_before = jetpack#gets(opts, ['before', 'on_source'], [])
