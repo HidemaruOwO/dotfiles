@@ -18,6 +18,8 @@ require("jetpack.packer").startup(function(use)
 	-- MarkDown
 	use({ "previm/previm" })
 	use({ "mattn/vim-maketable" })
+	use({ "HidemaruOwO/mdxsnap.nvim" })
+	-- use({ "~/code/portfolio-editor" })
 	-- Fish
 	use({ "dag/vim-fish" })
 	-- Astro

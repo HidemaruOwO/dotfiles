@@ -63,6 +63,7 @@ if status is-interactive
     balias egrntemp "nvim $HOME/dotfiles/templates/git-release-notes/markdown.ejs"
     # directory base edit
     balias envim "cd $HOME/.config/nvim && nvim && cd -"
+    balias envimplugin "cd $HOME/.config/nvim/lua/plugin/ && nvim && cd -"
     balias edscript "cd $HOME/dotfiles/scripts && nvim && cd -"
     balias ewaybar "cd $HOME/.config/waybar && nvim && cd -"
     # vim
