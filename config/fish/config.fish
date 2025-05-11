@@ -80,7 +80,7 @@ if status is-interactive
     balias fastfetch 'fastfetch -l ~/dotfiles/templates/neofetch/ascii-slime-1.txt'
     balias neofetch fastfetch
 
-    pummit complete --fish | source
+    pummit completion fish | source
 
     if command -q rbenv
         status --is-interactive; and rbenv init - fish | source

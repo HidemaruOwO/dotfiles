@@ -1,19 +1,19 @@
 customCommands:
-- key: 'c'
-  prompts:
-    - type: 'input'
-      title: 'Commit message'
-      initialValue: ''
-  command: "pummit '{{index .PromptResponses 0}}'"
-  context: 'files'
-  description: 'commit changes(Custom Command)'
-- key: "C"
-  command: 'git reset --soft HEAD^'
-  context: 'files'
-  description: 'Undo latest commit'
-- key: 'F'
-  command: 'git add . && pummit sparkles "quick push" && git push origin HEAD'
-  context: 'files'
-  description: 'Quick push'
+  - key: "c"
+    prompts:
+      - type: "input"
+        title: "Commit message"
+        initialValue: ""
+    command: "pummit {{index .PromptResponses 0}}"
+    context: "files"
+    description: "commit changes(Custom Command)"
+  - key: "C"
+    command: "git reset --soft HEAD^"
+    context: "files"
+    description: "Undo latest commit"
+  - key: "F"
+    command: 'git add . && pummit sparkles "quick push" && git push origin HEAD'
+    context: "files"
+    description: "Quick push"
 gui:
-  language: 'ja'
+  language: "ja"
