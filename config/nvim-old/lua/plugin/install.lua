@@ -16,10 +16,15 @@ require("jetpack.packer").startup(function(use)
 	-- Nim
 	use({ "alaviss/nim.nvim" })
 	-- MarkDown
-	use({ "previm/previm" })
+	-- use({
+	-- "iamcco/markdown-preview.nvim",
+	-- run = function()
+	-- vim.fn["mkdp#util#install"]()
+	-- end,
+	-- })
 	use({ "mattn/vim-maketable" })
-	use({ "HidemaruOwO/mdxsnap.nvim" })
-	-- use({ "~/code/portfolio-editor" })
+	-- use({ "HidemaruOwO/mdxsnap.nvim" })
+	use({ "~/code/mdxsnap.nvim" })
 	-- Fish
 	use({ "dag/vim-fish" })
 	-- Astro
@@ -143,4 +148,8 @@ require("jetpack.packer").startup(function(use)
 	use({ "kylechui/nvim-surround" })
 	-- カーソルの位置を強調する
 	use({ "tummetott/reticle.nvim" })
+	-- denops
+	use({ "vim-denops/denops.vim" })
+	use({ "vim-denpos/denops-helloworld.vim" })
+	use({ "kat0h/bufpreview.vim", run = "deno task prepare" })
 end)
