@@ -7,4 +7,5 @@ require("jetpack.packer").add {
   -- ======= LSP =======
   -- ======= Denops =======
   -- ======= Advanced =======
+  {"HidemaruOwO/mdxsnap.nvim", cmd = "PasteImage", ft = {"markdown", "mdx"}, config = function() require("plugins.mdxsnap") end },
 }
