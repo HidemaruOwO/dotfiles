@@ -1,11 +1,93 @@
 vim.cmd("packadd vim-jetpack")
 
-require("jetpack.packer").add {
-  {"tani/vim-jetpack"}, -- bootstrap
+require("jetpack.packer").add({
+	{ "tani/vim-jetpack" }, -- bootstrap
 
-  -- ======= Core =======
-  -- ======= LSP =======
-  -- ======= Denops =======
-  -- ======= Advanced =======
-  {"HidemaruOwO/mdxsnap.nvim", cmd = "PasteImage", ft = {"markdown", "mdx"}, config = function() require("plugins.mdxsnap") end },
-}
+	-- ======= Core =======
+	{
+		"terrortylor/nvim-comment",
+		cmd = "CommentToggle",
+		config = function()
+			require("nvim_comment").setup()
+		end,
+	}, -- quick comment
+	{
+		"christoomey/vim-system-copy",
+		event = "ModeChanged",
+	}, -- copy to clipboard
+	{
+		"stevearc/conform.nvim",
+		event = "BufWritePre",
+		config = function()
+			require("plugins.conform")
+			require("conform").format()
+		end,
+	}, -- formatter
+	{
+		"nvim-lualine/lualine.nvim",
+		event = "VimEnter",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("lualine").setup({
+				options = { theme = "everforest" },
+			})
+		end,
+	}, -- status line always loading
+	{
+		"folke/noice.nvim",
+		event = "VimEnter",
+		requires = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+		config = function()
+			require("plugins.noice")
+		end,
+	},
+	-- ======= Color Scheme ====
+	-- use({ "Rigellute/rigel" })
+	{
+		"sainnhe/everforest",
+		config = function()
+			vim.cmd([[colorscheme everforest]])
+		end,
+	},
+	-- use({ "joshdick/onedark.vim" })
+	-- { "morhetz/gruvbox" },
+	-- use({ "KKPMW/moonshine-vim" })
+	-- use({ "AlessandroYorba/Alduin" })
+	-- use({ "w0ng/vim-hybrid" })
+	-- use({ "nanotech/jellybeans.vim" })
+	-- use({ "altercation/solarized" })
+	-- use({ "tomasr/molokai" })
+	--
+	-- ======= LSP =======
+	--
+	-- ======= Denops =======
+	--
+	-- ======= Advanced =======
+	{
+		-- "~/code/mdxsnap.nvim",
+		"HidemaruOwO/mdxsnap.nvim",
+		cmd = "PasteImage",
+		ft = { "markdown", "mdx" },
+		config = function()
+			require("plugins.mdxsnap")
+		end,
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+		cmd = "Telescope",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }, -- fzf on telescope
+			{ "nvim-telescope/telescope-symbols.nvim" }, -- view emojis and symbols
+			{ "nvim-telescope/telescope-media-files.nvim" }, -- image viewer
+			{ "nvim-telescope/telescope-frecency.nvim" }, -- search files by keywords
+			{ "HidemaruOwO/telescope-file-browser.nvim" }, -- file manager
+		},
+		config = function()
+			require("plugins.telescope")
+		end,
+	}, -- telescope
+})
