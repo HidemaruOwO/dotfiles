@@ -128,4 +128,27 @@ require("jetpack.packer").add({
 			require("plugins.toggleterm")
 		end,
 	}, -- summon terminal
+	{
+		"norcalli/nvim-colorizer.lua",
+		event = {
+			"BufNewFile",
+			"BufReadPre",
+		},
+		config = function()
+			require("colorizer").setup()
+		end,
+	}, -- view colors
+	{
+		"kdheepak/lazygit.nvim",
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		requires = {
+			"nvim-lua/plenary.nvim",
+		},
+	}, -- lazygit
 })
