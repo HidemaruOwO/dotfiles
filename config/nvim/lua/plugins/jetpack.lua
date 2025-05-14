@@ -19,13 +19,23 @@ require("jetpack.packer").add({
 	{
 		"nvim-lualine/lualine.nvim",
 		event = "VimEnter",
-		requires = "kyazdani42/nvim-web-devicons",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+			-- "lewis6991/gitsigns.nvim",
+		},
 		config = function()
 			require("lualine").setup({
 				options = { theme = "everforest" },
 			})
 		end,
 	}, -- status line always loading
+	{
+		"tummetott/reticle.nvim",
+		event = "VimEnter",
+		config = function()
+			require("plugins.reticle")
+		end,
+	}, -- decorate buffers writing
 	{
 		"folke/noice.nvim",
 		event = "VimEnter",
@@ -90,4 +100,32 @@ require("jetpack.packer").add({
 			require("nvim_comment").setup()
 		end,
 	}, -- quick comment
+	{
+		"windwp/nvim-autopairs",
+		event = { "BufNewFile", "BufReadPre" },
+		config = function()
+			require("nvim-autopairs").setup()
+		end,
+	}, -- double quote utils
+	{
+		"windwp/nvim-ts-autotag",
+		event = { "BufNewFile", "BufReadPre" },
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+	}, -- html tag utils
+	{
+		"lewis6991/gitsigns.nvim",
+		event = { "BufReadPre" },
+		config = function()
+			require("gitsigns").setup()
+		end,
+	}, -- show git status
+	{
+		"akinsho/toggleterm.nvim",
+		cmd = "ToggleTerm",
+		config = function()
+			require("plugins.toggleterm")
+		end,
+	}, -- summon terminal
 })
