@@ -9,3 +9,4 @@ vim.api.nvim_set_keymap("n", "<C-m>", "<Cmd>Telescope file_browser path=%:p:h se
 vim.api.nvim_set_keymap("n", "<C-S-m>", "<Cmd>Telescope frecency<CR><ESC>", opt)
 vim.api.nvim_set_keymap("n", "<C-.>", "<Cmd>Telescope symbols<CR>", opt)
 vim.api.nvim_set_keymap("i", "<C-.>", "<Cmd>Telescope symbols<CR>", opt)
+vim.api.nvim_set_keymap("n", "<C-t>", "<Cmd>ToggleTerm<CR>", opt)
