@@ -47,6 +47,14 @@ require("jetpack.packer").add({
 			require("plugins.noice")
 		end,
 	},
+	{
+		"nvim-treesitter/nvim-treesitter",
+		event = { "VimEnter" },
+		run = ":TSUpdate",
+		config = function()
+			require("plugins.treesitter")
+		end,
+	},
 	-- ======= Color Scheme ====
 	-- use({ "Rigellute/rigel" })
 	{
