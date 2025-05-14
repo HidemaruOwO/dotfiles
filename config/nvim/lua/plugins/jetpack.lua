@@ -5,13 +5,6 @@ require("jetpack.packer").add({
 
 	-- ======= Core =======
 	{
-		"terrortylor/nvim-comment",
-		cmd = "CommentToggle",
-		config = function()
-			require("nvim_comment").setup()
-		end,
-	}, -- quick comment
-	{
 		"christoomey/vim-system-copy",
 		event = "ModeChanged",
 	}, -- copy to clipboard
@@ -90,4 +83,11 @@ require("jetpack.packer").add({
 			require("plugins.telescope")
 		end,
 	}, -- telescope
+	{
+		"terrortylor/nvim-comment",
+		cmd = "CommentToggle",
+		config = function()
+			require("nvim_comment").setup()
+		end,
+	}, -- quick comment
 })
