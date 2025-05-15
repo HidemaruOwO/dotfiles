@@ -73,8 +73,22 @@ require("jetpack.packer").add({
 	-- use({ "tomasr/molokai" })
 	--
 	-- ======= LSP =======
-	--
-	-- ======= Denops =======
+	{
+		"neovim/nvim-lspconfig",
+		event = { "VimEnter" },
+	},
+	{
+		"mason-org/mason.nvim",
+		event = { "VimEnter" },
+		config = function()
+			require("plugins.mason")
+		end,
+		requires = {
+			"mason-org/mason-lspconfig.nvim",
+			"neovim/nvim-lspconfig",
+			"hrsh7th/cmp-nvim-lsp",
+		},
+	}, -- ======= Denops =======
 	--
 	-- ======= Advanced =======
 	{
