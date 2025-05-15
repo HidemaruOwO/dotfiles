@@ -173,4 +173,11 @@ require("jetpack.packer").add({
 			"nvim-lua/plenary.nvim",
 		},
 	}, -- lazygit
+	{
+		"zbirenbaum/copilot.lua",
+		event = "VimEnter",
+		config = function()
+			require("plugins.copilot")
+		end,
+	}, -- copilot
 })
