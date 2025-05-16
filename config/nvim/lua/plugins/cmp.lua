@@ -144,6 +144,19 @@ cmp.setup.filetype("gitcommit", {
 	}),
 })
 
+local markdown_filetypes = { "markdown", "mdx" }
+
+for _, ft in ipairs(markdown_filetypes) do
+	cmp.setup.filetype(ft, {
+		sources = cmp.config.sources({
+			{ name = "nvim_lsp" },
+			{ name = "luasnip" },
+			{ name = "buffer" },
+			{ name = "path" },
+		}),
+	})
+end
+
 -- Use buffer source for `/`
 cmp.setup.cmdline("/", {
 	mapping = cmp.mapping.preset.cmdline(),
