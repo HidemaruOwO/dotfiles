@@ -168,7 +168,7 @@ require("jetpack.packer").add({
 		"windwp/nvim-ts-autotag",
 		event = { "BufNewFile", "BufReadPre", "InsertEnter" },
 		config = function()
-			require("nvim-ts-autotag").setup()
+			require("plugins.autotag")
 		end,
 	}, -- html tag utils
 	{
