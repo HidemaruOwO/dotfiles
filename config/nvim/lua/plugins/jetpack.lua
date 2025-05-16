@@ -155,7 +155,6 @@ require("jetpack.packer").add({
 		config = function()
 			require("nvim_comment").setup()
 		end,
-		-- cmp deps
 	}, -- quick comment
 	{
 		"windwp/nvim-autopairs",
