@@ -31,7 +31,7 @@ require("jetpack.packer").add({
 	}, -- status line always loading
 	{
 		"tummetott/reticle.nvim",
-		event = "VimEnter",
+		event = { "BufNewFile", "BufReadPre" },
 		config = function()
 			require("plugins.reticle")
 		end,
@@ -47,6 +47,17 @@ require("jetpack.packer").add({
 			require("plugins.noice")
 		end,
 	},
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		event = { "BufNewFile", "BufReadPre" },
+		config = function()
+			require("ibl").setup({
+				indent = {
+					char = "▏",
+				},
+			})
+		end,
+	}, -- show indent
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "VimEnter" },
@@ -130,6 +141,17 @@ require("jetpack.packer").add({
 			require("plugins.diagflow")
 		end,
 	}, -- dressing diagflow
+	{
+		"nvimdev/lspsaga.nvim",
+		cmd = "Lspsaga",
+		event = "LspAttach",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+		},
+		config = function()
+			require("plugins.lspsaga")
+		end,
+	}, -- lspsaga ui library
 	-- ======= Denops =======
 	--
 	-- ======= Advanced =======
@@ -212,4 +234,5 @@ require("jetpack.packer").add({
 			"nvim-lua/plenary.nvim",
 		},
 	}, -- lazygit
+	{ "wakatime/vim-wakatime", event = "VimEnter" }, -- wakatime
 })
