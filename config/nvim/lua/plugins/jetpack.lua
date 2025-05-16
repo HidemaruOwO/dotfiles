@@ -75,45 +75,53 @@ require("jetpack.packer").add({
 	-- ======= LSP =======
 	{
 		"neovim/nvim-lspconfig",
-		event = { "VimEnter" },
+		event = { "BufNewFile", "BufReadPre", "InsertEnter", "CmdLineEnter" },
 		config = function()
 			require("plugins.lspconfig")
 		end,
 		requires = {
 			"mason-org/mason.nvim",
 			"mason-org/mason-lspconfig.nvim",
-			-- "hrsh7th/nvim-cmp",
-			"hrsh7th/cmp-nvim-lsp",
+			{
+				"hrsh7th/nvim-cmp",
+				config = function()
+					require("plugins.cmp")
+				end,
+				requires = {
+					-- cmp sources
+					"hrsh7th/cmp-nvim-lsp",
+					"hrsh7th/cmp-buffer",
+					"hrsh7th/cmp-path",
+					"hrsh7th/cmp-cmdline",
+					"petertriho/cmp-git",
+					"saadparwaiz1/cmp_luasnip",
+					{
+						"zbirenbaum/copilot-cmp",
+						after = { "copilot.lua" },
+						config = function()
+							require("copilot_cmp").setup()
+						end,
+					},
+					-- cmp deps
+					"onsails/lspkind.nvim",
+					{
+						"L3MON4D3/LuaSnip",
+						run = "make install_jsregexp",
+						-- add snippets
+						requires = {
+							"rafamadriz/friendly-snippets",
+						},
+					}, -- snippets manager
+					{
+						"zbirenbaum/copilot.lua",
+						config = function()
+							require("plugins.copilot")
+						end,
+					},
+				},
+			}, -- nvim cmp
 		},
 	},
-	{
-		"hrsh7th/nvim-cmp",
-		-- event = { "VimEnter" },
-		-- event = { "InsertEnter", "CmdLineEnter" },
-		config = function()
-			require("plugins.cmp")
-		end,
-		requires = {
-			-- base depencies
-			"zbirenbaum/copilot.lua",
-			-- cmp sources
-			"hrsh7th/cmp-nvim-lsp",
-			"hrsh7th/cmp-buffer",
-			"hrsh7th/cmp-path",
-			"hrsh7th/cmp-cmdline",
-			"onsails/lspkind.nvim",
-			"L3MON4D3/LuaSnip",
-			-- "hrsh7th/cmp-nvim-lsp-signature-help",
-			-- "hrsh7th/cmp-nvim-lsp-document-symbol",
-		},
-	}, -- nvim-cmp
-	-- {
-	-- 	"saghen/blink.cmp",
-	-- 	run = "cargo build --release",
-	-- 	config = function()
-	-- 		require("plugins.blink")
-	-- 	end,
-	-- },
 	-- ======= Denops =======
 	--
 	-- ======= Advanced =======
@@ -147,24 +155,25 @@ require("jetpack.packer").add({
 		config = function()
 			require("nvim_comment").setup()
 		end,
+		-- cmp deps
 	}, -- quick comment
 	{
 		"windwp/nvim-autopairs",
-		event = { "BufNewFile", "BufReadPre" },
+		event = { "BufNewFile", "BufReadPre", "InsertEnter" },
 		config = function()
 			require("nvim-autopairs").setup()
 		end,
 	}, -- double quote utils
 	{
 		"windwp/nvim-ts-autotag",
-		event = { "BufNewFile", "BufReadPre" },
+		event = { "BufNewFile", "BufReadPre", "InsertEnter" },
 		config = function()
 			require("nvim-ts-autotag").setup()
 		end,
 	}, -- html tag utils
 	{
 		"lewis6991/gitsigns.nvim",
-		event = { "BufReadPre" },
+		event = { "BufNewFile", "BufReadPre" },
 		config = function()
 			require("gitsigns").setup()
 		end,
@@ -178,10 +187,7 @@ require("jetpack.packer").add({
 	}, -- summon terminal
 	{
 		"norcalli/nvim-colorizer.lua",
-		event = {
-			"BufNewFile",
-			"BufReadPre",
-		},
+		event = { "BufNewFile", "BufReadPre" },
 		config = function()
 			require("colorizer").setup()
 		end,
@@ -199,11 +205,4 @@ require("jetpack.packer").add({
 			"nvim-lua/plenary.nvim",
 		},
 	}, -- lazygit
-	{
-		"zbirenbaum/copilot.lua",
-		event = "VimEnter",
-		config = function()
-			require("plugins.copilot")
-		end,
-	}, -- copilot
 })
