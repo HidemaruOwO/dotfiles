@@ -122,6 +122,14 @@ require("jetpack.packer").add({
 			}, -- nvim cmp
 		},
 	},
+	-- others lsp attachments
+	{
+		"dgagn/diagflow.nvim",
+		event = "LspAttach",
+		config = function()
+			require("plugins.diagflow")
+		end,
+	}, -- dressing diagflow
 	-- ======= Denops =======
 	--
 	-- ======= Advanced =======
