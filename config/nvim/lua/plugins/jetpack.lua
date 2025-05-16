@@ -76,19 +76,45 @@ require("jetpack.packer").add({
 	{
 		"neovim/nvim-lspconfig",
 		event = { "VimEnter" },
-	},
-	{
-		"mason-org/mason.nvim",
-		event = { "VimEnter" },
 		config = function()
-			require("plugins.mason")
+			require("plugins.lspconfig")
 		end,
 		requires = {
+			"mason-org/mason.nvim",
 			"mason-org/mason-lspconfig.nvim",
-			"neovim/nvim-lspconfig",
+			-- "hrsh7th/nvim-cmp",
 			"hrsh7th/cmp-nvim-lsp",
 		},
-	}, -- ======= Denops =======
+	},
+	{
+		"hrsh7th/nvim-cmp",
+		-- event = { "VimEnter" },
+		-- event = { "InsertEnter", "CmdLineEnter" },
+		config = function()
+			require("plugins.cmp")
+		end,
+		requires = {
+			-- base depencies
+			"zbirenbaum/copilot.lua",
+			-- cmp sources
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"onsails/lspkind.nvim",
+			"L3MON4D3/LuaSnip",
+			-- "hrsh7th/cmp-nvim-lsp-signature-help",
+			-- "hrsh7th/cmp-nvim-lsp-document-symbol",
+		},
+	}, -- nvim-cmp
+	-- {
+	-- 	"saghen/blink.cmp",
+	-- 	run = "cargo build --release",
+	-- 	config = function()
+	-- 		require("plugins.blink")
+	-- 	end,
+	-- },
+	-- ======= Denops =======
 	--
 	-- ======= Advanced =======
 	{
