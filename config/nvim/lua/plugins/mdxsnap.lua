@@ -1,5 +1,5 @@
 -- In your Neovim configuration (e.g., init.lua or a dedicated plugins file)
-require("mdxsnap.config").setup({
+require("mdxsnap").setup({
 	-- Default path for saving images.
 	-- If DefaultPastePathType is "relative", this is relative to the project root.
 	-- If "absolute", this is used as an absolute path.
@@ -52,4 +52,3 @@ require("mdxsnap.config").setup({
 	-- Example for a simple <img> tag:
 	-- customTextFormat = '<img src="%s" alt="%s" />',
 })
-

@@ -2,6 +2,7 @@ vim.cmd("packadd vim-jetpack")
 
 require("jetpack.packer").add({
 	{ "tani/vim-jetpack" }, -- bootstrap
+	-- { "dstein64/vim-startuptime" }, -- startup time checker
 
 	-- ======= Core =======
 	{
@@ -153,7 +154,26 @@ require("jetpack.packer").add({
 		end,
 	}, -- lspsaga ui library
 	-- ======= Denops =======
-	--
+	{
+		"vim-denops/denops.vim",
+		event = "VimEnter",
+		requires = {
+			{
+				"vim-denops/denops-helloworld.vim",
+				-- cmd = "DenopsHello",
+			},
+			{
+				"kat0h/bufpreview.vim",
+				run = "deno task prepare",
+				-- cmd = {
+				-- 	"PreviewMarkdown",
+				-- 	"PreviewMarkdownStop",
+				-- 	"PreviewMarkdownToggle",
+				-- },
+				-- ft = { "markdown" },
+			}, -- markdown viewer
+		},
+	},
 	-- ======= Advanced =======
 	{
 		-- "~/code/mdxsnap.nvim",
