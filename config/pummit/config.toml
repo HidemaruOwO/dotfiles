@@ -1,0 +1,139 @@
+[meta]
+  version = "3.0"
+
+[base]
+  emoji = true
+  filesLength = 50
+
+[interactive]
+  enabled = true
+  defaultMode = "emoji"
+  showPreview = true
+  fuzzySearch = true
+
+[locale]
+  language = "ja"
+  autoDetect = true
+
+[templates]
+  enabled = true
+  defaultTemplate = "default"
+  [templates.definitions]
+    [templates.definitions.default]
+      format = "{emoji} {message} ({files})"
+      description = "Default template"
+    [templates.definitions.feat]
+      format = "{emoji} {scope}: {message}\n\n{description}\n\n({files})"
+      description = "Feature addition template"
+      defaultEmoji = "sparkles"
+      scope = true
+      requireDescription = true
+
+[scope]
+  enabled = true
+  autoDetect = true
+  suggestions = ["api", "ui", "core", "auth", "db"]
+  fromHistory = true
+  historyLimit = 50
+
+[alias]
+  enabled = true
+
+  [[alias.entries]]
+    shortcuts = ["s", "feat", "feature"]
+    name = "sparkles"
+    emoji = "✨"
+
+  [[alias.entries]]
+    shortcuts = ["c", "wip"]
+    name = "construction"
+    emoji = "🚧"
+
+  [[alias.entries]]
+    shortcuts = ["t", "new", "init"]
+    name = "tada"
+    emoji = "🎉"
+
+  [[alias.entries]]
+    shortcuts = ["r", "pr", "pull", "merge"]
+    name = "recycle"
+    emoji = "♻️"
+
+  [[alias.entries]]
+    shortcuts = ["wb", "rm", "remove", "del", "delete"]
+    name = "wastebasket"
+    emoji = "🗑️"
+
+  [[alias.entries]]
+    shortcuts = ["b", "fix", "error"]
+    name = "bug"
+    emoji = "🐛"
+
+  [[alias.entries]]
+    shortcuts = ["e", "lint", "format", "refactor"]
+    name = "eyes"
+    emoji = "👀"
+
+  [[alias.entries]]
+    shortcuts = ["d", "doc", "docs", "document", "documents"]
+    name = "books"
+    emoji = "📚"
+
+  [[alias.entries]]
+    shortcuts = ["a", "ui", "design", "icon", "icons"]
+    name = "art"
+    emoji = "🎨"
+
+  [[alias.entries]]
+    shortcuts = ["h", "tune", "tuning", "perform", "performance"]
+    name = "horse"
+    emoji = "🐎"
+
+  [[alias.entries]]
+    shortcuts = ["w", "change", "tool", "tools", "lib", "library"]
+    name = "wrench"
+    emoji = "🔧"
+
+  [[alias.entries]]
+    shortcuts = ["l", "test", "testing"]
+    name = "rotating_light"
+    emoji = "🚨"
+
+  [[alias.entries]]
+    shortcuts = ["sm", "special", "important"]
+    name = "snowman"
+    emoji = "☃️"
+
+  [[alias.entries]]
+    shortcuts = ["p", "pack", "mod", "module"]
+    name = "package"
+    emoji = "📦️"
+
+[branchMapping]
+  enabled = true
+  fallback = "construction"
+
+  [[branchMapping.rules]]
+    pattern = "^feature/.*"
+    emoji = "sparkles"
+    description = "Feature branch"
+
+  [[branchMapping.rules]]
+    pattern = "^(fix|bugfix|hotfix)/.*"
+    emoji = "bug"
+    description = "Bug fix branch"
+
+  [[branchMapping.rules]]
+    pattern = "^docs/.*"
+    emoji = "books"
+    description = "Documentation branch"
+
+  [[branchMapping.rules]]
+    pattern = "^refactor/.*"
+    emoji = "eyes"
+    description = "Refactoring branch"
+
+  [[branchMapping.rules]]
+    pattern = "^test/.*"
+    emoji = "rotating_light"
+    description = "Test branch"
