@@ -27,7 +27,12 @@ require("mdxsnap").setup({
 			},
 			customTextFormat = '<Image alt="%s" src={ImportImage("%s")} />', -- Override global customTextFormat
 		},
-		-- Example 2: Match by project's absolute path (supports ~ and $HOME)
+		{
+			matchType = "projectName",
+			matchValue = "zenn-articles",
+			PastePath = "images",
+			PastePathType = "relative",
+		},
 	},
 
 	-- Custom import statements to ensure are present in the file.
