@@ -19,6 +19,7 @@ if status is-interactive
     fish_add_path $HOME/go/bin
     fish_add_path $HOME/.bun/bin
     fish_add_path $HOME/.local/bin
+    fish_add_path $HOME/bin
     fish_add_path $HOME/.bin
     fish_add_path $HOME/.cargo/bin
     # set variable
@@ -40,6 +41,8 @@ if status is-interactive
         sudo grub-reboot "$windows_title" && sudo reboot
     end
 
+    balias oc "EDITOR=nvim opencode"
+    balias nv "direnv allow $HOME && nvim"
     balias change-windows reboot_to_windows
     # alias
     balias tc "termius connect"
@@ -102,3 +105,6 @@ set --export PATH $DENO_INSTALL/bin $PATH
 
 # starship
 source (starship init fish --print-full-init | psub)
+
+# direnv
+direnv hook fish | source

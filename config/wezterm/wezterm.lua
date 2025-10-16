@@ -33,7 +33,7 @@ return {
 	enable_wayland = true,
 	--background setting
 	window_background_opacity = 0.65,
-	text_background_opacity = 0.65,
+	text_background_opacity = 1,
 	window_background_image_hsb = {
 		brightness = 0.15,
 		saturation = 1.0,
