@@ -9,41 +9,42 @@ directories=("$HOME/.oh-my-zsh" "$HOME/.config" "$HOME/.local" "$HOME/.local/sha
 
 # Input the files and folders located in the directory $dotfiles_dir/
 dots=(
-	# ".p10k.zsh"
-	".vimrc"
-	# ".zshrc"
-	".textlintrc"
-	".imwheelrc"
+  # ".p10k.zsh"
+  ".vimrc"
+  # ".zshrc"
+  ".textlintrc"
+  ".imwheelrc"
 )
 
 # Input the files and folders located in the directory $dotfiles_dir/config/
 configs=(
-	"qt5ct"
-	"neofetch"
-	"nvim"
-	"fish"
-	"wezterm"
-	"gh-dash"
-	"lazygit"
-	"hypr"
-	"oguri"
-	"wofi"
-	"waybar"
-	"mako"
-	"kitty"
-	"input-remapper-2"
-	"pummit"
-	"karabiner"
-	"yabai"
-	"skhd"
-	# single file
-	"starship.toml"
-	"mimeapps.list"
+  "qt5ct"
+  "neofetch"
+  "nvim"
+  "fish"
+  "wezterm"
+  "gh-dash"
+  "lazygit"
+  "hypr"
+  "oguri"
+  "wofi"
+  "waybar"
+  "mako"
+  "kitty"
+  "input-remapper-2"
+  "pummit"
+  "karabiner"
+  "yabai"
+  "skhd"
+  "opencode"
+  # single file
+  "starship.toml"
+  "mimeapps.list"
 )
 
 # If there are separate configurations for Asahi Linux, please input the item "$configs" to escape and set them.
 asahiconfigs=(
-	#"hypr"
+  #"hypr"
 )
 
 ###########################
@@ -54,67 +55,67 @@ echo -e "\e[1m│   💫 Dotfiles Link V1                │\e[0m"
 echo "└──────────────────────────────────────┘"
 
 while true; do
-	echo -n -e "\e[1;35m🤝 Would you like to synchronize your dotfiles?\e[0m [Y/n]: "
-	read AND
-	case $AND in
-	[Yy]* | "")
-		ASAHI=0
+  echo -n -e "\e[1;35m🤝 Would you like to synchronize your dotfiles?\e[0m [Y/n]: "
+  read AND
+  case $AND in
+  [Yy]* | "")
+    ASAHI=0
 
-		for dir in "${directories[@]}"; do
-			if [ ! -e "${dir}" ]; then
-				mkdir -p "${dir}"
-			fi
-		done
+    for dir in "${directories[@]}"; do
+      if [ ! -e "${dir}" ]; then
+        mkdir -p "${dir}"
+      fi
+    done
 
-		if [[ "$(uname -r)" == *"asahi"* ]]; then
-			echo -e "\e[1;33m🌞 This is Asahi Linux !!\e[0m"
-			ASAHI=1
-		fi
+    if [[ "$(uname -r)" == *"asahi"* ]]; then
+      echo -e "\e[1;33m🌞 This is Asahi Linux !!\e[0m"
+      ASAHI=1
+    fi
 
-		echo "┌──────────────────────────────────────┐"
-		echo "│   📌 Sync dots                       │"
-		echo "└──────────────────────────────────────┘"
+    echo "┌──────────────────────────────────────┐"
+    echo "│   📌 Sync dots                       │"
+    echo "└──────────────────────────────────────┘"
 
-		sleep 1
+    sleep 1
 
-		for config in "${dots[@]}"; do
+    for config in "${dots[@]}"; do
 
-			echo -e "🌟 \e[1mSynchronized..\e[0m \e[1;35m${dotfiles_dir}/${config}\e[0m"
-			if [ -e "${HOME}/${config}" ]; then
-				echo -e "'$HOME/$config' -> '${dotfiles_dir}/${config}'"
-			else
-				ln -snfv "${dotfiles_dir}/${config}" "$HOME"
-			fi
-		done
+      echo -e "🌟 \e[1mSynchronized..\e[0m \e[1;35m${dotfiles_dir}/${config}\e[0m"
+      if [ -e "${HOME}/${config}" ]; then
+        echo -e "'$HOME/$config' -> '${dotfiles_dir}/${config}'"
+      else
+        ln -snfv "${dotfiles_dir}/${config}" "$HOME"
+      fi
+    done
 
-		echo "┌──────────────────────────────────────┐"
-		echo "│   💎 Sync configs                    │"
-		echo "└──────────────────────────────────────┘"
+    echo "┌──────────────────────────────────────┐"
+    echo "│   💎 Sync configs                    │"
+    echo "└──────────────────────────────────────┘"
 
-		sleep 1
+    sleep 1
 
-		for config in "${configs[@]}"; do
-			echo -e "🌟 \e[1mSynchronized..\e[0m \e[1;35m${dotfiles_dir}/config/${config}\e[0m"
-			if [ -e "${HOME}/.config/${config}" ]; then
-				echo "'$HOME/.config/$config' -> '${dotfiles_dir}/config/${config}'"
-			else
-				if [[ "${asahiconfigs[*]}" == *"${config}"* ]] && [ "$ASAHI" == 1 ]; then
-					echo -e "\e[1;33m🌞 This is Asahi Linux !!\e[0m"
-					echo -e "🌟 \e[1mSynchronized..\e[0m \e[1;35m${dotfiles_dir}/config/${config}-asahi\e[0m"
-					ln -snfv "${dotfiles_dir}/config/${config}-asahi" "$HOME/.config/${config}"
-					rm "$HOME/.config/$config/${config}-asahi"
-				else
-					ln -snfv "${dotfiles_dir}/config/${config}" "$HOME/.config"
-				fi
-			fi
-		done
-		exit 0
-		;;
-	[Nn]*)
-		exit 0
-		;;
-	*)
-		echo -e "\e[1;31m🙅 Please answer YES or NO.\e[0m"
-		;;
-	esac
+    for config in "${configs[@]}"; do
+      echo -e "🌟 \e[1mSynchronized..\e[0m \e[1;35m${dotfiles_dir}/config/${config}\e[0m"
+      if [ -e "${HOME}/.config/${config}" ]; then
+        echo "'$HOME/.config/$config' -> '${dotfiles_dir}/config/${config}'"
+      else
+        if [[ "${asahiconfigs[*]}" == *"${config}"* ]] && [ "$ASAHI" == 1 ]; then
+          echo -e "\e[1;33m🌞 This is Asahi Linux !!\e[0m"
+          echo -e "🌟 \e[1mSynchronized..\e[0m \e[1;35m${dotfiles_dir}/config/${config}-asahi\e[0m"
+          ln -snfv "${dotfiles_dir}/config/${config}-asahi" "$HOME/.config/${config}"
+          rm "$HOME/.config/$config/${config}-asahi"
+        else
+          ln -snfv "${dotfiles_dir}/config/${config}" "$HOME/.config"
+        fi
+      fi
+    done
+    exit 0
+    ;;
+  [Nn]*)
+    exit 0
+    ;;
+  *)
+    echo -e "\e[1;31m🙅 Please answer YES or NO.\e[0m"
+    ;;
+  esac
 done

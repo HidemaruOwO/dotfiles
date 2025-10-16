@@ -175,6 +175,40 @@ require("jetpack.packer").add({
 		},
 	},
 	-- ======= Advanced =======
+	-- like cursor
+	-- {
+	-- "yetone/avante.nvim",
+	-- event = { "VimEnter" },
+	-- run = "make",
+	-- requires = {
+	-- "nvim-lua/plenary.nvim",
+	-- "MunifTanjim/nui.nvim",
+	-- "nvim-telescope/telescope.nvim",
+	-- "stevearc/dressing.nvim",
+	-- "folke/snacks.nvim",
+	-- "nvim-tree/nvim-web-devicons",
+	-- "zbirenbaum/copilot.lua",
+	-- {
+	-- "MeanderingProgrammer/render-markdown.nvim",
+	-- opts = {
+	-- file_types = { "Avante" },
+	-- },
+	-- ft = { "Avante" },
+	-- },
+	-- },
+	--		config = function()
+	-- require("plugins.avante")
+	-- end,
+	-- },
+
+	-- ai tools
+	{
+		"NickvanDyke/opencode.nvim",
+		event = "VimEnter",
+		requires = {
+			"folke/snacks.nvim",
+		},
+	},
 	{
 		-- "~/code/mdxsnap.nvim",
 		"HidemaruOwO/mdxsnap.nvim",

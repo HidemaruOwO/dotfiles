@@ -14,10 +14,10 @@ if not luasnip_status_ok then
 	vim.notify("luasnip not found for cmp", vim.log.levels.WARN)
 end
 
-local has_copilot, copilot = pcall(require, "copilot.suggestion")
-if not has_copilot then
-	vim.notify("copilot.suggestion not found for cmp", vim.log.levels.INFO)
-end
+-- local has_copilot, copilot = pcall(require, "copilot.suggestion")
+-- if not has_copilot then
+-- vim.notify("copilot.suggestion not found for cmp", vim.log.levels.INFO)
+-- end
 
 -- The following options are generally recommended for nvim-cmp
 vim.opt.completeopt = { "menu", "menuone", "noselect" } -- Removed noinsert
@@ -72,7 +72,7 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
-		{ name = "copilot" },
+		-- { name = "copilot" },
 	}),
 	formatting = {
 		format = lspkind_status_ok

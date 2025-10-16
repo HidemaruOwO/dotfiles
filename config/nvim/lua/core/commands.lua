@@ -75,3 +75,14 @@ end
 
 -- コマンドを作成
 vim.api.nvim_create_user_command("SlimeGreeting", show_slime_greeting, {})
+
+vim.api.nvim_create_user_command("OpenCode", function()
+	local ok, opencode = pcall(require, "opencode")
+	if not ok then
+		vim.notify("Failed to load opencode module", vim.log.levels.ERROR)
+		return
+	end
+	opencode.toggle()
+end, {
+	desc = "Toggle OpenCode",
+})
