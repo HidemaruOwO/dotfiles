@@ -1,5 +1,3 @@
-vim.cmd([[runtime ./autoload/jetpack.vim]])
-
 -- SpaceをLeaderキーに設定
 vim.g.mapleader = " "
 
@@ -11,6 +9,6 @@ require("core.filetypes")
 require("core.lsp")
 
 -- load plugins
-require("plugins.jetpack")
+require("plugin.lazy")
 
 require("core.colors")

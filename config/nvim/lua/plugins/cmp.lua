@@ -31,7 +31,7 @@ cmp.setup({
 			if luasnip then
 				require("luasnip/loaders/from_vscode").lazy_load({
 					paths = {
-						vim.fn.stdpath("data") .. "/site/pack/jetpack/opt/friendly-snippets",
+						vim.fn.stdpath("data") .. "/lazy/friendly-snippets",
 						"./snippets",
 					},
 				})
