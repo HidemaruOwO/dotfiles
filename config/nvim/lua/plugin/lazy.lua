@@ -49,7 +49,7 @@ local plugins = {
 	},
 	{
 		"folke/noice.nvim",
-		event = "VimEnter",
+		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
@@ -71,7 +71,7 @@ local plugins = {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
-		event = { "VimEnter" },
+		lazy = false, -- upstream notes Treesitter itself is not lazy-load friendly
 		build = ":TSUpdate",
 		config = function()
 			require("plugins.treesitter")
@@ -87,7 +87,7 @@ local plugins = {
 	},
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufNewFile", "BufReadPre", "InsertEnter", "CmdLineEnter" },
+		event = { "BufNewFile", "BufReadPre" },
 		dependencies = {
 			"mason-org/mason.nvim",
 			"mason-org/mason-lspconfig.nvim",
@@ -201,7 +201,7 @@ local plugins = {
 	},
 	{
 		"windwp/nvim-autopairs",
-		event = { "BufNewFile", "BufReadPre", "InsertEnter" },
+		event = "InsertEnter",
 		config = function()
 			require("nvim-autopairs").setup()
 		end,
@@ -250,6 +250,25 @@ local plugins = {
 	{ "wakatime/vim-wakatime", event = "VimEnter" },
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
+		cmd = {
+			"CopilotChat",
+			"CopilotChatOpen",
+			"CopilotChatClose",
+			"CopilotChatToggle",
+			"CopilotChatStop",
+			"CopilotChatReset",
+			"CopilotChatSave",
+			"CopilotChatLoad",
+			"CopilotChatPrompts",
+			"CopilotChatModels",
+			"CopilotChatExplain",
+			"CopilotChatReview",
+			"CopilotChatFix",
+			"CopilotChatOptimize",
+			"CopilotChatDocs",
+			"CopilotChatTests",
+			"CopilotChatCommit",
+		},
 		dependencies = {
 			{ "github/copilot.vim" },
 			{ "nvim-lua/plenary.nvim", branch = "master" },
