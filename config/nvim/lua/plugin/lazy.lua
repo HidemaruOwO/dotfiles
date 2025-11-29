@@ -248,36 +248,6 @@ local plugins = {
 		},
 	},
 	{ "wakatime/vim-wakatime", event = "VimEnter" },
-	{
-		"CopilotC-Nvim/CopilotChat.nvim",
-		cmd = {
-			"CopilotChat",
-			"CopilotChatOpen",
-			"CopilotChatClose",
-			"CopilotChatToggle",
-			"CopilotChatStop",
-			"CopilotChatReset",
-			"CopilotChatSave",
-			"CopilotChatLoad",
-			"CopilotChatPrompts",
-			"CopilotChatModels",
-			"CopilotChatExplain",
-			"CopilotChatReview",
-			"CopilotChatFix",
-			"CopilotChatOptimize",
-			"CopilotChatDocs",
-			"CopilotChatTests",
-			"CopilotChatCommit",
-		},
-		dependencies = {
-			{ "github/copilot.vim" },
-			{ "nvim-lua/plenary.nvim", branch = "master" },
-		},
-		build = "make tiktoken",
-		config = function()
-			require("CopilotChat").setup()
-		end,
-	},
 }
 
 local opts = {}
