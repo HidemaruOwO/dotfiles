@@ -240,7 +240,6 @@ local plugins = {
 			"nvim-lua/plenary.nvim",
 		},
 	},
-	{ "wakatime/vim-wakatime", event = "VimEnter" },
 }
 
 local opts = {}
