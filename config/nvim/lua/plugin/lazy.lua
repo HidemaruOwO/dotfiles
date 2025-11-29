@@ -78,6 +78,16 @@ local plugins = {
 		end,
 	},
 	{
+		"Wansmer/treesj",
+		keys = {
+			{ "gJ", function() require("treesj").toggle() end, desc = "Toggle split/join" },
+		},
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			require("treesj").setup({})
+		end,
+	},
+	{
 		"sainnhe/everforest",
 		lazy = false,
 		priority = 1000,
@@ -129,6 +139,17 @@ local plugins = {
 		event = "LspAttach",
 		config = function()
 			require("plugins.diagflow")
+		end,
+	},
+	{
+		"folke/trouble.nvim",
+		cmd = { "Trouble", "TroubleToggle" },
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("trouble").setup({
+				use_diagnostic_signs = true,
+				auto_close = true,
+			})
 		end,
 	},
 	{
@@ -190,10 +211,26 @@ local plugins = {
 		end,
 	},
 	{
+		"echasnovski/mini.ai",
+		version = false,
+		event = "VeryLazy",
+		config = function()
+			require("mini.ai").setup()
+		end,
+	},
+	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = function()
 			require("nvim-autopairs").setup()
+		end,
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-surround").setup()
 		end,
 	},
 	{
@@ -218,6 +255,16 @@ local plugins = {
 		end,
 	},
 	{
+		"stevearc/overseer.nvim",
+		cmd = { "OverseerRun", "OverseerToggle", "OverseerTaskAction" },
+		keys = {
+			{ "<leader>or", "<cmd>OverseerRun<cr>", desc = "Overseer run" },
+		},
+		config = function()
+			require("overseer").setup()
+		end,
+	},
+	{
 		"norcalli/nvim-colorizer.lua",
 		event = { "BufNewFile", "BufReadPre" },
 		config = function()
@@ -236,6 +283,10 @@ local plugins = {
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 		},
+	},
+	{
+		"mbbill/undotree",
+		cmd = "UndotreeToggle",
 	},
 }
 
