@@ -1,81 +1,87 @@
 ---
-description: Commit changes with pummit CLI tools using emoji-based commit messages
+description: pummit CLI ツールを使って、絵文字ベースのコミットメッセージで変更をコミットします
 agent: build
 ---
 
-# Commit with pummit
+# pummit でコミットする
 
-This command classifies changed files into logical groups and runs commits using pummit with appropriate emoji-based messages.
+pummit CLIはgitコマンドのラッパーで、絵文字を使ったコミットメッセージを簡単に生成できます。
 
-## Process Flow
+このコマンドは変更されたファイルを論理的なグループに分類し、それぞれに適切な絵文字ベースのメッセージを付けて pummit CLI を使用してGitにコミットします。
 
-1. **Fetch Changed Files**
-   - Run `git status --short` to get current changes
-   - If no changes, notify "No changes to commit" and exit
+## 処理フロー
 
-2. **Classify Files**
-   - Categorize based on file path, extension, and change content
-   - If multiple categories apply, select the most impactful one
+1. 変更されたファイルの取得
+   - `git status --short` を実行して現在の変更を取得する
+   - 変更がなければ「変更はありませんでした。」と通知して終了する
 
-3. **Generate Commit Commands**
-   - Create combined `git add` and `pummit` commands for each group
-   - Run command
+2. 差分の解析
+   - 各ファイルの変更内容（追加、削除、修正）を確認する
+   - ファイルパスと拡張子を取得する
 
-## Classification Logic and Alias Mapping
+3. ファイルの分類
+   - ファイルパス、拡張子、変更内容に基づいてカテゴリ分けする
+   - 複数のカテゴリに当てはまる場合は、最もインパクトの大きいものを選ぶ
 
-| Category      | Alias            | Detection Criteria                                         |
-| ------------- | ---------------- | ---------------------------------------------------------- |
-| Feature       | `sparkles`       | New file additions, new feature implementations            |
-| Bug Fix       | `bug`            | Filenames containing `fix`, `bug`, existing code fixes     |
-| Refactoring   | `recycle`        | Code cleanup, structural changes (no functionality change) |
-| Documentation | `books`          | `.md`, `.txt`, `README`, files under `docs/`               |
-| Configuration | `wrench`         | Config files (`.json`, `.yaml`, `.toml`, `.config.*`)      |
-| Tests         | `rotating_light` | `test/`, `tests/`, `*_test.*`, `*.test.*`                  |
-| Deletion      | `fire`           | File deletions only                                        |
-| WIP           | `construction`   | Incomplete changes, heavy commenting                       |
+4. コミットコマンドの生成
+   - 各グループごとに `git add` と `pummit` を組み合わせたコマンドを作成する
+   - コマンドを実行する
 
-## Commit Message Generation Rules
+## 分類ロジックとエイリアス対応表
 
-- **Concise English**: Start with imperative verb (Add, Fix, Update, Remove, etc.)
-- **Specific**: Make changes immediately clear
-- **Under 50 characters**: Keep subject line brief
-- **Multiple files**: Group by common purpose
+| Category      | Alias            | Detection Criteria                                          |
+| ------------- | ---------------- | ----------------------------------------------------------- |
+| Feature       | `sparkles`       | 新規ファイル追加、新機能の実装                              |
+| Bug Fix       | `bug`            | ファイル名に `fix` / `bug` を含むもの、既存コードのバグ修正 |
+| Refactoring   | `recycle`        | 機能変更を伴わないコード整理・構造変更                      |
+| Documentation | `books`          | `.md`, `.txt`, `README`, `docs/` 配下のファイル             |
+| Configuration | `wrench`         | 設定ファイル（`.json`, `.yaml`, `.toml`, `.config.*`）      |
+| Tests         | `rotating_light` | `test/`, `tests/`, `*_test.*`, `*.test.*`                   |
+| Deletion      | `fire`           | ファイルの削除のみ                                          |
+| WIP           | `construction`   | 途中作業の変更、コメントだらけの状態                        |
 
-## Execution Examples
+## コミットメッセージ生成ルール
+
+- 簡潔な英語で書くこと（Add, Fix, Update, Remove など命令形で開始）
+- 具体的に書き、何を変更したかがすぐに分かるようにする
+- 50文字以内の短いサブジェクトにおさめる
+- 複数ファイルの場合は、共通の目的ごとにまとめる
+
+## 実行例
 
 ```bash
-# Feature addition
+# 機能追加
 git add src/new_feature.rs && pummit sparkles "Add user authentication feature"
 
-# Bug fix
+# バグ修正
 git add src/validator.rs && pummit bug "Fix boundary condition in input validation"
 
-# Documentation update
+# ドキュメント更新
 git add README.md docs/setup.md && pummit books "Update installation and setup instructions"
 
-# Configuration change
+# 設定変更
 git add .opencode/settings.json && pummit wrench "Configure custom build settings"
 
-# Refactoring
+# リファクタリング
 git add src/utils.rs src/helpers.rs && pummit recycle "Refactor utility functions for better readability"
 ```
 
-## Important Notes
+## 重要な注意事項
 
-- **Grouping validity**: Point out any unnatural groupings
-- **Sensitive data check**: Warn if passwords or API keys are detected
-- **Large changes**: Suggest splitting if 10+ files changed
+- グルーピングの妥当性をチェックし、不自然なグループ分けがあれば指摘すること
+- パスワードや API キーなどの機密情報が検出された場合は警告すること
+- 変更ファイル数が 5 個以上の大きな変更の場合は、コミットを分割することを提案する
 
-## Customization Options
+## カスタマイズオプション
 
-Additional aliases available as needed:
+必要に応じて、次のような追加エイリアスも利用できます。
 
-- `tada` - Initial commit, major release
-- `art` - UI or style improvements
-- `zap` - Performance improvements
-- `lock` - Security fixes
-- `arrow_up` / `arrow_down` - Dependency upgrades/downgrades
-- `package` - Package or dependency updates
-- `green_heart` - CI/CD fixes
-- `pencil` - Typo fixes
-- `rewind` - Revert changes
+- `tada` - 初回コミット、大きなリリース
+- `art` - UI やスタイルの改善
+- `zap` - パフォーマンスの改善
+- `lock` - セキュリティ修正
+- `arrow_up` / `arrow_down` - 依存関係のアップグレード / ダウングレード
+- `package` - パッケージや依存関係の更新
+- `green_heart` - CI/CD の修正
+- `pencil` - 誤字脱字の修正
+- `rewind` - 変更のリバート
