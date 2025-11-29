@@ -1,5 +1,5 @@
 ---
-description: pummit CLI ツールを使って、絵文字ベースのコミットメッセージで変更をコミットします
+description: It is with pummit CLI, a git command wrapper, that you have to stage edited files and commit to.
 agent: build
 ---
 
