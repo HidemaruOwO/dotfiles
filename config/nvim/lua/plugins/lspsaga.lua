@@ -1,18 +1,15 @@
 require("lspsaga").setup({
 	symbol_in_winbar = {
-		enable = true,
-	},
-	code_action_lightbulb = {
 		enable = false,
-	},
-	show_outline = {
-		win_width = 50,
-		auto_preview = false,
 	},
 	lightbulb = {
 		enable = true,
-		sign = true,
-		virtual_text = false,
+		sign = false,
+		virtual_text = true,
+	},
+	outline = {
+		win_width = 50,
+		auto_preview = false,
 	},
 	ui = {
 		code_action = "💡",
