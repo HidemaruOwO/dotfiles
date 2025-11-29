@@ -108,20 +108,13 @@ local plugins = {
 							"rafamadriz/friendly-snippets",
 						},
 					},
-					{
-						"zbirenbaum/copilot.lua",
-						config = function()
-							require("plugins.copilot")
-						end,
-					},
-					{
-						"zbirenbaum/copilot-cmp",
-						dependencies = { "zbirenbaum/copilot.lua" },
-						config = function()
-							require("copilot_cmp").setup()
-						end,
-					},
+				{
+					"zbirenbaum/copilot.lua",
+					config = function()
+						require("plugins.copilot")
+					end,
 				},
+			},
 				config = function()
 					require("plugins.cmp")
 				end,

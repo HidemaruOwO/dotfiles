@@ -72,7 +72,6 @@ cmp.setup({
 		{ name = "luasnip" },
 		{ name = "buffer" },
 		{ name = "path" },
-		-- { name = "copilot" },
 	}),
 	formatting = {
 		format = lspkind_status_ok
