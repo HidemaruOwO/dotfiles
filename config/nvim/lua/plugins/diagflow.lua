@@ -8,10 +8,9 @@
 --  )
 --
 require("diagflow").setup({
-	-- placement = "inline",
+	placement = "inline",
 	toggle_event = { "InsertEnter", "InsertLeave" },
-
-	everity_colors = { -- The highlight groups to use for each diagnostic severity level
+	severity_colors = { -- The highlight groups to use for each diagnostic severity level
 		error = "DiagnosticFloatingError",
 		warning = "DiagnosticFloatingWarn",
 		info = "DiagnosticFloatingInfo",
