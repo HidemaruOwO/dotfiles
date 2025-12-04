@@ -33,12 +33,13 @@ pummit CLIはgitコマンドのラッパーで、絵文字を使ったコミッ�
 | ------------- | ---------------- | ----------------------------------------------------------- |
 | Feature       | `sparkles`       | 新規ファイル追加、新機能の実装                              |
 | Bug Fix       | `bug`            | ファイル名に `fix` / `bug` を含むもの、既存コードのバグ修正 |
-| Refactoring   | `recycle`        | 機能変更を伴わないコード整理・構造変更                      |
+| Refactoring   | `eyes`           | 機能変更を伴わないコード整理・構造変更                      |
 | Documentation | `books`          | `.md`, `.txt`, `README`, `docs/` 配下のファイル             |
 | Configuration | `wrench`         | 設定ファイル（`.json`, `.yaml`, `.toml`, `.config.*`）      |
 | Tests         | `rotating_light` | `test/`, `tests/`, `*_test.*`, `*.test.*`                   |
 | Deletion      | `fire`           | ファイルの削除のみ                                          |
 | WIP           | `construction`   | 途中作業の変更、コメントだらけの状態                        |
+| Merge         | `recycle`        | ブランチをマージするとき                                    |
 
 ## コミットメッセージ生成ルール
 
