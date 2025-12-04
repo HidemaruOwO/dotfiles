@@ -9,6 +9,6 @@ require("core.filetypes")
 require("core.lsp")
 
 -- load plugins
-require("plugin.lazy")
+require("plugins.lazy")
 
 require("core.colors")
