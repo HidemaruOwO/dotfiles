@@ -1,5 +1,11 @@
-auth.json
-history.jsonl
-sessions
-log
-version.json
+*
+*/**
+
+!config.toml
+!prompts/
+
+# auth.json
+#history.jsonl
+#sessions
+#log
+#version.json
