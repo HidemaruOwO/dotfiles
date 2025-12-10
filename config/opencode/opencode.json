@@ -1,5 +1,19 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "agent": {
+    "orchestrator": {
+      "mode": "primary",
+      "description": "プロジェクト全体の計画とタスク分解を行う統括エージェント",
+      "prompt": "{file:./prompts/orchestrator.txt}",
+      "tools": { "write": false, "bash": false }
+    },
+    "builder": {
+      "mode": "subagent",
+      "description": "実際の実装とテストを担当する実行エージェント",
+      "prompt": "{file:./prompts/builder.txt}",
+      "tools": { "write": true, "edit": true, "bash": true }
+    }
+  },
   "mcp": {
     "context7": {
       "type": "local",
