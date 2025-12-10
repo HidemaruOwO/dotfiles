@@ -1,0 +1,46 @@
+model = "gpt-5.1-codex-max"
+model_reasoning_effort = "high"
+
+[projects."/Users/hidemaru/code/pummit"]
+trust_level = "trusted"
+
+[projects."/Users/hidemaru/code/FediGONE"]
+trust_level = "trusted"
+
+[projects."/Users/hidemaru/code/chris"]
+trust_level = "trusted"
+
+[projects."/Users/hidemaru/code/tunnet"]
+trust_level = "trusted"
+
+[projects."/Users/hidemaru/code/bridge"]
+trust_level = "trusted"
+
+[projects."/Users/hidemaru"]
+trust_level = "trusted"
+
+[projects."/Users/hidemaru/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/hidemaru/code/mdxsnap.nvim"]
+trust_level = "trusted"
+
+[projects."/Users/hidemaru/code/zoho-mail-mcp"]
+trust_level = "trusted"
+
+[projects."/Users/hidemaru/code/conjunctions"]
+trust_level = "trusted"
+
+[mcp_servers.context7]
+command = "bun"
+args = ["x", "-y", "@upstash/context7-mcp"]
+
+[mcp_servers.fetch]
+command = "uvx"
+args = ["mcp-server-fetch", "--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:140.0) Gecko/20100101 Firefox/140.0"]
+
+[notice]
+"hide_gpt-5.1-codex-max_migration_prompt" = true
+
+[features]
+web_search_request = true  # モデルがウェブ検索をリクエストできるようにする（推奨）
