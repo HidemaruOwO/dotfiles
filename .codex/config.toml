@@ -1,6 +1,10 @@
 model = "gpt-5.1-codex-max"
 model_reasoning_effort = "high"
 
+sandbox_mode    = "workspace-write"
+
+approval_policy = "on-request"
+
 [projects."/Users/hidemaru/code/pummit"]
 trust_level = "trusted"
 
@@ -36,11 +40,16 @@ command = "bun"
 args = ["x", "-y", "@upstash/context7-mcp"]
 
 [mcp_servers.fetch]
-command = "uvx"
-args = ["mcp-server-fetch", "--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:140.0) Gecko/20100101 Firefox/140.0"]
+command = "bun"
+args = ["x", "mcp-server-fetch-typescript"]
+
+[mcp_servers.playwright]
+command = "bun"
+args = ["x", "@playwright/mcp@latest"]
 
 [notice]
 "hide_gpt-5.1-codex-max_migration_prompt" = true
+hide_rate_limit_model_nudge = true
 
 [features]
 web_search_request = true  # モデルがウェブ検索をリクエストできるようにする（推奨）
