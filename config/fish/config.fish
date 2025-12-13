@@ -97,6 +97,13 @@ if status is-interactive
         echo $argv[1] コマンドが存在しないよ！！
     end
 
+    # the vibecoding tools
+    function update-aitools
+        bun install -g @openai/codex@latest
+        bun install -g @ccusage/codex@latest
+        bun install -g opencode-ai@latest
+    end
+
     # custom commands
     function projects
         set project (
