@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "plugin": ["opencode-openai-codex-auth@4.1.0"],
   "agent": {
     "orchestrator": {
       "mode": "primary",
@@ -11,7 +12,8 @@
       "mode": "subagent",
       "description": "実際の実装とテストを担当する実行エージェント",
       "prompt": "{file:./prompts/builder.txt}",
-      "tools": { "write": true, "edit": true, "bash": true }
+      "tools": { "write": true, "edit": true, "bash": true },
+      "model": "openai/gpt-5.1-codex-max-high"
     }
   },
   "mcp": {
@@ -19,6 +21,48 @@
       "type": "local",
       "command": ["bun", "x", "-y", "@upstash/context7-mcp"],
       "enabled": true
+    },
+    "playwright": {
+      "type": "local",
+      "command": ["bun", "x", "@playwright/mcp@latest"],
+      "enabled": true
+    }
+  },
+  "provider": {
+    "openai": {
+      "options": {
+        "reasoningEffort": "medium",
+        "reasoningSummary": "auto",
+        "textVerbosity": "medium",
+        "include": ["reasoning.encrypted_content"],
+        "store": false
+      },
+      "models": {
+        "gpt-5.2-high": {
+          "name": "GPT 5.2 High (OAuth)",
+          "limit": { "context": 272000, "output": 128000 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "options": {
+            "reasoningEffort": "high",
+            "reasoningSummary": "detailed",
+            "textVerbosity": "medium",
+            "include": ["reasoning.encrypted_content"],
+            "store": false
+          }
+        },
+        "gpt-5.1-codex-max-high": {
+          "name": "GPT 5.1 Codex Max High (OAuth)",
+          "limit": { "context": 272000, "output": 128000 },
+          "modalities": { "input": ["text", "image"], "output": ["text"] },
+          "options": {
+            "reasoningEffort": "high",
+            "reasoningSummary": "detailed",
+            "textVerbosity": "medium",
+            "include": ["reasoning.encrypted_content"],
+            "store": false
+          }
+        }
+      }
     }
   }
 }
